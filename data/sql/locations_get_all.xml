@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: locations_get_all.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -21,25 +21,15 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
+<!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="get_all_locations">
     <connection>uplink</connection>
     <params>
-        <param name="last_database_update" type="text"/>
-		<param name="account_id" type="text"/>
-		<param name="//_get/start" type="integer" default="0"/>
-		<param name="//incr" type="integer" default="150"/>
 	</params>
     <sql>
-        SELECT
-		uplink_location_address.*
+        SELECT * 
 		
-		FROM uplink_location_address
+		FROM &ifp_locations;
 		
-		WHERE uplink_location_address.deletion_datetime &gt; ?  
-		AND uplink_location_address.account_id=?
-		GROUP BY uplink_location_address.name
-		
-		ORDER BY uplink_location_address.name ASC
-		LIMIT ?,? 
     </sql>
 </query>

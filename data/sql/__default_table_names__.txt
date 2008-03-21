@@ -11,5 +11,8 @@
 <!ATTLIST param default CDATA #IMPLIED>
 <!ELEMENT sql      (#PCDATA)>
 <!ENTITY ifp_connection "pbooks">
-<!ENTITY prefix "ifp_">
+<!ENTITY prefix "uplink_">
 <!ENTITY ifp_locations "&prefix;locations">
+<!ENTITY ifp_regions "&prefix;regions">
+<!ENTITY ifp_equipment "&prefix;equipment">
+<!ENTITY ifp_containers "&prefix;containers">
