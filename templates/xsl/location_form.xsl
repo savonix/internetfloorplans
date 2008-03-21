@@ -50,46 +50,46 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<table width="600">
 <xsl:if test="//_post/submit">
 <tr>	
-	<td width="150" colspan="2"><font class='two'><font color="red">
+	<td width="150" colspan="2">
 	The data you have submitted is not valid, the field titles with an asterisk are required. The form 
 	has been reverted to its original data.
 	</td>
 </tr>
 </xsl:if>
 <tr>	
-	<td width="150"><font class='two'>Name:*</td>
+	<td width="150">Name:*</td>
 	<td><input type='text' name='location_name' value="{//get_location_summary/name|//_post/location_name}" /></td>
 </tr>
 <tr>
-	<td><font class='two'>Address Line 1:*</td>
+	<td>Address Line 1:*</td>
 	<td><input type='text' name='address_line_1' size="40" value="{//get_location_summary/address_line_1|//_post/address_line_1}" /></td>
 </tr>
 <tr>
-	<td><font class='two'>Address Line 2:</td>
+	<td>Address Line 2:</td>
 	<td><input type='text' name='address_line_2' size="40" value="{//get_location_summary/address_line_2|//_post/address_line_2}" /></td>
 </tr>
 <tr>
-	<td><font class='two'>City:*</td>
+	<td>City:*</td>
 	<td><input type='text' name='city' size="20" value="{//get_location_summary/city|//_post/city}" /></td>
 </tr>
 <tr>
-	<td><font class='two'>State:*</td>
+	<td>State:*</td>
 	<td><input type='text' name='state' size="5" value="{//get_location_summary/state|//_post/state}" /></td>
 </tr>
 <tr>
-	<td><font class='two'>Zip:*</td>
+	<td>Zip:*</td>
 	<td><input type='text' name='zip' size="10" value="{//get_location_summary/zip|//_post/zip}" /></td>
 </tr>
 <tr>
-	<td><font class='two'>Phone:</td>
+	<td>Phone:</td>
 	<td><input type='text' name='phone' value="{//get_location_summary/phone|//_post/phone}" /></td>
 </tr>
 <tr>
-	<td><font class='two'>Fax:</td>
+	<td>Fax:</td>
 	<td><input type='text' name='fax' value="{//get_location_summary/fax|//_post/fax}" /></td>
 </tr>
 <tr>
-	<td valign="top"><font class='two'>Regions:</td>
+	<td valign="top">Regions:</td>
 	<td>
 	<xsl:for-each select="//get_all_regions">
 		<input type="checkbox" name="regions[]" value="{region_id}"><xsl:if test="region_id=//get_location_regions/region_id"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if></input>

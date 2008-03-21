@@ -3,7 +3,7 @@
 --
 
 CREATE TABLE IF NOT EXISTS `uplink_container` (
-  `container_id` int(11) NOT NULL default '0',
+  `container_id` int(11) NOT NULL auto_increment,
   `name` char(100) NOT NULL default '0',
   `comments` char(255) default NULL,
   `width` int(11) NOT NULL default '0',
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `uplink_container` (
 --
 
 CREATE TABLE IF NOT EXISTS `uplink_equipment` (
-  `equipment_id` int(11) NOT NULL default '0',
+  `equipment_id` int(11) NOT NULL auto_increment,
   `asset_id` char(100) default '-',
   `equipment_type_id` int(11) NOT NULL default '0',
   `status_id` int(11) NOT NULL default '0',
@@ -54,7 +54,6 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_category` (
 
 CREATE TABLE IF NOT EXISTS `uplink_equipment_container` (
   `equipment_id` int(11) NOT NULL default '0',
-  `account_id` char(100) NOT NULL default '-',
   `business_line_id` int(11) NOT NULL default '0',
   `priority_id` int(11) NOT NULL default '0',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
@@ -123,7 +122,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_type_container` (
 --
 
 CREATE TABLE IF NOT EXISTS `uplink_equipment_type_images` (
-  `equipment_type_image_id` int(11) NOT NULL default '0',
+  `equipment_type_image_id` int(11) NOT NULL auto_increment,
   `equipment_type_id` int(11) NOT NULL default '0',
   `default_image` int(11) default NULL,
   `name` char(100) NOT NULL default '-',
@@ -145,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_type_images` (
 --
 
 CREATE TABLE IF NOT EXISTS `uplink_equipment_type_symbol` (
-  `equipment_type_symbol_id` int(11) NOT NULL default '0',
+  `equipment_type_symbol_id` int(11) NOT NULL auto_increment,
   `equipment_type_id` int(11) NOT NULL default '0',
   `default_symbol` int(11) NOT NULL default '0',
   `symbol_pointer` char(255) NOT NULL default '0',
@@ -164,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_type_symbol` (
 --
 
 CREATE TABLE IF NOT EXISTS `uplink_locations` (
-  `location_id` int(11) NOT NULL default '0' auto_increment,
+  `location_id` int(11) NOT NULL auto_increment,
   `name` char(100) NOT NULL default '0',
   `address_line_1` char(100) NOT NULL default '',
   `address_line_2` char(100) default NULL,
@@ -216,28 +215,13 @@ CREATE TABLE IF NOT EXISTS `uplink_location_category_types` (
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `uplink_location_category_type_groups`
---
-
-CREATE TABLE IF NOT EXISTS `uplink_location_category_type_groups` (
-  `location_category_type_group_id` int(11) NOT NULL default '0',
-  `account_id` char(100) NOT NULL default '-',
-  `name` char(100) default NULL,
-  `description` char(255) default NULL,
-  `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
-  `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `location_category_type_group_id` (`location_category_type_group_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `uplink_location_equipment`
 --
 
 CREATE TABLE IF NOT EXISTS `uplink_location_equipment` (
-  `location_equipment_id` int(11) NOT NULL default '0' auto_increment,
+  `location_equipment_id` int(11) NOT NULL auto_increment,
   `location_id` int(11) NOT NULL default '0',
   `account_id` char(100) NOT NULL default '-',
   `equipment_id` int(11) NOT NULL default '0',
@@ -253,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_equipment` (
 --
 
 CREATE TABLE IF NOT EXISTS `uplink_location_equipment_position` (
-  `location_equipment_position_id` int(11) NOT NULL default '0',
+  `location_equipment_position_id` int(11) NOT NULL auto_increment,
   `location_equipment_id` int(11) NOT NULL default '0',
   `account_id` char(100) NOT NULL default '-',
   `x_position` int(11) NOT NULL default '0',
@@ -306,7 +290,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_hours` (
 --
 
 CREATE TABLE IF NOT EXISTS `uplink_location_images` (
-  `location_image_id` int(11) NOT NULL default '0',
+  `location_image_id` int(11) NOT NULL auto_increment,
   `location_id` int(11) NOT NULL default '0',
   `default_image` int(11) default NULL,
   `name` char(100) NOT NULL default '-',
@@ -386,7 +370,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_status` (
 --
 
 CREATE TABLE IF NOT EXISTS `uplink_region` (
-  `region_id` int(11) NOT NULL default '0' auto_increment,
+  `region_id` int(11) NOT NULL auto_increment,
   `region_name` text,
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
