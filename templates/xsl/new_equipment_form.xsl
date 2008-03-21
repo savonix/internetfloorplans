@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -44,7 +44,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			
 		</tr>
 	</table>
-	<table border="0" cellpadding="4" cellspacing="1"  width="600">
+	<table width="600">
 		<tr>
 			<td >Asset ID:</td>
 			<xsl:if test="//_get/equipment_id">
@@ -56,7 +56,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		
 			<td rowspan="6" width="120">
 				<xsl:if test="//_get/equipment_id">
-				<img border="0" ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;type=merchandising</xsl:attribute></img>
+				<img ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;type=merchandising</xsl:attribute></img>
 				</xsl:if>
 			</td>
 		</tr>
@@ -144,10 +144,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		
 		<tr>
 			<td colspan="2" align="center"><br />
-				<table cellpadding="5">
+				<table>
 					<tr>
 						<td><input type="submit" value="Submit" name="submit" /></td>
-						<td><INPUT TYPE="BUTTON" VALUE="Cancel"  ONCLICK="window.location.href='/acc/link/assets/'"/></td>
+						<td><INPUT TYPE="BUTTON" VALUE="Cancel" ONCLICK="window.location.href='/acc/link/assets/'"/></td>
 					</tr>
 				</table>
 			</td>

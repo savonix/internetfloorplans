@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -69,7 +69,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<!--
 			<td><a>
 			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.manager<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.manager')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.manager')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Contact</a></td>-->
-			<td  width="5">
+			<td width="5">
 			
 			<input type="checkbox" value="all" title="Select All"><xsl:attribute name="onClick"><xsl:text>if(this.checked){ this.title='Deselect All'; checkAll(document.myform.locations);} else {uncheckAll(document.myform.locations); this.title='Select All';}</xsl:text>
 			</xsl:attribute></input></td>
@@ -95,12 +95,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="location_row">
 
 		<tr>
-			<td  align="middle">
+			<td align="middle">
 				<xsl:if test="(status_id=0)"><img src="/resources/img/style-1.1/images/icon_error_sml.gif" alt="Non-compliant"/></xsl:if>
 				<xsl:if test="(status_id=1) or (not(status_id))"><img src="/resources/img/style-1.1/images/icon_success_sml.gif" alt="Compliant"/></xsl:if>
 			</td>
 			<td><!--<xsl:value-of select="status_id"/> - <xsl:value-of select="equipment_id"/> -->
-            <a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}"><xsl:value-of select="name"/></a>
+  <a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}"><xsl:value-of select="name"/></a>
 			
 			</td>
 			

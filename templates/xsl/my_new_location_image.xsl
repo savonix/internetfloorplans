@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -39,11 +39,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	<xsl:if test="//get_all_locations/location_address_id=//_get/location_address_id">
-	<table border="0" cellspacing="1" cellpadding="2"  >
+	<table >
 	<xsl:call-template name="location_summary" />
 	<tr>
 		<td colspan="4" >
-		<table border="0" cellpadding="10" cellspacing="1"  width="600">
+		<table cellpadding="10" width="600">
 			<tr>	
 				<td colspan="2"><font class='two'>
 					You can upload an image formatted as a GIF, JPEG, PNG, or MOV. If you are uploading a MOV or a GIF file, please make sure that the file is properly formatted to fit on your display. If you are uploading a JPEG or a PNG file, 
@@ -67,10 +67,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</tr>
 			<tr>
 				<td colspan="2" align="center"><br />
-					<table cellpadding="5">
+					<table>
 						<tr>
 							<td><input type="submit" value="Upload" name="submit" /></td>
-							<td><INPUT TYPE="BUTTON" VALUE="Cancel"  ONCLICK="window.location.href='/acc/link/'"/></td>
+							<td><INPUT TYPE="BUTTON" VALUE="Cancel" ONCLICK="window.location.href='/acc/link/'"/></td>
 						</tr>
 					</table>
 				</td>

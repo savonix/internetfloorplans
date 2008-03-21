@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:import href="main.xsl"/>
@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	
 	<!--
 	
-	<table  cellpadding="0" cellspacing="0" border="0">
+	<table >
 	<tr><td>
 Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 </tr>
@@ -43,7 +43,7 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 
 <br/>-->
 
-<table cellpadding="0" cellspacing="0" border="0">
+<table >
 	<form action="/acc/link/assets/edit/submit2/" method="post">
 	<xsl:if test="//_post/equipment_id">
 		<input type="hidden" name="equipment_id" value="{//equipment_id}"/>
@@ -54,7 +54,7 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 	
 <tr><td><b><xsl:value-of select="//equipment_type_name"/></b></td></tr>
 	<xsl:if test="//get_lob">
-	   <tr>
+	 <tr>
 			<td >Line of Business:
 			<br/>
 			<select name="lob_id">
@@ -102,8 +102,8 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 	var mywidth = 260;
 	var myheight = 450;
  var mymoviestringb = "/acc/link/content/position_server/&amp;equipment_type_image_id=<xsl:value-of select='//equipment_type_image_id'/>&amp;equipment_type_id=<xsl:value-of select='//equipment_type_id'/>&amp;equipment_id=<xsl:value-of select='//equipment_id'/>&amp;w=260&amp;h=450";
-   var so = new SWFObject(mymoviestringb, "mymovieb", 260, 450, "8", "#FFFFFF");
-   so.write("equipment_config");
+ var so = new SWFObject(mymoviestringb, "mymovieb", 260, 450, "8", "#FFFFFF");
+ so.write("equipment_config");
 </script>
 			
 

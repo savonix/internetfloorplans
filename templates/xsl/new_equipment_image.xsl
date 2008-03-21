@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -37,14 +37,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="equipment_type_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2"  >
+	<table >
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
 		<td colspan="4" >
-		<table border="0" cellpadding="10" cellspacing="1"  width="600">
+		<table cellpadding="10" width="600">
 			<tr>	
 				<td colspan="2"><font class='two'>
-					You can upload an image formatted as a JPEG.  </td>
+					You can upload an image formatted as a JPEG. </td>
 			</tr>
 			<tr>	
 				<td><font class='two'>Image name:</td>
@@ -65,10 +65,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<input type="hidden" name="default" value="1"/>
 			<tr>
 				<td colspan="2" align="center"><br />
-					<table cellpadding="5">
+					<table>
 						<tr>
 							<td><input type="submit" value="Upload" name="submit" /></td>
-							<td><INPUT TYPE="BUTTON" VALUE="Cancel"  ONCLICK="window.location.href='/acc/link/types/'"/></td>
+							<td><INPUT TYPE="BUTTON" VALUE="Cancel" ONCLICK="window.location.href='/acc/link/types/'"/></td>
 						</tr>
 					</table>
 				</td>

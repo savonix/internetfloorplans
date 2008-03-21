@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="location_menu" match="//get_location_summary">
@@ -49,9 +49,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	
-	<xsl:if  test="//user_roles='uplink_local_manager'">
+	<xsl:if test="//user_roles='uplink_local_manager'">
 	<!-- Local Manager -->
-	<table cellpadding="2" cellspacing="1" >
+	<table >
 		<tr>
 		
 			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/my_loc/view/sp/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/my_loc/view/sp/'">mini-menu</xsl:if></xsl:attribute><a class="mini-menu-selected">

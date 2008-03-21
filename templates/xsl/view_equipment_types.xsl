@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	
-	<table border='0' cellspacing='0' cellpadding='2'  width='100%'>
+	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
 	<tr>	
 				<td width="150" ><font class='two'><b>Equipment Type Name</b></td>
 				<td width="250" ><font class='two'><b>Description</b></td>
@@ -58,7 +58,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<a href="/acc/link/types/delete/&amp;equipment_type_id={equipment_type_id}" onclick="return confirm('Are you sure you want to delete this equipment type?')">Delete</a></td>
 			</tr>
 			</xsl:for-each>
-			<tr><td align="left"  colspan="4">
+			<tr><td align="left" colspan="4">
 			<table cellpadding="15" >
 				<tr>
 					<td>

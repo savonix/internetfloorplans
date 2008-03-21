@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -29,14 +29,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<form method="post">
 			<xsl:call-template name="equipment_type_menu" />
 	
-	<table border='0' cellspacing='1' cellpadding='2'  width='100%'>
+	<table border='0' cellspacing='1' cellpadding='2' width='100%'>
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
 		<td colspan="4" >
 			<table border='0' cellspacing='0' cellpadding='10' >
 			<tr>
-				<td align="left"  valign="top">
-					<table border="0" cellspacing="1" cellpadding="2"  >
+				<td align="left" valign="top">
+					<table >
 						<tr>
 							<td valign="top">
 								<b>Images</b>
@@ -44,7 +44,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</tr>
 						<xsl:for-each select="//get_asset_type_images" >
 						<tr>
-							<td  valign="top">
+							<td valign="top">
 							
 								
 								<a>
@@ -56,7 +56,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</xsl:for-each>
 					</table>
 					<br/>
-					<table border="0" cellspacing="1" cellpadding="2"  >
+					<table >
 						<tr>
 							<td valign="top">
 								<b>Options</b>
@@ -77,8 +77,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</table>
 				</td>
 				
-				<td  align="left" valign="top">
-					<table border="0" cellspacing="1" cellpadding="5" >
+				<td align="left" valign="top">
+					<table >
 						<tr>
 							<td>
 								
@@ -94,7 +94,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<tr>
 							<td valign="top">
 							
-								<img border="0" ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_asset_type_images/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_asset_type_images/mime_type"/>&amp;type=merchandising</xsl:attribute></img>
+								<img ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_asset_type_images/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_asset_type_images/mime_type"/>&amp;type=merchandising</xsl:attribute></img>
 							</td>
 						</tr>
 					</table>

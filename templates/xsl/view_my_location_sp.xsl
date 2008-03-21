@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -35,13 +35,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	<xsl:if test="//get_all_locations/location_address_id=//_get/location_address_id">
-	<table border="0" cellspacing="1" cellpadding="2"  >
+	<table >
 	<xsl:call-template name="location_summary" />
 	<tr><td colspan="4" >
 			<table border='0' cellspacing='0' cellpadding='10' >
 			<tr>
-				<td align="left"  valign="top">
-					<table border="0" cellspacing="1" cellpadding="2" >
+				<td align="left" valign="top">
+					<table >
 						<tr>
 							<td valign="top">
 								<b>Space Plans</b>
@@ -61,7 +61,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</table>
 					<br/>
 					<xsl:if test="//user_roles='uplink_regional_manager'">
-					<table border="0" cellspacing="1" cellpadding="2"  >
+					<table >
 						<tr>
 							<td valign="top">
 								<b>Options</b>
@@ -86,8 +86,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</table>
 					</xsl:if>
 				</td>
-				<td  align="left" valign="top">
-					<table border="0" cellspacing="1" cellpadding="5" >
+				<td align="left" valign="top">
+					<table >
 						<tr>
 							<td>
 								
@@ -101,7 +101,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							</td>
 						</tr>
 						<tr>
-							<td  valign="top" colspan="2">
+							<td valign="top" colspan="2">
 								<xsl:if test="//_get/location_space_plan_id">
 										<xsl:for-each select="//get_location_space_plans">
 											<xsl:if test="location_space_plan_id=//_get/location_space_plan_id">
@@ -156,8 +156,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</tr>
 					</table>
 				</td>
-				<td  align="left" valign="top" width="250">
-					<table border="0" cellspacing="1" cellpadding="5"  width="250">
+				<td align="left" valign="top" width="250">
+					<table width="250">
 						<tr>
 							<td>
 								
@@ -167,7 +167,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</tr>
 						<tr>
 							<td>
-							<iframe name="config" id="config" src="" width="240" height="480" frameborder="0"></iframe>
+							<iframe name="config" id="config" src="" width="240" height="480" frame></iframe>
 							
 							
 							

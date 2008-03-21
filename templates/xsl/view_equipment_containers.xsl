@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -35,14 +35,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	
-	<table border='0' cellspacing='1' cellpadding='2'  width='100%'>
+	<table border='0' cellspacing='1' cellpadding='2' width='100%'>
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
 		<td colspan="4" >
 			<table border='0' cellspacing='0' cellpadding='10' >
 			<tr>
-								<td align="left"  valign="top">
-					<table border="0" cellspacing="1" cellpadding="2"  >
+								<td align="left" valign="top">
+					<table >
 						<tr>
 							<td valign="top">
 								<b>Add Containers</b>
@@ -75,7 +75,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						
 					</table>
 					<br/>
-					<table border="0" cellspacing="1" cellpadding="2"  >
+					<table >
 					
 						<form action="{self}delete/" method="post">
 						<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
@@ -98,8 +98,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</table>
 				</td>
 				
-				<td  align="left" valign="top">
-					<table border="0" cellspacing="1" cellpadding="5" >
+				<td align="left" valign="top">
+					<table >
 						<tr>
 							<td>
 								
@@ -136,7 +136,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 											<xsl:if test="(default_image=1) or (count(//get_asset_type_images)=1)">
 												<xsl:choose>
 													<xsl:when test="contains(image_pointer,'.mov')"> 
-														<EMBED  type="video/quicktime" cache='true' autoplay='true' controller='false' height='480' width='640'>
+														<EMBED type="video/quicktime" cache='true' autoplay='true' controller='false' height='480' width='640'>
 															<xsl:attribute name="src">/acc/link/types/image_server/&amp;equipment_type_image_id=<xsl:value-of select="equipment_type_image_id"/></xsl:attribute>
 														</EMBED>
 													</xsl:when>

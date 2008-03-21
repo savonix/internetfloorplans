@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -35,13 +35,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="location_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="1"  >
+	<table >
 	<xsl:call-template name="location_summary" />
 	<tr><td colspan="4" >
 			<table border='0' cellspacing='0' cellpadding='1' >
 			<tr>
-				<td  align="left" valign="top">
-					<table border="0" cellspacing="1" cellpadding="2" >
+				<td align="left" valign="top">
+					<table >
 						<tr>
 							<td colspan="2">
 								<b>Space Plan Options</b> : 
@@ -79,7 +79,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							</td>
 						</tr>
 						<tr>
-							<td  valign="top" colspan="2">
+							<td valign="top" colspan="2">
 <script type="text/javascript" src="/resources/js/swfobject.js"></script>
 <div id="space_plan">
 	<!-- Show static jpg here when the visitor does not have the flash plugin. -->
@@ -89,8 +89,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <script type="text/javascript" defer="defer">
  <!-- {//_get/location_address_id} -->
  var mymoviestring = "/acc/link/types/containers/nu_sp_server/&amp;location_space_plan_id=<xsl:value-of select="//get_location_space_plans/location_space_plan_id"/>&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/>&amp;key=<xsl:value-of select="//_get/key"/>";
-   var so = new SWFObject(mymoviestring, "mymovie", "825", "825", "8","#FFFFFF");
-   so.write("space_plan");
+ var so = new SWFObject(mymoviestring, "mymovie", "825", "825", "8","#FFFFFF");
+ so.write("space_plan");
 </script>
 							
 							</td>
@@ -100,8 +100,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 					</table>
 				</td>
-				<td  align="left" valign="top" width="260">
-					<table border="0" cellspacing="1" cellpadding="2"  width="260">
+				<td align="left" valign="top" width="260">
+					<table width="260">
 						<tr>
 							<td>
 								
@@ -112,7 +112,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<tr>
 							<td>
 							
-<iframe name="config" id="config" width="260" height="525" frameborder="0"><xsl:attribute name="src">/resources/img/clear.gif</xsl:attribute> </iframe>
+<iframe name="config" id="config" width="260" height="525" frame><xsl:attribute name="src">/resources/img/clear.gif</xsl:attribute> </iframe>
 							
 							
 							

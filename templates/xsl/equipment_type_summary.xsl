@@ -13,20 +13,20 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="asset_type_summary" match="//get_location_summary">
 <xsl:for-each select="//get_asset_type_by_id">
 	<tr>
 		<xsl:if test="//_registry/user/roles='uplink_regional_manager'">
-		<td width="25%"  valign="top">
+		<td width="25%" valign="top">
 		
 		<b>Options:</b><br />
 		[ <a target="_top" href="/acc/link/types/edit/&amp;equipment_type_id={equipment_type_id}">Edit This Equipment Type</a> ] <br/>

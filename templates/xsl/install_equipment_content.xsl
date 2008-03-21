@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -35,12 +35,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			
 		</tr>
 	</table>
-	<table border="0" cellpadding="5" cellspacing="1"  width="600">
+	<table width="600">
 		<tr>
-			<td  valign="top">
+			<td valign="top">
 			Please select the appropriate response based upon the results of these campaign instructions: 
 			<br/><br/>
-			<table border="0" cellpadding="2" cellspacing="1" >
+			<table >
 				<tr>
 					<td valign="top">
 						<input type="radio" name="response" value="success" checked="checked"/>
@@ -80,10 +80,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		
 		<tr>
 			<td colspan="2" align="center"><br />
-				<table cellpadding="5">
+				<table>
 					<tr>
 						<td><input type="submit" value="Submit" name="submit" /></td>
-						<td><INPUT TYPE="BUTTON" VALUE="Cancel"  ONCLICK="window.location.href='/acc/link/my_loc/'"/></td>
+						<td><INPUT TYPE="BUTTON" VALUE="Cancel" ONCLICK="window.location.href='/acc/link/my_loc/'"/></td>
 					</tr>
 				</table>
 			</td>

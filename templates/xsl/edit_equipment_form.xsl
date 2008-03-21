@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	<table><tr><td valign="top">
-	<table border="0" cellpadding="1" cellspacing="1" >
+	<table >
 		<tr>
 			<td >Asset Type:</td>
 			<xsl:if test="//_get/equipment_id">
@@ -74,15 +74,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<input type="hidden" name="equipment_id" value="{//_get/equipment_id}"/>
 		<input type="hidden" name="equipment_type_container_id" value="{equipment_type_container_id}"/>
 		<input type="hidden" name="type" value="edit"/>
-		<tr><td colspan="2"><table cellpadding="1" cellspacing="0" border="0"><tr><td>
-		<table cellpadding="0" cellspacing="0" border="0">
+		<tr><td colspan="2"><table ><tr><td>
+		<table >
 		<tr>
 			<td ><input type="checkbox" name="equipment_type_container_id" value="{equipment_type_container_id}"/>Container:</td>
 			<td ><b><xsl:value-of select="name"/></b></td>
 		</tr>
 		<tr>
 			<td colspan="2">
-			<table cellpadding="0" cellspacing="0" border="0">
+			<table >
 
 		<tr>
 			<td >Priority:</td>
@@ -159,7 +159,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<tr>
 					<td rowspan="6" width="120">
 				<xsl:if test="//_get/equipment_id">
-				<img border="0" ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;type=merchandising</xsl:attribute></img>
+				<img ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;type=merchandising</xsl:attribute></img>
 				</xsl:if>
 			</td>
 		</tr>

@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -45,7 +45,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</form>-->
 		</tr>
 	</table>
-	<table border='0' cellspacing='1' cellpadding=''  width='100%'>
+	<table border='0' cellspacing='1' cellpadding='' width='100%'>
 		<tr>
 			<!--<td bgcolor='#EEEEEE' width="20"><input type="checkbox" /></td>-->
 			<td bgcolor='#EEEEEE' width='110' class="basic-table-cell">Branch Name</td>
@@ -58,7 +58,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<tr>
 			<!--<td bgcolor='white'><input type="checkbox" /></td>-->
 			<td bgcolor='white' width='110' class="basic-table-cell"><a href="/acc/link/my_loc/view/sp/&amp;location_address_id={location_address_id}" class="basic-table-cell"><xsl:value-of select="name"/></a></td>
-			<td bgcolor='white' width='120' class="basic-table-cell"><font  class="basic-table-cell"><xsl:value-of select="address_line_1"/></td>
+			<td bgcolor='white' width='120' class="basic-table-cell"><font class="basic-table-cell"><xsl:value-of select="address_line_1"/></td>
 			<td bgcolor='white' width='140' class="basic-table-cell"><xsl:value-of select="city"/></td>
 			<td bgcolor='white' width='92' class="basic-table-cell"><xsl:value-of select="phone"/></td>
 			<td bgcolor='white' class="basic-table-cell">

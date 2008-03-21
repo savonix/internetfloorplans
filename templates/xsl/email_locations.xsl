@@ -13,13 +13,13 @@ the Free Software Foundation; either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
@@ -33,30 +33,30 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</td>
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2"  >
+	<table >
 	<tr><td colspan="4" >	
 			
 			<table border='0' cellspacing='0' cellpadding='10' >
 			<tr>
-				<td align="left"  valign="top" colspan="2">
+				<td align="left" valign="top" colspan="2">
 					Email Locations
 				</td>
 			</tr>
 			<tr>
-				<td align="left"  valign="top">
+				<td align="left" valign="top">
 					Subject: 
 				</td>
 				
-				<td align="left"  valign="top">
+				<td align="left" valign="top">
 					<input type="text" name="subject"/>
 				</td>
 			</tr>
 			<tr>
-				<td align="left"  valign="top">
+				<td align="left" valign="top">
 					Body:
 				</td>
 				
-				<td align="left"  valign="top">
+				<td align="left" valign="top">
 					<textarea name="body" rows="8" cols="40">Enter your message here.</textarea>
 				</td>
 			</tr>
