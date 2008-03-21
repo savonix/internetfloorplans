@@ -160,8 +160,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
      -->
 	
 	<!-- New Location  -->
-	<map:gate name="ifp-location-create">	
-		<map:xsl src="templates/xsl/edit_location_form.xsl" />
+	<map:gate name="ifp-location-edit">	
+		<map:xsl src="templates/xsl/location_edit_form.xsl" />
 	</map:gate>
 	<map:gate name="ifp-loc-new-submit" role="client">
 		<map:if name="_post/submit">
