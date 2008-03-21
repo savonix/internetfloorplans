@@ -58,17 +58,17 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<table border='0' cellspacing='1' cellpadding='0' bgcolor="#BBBBBB" width='100%'>
 		<tr>	
 			<td width="20">Status</td>
-			<td width='110'><a>
-			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.name<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.name')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.name')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Branch Name</a></td>
+			<td width='110'>
+			Branch Name</td>
 			
-			<td width='140'><a>
-			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.address_line_1<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.address_line_1')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.address_line_1')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Address</a></td>
+			<td width='140'>
+			Address</td>
 			
-			<td width='82'><a>
-			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.city<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.city')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.city')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>City</a></td>
+			<td width='82'>
+			City</td>
 			
-			<td width='72'><a>
-			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.phone<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.phone')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.phone')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Phone</a></td>
+			<td width='72'>
+			Phone</td>
 			<!--
 			<td><a>
 			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.manager<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.manager')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.manager')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Contact</a></td>-->
