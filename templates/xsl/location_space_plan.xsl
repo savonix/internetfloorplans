@@ -26,19 +26,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="location_summary.xsl"/>
 <xsl:import href="location_menu.xsl"/>
 <xsl:template name="content">
-	
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/location.png" /> 
-			</td>
-			<xsl:call-template name="location_menu" />
-		</tr>
-	</table>
+<xsl:call-template name="location_menu" />
+
 	<table >
 	<xsl:call-template name="location_summary" />
-	<tr><td colspan="4" >
-			<table border='0' cellspacing='0' cellpadding='1' >
+	<tr><td>
+			<table>
 			<tr>
 				<td align="left" valign="top">
 					<table >
@@ -100,8 +93,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 					</table>
 				</td>
-				<td align="left" valign="top" width="260">
-					<table width="260">
+				<td>
+					<table>
 						<tr>
 							<td>
 								
@@ -112,7 +105,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<tr>
 							<td>
 							
-<iframe name="config" id="config" width="260" height="525" frame><xsl:attribute name="src">/resources/img/clear.gif</xsl:attribute> </iframe>
+<iframe name="config" id="config" width="260" height="525"><xsl:attribute name="src"></xsl:attribute> </iframe>
 							
 							
 							

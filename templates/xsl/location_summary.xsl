@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_summary.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,10 +22,9 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:template name="location_summary" match="//get_location_summary">
+<xsl:template name="location_summary">
 <xsl:for-each select="//get_location_summary">
 	<tr>
-		<xsl:if test="//user_roles='uplink_regional_manager'">
 		<td width="25%" valign="top">
 		
 		<b>Location Options</b>
@@ -33,7 +32,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		[ <a target="_top" href="/acc/link/loc/del/&amp;location_address_id={location_address_id}" onclick="return confirm('Are you sure you want to delete this location?')">Delete</a> ]
 		
 		</td>
-		</xsl:if>
 		
 		<td width="25%" valign="top">
 		

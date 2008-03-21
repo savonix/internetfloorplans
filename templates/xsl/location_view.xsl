@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table>
 <tr>
 	<td width="10%" valign="top">
-		<table >
+		<table>
 			<tr>
 				<td valign="top">
 					<b>Virtual Tours</b>
@@ -48,17 +48,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<xsl:for-each select="//get_location_images" >
 			<tr>
 				<td valign="top">
-				
-					
-					<a>
-							<xsl:attribute name="href">&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/>&amp;location_image_id=<xsl:value-of select="location_image_id"/></xsl:attribute>
-								<xsl:value-of select="name"/></a>
-					
+                        <xsl:value-of select="name"/>
 				</td>
 			</tr>
 			</xsl:for-each>
 		</table>
-		<br/>
 		<table >
 			<tr>
 				<td valign="top">

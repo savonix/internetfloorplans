@@ -289,7 +289,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>
 	
 	<!-- View location space plans -->
-	<map:gate name="ifp-loc/view/sp/" role="client" cache="0">
+	<map:gate name="ifp-location-space-plans" role="client" cache="0">
 		<map:if name="//delete">
 			<map:true>
 				<map:query src="data/sql/get_equipment_by_id.xml"/>
@@ -320,12 +320,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</map:false>
 		</map:if>
 		<map:block name="sp_view">
+            <!--
 			<map:query src="data/sql/get_location_summary.xml" />
 			<map:query src="data/sql/get_location_space_plans.xml" />
 			<map:query src="data/sql/get_equipment_types.xml"/>
 			<map:query src="upsell/modules/lines_of_business/qry/get_lines_of_business.xml"/>
-			<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>
-			<map:xsl src="templates/xsl/view_location_sp.xsl" />
+			<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>  -->
+			<map:xsl src="templates/xsl/location_space_plan.xsl" />
 		</map:block>
 	</map:gate>
 	
@@ -440,18 +441,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>	
 	
 	<!-- View location equipment -->
-	<map:gate name="ifp-loc/view/eqp/" role="client">
+	<map:gate name="ifp-location-equipment-quantities" role="client">
+        <!--
 		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="data/sql/get_equipment_types.xml"/>
-		<map:query src="data/sql/get_location_assets.xml"/>
+		<map:query src="data/sql/get_location_assets.xml"/>  -->
 		<map:xsl src="templates/xsl/view_location_equipment.xsl" />
 	</map:gate>	
 		
 	<!-- View location equipment list -->
-	<map:gate name="ifp-loc/view/eqp/list/" role="client">
+	<map:gate name="ifp-location-equipment-list" role="client">
+    <!--
 		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="data/sql/get_equipment_types.xml"/>
-		<map:query src="data/sql/get_location_asset_details.xml"/>
+		<map:query src="data/sql/get_location_asset_details.xml"/>  -->
 		<map:xsl src="templates/xsl/view_location_equipment_list.xsl" />
 	</map:gate>	
 	

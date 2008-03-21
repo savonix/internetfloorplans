@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_menu.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -23,46 +23,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="location_menu" match="//get_location_summary">
-<td align="left">
 	<!-- Regional Manager -->
 	<table>
 		<tr>
-			<td><b><font color="#FFFFFF"><xsl:value-of select="//get_location_summary/name" /></b></td>	
-			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/sp/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/sp/'">mini-menu</xsl:if></xsl:attribute><a>
-			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/sp/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Space Plans</a></td>
+			<td><b><xsl:value-of select="//get_location_summary/name" /></b></td>	
+			<td><a href="{//link_prefix}ifp-location-space-plans&amp;location_id={//_get/location_id}">Space Plans</a></td>
 			
-			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/'">mini-menu</xsl:if></xsl:attribute><a>
-			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Virtual Tours</a></td>
+			<td><a href="{//link_prefix}ifp-location-view&amp;location_id={//_get/location_id}">Virtual Tours</a></td>
 			
-			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/eqp/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/eqp/'">mini-menu</xsl:if></xsl:attribute><a>
-			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/eqp/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Equipment Quantities</a></td>			
+            <td><a href="{//link_prefix}ifp-location-equipment-quantities&amp;location_id={//_get/location_id}">Equipment Quantities</a></td>
 			
-			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/eqp/list/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/eqp/list/'">mini-menu</xsl:if></xsl:attribute><a>
-			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/eqp/list/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Equipment List</a></td>
-			<!--
-			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/hr/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/hr/'">mini-menu</xsl:if></xsl:attribute><a>
-			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/hr/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Personnel</a></td>	
-			
-			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/hours/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/hours/'">mini-menu</xsl:if></xsl:attribute><a>
-			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/hours/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Hours</a></td>-->
-			
+            <td><a href="{//link_prefix}ifp-location-equipment-list&amp;location_id={//_get/location_id}">Equipment List</a></td>
 		</tr>
 	</table>
-	
-	<xsl:if test="//user_roles='uplink_local_manager'">
-	<!-- Local Manager -->
-	<table >
-		<tr>
-		
-			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/my_loc/view/sp/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/my_loc/view/sp/'">mini-menu</xsl:if></xsl:attribute><a class="mini-menu-selected">
-			<xsl:attribute name="href"><xsl:text>/acc/link/my_loc/view/sp/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Space Plans</a></td>
-		
-			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/my_loc/guidelines/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/my_loc/guidelines/'">mini-menu</xsl:if></xsl:attribute><a class="mini-menu-selected">
-			<xsl:attribute name="href"><xsl:text>/acc/link/my_loc/guidelines/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Guidelines</a></td>
-			
-		</tr>
-	</table>
-	</xsl:if>
-</td>
 </xsl:template>
 </xsl:stylesheet>
