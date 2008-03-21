@@ -1,0 +1,52 @@
+<!--
+Program: Internet Floor Plans
+Component: 
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation,Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301  USA
+-->
+<query name="get_all_locations">
+    <connection>uplink</connection>
+    <params>
+		<param name="//last_database_update" type="text"/>
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
+		<param name="//my_region_id" type="integer"/>
+		<param name="//_get/sort" type="integer" default="uplink_location_address.name"/>
+		<param name="//_get/start" type="integer" default="0"/>
+		<param name="//_get/incr" type="integer" default="100"/>
+	</params>
+    <sql>
+		
+		SELECT
+		uplink_location_address.*
+		
+		FROM uplink_location_address, uplink_location_region
+	
+		WHERE uplink_location_address.deletion_datetime &gt; ?  
+		AND uplink_location_address.account_id=?
+		AND uplink_location_region.account_id=?
+		AND uplink_location_region.region_id=?
+		AND uplink_location_region.location_address_id=uplink_location_address.location_address_id
+		GROUP BY uplink_location_address.name
+		
+		ORDER BY ? ASC
+		LIMIT ?,? 
+    </sql>
+</query>

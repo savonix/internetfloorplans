@@ -1,0 +1,38 @@
+<!--
+Program: Internet Floor Plans
+Component: 
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation,Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301  USA
+-->
+<query name="new_asset">
+    <connection>savonix</connection>
+    <params>
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
+	    <param name="_post/asset_id" type="text" default="0001"/>
+		<param name="_post/equipment_type_id" type="text"/>
+		<param name="_post/priority_id" type="text" default="1"/>
+		<param name="_post/lob_id" type="text" default="1"/>
+        <param name="php:date('Y-m-d H:i:s')" type="text"/>
+	</params>
+    <sql>
+        INSERT INTO uplink_equipment (equipment_id,account_id,asset_id,equipment_type_id,priority_id,business_line_id,creation_datetime)
+		VALUES (_AUTO_,?,?,?,?,?,?)
+    </sql>
+</query>

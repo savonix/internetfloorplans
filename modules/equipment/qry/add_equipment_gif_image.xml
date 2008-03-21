@@ -1,0 +1,42 @@
+<!--
+Program: Internet Floor Plans
+Component: 
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation,Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301  USA
+-->
+<query name="add_equipment_gif_image">
+    <connection>savonix</connection>
+    <params>
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
+		<param name="_post/name" type="text"/>
+        <param name="_post/equipment_type_id" type="text"/>
+		<param name="_post/default" type="text"/>
+		<param name="_files/file/name" type="text"/>
+        <param name="//thumb_thumbname" type="text"/>
+		<param name="_files/file/type" type="text"/>
+		<param name="_post/comments" type="text"/>
+        <param name="php:date('Y-m-d H:i:s')" type="text"/>
+    </params>
+    <sql>
+        INSERT INTO uplink_equipment_type_images
+		(equipment_type_image_id,account_id,name,equipment_type_id,default_image, image_pointer,thumb_pointer,mime_type,comments, creation_datetime) 
+		VALUES (_AUTO_,?,?,?,?,?,?,?,?,?)
+    </sql>
+</query>

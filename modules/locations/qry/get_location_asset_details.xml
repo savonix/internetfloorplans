@@ -1,0 +1,106 @@
+<!--
+Program: Internet Floor Plans
+Component: 
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation,Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301  USA
+-->
+<query name="get_all_assets">
+    <connection>uplink</connection>
+    <params>
+        <param name="//last_database_update" type="text"/>
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+		<!--
+        <param name="//last_database_update" type="text"/>
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />-->
+        <param name="//last_database_update" type="text"/>
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+        <param name="//last_database_update" type="text"/>
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+        <param name="//last_database_update" type="text"/>
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+        <param name="//last_database_update" type="text"/>
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+        <param name="//last_database_update" type="text"/>
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+        <param name="//last_database_update" type="text"/>
+		<param name="_get/location_address_id" type="text" />
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+        <param name="//last_database_update" type="text"/>
+	</params>
+	<sql>
+        SELECT uplink_equipment.*, uplink_equipment_type.name, uplink_location_equipment.location_address_id, (uplink_location_address.name) as location_address_name, upsell_priorities.name as priority_name,upsell_lines_of_business.name as lob_name, uplink_equipment_type_container.equipment_type_container_id, uplink_equipment_type_container.name as container_name
+		
+		FROM (uplink_equipment, uplink_equipment_type,uplink_location_equipment, uplink_location_address)
+
+		
+LEFT JOIN uplink_equipment_container
+
+ON (uplink_equipment_container.equipment_id=uplink_equipment.equipment_id
+AND uplink_equipment_container.deletion_datetime &gt; ?
+AND uplink_equipment_container.account_id=?)
+
+LEFT JOIN uplink_equipment_type_container
+ON (uplink_equipment_type_container.equipment_type_id=uplink_equipment_type.equipment_type_id
+AND uplink_equipment_type_container.equipment_type_container_id=uplink_equipment_container.equipment_type_container_id
+AND uplink_equipment_type_container.deletion_datetime &gt; ?
+AND uplink_equipment_type_container.account_id=?)
+
+<!--
+LEFT JOIN uplink_container
+ON uplink_container.container_id=uplink_equipment_type_container.container_id
+AND uplink_container.deletion_datetime &gt; ?
+AND uplink_container.account_id=?
+-->
+
+		LEFT JOIN upsell_priorities
+		ON (upsell_priorities.priority_id=uplink_equipment_container.priority_id
+		AND upsell_priorities.deletion_datetime &gt; ?	
+		AND upsell_priorities.account_id=?)	
+
+		
+		LEFT JOIN upsell_lines_of_business
+		ON (upsell_lines_of_business.line_of_business_id=uplink_equipment_container.business_line_id
+		AND upsell_lines_of_business.deletion_datetime &gt;?	
+		AND upsell_lines_of_business.account_id=?)	
+		
+		
+		WHERE 
+		
+		uplink_equipment.deletion_datetime &gt; ? 
+		AND uplink_equipment.account_id = ?
+		AND uplink_equipment.equipment_type_id=uplink_equipment_type.equipment_type_id
+
+		
+		AND uplink_location_equipment.deletion_datetime &gt; ?
+		AND uplink_location_equipment.account_id=?
+		AND uplink_location_equipment.equipment_id=uplink_equipment.equipment_id
+		
+		AND uplink_location_address.location_address_id=uplink_location_equipment.location_address_id
+		AND uplink_location_address.deletion_datetime &gt; ?
+		AND uplink_location_address.location_address_id=?
+		AND uplink_location_address.account_id=?
+		
+		AND uplink_equipment_type.account_id=?
+		AND uplink_equipment_type.deletion_datetime &gt; ?
+		
+		ORDER BY equipment_id, container_name
+    </sql>
+</query>

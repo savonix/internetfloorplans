@@ -1,0 +1,47 @@
+<!--
+Program: Internet Floor Plans
+Component: 
+Copyright: Savonix Corporation
+Author: Albert L. Lash, IV
+License: Gnu Affero Public License version 3
+http://www.gnu.org/licenses
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program; if not, see http://www.gnu.org/licenses
+or write to the Free Software Foundation,Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301  USA
+-->
+<query name="get_gt_locations">
+    <connection>uplink</connection>
+    <params>
+        <param name="//last_database_update" type="text"/>
+        <param name="//last_database_update" type="text"/>
+		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
+	</params>
+    <sql>
+        SELECT
+		uplink_location_address.name, uplink_location_address.location_address_id, uplink_location_address.address_line_1, 
+		uplink_location_address.city, uplink_location_address.phone,
+		MIN(uplink_equipment.status_id) as status_id 
+		
+		FROM uplink_location_address
+		LEFT JOIN uplink_location_equipment
+		ON uplink_location_address.location_address_id=uplink_location_equipment.location_address_id
+		LEFT JOIN uplink_equipment
+		ON uplink_equipment.equipment_id=uplink_location_equipment.equipment_id AND uplink_equipment.deletion_datetime &gt; ?
+		
+		WHERE uplink_location_address.deletion_datetime &gt; ?   
+		AND uplink_location_address.account_id=?
+		GROUP BY uplink_location_address.name
+    </sql>
+</query>
