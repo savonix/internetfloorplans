@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_menu.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -26,11 +26,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <td align="left">
 	<table >
 		<tr>
-			<td class="mini-menu-selected"><a class="mini-menu-selected">
-			<xsl:attribute name="href"><xsl:text>/acc/link/assets/</xsl:text></xsl:attribute>List</a></td>
+			<td><a href="">Equipment List</a></td>
 			
-			<td class="mini-menu-selected"><a class="mini-menu-selected">
-			<xsl:attribute name="href"><xsl:text>/acc/link/assets/q/</xsl:text></xsl:attribute>Quantities</a></td>
+			<td><a href="">Equipment Quantities</a></td>
 			
 			
 
