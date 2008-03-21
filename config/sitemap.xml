@@ -558,7 +558,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
  *************************************************  -->
 	<!-- View all equipment -->
 	<map:gate name="ifp-equipment" role="client">
-		<map:query src="data/sql/get_all_equipment.xml"/>
+		<map:query src="data/sql/equipment_get_all.xml"/>
 		<map:xsl src="templates/xsl/view_all_equipment.xsl"/>
 	</map:gate>
 	<map:gate name="ifp-assets/q/" role="client">
