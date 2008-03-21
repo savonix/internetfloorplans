@@ -171,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_type_symbol` (
 -- Table structure for table `uplink_location_address`
 --
 
-CREATE TABLE IF NOT EXISTS `uplink_location_address` (
+CREATE TABLE IF NOT EXISTS `uplink_locations` (
   `location_address_id` int(11) NOT NULL default '0',
   `account_id` char(100) NOT NULL default '-',
   `name` char(100) NOT NULL default '0',

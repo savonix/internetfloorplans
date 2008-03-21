@@ -34,8 +34,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <!-- *************************************************  -->
 <!--    UPLINK LOCATIONS                               	-->
 <!-- *************************************************  -->
-	<map:gate name="ifp-index" role="client" cache="86400">
-		<map:xsl src="uplink/main/xsl/welcome.xsl" />
+	<map:gate name="ifp-index">
+		<map:xsl src="templates/xsl/welcome.xsl" />
 	</map:gate>	
 	<map:gate name="ifp-loc" role="uplink_regional_manager" >
 	<map:script src="_shared/php/listing_init.php"/>
