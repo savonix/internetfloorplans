@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<title></title>
 
     <meta name="generator" content="Nexista 0.2.1"/>
-     <link rel="stylesheet" type="text/css" href="{//link_prefix}es-themed-css" ></link>
+     <link rel="stylesheet" type="text/css" href="{//link_prefix}ifp-themed-css" ></link>
     <xsl:for-each select="//in_head">
         <xsl:sort select="priority"/>
         <xsl:value-of select="string" disable-output-escaping="yes"/>
