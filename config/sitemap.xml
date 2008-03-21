@@ -34,83 +34,83 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <!-- *************************************************  -->
 <!--    UPLINK LOCATIONS                               	-->
 <!-- *************************************************  -->
-	<map:gate name="acc/link/" role="client" cache="86400">
+	<map:gate name="ifp-index" role="client" cache="86400">
 		<map:xsl src="uplink/main/xsl/welcome.xsl" />
 	</map:gate>	
-	<map:gate name="acc/link/loc/" role="uplink_regional_manager" >
+	<map:gate name="ifp-loc" role="uplink_regional_manager" >
 	<map:script src="_shared/php/listing_init.php"/>
-		<map:query src="uplink/modules/regions/qry/get_all_regions.xml" />
+		<map:query src="data/sql/get_all_regions.xml" />
 		<map:if name="//my_region_id">
 			<map:true>
 				<map:switch name="//my_region_id">
 					<map:case value="all">
-						<map:query src="uplink/modules/locations/qry/get_all_locations.xml" />
-						<map:query src="uplink/modules/locations/qry/get_gt_locations.xml" />
+						<map:query src="data/sql/get_all_locations.xml" />
+						<map:query src="data/sql/get_gt_locations.xml" />
 					</map:case>
 					<map:default>
-						<map:query src="uplink/modules/locations/qry/get_locations_by_region_id.xml" />
-						<map:query src="uplink/modules/locations/qry/get_gt_locations_by_region_id.xml" />
+						<map:query src="data/sql/get_locations_by_region_id.xml" />
+						<map:query src="data/sql/get_gt_locations_by_region_id.xml" />
 					</map:default>
 				</map:switch>
 			</map:true>
 			<map:false>
-				<map:query src="uplink/modules/locations/qry/get_all_locations.xml" />
-				<map:query src="uplink/modules/locations/qry/get_gt_locations.xml" />
+				<map:query src="data/sql/get_all_locations.xml" />
+				<map:query src="data/sql/get_gt_locations.xml" />
 			</map:false>
 		</map:if>
 		<map:xsl src="uplink/modules/locations/xsl/view_locations.xsl" />
 		<map:debug dump="truse"/>
 	</map:gate>
-	<map:gate name="acc/link/loc/search/" role="uplink_regional_manager">
+	<map:gate name="ifp-loc-search" role="uplink_regional_manager">
 		<map:action type="like" params="//_post/q"/>
-		<map:query src="uplink/modules/locations/qry/search_locations.xml" />
+		<map:query src="data/sql/search_locations.xml" />
 		<map:xsl src="uplink/modules/locations/xsl/view_locations.xsl" />
 	</map:gate>
 	
 	<!-- Email locations-->
-	<map:gate name="acc/link/loc/email/" role="uplink_regional_manager">
+	<map:gate name="ifp-loc/email/" role="uplink_regional_manager">
 		<map:xsl src="uplink/modules/locations/xsl/email_locations.xsl"/>
 	</map:gate>
 
 	<!-- LOCAL MANAGER -->	
-	<map:gate name="acc/link/my_loc/" role="uplink_local_manager" >
-		<map:query src="uplink/modules/locations/qry/get_my_locations.xml" />
+	<map:gate name="ifp-my-loc" role="uplink_local_manager" >
+		<map:query src="data/sql/get_my_locations.xml" />
 		<map:xsl src="uplink/modules/locations/xsl/view_my_locations.xsl" />
 	</map:gate>
-	<map:gate name="acc/link/my_loc/view/" role="uplink_local_manager" >
-		<map:query src="uplink/modules/locations/qry/get_my_locations.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_images.xml" />
+	<map:gate name="ifp-my-loc-view" role="uplink_local_manager" >
+		<map:query src="data/sql/get_my_locations.xml" />
+		<map:query src="data/sql/get_location_summary.xml" />
+		<map:query src="data/sql/get_location_images.xml" />
 		<map:xsl src="uplink/modules/locations/xsl/view_my_location.xsl" />
 	</map:gate>
-	<map:gate name="acc/link/my_loc/view/sp/" role="uplink_local_manager" >
-		<map:query src="uplink/modules/locations/qry/get_my_locations.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_space_plans.xml" />
+	<map:gate name="ifp-my-loc-view-sp" role="uplink_local_manager" >
+		<map:query src="data/sql/get_my_locations.xml" />
+		<map:query src="data/sql/get_location_summary.xml" />
+		<map:query src="data/sql/get_location_space_plans.xml" />
 		<map:xsl src="uplink/modules/locations/xsl/view_my_location_sp.xsl" />
 	</map:gate>
 
-	<map:gate name="acc/link/my_loc/guidelines/" role="uplink_local_manager" >
-		<map:query src="uplink/modules/locations/qry/get_my_locations.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
+	<map:gate name="ifp-my-loc-guidelines" role="uplink_local_manager" >
+		<map:query src="data/sql/get_my_locations.xml" />
+		<map:query src="data/sql/get_location_summary.xml" />
 		<map:xsl src="uplink/modules/locations/xsl/guidelines.xsl" />
 	</map:gate>
-	<map:gate name="acc/link/my_loc/install/" role="uplink_local_manager">
+	<map:gate name="ifp-my-loc-install" role="uplink_local_manager">
 		<map:xsl src="uplink/modules/equipment/xsl/install_equipment_content.xsl" />
 	</map:gate>
-	<map:gate name="acc/link/my_loc/install/submit/" role="uplink_local_manager">
+	<map:gate name="ifp-my-loc-install-submit" role="uplink_local_manager">
 		<map:query src="uplink/modules/equipment/qry/install_equipment_content.xml" />
-		<map:action type="redirect" params="/acc/link/my_loc/"/>
+		<map:action type="redirect" params="/ifp-my-loc-"/>
 	</map:gate>
 	<!-- Add new image -->
-	<map:gate name="acc/link/my_loc/view/add/" role="client" cache="86400">
-		<map:query src="uplink/modules/locations/qry/get_my_locations.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
+	<map:gate name="ifp-my-loc-view-add" role="client" cache="86400">
+		<map:query src="data/sql/get_my_locations.xml" />
+		<map:query src="data/sql/get_location_summary.xml" />
 		
 		<map:script src="auth/php/flow_user_account_id.php"/>
 		<map:xsl src="uplink/modules/locations/xsl/my_new_location_image.xsl" />
 	</map:gate>
-	<map:gate name="acc/link/my_loc/view/add/submit/" role="client" >
+	<map:gate name="ifp-my-loc-view-add-submit" role="client" >
 		<map:script src="auth/php/flow_user_account_id.php"/>
 		<map:if name="_post/submit">
 			<map:true>
@@ -118,23 +118,23 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<map:valid>
 						<map:if name="//_post/default">
 							<map:true>
-								<map:query src="uplink/modules/locations/qry/no_default_image.xml"/>
+								<map:query src="data/sql/no_default_image.xml"/>
 							</map:true>
 						</map:if>
 						<map:action type="upload" params="file,//_post/dest"/>
 						<map:switch name="//_files/file/type">
 							<map:case value="image/gif">
-								<map:query src="uplink/modules/locations/qry/add_location_gif_image.xml"/>
+								<map:query src="data/sql/add_location_gif_image.xml"/>
 							</map:case>
 							<map:case value="video/quicktime">
-								<map:query src="uplink/modules/locations/qry/add_location_gif_image.xml"/>
+								<map:query src="data/sql/add_location_gif_image.xml"/>
 							</map:case>
 							<map:default>
 								<map:action type="thumbnail" params="//_files/file/new_name,256,256,thumb_"/>
-								<map:query src="uplink/modules/locations/qry/add_location_image.xml"/>
+								<map:query src="data/sql/add_location_image.xml"/>
 							</map:default>
 						</map:switch>
-						<map:action type="redirect" params="/acc/link/my_loc/"/>
+						<map:action type="redirect" params="/ifp-my-loc-"/>
 					</map:valid>
 					<map:invalid>
 						<map:xsl src="uplink/modules/locations/xsl/new_location_image.xsl" />
@@ -146,80 +146,79 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</map:false>
 			
 		</map:if>
-		<map:debug dump="trsue"/>
 	</map:gate>
 	
 	<!-- New Location  -->
-	<map:gate name="acc/link/loc/new/" role="client" cache="86400">	
-		<map:query src="uplink/modules/regions/qry/get_all_regions.xml" />
+	<map:gate name="ifp-loc-new" role="client" cache="86400">	
+		<map:query src="data/sql/get_all_regions.xml" />
 		<map:xsl src="uplink/modules/locations/xsl/edit_location_form.xsl" />
 	</map:gate>
-	<map:gate name="acc/link/loc/new/submit/" role="client">
+	<map:gate name="ifp-loc-new-submit" role="client">
 		<map:if name="_post/submit">
 			<map:true>
 				<map:switch name="_post/submit">
 					<map:case value="Submit">
 						<map:validate src="uplink/modules/locations/validators/valid_location.xml">
 							<map:valid>
-								<map:query src="uplink/modules/locations/qry/new_location.xml" />
-								<map:query src="uplink/modules/locations/qry/get_last_location_address_id.xml" />
-								<map:query src="uplink/modules/locations/qry/new_location_regions.xml" />
-								<map:action type="redirect" params="/acc/link/loc/" />
+								<map:query src="data/sql/new_location.xml" />
+								<map:query src="data/sql/get_last_location_address_id.xml" />
+								<map:query src="data/sql/new_location_regions.xml" />
+								<map:action type="redirect" params="/ifp-loc/" />
 							</map:valid>
 							<map:invalid>
-								<map:query src="uplink/modules/regions/qry/get_all_regions.xml" />
+								<map:query src="data/sql/get_all_regions.xml" />
 								<map:xsl src="uplink/modules/locations/xsl/edit_location_form.xsl" />
 							</map:invalid>
 						</map:validate>
 					</map:case>
 					<map:default>
-						<map:query src="uplink/modules/regions/qry/get_all_regions.xml" />
+						<map:query src="data/sql/get_all_regions.xml" />
 						<map:xsl src="uplink/modules/locations/xsl/edit_location_form.xsl" />
 					</map:default>
 				</map:switch>
 			</map:true>
 			<map:false>
-				<map:query src="uplink/modules/regions/qry/get_all_regions.xml" />
+				<map:query src="data/sql/get_all_regions.xml" />
 				<map:xsl src="uplink/modules/locations/xsl/edit_location_form.xsl" />
 			</map:false>
 		</map:if>
 	</map:gate>
 			
 	<!-- Delete location -->
-    <map:gate name="acc/link/loc/del/" role="client">
+    <map:gate name="ifp-loc-del" role="client">
 		<map:if name="_get/location_address_id">
 			<map:true>
-				<map:query src="uplink/modules/locations/qry/del_loc.xml" />
-				<map:query src="uplink/modules/locations/qry/del_loc_image_by_loc.xml" />
-				<map:query src="uplink/modules/locations/qry/del_loc_space_plan_by_loc.xml" />
-				<map:query src="uplink/modules/locations/qry/get_loc_equipment_ids.xml" />
-				<map:query src="uplink/modules/locations/qry/del_loc_equipment_pos_by_loc.xml" />
-				<map:query src="uplink/modules/locations/qry/del_loc_equipment_by_loc.xml" />
-				<map:action type="redirect" params="/acc/link/loc/" />
+				<map:query src="data/sql/del_loc.xml" />
+				<map:query src="data/sql/del_loc_image_by_loc.xml" />
+				<map:query src="data/sql/del_loc_space_plan_by_loc.xml" />
+				<map:query src="data/sql/get_loc_equipment_ids.xml" />
+				<map:query src="data/sql/del_loc_equipment_pos_by_loc.xml" />
+				<map:query src="data/sql/del_loc_equipment_by_loc.xml" />
+				<map:action type="redirect" params="/ifp-loc/" />
 			</map:true>
 			<map:false>
-				<map:action type="redirect" params="/acc/link/loc/"/>
+				<map:action type="redirect" params="/ifp-loc/"/>
 			</map:false>
 		</map:if>
     </map:gate>
 
 <!-- Edit Location -->
-<map:gate name="acc/link/loc/edit/" role="client">
+<map:gate name="ifp-loc/edit/" role="client">
 	<map:if name="_post/submit">
 		<map:true>
 			<map:switch name="_post/submit">
 				<map:case value="Submit">
 					<map:validate src="uplink/modules/locations/validators/valid_location.xml">
 						<map:valid>
-							<map:query src="uplink/modules/locations/qry/edit_location.xml" />
-							<map:query src="uplink/modules/locations/qry/del_location_regions.xml" />
-							<map:query src="uplink/modules/locations/qry/edit_location_regions.xml" />
-							<map:action type="redirect" params="/acc/link/loc/" />
+							<map:query src="data/sql/edit_location.xml" />
+							<map:query src="data/sql/del_location_regions.xml" />
+							<map:query src="data/sql/edit_location_regions.xml" />
+							<map:action type="redirect" params="/ifp-loc/" />
 						</map:valid>
 						<map:invalid>
-							<map:query src="uplink/modules/regions/qry/get_all_regions.xml" />
-							<map:query src="uplink/modules/locations/qry/get_location_regions.xml" />
-							<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
+							<map:query src="data/sql/get_all_regions.xml" />
+							<map:query src="data/sql/get_location_regions.xml" />
+							<map:query src="data/sql/get_location_summary.xml" />
 							<map:xsl src="uplink/modules/locations/xsl/edit_location_form.xsl" />
 						</map:invalid>
 					</map:validate>
@@ -229,9 +228,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</map:switch>
 		</map:true>
 		<map:false>
-			<map:query src="uplink/modules/regions/qry/get_all_regions.xml" />
-			<map:query src="uplink/modules/locations/qry/get_location_regions.xml" />
-			<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
+			<map:query src="data/sql/get_all_regions.xml" />
+			<map:query src="data/sql/get_location_regions.xml" />
+			<map:query src="data/sql/get_location_summary.xml" />
 			<map:xsl src="uplink/modules/locations/xsl/edit_location_form.xsl" />
 		</map:false>
 	</map:if>
@@ -239,7 +238,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 	<!-- ############################### -->
 	<!-- View location image library -->
-	<map:gate name="acc/link/loc/view/" role="client" >
+	<map:gate name="ifp-loc/view/" role="client" >
 		<map:script src="auth/php/flow_user_account_id.php"/>
 		<map:if name="_post/submit">
 			<map:true>
@@ -247,62 +246,62 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<map:valid>
 						<map:if name="//_post/default">
 							<map:true>
-								<map:query src="uplink/modules/locations/qry/no_default_image.xml"/>
+								<map:query src="data/sql/no_default_image.xml"/>
 							</map:true>
 						</map:if>
 						<map:action type="upload" params="file,//_post/dest,//_post/prefix"/>
 						<map:switch name="//_files/file/type">
 							<map:case value="image/gif">
-								<map:query src="uplink/modules/locations/qry/add_location_gif_image.xml"/>
+								<map:query src="data/sql/add_location_gif_image.xml"/>
 							</map:case>
 							<map:case value="video/quicktime">
-								<map:query src="uplink/modules/locations/qry/add_location_gif_image.xml"/>
+								<map:query src="data/sql/add_location_gif_image.xml"/>
 							</map:case>
 							<map:default>
 								<map:action type="thumbnail" params="//_files/file/new_name,256,256,thumb_"/>
-								<map:query src="uplink/modules/locations/qry/add_location_image.xml"/>
+								<map:query src="data/sql/add_location_image.xml"/>
 							</map:default>
 						</map:switch>
-						<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
-						<map:query src="uplink/modules/locations/qry/get_location_images.xml" />
+						<map:query src="data/sql/get_location_summary.xml" />
+						<map:query src="data/sql/get_location_images.xml" />
 						<map:xsl src="uplink/modules/locations/xsl/view_location.xsl" />
 					</map:valid>
 					<map:invalid>
 						<map:script src="auth/php/flow_user_account_id.php"/>
-						<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
+						<map:query src="data/sql/get_location_summary.xml" />
 						<map:xsl src="uplink/modules/locations/xsl/new_location_image.xsl" />
 					</map:invalid>
 				</map:validate>
 			</map:true>
 			<map:false>
-				<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
-				<map:query src="uplink/modules/locations/qry/get_location_images.xml" />
+				<map:query src="data/sql/get_location_summary.xml" />
+				<map:query src="data/sql/get_location_images.xml" />
 				<map:xsl src="uplink/modules/locations/xsl/view_location.xsl" />
 			</map:false>
 		</map:if>
 	</map:gate>
 	<!-- WHAT IS THIS? -->
-	<map:gate name="acc/link/loc/view/img/" role="client">
+	<map:gate name="ifp-loc/view/img/" role="client">
 		<map:xsl src="uplink/modules/locations/xsl/view_image.xsl" />
 	</map:gate>
 	<!-- Add new image -->
-	<map:gate name="acc/link/loc/view/add/" role="client" cache="86400">
+	<map:gate name="ifp-loc/view/add/" role="client" cache="86400">
 		<map:script src="auth/php/flow_user_account_id.php"/>
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
+		<map:query src="data/sql/get_location_summary.xml" />
 		<map:xsl src="uplink/modules/locations/xsl/new_location_image.xsl" />
 		
 	</map:gate>
 
 	<!-- Delete image -->
-	<map:gate name="acc/link/loc/view/delete/" role="client" >
+	<map:gate name="ifp-loc/view/delete/" role="client" >
 		<map:script src="_shared/php/delete_all_gate_cache.php"/>
 		<map:query src="_shared/qry/last_database_update.xml"/>
-		<map:query src="uplink/modules/locations/qry/delete_location_image.xml"/>
-		<map:action type="redirect" params="/acc/link/loc/"/>
+		<map:query src="data/sql/delete_location_image.xml"/>
+		<map:action type="redirect" params="/ifp-loc/"/>
 	</map:gate>
 	
 	<!-- View location space plans -->
-	<map:gate name="acc/link/loc/view/sp/" role="client" cache="0">
+	<map:gate name="ifp-loc/view/sp/" role="client" cache="0">
 		<map:if name="//delete">
 			<map:true>
 				<map:query src="uplink/modules/equipment/qry/get_equipment_by_id.xml"/>
@@ -333,8 +332,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</map:false>
 		</map:if>
 		<map:block name="sp_view">
-			<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
-			<map:query src="uplink/modules/locations/qry/get_location_space_plans.xml" />
+			<map:query src="data/sql/get_location_summary.xml" />
+			<map:query src="data/sql/get_location_space_plans.xml" />
 			<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
 			<map:query src="upsell/modules/lines_of_business/qry/get_lines_of_business.xml"/>
 			<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>
@@ -342,22 +341,22 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</map:block>
 	</map:gate>
 	
-	<map:gate name="acc/link/loc/view/set-key-position/" role="uplink">
+	<map:gate name="ifp-loc/view/set-key-position/" role="uplink">
 	<map:insert name="clear_cache"/>
-		<map:query src="uplink/modules/locations/qry/edit_space_plan_key_position.xml"/>
+		<map:query src="data/sql/edit_space_plan_key_position.xml"/>
 	</map:gate>
 	
 	
 	<!-- PDF OF FLOORPLAN -->
 
-	<map:gate name="acc/link/loc/view/sp/pdf_server/" role="uplink">
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_space_plans.xml" />
+	<map:gate name="ifp-loc/view/sp/pdf_server/" role="uplink">
+		<map:query src="data/sql/get_location_summary.xml" />
+		<map:query src="data/sql/get_location_space_plans.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
 		<map:query src="upsell/modules/lines_of_business/qry/get_lines_of_business.xml"/>
 		<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>
-		<map:query src="uplink/modules/locations/qry/get_sp_pointer_by_id.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_space_plan_assets.xml" />
+		<map:query src="data/sql/get_sp_pointer_by_id.xml" />
+		<map:query src="data/sql/get_location_space_plan_assets.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_account_symbol_pointers.xml" />
 		<map:script src="uplink/modules/locations/php/floorplan_pdf.php"/>
 	</map:gate>
@@ -365,44 +364,44 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	
 	
 	<!-- Add new plan -->
-	<map:gate name="acc/link/loc/view/sp/add/" role="client" >
+	<map:gate name="ifp-loc/view/sp/add/" role="client" >
 		<map:if name="//_post/submit">
 			<map:true>
 				<map:action type="upload" params="file,//_post/dest"/>
 				<map:script src="uplink/modules/locations/php/floorplan_processor.php"/>
-				<map:query src="uplink/modules/locations/qry/add_location_space_plan.xml"/>
+				<map:query src="data/sql/add_location_space_plan.xml"/>
 				<map:insert name="sp_view"/>
 			</map:true>
 			<map:false>
 				<!-- have to get user's account for destination variable of form - BAD! -->
 				<map:script src="auth/php/flow_user_account_id.php"/>
-				<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
+				<map:query src="data/sql/get_location_summary.xml" />
 				<map:xsl src="uplink/modules/locations/xsl/new_location_space_plan.xsl" />
 			</map:false>
 		</map:if>
 	</map:gate>
 	
 	<!-- Delete plan -->
-	<map:gate name="acc/link/loc/view/sp/delete/" role="client" >
-		<map:query src="uplink/modules/locations/qry/delete_location_space_plan.xml"/>
+	<map:gate name="ifp-loc/view/sp/delete/" role="client" >
+		<map:query src="data/sql/delete_location_space_plan.xml"/>
 		<map:insert name="clear_cache"/>
-		<map:action type="redirect" params="/acc/link/loc/"/>
+		<map:action type="redirect" params="/ifp-loc/"/>
 	</map:gate>
 	<!-- edit space plan comments -->
-	<map:gate name="acc/link/loc/view/sp/edit/" role="client">
-				<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
-				<map:query src="uplink/modules/locations/qry/get_location_space_plans.xml" />
+	<map:gate name="ifp-loc/view/sp/edit/" role="client">
+				<map:query src="data/sql/get_location_summary.xml" />
+				<map:query src="data/sql/get_location_space_plans.xml" />
 				<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
 				<map:query src="upsell/modules/lines_of_business/qry/get_lines_of_business.xml"/>
 				<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>
 				<map:xsl src="uplink/modules/locations/xsl/view_location_sp.xsl" />
 	</map:gate>
 
-	<map:gate name="acc/link/loc/view/sp/edit/submit/" role="client">	
+	<map:gate name="ifp-loc/view/sp/edit/submit/" role="client">	
 		<map:insert name="clear_cache"/>
-		<map:query src="uplink/modules/locations/qry/edit_location_space_plan.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_space_plans.xml" />
+		<map:query src="data/sql/edit_location_space_plan.xml" />
+		<map:query src="data/sql/get_location_summary.xml" />
+		<map:query src="data/sql/get_location_space_plans.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
 		<map:query src="upsell/modules/lines_of_business/qry/get_lines_of_business.xml"/>
 		<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>
@@ -410,66 +409,66 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>
 	
 	<!-- View location employees -->
-	<map:gate name="acc/link/loc/view/hr/" role="client" cache="86400">
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_personnel.xml" />
+	<map:gate name="ifp-loc/view/hr/" role="client" cache="86400">
+		<map:query src="data/sql/get_location_summary.xml" />
+		<map:query src="data/sql/get_location_personnel.xml" />
 		<map:xsl src="uplink/modules/locations/xsl/view_location_personnel.xsl" />
 	</map:gate>		
 	<!-- Remove user from location -->
-	<map:gate name="acc/link/loc/view/hr/remove/" role="client" >
-		<map:query src="uplink/modules/locations/qry/del_location_personnel.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_personnel.xml" />
+	<map:gate name="ifp-loc/view/hr/remove/" role="client" >
+		<map:query src="data/sql/del_location_personnel.xml" />
+		<map:query src="data/sql/get_location_summary.xml" />
+		<map:query src="data/sql/get_location_personnel.xml" />
 		<map:xsl src="uplink/modules/locations/xsl/view_location_personnel.xsl" />
 	</map:gate>	
 	<!-- View location hours of operation -->
-	<map:gate name="acc/link/loc/view/hours/" role="client" >
+	<map:gate name="ifp-loc/view/hours/" role="client" >
 		<map:if name="//_post">
 			<map:true>
 				<map:action type="timeconvert" params="//_post/open_h,//_post/open_m,//_post/open_am_pm,open"/>
 				<map:action type="timeconvert" params="//_post/close_h,//_post/close_m,//_post/close_am_pm,close"/>
-				<map:query src="uplink/modules/locations/qry/del_location_hours.xml" />
-				<map:query src="uplink/modules/locations/qry/add_location_hours.xml" />
+				<map:query src="data/sql/del_location_hours.xml" />
+				<map:query src="data/sql/add_location_hours.xml" />
 			</map:true>
 		</map:if>
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
+		<map:query src="data/sql/get_location_summary.xml" />
 		<map:script src="uplink/modules/locations/php/weekdays.php"/>
-		<map:query src="uplink/modules/locations/qry/get_location_hours.xml" />
+		<map:query src="data/sql/get_location_hours.xml" />
 		<map:xsl src="uplink/modules/locations/xsl/view_location_hours.xsl" />
 		<map:debug dump="truse"/>
 	</map:gate>
 		<!-- Edit location hours of operation -->
-	<map:gate name="acc/link/loc/view/hours/edit/" role="client" >
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
-		<!--<map:query src="uplink/modules/locations/qry/get_location_hours.xml" />-->
+	<map:gate name="ifp-loc/view/hours/edit/" role="client" >
+		<map:query src="data/sql/get_location_summary.xml" />
+		<!--<map:query src="data/sql/get_location_hours.xml" />-->
 		<map:script src="uplink/modules/locations/php/dayhours.php"/>
 		<map:xsl src="uplink/modules/locations/xsl/edit_location_hours.xsl" />
 	</map:gate>
 
 	<!-- Delete location hours of operation -->
-	<map:gate name="acc/link/loc/view/hours/delete/" role="client" >
-		<map:query src="uplink/modules/locations/qry/del_location_hours.xml" />
-		<map:action type="redirect" params="/acc/link/loc/"/>
+	<map:gate name="ifp-loc/view/hours/delete/" role="client" >
+		<map:query src="data/sql/del_location_hours.xml" />
+		<map:action type="redirect" params="/ifp-loc/"/>
 	</map:gate>	
 	
 	<!-- View location equipment -->
-	<map:gate name="acc/link/loc/view/eqp/" role="client" cache="86400">
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
+	<map:gate name="ifp-loc/view/eqp/" role="client" cache="86400">
+		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
-		<map:query src="uplink/modules/locations/qry/get_location_assets.xml"/>
+		<map:query src="data/sql/get_location_assets.xml"/>
 		<map:xsl src="uplink/modules/locations/xsl/view_location_equipment.xsl" />
 	</map:gate>	
 		
 	<!-- View location equipment list -->
-	<map:gate name="acc/link/loc/view/eqp/list/" role="client" cache="86400">
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml" />
+	<map:gate name="ifp-loc/view/eqp/list/" role="client" cache="86400">
+		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
-		<map:query src="uplink/modules/locations/qry/get_location_asset_details.xml"/>
+		<map:query src="data/sql/get_location_asset_details.xml"/>
 		<map:xsl src="uplink/modules/locations/xsl/view_location_equipment_list.xsl" />
 	</map:gate>	
 	
 	<!-- Edit location equipment -->
-	<map:gate name="acc/link/loc/view/eqp/edit_loc/" role="client">
+	<map:gate name="ifp-loc/view/eqp/edit_loc/" role="client">
 		<map:insert name="clear_cache"/>
 		<!--<map:query src="uplink/modules/equipment/qry/delete_location_equipment_position.xml" />-->
 		<map:query src="uplink/modules/equipment/qry/edit_location_equipment_position.xml"/>
@@ -487,11 +486,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!-- *************************************************  -->
 
-	<map:gate name="acc/link/rgn/" role="client" cache="86400">
+	<map:gate name="ifp-rgn/" role="client" cache="86400">
 		<map:switch name="_post/submit">
 			<map:case value="Delete">
-				<map:query src="uplink/modules/regions/qry/del_regions.xml" />
-				<map:action type="redirect" params="/acc/link/rgn/" />
+				<map:query src="data/sql/del_regions.xml" />
+				<map:action type="redirect" params="/ifp-rgn/" />
 			</map:case>
 			<map:default>
 			</map:default>
@@ -500,63 +499,63 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<map:true>
 			</map:true>
 			<map:false>
-				<map:query src="uplink/modules/regions/qry/get_all_regions.xml" />
-				<map:query src="uplink/modules/regions/qry/get_all_region_data.xml" />
+				<map:query src="data/sql/get_all_regions.xml" />
+				<map:query src="data/sql/get_all_region_data.xml" />
 				<map:xsl src="uplink/modules/regions/xsl/view_all_regions.xsl" />
 			</map:false>
 		</map:if>		
 	</map:gate>
 	
 	<!-- New region -->
-	<map:gate name="acc/link/rgn/new/" role="client" >
+	<map:gate name="ifp-rgn/new/" role="client" >
 		<map:if name="_post/submit">
 			<map:true>
 				<map:validate src="uplink/modules/regions/validators/valid_region.xml">
 					<map:valid>
-						<map:query src="uplink/modules/regions/qry/new_region.xml" />
-						<map:query src="uplink/modules/regions/qry/get_last_region_id.xml" />
-						<map:query src="uplink/modules/regions/qry/new_region_locations.xml" />
+						<map:query src="data/sql/new_region.xml" />
+						<map:query src="data/sql/get_last_region_id.xml" />
+						<map:query src="data/sql/new_region_locations.xml" />
 						<map:if name="_post/location_id">
 							<map:true>
-								<map:query src="uplink/modules/regions/qry/new_region_locations.xml" />
+								<map:query src="data/sql/new_region_locations.xml" />
 							</map:true>
 						</map:if>
-						<map:action type="redirect" params="/acc/link/rgn/" />
+						<map:action type="redirect" params="/ifp-rgn/" />
 					</map:valid>
 					<map:invalid>
-						<map:query src="uplink/modules/locations/qry/get_all_locations.xml" />
+						<map:query src="data/sql/get_all_locations.xml" />
 						<map:xsl src="uplink/modules/regions/xsl/new_region_form.xsl" />
 					</map:invalid>
 				</map:validate>
 			</map:true>
 			<map:false>
-                <map:query src="uplink/modules/locations/qry/get_all_locations.xml" />
+                <map:query src="data/sql/get_all_locations.xml" />
 				<map:xsl src="uplink/modules/regions/xsl/new_region_form.xsl" />
 			</map:false>
 		</map:if>
 	</map:gate>
 
 	<!-- Region view and edit -->
-	<map:gate name="acc/link/rgn/view/" role="client" >
+	<map:gate name="ifp-rgn/view/" role="client" >
 		<map:if name="_post/submit">
 			<map:true>
-				<map:query src="uplink/modules/regions/qry/del_regions.xml" />
-				<map:query src="uplink/modules/regions/qry/update_region.xml" />
-				<map:query src="uplink/modules/regions/qry/del_region_locations.xml" />
-				<map:query src="uplink/modules/regions/qry/update_region_locations.xml" />
-				<map:action type="redirect" params="/acc/link/rgn/" />
+				<map:query src="data/sql/del_regions.xml" />
+				<map:query src="data/sql/update_region.xml" />
+				<map:query src="data/sql/del_region_locations.xml" />
+				<map:query src="data/sql/update_region_locations.xml" />
+				<map:action type="redirect" params="/ifp-rgn/" />
 			</map:true>
 			<map:false>
-				<map:query src="uplink/modules/locations/qry/get_all_locations.xml" />
-				<map:query src="uplink/modules/regions/qry/get_region_name_g.xml" />
-				<map:query src="uplink/modules/regions/qry/get_region_data.xml" />
+				<map:query src="data/sql/get_all_locations.xml" />
+				<map:query src="data/sql/get_region_name_g.xml" />
+				<map:query src="data/sql/get_region_data.xml" />
 				<map:xsl src="uplink/modules/regions/xsl/view_region.xsl" />
 			</map:false>
 		</map:if>
 	</map:gate>
 	<!-- Delete Regions -->
-	<map:gate name="acc/link/rgn/del/multiple/" role="client">
-		<map:query src="uplink/modules/regions/qry/del_regions.xml" />
+	<map:gate name="ifp-rgn/del/multiple/" role="client">
+		<map:query src="data/sql/del_regions.xml" />
 	</map:gate>
 
 <!-- *************************************************  
@@ -571,17 +570,17 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
  *************************************************  -->
 	<!-- View all equipment -->
-	<map:gate name="acc/link/assets/" role="client" cache="86400">
+	<map:gate name="ifp-assets/" role="client" cache="86400">
 		<map:query src="uplink/modules/equipment/qry/get_all_equipment.xml"/>
 		<map:xsl src="uplink/modules/equipment/xsl/view_all_equipment.xsl"/>
 	</map:gate>
-	<map:gate name="acc/link/assets/q/" role="client" cache="86400">
+	<map:gate name="ifp-assets/q/" role="client" cache="86400">
 		<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
 		<map:query src="uplink/modules/equipment/qry/get_all_equipment.xml"/>
 		<map:xsl src="uplink/modules/equipment/xsl/view_all_equipment_q.xsl"/>
 	</map:gate>
 	<!-- New equipment form -->
-	<map:gate name="acc/link/assets/edit/" role="client">
+	<map:gate name="ifp-assets/edit/" role="client">
 		<map:if name="//_post/submit">
 			<map:true>
 				<map:switch name="//_post/type">
@@ -602,7 +601,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				</map:switch>
 			</map:true>
 		</map:if>
-		<map:query src="uplink/modules/locations/qry/get_location_summary.xml"/>
+		<map:query src="data/sql/get_location_summary.xml"/>
 		<map:query src="upsell/modules/lines_of_business/qry/get_lines_of_business.xml"/>
 		<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>
 		<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
@@ -620,7 +619,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</map:if>
 		<map:debug dump="trsue"/>
 	</map:gate>
-	<map:gate name="acc/link/assets/edit/submit/" role="client">
+	<map:gate name="ifp-assets/edit/submit/" role="client">
 	<map:if name="//_post/submit">
 		<map:true>
 			<map:switch name="//_post/type">
@@ -641,11 +640,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<map:default>
 				</map:default>
 			</map:switch>
-			<map:action type="redirect" params="/acc/link/assets/"/>
+			<map:action type="redirect" params="/ifp-assets/"/>
 		</map:true>
 	</map:if>
 	</map:gate>
-	<map:gate name="acc/link/assets/edit/submit2/" role="client">
+	<map:gate name="ifp-assets/edit/submit2/" role="client">
 		<map:if name="_post/submit">
 			<map:true>
 				<map:query src="uplink/modules/equipment/qry/delete_equipment.xml"/>
@@ -654,16 +653,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</map:if>
 	</map:gate>
 	<!-- Delete equipment -->
-	<map:gate name="acc/link/assets/delete/" role="client">
+	<map:gate name="ifp-assets/delete/" role="client">
 		<map:query src="uplink/modules/equipment/qry/get_equipment_by_id.xml"/>
 		<map:query src="uplink/modules/equipment/qry/delete_equipment.xml"/>
 		<map:query src="uplink/modules/equipment/qry/delete_equipment_location.xml"/>
 		<map:query src="uplink/modules/equipment/qry/delete_equipment_container.xml"/>
 		<map:query src="uplink/modules/equipment/qry/delete_location_equipment_position.xml" />
-		<map:action type="redirect" params="/acc/link/assets/"/>
+		<map:action type="redirect" params="/ifp-assets/"/>
 		<map:debug dump="trude"/>
 	</map:gate>
-	<map:gate name="acc/link/assets/delete2/" role="client">
+	<map:gate name="ifp-assets/delete2/" role="client">
 		<map:query src="uplink/modules/equipment/qry/get_equipment_by_id.xml"/>
 		<map:query src="uplink/modules/equipment/qry/delete_equipment.xml"/>
 		<map:query src="uplink/modules/equipment/qry/delete_equipment_location.xml"/>
@@ -672,11 +671,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>
 	
 	<!-- equipment Categories -->
-	<map:gate name="acc/link/depts/" role="client" cache="86400" >
+	<map:gate name="ifp-depts/" role="client" cache="86400" >
 		<map:query src="uplink/modules/equipment/qry/get_equipment_categories.xml" />
 		<map:xsl src="uplink/modules/equipment/xsl/view_equipment_categories.xsl" />
 	</map:gate>	
-	<map:gate name="acc/link/depts/edit/" role="client" >
+	<map:gate name="ifp-depts/edit/" role="client" >
 		<map:if name="_post/submit">
 			<map:true>
 				<map:if name="_post/equipment_category_id">
@@ -684,12 +683,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<map:true>
 						<map:query src="uplink/modules/equipment/qry/delete_equipment_category.xml" />
 						<map:query src="uplink/modules/equipment/qry/edit_equipment_category.xml" />
-						<map:action type="redirect" params="/acc/link/depts/"/>
+						<map:action type="redirect" params="/ifp-depts/"/>
 					</map:true>
 					<!-- Create a new category -->
 					<map:false>
 						<map:query src="uplink/modules/equipment/qry/add_equipment_category.xml" />
-						<map:action type="redirect" params="/acc/link/depts/"/>
+						<map:action type="redirect" params="/ifp-depts/"/>
 					</map:false>
 				</map:if>
 			</map:true>
@@ -704,19 +703,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</map:if>get
 	</map:gate>	
 	<!-- equipment Categories -->
-	<map:gate name="acc/link/depts/delete/" role="client" >
+	<map:gate name="ifp-depts/delete/" role="client" >
 		<map:query src="uplink/modules/equipment/qry/delete_equipment_category.xml" />
-		<map:action type="redirect" params="/acc/link/depts/"/>
+		<map:action type="redirect" params="/ifp-depts/"/>
 	</map:gate>	
 	
 	<!-- equipment Types -->
-	<map:gate name="acc/link/types/" role="client" >
+	<map:gate name="ifp-types/" role="client" >
 		<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml" />
 		<map:xsl src="uplink/modules/equipment/xsl/view_equipment_types.xsl" />
 		<map:debug dump="trsue"/>
 	</map:gate>	
 	<!-- View equipment type images -->
-	<map:gate name="acc/link/types/view/" role="client" >
+	<map:gate name="ifp-types/view/" role="client" >
 		<map:block name="type_images">
 		<map:query src="uplink/modules/equipment/qry/get_equipment_type_by_id.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_equipment_type_images.xml" />
@@ -726,13 +725,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 	<!-- ############################### -->
 	<!-- Add new equipment image -->
-	<map:gate name="acc/link/types/view/add/" role="client">
+	<map:gate name="ifp-types/view/add/" role="client">
 		<map:query src="uplink/modules/equipment/qry/get_equipment_type_by_id.xml" />
 		<map:script src="auth/php/flow_user_account_id.php"/>
 		<map:xsl src="uplink/modules/equipment/xsl/new_equipment_image.xsl" />
 	</map:gate>
     
-	<map:gate name="acc/link/types/view/add/submit/" role="client" >
+	<map:gate name="ifp-types/view/add/submit/" role="client" >
 		<map:if name="_post/submit">
 			<map:true>
 				<map:script src="auth/php/flow_user_account_id.php"/>
@@ -745,18 +744,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</map:false>
 		</map:if>
 	</map:gate>
-	<map:gate name="acc/link/types/view/delete/" role="client" >
+	<map:gate name="ifp-types/view/delete/" role="client" >
 		<map:query src="uplink/modules/equipment/qry/delete_equipment_type_image.xml"/>
-		<map:action type="redirect" params="/acc/link/types/"/>
+		<map:action type="redirect" params="/ifp-types/"/>
 	</map:gate>
 
 	<!-- Add new plan symbol -->
-	<map:gate name="acc/link/types/view/sp/add/" role="client" cache="86400">
+	<map:gate name="ifp-types/view/sp/add/" role="client" cache="86400">
 		<map:script src="auth/php/flow_user_account_id.php"/>
 		<map:query src="uplink/modules/equipment/qry/get_equipment_type_by_id.xml" />
 		<map:xsl src="uplink/modules/equipment/xsl/new_equipment_type_symbol.xsl" />
 	</map:gate>
-	<map:gate name="acc/link/types/view/sp/add/submit/" role="client" >
+	<map:gate name="ifp-types/view/sp/add/submit/" role="client" >
 		<map:script src="auth/php/flow_user_account_id.php"/>
 		<map:if name="_post/submit">
 			<map:true>
@@ -770,7 +769,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<map:action type="upload" params="file,//_post/dest"/>
 						<map:script src="uplink/modules/equipment/php/symbol_processor.php"/>
 						<map:query src="uplink/modules/equipment/qry/add_equipment_type_symbol.xml"/>
-						<map:action type="redirect" params="/acc/link/types/"/>
+						<map:action type="redirect" params="/ifp-types/"/>
 					</map:valid>
 					<map:invalid>
 						<map:xsl src="uplink/modules/equipment/xsl/new_equipment_type_symbol.xsl" />
@@ -783,18 +782,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</map:if>
 	</map:gate>
 	<!-- Delete symbol -->
-	<map:gate name="acc/link/types/view/sp/delete/" role="client" >
+	<map:gate name="ifp-types/view/sp/delete/" role="client" >
 		<map:query src="uplink/modules/equipment/qry/delete_equipment_type_symbol.xml"/>
-		<map:action type="redirect" params="/acc/link/types/"/>
+		<map:action type="redirect" params="/ifp-types/"/>
 	</map:gate>
 	
 	<!-- View equipment type symbols -->
-	<map:gate name="acc/link/types/view/sp/" role="client" cache="86400">
+	<map:gate name="ifp-types/view/sp/" role="client" cache="86400">
 		<map:query src="uplink/modules/equipment/qry/get_equipment_type_by_id.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_equipment_type_symbols.xml" />
 		<map:xsl src="uplink/modules/equipment/xsl/view_equipment_type_symbols.xsl" />
 	</map:gate>	
-	<map:gate name="acc/link/types/edit/" role="client" >
+	<map:gate name="ifp-types/edit/" role="client" >
 		<map:if name="_post/submit">
 			<map:true>
 				<map:if name="_post/equipment_type_id">
@@ -806,7 +805,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<map:query src="uplink/modules/equipment/qry/add_equipment_type.xml" />
 					</map:false>
 				</map:if>
-				<map:action type="redirect" params="/acc/link/types/"/>
+				<map:action type="redirect" params="/ifp-types/"/>
 			</map:true>
 			<map:false>
 				<map:if name="_get/equipment_type_id">
@@ -820,13 +819,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</map:if>
 	</map:gate>		
 	<!-- Delete equipment Types -->
-	<map:gate name="acc/link/types/delete/" role="client" >
+	<map:gate name="ifp-types/delete/" role="client" >
 		<map:query src="uplink/modules/equipment/qry/delete_equipment_type.xml" />
-		<map:action type="redirect" params="/acc/link/types/"/>
+		<map:action type="redirect" params="/ifp-types/"/>
 	</map:gate>	
 	
 	<!-- CONFIGURE EQUIPMENT CONTAINERS -->
-	<map:gate name="acc/link/types/containers/" cache="86400">
+	<map:gate name="ifp-types/containers/" cache="86400">
 		<map:query src="uplink/modules/equipment/qry/get_equipment_type_by_id.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_eqp_containers_by_type_id.xml" />
 		<map:query src="uplink/modules/containers/qry/get_container_types.xml" />
@@ -834,17 +833,17 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:xsl src="uplink/modules/equipment/xsl/view_equipment_containers.xsl" />
 	</map:gate>
 	<!-- ADD EQUIPMENT CONTAINERS -->
-	<map:gate name="acc/link/types/containers/add/" cache="86400">
+	<map:gate name="ifp-types/containers/add/" cache="86400">
 		<map:query src="uplink/modules/containers/qry/add_equipment_containers.xml" />
-		<map:action type="redirect" params="/acc/link/types/"/>
+		<map:action type="redirect" params="/ifp-types/"/>
 	</map:gate>	
 	<!-- DELETE EQUIPMENT CONTAINERS -->
-	<map:gate name="acc/link/types/containers/delete/">
+	<map:gate name="ifp-types/containers/delete/">
 		<map:query src="uplink/modules/containers/qry/del_equipment_containers.xml" />
-		<map:action type="redirect" params="/acc/link/types/"/>
+		<map:action type="redirect" params="/ifp-types/"/>
 	</map:gate>	
 	<!-- CONTAINER EDIT MENU --> 
-	<map:gate name="acc/link/types/containers/code/" cache="86400">
+	<map:gate name="ifp-types/containers/code/" cache="86400">
 		<map:if name="//_post">
 			<map:true>
 				<map:query src="uplink/modules/containers/qry/edit_equipment_type_containers.xml"/>
@@ -863,13 +862,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	
 	
 	<!-- LIST CONTAINERS -->
-	<map:gate name="acc/link/containers/"  cache="86400">
+	<map:gate name="ifp-containers/"  cache="86400">
 		<map:query src="uplink/modules/containers/qry/get_container_types.xml" />
 		<map:xsl src="uplink/modules/containers/xsl/view_container_types.xsl" />
 	</map:gate>
 	
 	<!-- ADD CONTAINER -->
-<map:gate name="acc/link/containers/edit/" role="uplink"  cache="86400">
+<map:gate name="ifp-containers/edit/" role="uplink"  cache="86400">
 	<map:if name="_get/container_id">
 		<map:true>
 			<map:query src="uplink/modules/containers/qry/get_container_type_by_id.xml"/>
@@ -881,7 +880,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:if>
 </map:gate>
 	
-<map:gate name="acc/link/containers/edit/submit/" role="uplink">
+<map:gate name="ifp-containers/edit/submit/" role="uplink">
 	<map:switch name="_post/type">
 		<map:case value="new">
 			<map:query src="uplink/modules/containers/qry/new_container_type.xml"/>
@@ -894,18 +893,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<map:query src="uplink/modules/containers/qry/new_container_type.xml"/>
 		</map:default>
 	</map:switch>
-	<map:action type="redirect" params="/acc/link/containers/"/>
+	<map:action type="redirect" params="/ifp-containers/"/>
 	<map:debug dump="truse"/>
 </map:gate>
 
 <!-- DELETE CONTAINER TYPE-->
-<map:gate name="acc/link/containers/delete/" role="uplink">
+<map:gate name="ifp-containers/delete/" role="uplink">
 	<map:query src="uplink/modules/containers/qry/del_container_type.xml"/>
-	<map:action type="redirect" params="/acc/link/containers/"/>
+	<map:action type="redirect" params="/ifp-containers/"/>
 </map:gate>
 
 <!-- Symbol and Image servers -->
-	<map:gate name="acc/link/types/display_config/" role="client">		
+	<map:gate name="ifp-types/display_config/" role="client">		
 		<map:query src="upsell/modules/lines_of_business/qry/get_lines_of_business.xml"/>
 		<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>
 		<map:query src="uplink/modules/equipment/qry/get_equipment_by_id_p.xml"/>
@@ -914,24 +913,24 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>
 
 	
-	<map:gate name="acc/link/types/symbol_server/" role="client" >
+	<map:gate name="ifp-types/symbol_server/" role="client" >
 		<map:query src="uplink/modules/equipment/qry/get_symbol_pointer_by_id.xml" />
 		<map:script src="uplink/modules/equipment/php/show_symbol.php" />
 	</map:gate>
 	
 	<!-- FLASH SERVER!!!! -->
-	<map:gate name="acc/link/types/containers/position_server/">
+	<map:gate name="ifp-types/containers/position_server/">
 		<map:query src="uplink/modules/equipment/qry/get_eqp_containers_by_type_id.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_image_pointer_by_id.xml" />
 		<map:script src="uplink/modules/containers/php/display_position_containers.php" />
 	</map:gate>
 	<!-- CONTAINER POSITIONER -->
-	<map:gate name="acc/link/containers/position/" role="client" cache="86400">
+	<map:gate name="ifp-containers/position/" role="client" cache="86400">
 		<map:query src="uplink/modules/containers/qry/pos_equipment_container.xml" />
 	</map:gate>
 	
 	<!-- CONTENT DISPLAYER ON MERCHANDISING -->
-	<map:gate name="acc/link/content/position_server/" role="client">
+	<map:gate name="ifp-content/position_server/" role="client">
 		<map:query src="uplink/modules/equipment/qry/get_eqp_containers_by_type_id.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_image_pointer_by_id.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_equipment_content.xml" />
@@ -939,7 +938,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:script src="uplink/modules/equipment/php/display_equipment_setup.php" />
 	</map:gate>	
 	<!-- CONTENT DISPLAYER ON MERCHANDISING -->
-	<map:gate name="acc/link/content/position2/" role="client" cache="86400">
+	<map:gate name="ifp-content/position2/" role="client" cache="86400">
 		<map:query src="uplink/modules/equipment/qry/get_eqp_containers_by_type_id.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_image_pointer_by_id.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_equipment_content.xml" />
@@ -949,16 +948,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>
 	
 	<!-- MING SPACE PLAN SERVER -->
-	<map:gate name="acc/link/types/containers/nu_sp_server/" role="client">
-		<map:query src="uplink/modules/locations/qry/get_sp_pointer_by_id.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_space_plan_assets.xml" />
+	<map:gate name="ifp-types/containers/nu_sp_server/" role="client">
+		<map:query src="data/sql/get_sp_pointer_by_id.xml" />
+		<map:query src="data/sql/get_location_space_plan_assets.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_account_symbol_pointers.xml" />
 		<map:script src="uplink/modules/locations/php/floorplan_generator.php" />
 	</map:gate>	
 	<!-- MING SPACE PLAN SERVER what is this 12-15-06?-->
-	<map:gate name="acc/link/types/containers/nu_sp_server2/" role="client" cache="86400">
-		<map:query src="uplink/modules/locations/qry/get_sp_pointer_by_id.xml" />
-		<map:query src="uplink/modules/locations/qry/get_location_space_plan_assets.xml" />
+	<map:gate name="ifp-types/containers/nu_sp_server2/" role="client" cache="86400">
+		<map:query src="data/sql/get_sp_pointer_by_id.xml" />
+		<map:query src="data/sql/get_location_space_plan_assets.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_account_symbol_pointers.xml" />
 		<map:debug dump="true"/>
 <!--
