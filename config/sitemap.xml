@@ -497,7 +497,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<map:gate name="ifp-region-edit" role="client" >
 		<map:if name="_post/submit">
 			<map:true>
-				<xsl:query src="data/sql/region_create.xml"/>
+				<map:query src="data/sql/region_create.xml"/>
+                <map:action type="redirect" params="{//link_prefix}ifp-regions"/>
             </map:true>
 			<map:false>
                 <map:query src="data/sql/locations_get_all.xml" />

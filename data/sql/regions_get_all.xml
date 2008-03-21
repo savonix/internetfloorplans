@@ -25,11 +25,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="regions_get_all">
     <connection>uplink</connection>
     <params>
-        <param name="//runtime/gmtime" type="text"/>
 	</params>
     <sql>
-        SELECT * FROM &ifp_regions; WHERE 
-        deletion_datetime &gt; ? 
-		ORDER BY region_name
+        SELECT * FROM &ifp_regions;
     </sql>
 </query>

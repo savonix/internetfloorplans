@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: regions_view_all.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -24,46 +24,40 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
-	<form action="{self}" method="post">
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<form method="post">
+	<table>
 		<tr>
-			<td align="left">
-				<img src="/resources/img/world.png" /> 
-			</td>
-		</tr>
-	</table>
-	<table border='0' cellspacing='1' cellpadding='' bgcolor="#BBBBBB" width='100%'>
-		<tr>
-			<td bgcolor="#EEEEEE" width="10"><!--<input type="checkbox"></input>--></td>
-			<td bgcolor='#EEEEEE' width="150">
-				<font class="two">Region Name</font></td>
-			<td bgcolor='#EEEEEE' width="100">
-				<font class="two">Type</font></td>
-			<td bgcolor="#EEEEEE"><font class="two">Locations</font></td></tr>
+			<td><!--<input type="checkbox"></input>--></td>
+			<td>
+				Region Name</td>
+			<td>
+				Type</td>
+			<td>Locations</td></tr>
 		<!-- Regions-->
-		<xsl:for-each select="//get_all_regions">
+		<xsl:for-each select="//regions_get_all">
 			<xsl:sort select="region_name"/>
 			<xsl:variable name="current_region_id"><xsl:value-of select="region_id"/></xsl:variable>
 			<tr>
-				<td bgcolor="white" width="10"><input type="checkbox" name="region_id[]"><xsl:attribute name="value"><xsl:value-of select="region_id"/></xsl:attribute></input></td>
-				<td bgcolor='white' class="basic-table-cell">
-					<font class="one"><a href="/acc/link/rgn/view/&amp;region_id={region_id}"  class="basic-table-cell">
-					<xsl:value-of select="region_name"/></a></font>
+				<td><input type="checkbox" name="region_id[]"><xsl:attribute name="value"><xsl:value-of select="region_id"/></xsl:attribute></input></td>
+				<td class="basic-table-cell">
+					<a href="/acc/link/rgn/view/&amp;region_id={region_id}"  class="basic-table-cell">
+					<xsl:value-of select="region_name"/></a>
 				</td>
-				<td bgcolor='#FFFFFF' width="100">
-				<font class="one">Geographic</font></td>
-				<td bgcolor='white' class="basic-table"><font class="one">
+				<td>
+				Geographic</td>
+				<td class="basic-table">
 					<xsl:for-each select="//get_all_region_data">
 						<xsl:if test="$current_region_id=region_id">
-								<font class="one">&#160;&#160;<xsl:value-of select="name"/><xsl:text> </xsl:text>&#160;&#160;&#160;&#160;</font>
+								<xsl:value-of select="name"/><xsl:text> </xsl:text>
 						</xsl:if>
 					</xsl:for-each>
-				</font></td></tr>					
+				</td></tr>					
 			</xsl:for-each>
 			<tr><td colspan="5" bgcolor="#FFFFFF">
 				<table cellpadding="5">
 					<tr>
-						<td><input type="submit" value="Delete" name="submit" onclick="return confirm('Are you sure you want to delete these regions?')" /></td>
+						<td><input type="submit" value="Delete" name="submit" 
+                        onclick="return confirm('Are you sure you want to delete these regions?')" /></td>
 					</tr>
 				</table>						
 			</td>
