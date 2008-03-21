@@ -103,12 +103,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<xsl:if test="(status_id=1) or (not(status_id))"><img src="/resources/img/style-1.1/images/icon_success_sml.gif" alt="Compliant"/></xsl:if>
 			</td>
 			<td  width='110'><!--<xsl:value-of select="status_id"/> - <xsl:value-of select="equipment_id"/> -->
-			
-			<xsl:if test="status_id=0"><a><xsl:attribute name="href">/acc/link/loc/view/sp/&amp;location_address_id=<xsl:value-of select="location_address_id"/><xsl:if test="//_get/body='true'">&amp;body=true</xsl:if></xsl:attribute><xsl:value-of select="name"/></a></xsl:if>
-			
-			<xsl:if test="not(status_id)"><a><xsl:attribute name="href">/acc/link/loc/view/sp/&amp;location_address_id=<xsl:value-of select="location_address_id"/><xsl:if test="//_get/body='true'">&amp;body=true</xsl:if></xsl:attribute><xsl:value-of select="name"/></a></xsl:if>		
-			
-			<xsl:if test="(status_id!=0)"><a href="/acc/link/loc/view/sp/&amp;location_address_id={location_address_id}"><xsl:value-of select="name"/></a></xsl:if>
+            <a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}"><xsl:value-of select="name"/></a>
 			
 			</td>
 			

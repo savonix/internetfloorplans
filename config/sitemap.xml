@@ -224,8 +224,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 	<!-- ############################### -->
 	<!-- View location image library -->
-	<map:gate name="ifp-loc/view/" role="client" >
-		<map:script src="auth/php/flow_user_account_id.php"/>
+	<map:gate name="ifp-location-view" role="client" >
+        <!--
 		<map:if name="_post/submit">
 			<map:true>
 				<map:validate src="uplink/modules/locations/validators/image_validator.xml">
@@ -262,9 +262,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<map:false>
 				<map:query src="data/sql/get_location_summary.xml" />
 				<map:query src="data/sql/get_location_images.xml" />
-				<map:xsl src="templates/xsl/view_location.xsl" />
+				<map:xsl src="templates/xsl/location_view.xsl" />
 			</map:false>
 		</map:if>
+        -->
+        <map:xsl src="templates/xsl/location_view.xsl" />
 	</map:gate>
 	<!-- WHAT IS THIS? -->
 	<map:gate name="ifp-loc/view/img/" role="client">
