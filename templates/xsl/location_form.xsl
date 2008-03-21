@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_form.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -24,12 +24,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
-	<xsl:if test="//nid='acc/link/loc/edit/'">
-	<form action="{self}" method="post">
+	<form method="post">
 	<input type="hidden" name="location_address_id" value="{//_get/location_address_id}"/>
 		<xsl:call-template name="form"/>
 	</form>
-	</xsl:if>
+    
 	<xsl:if test="contains(//nid,'acc/link/loc/new/')">
 	<form action="/acc/link/loc/new/submit/" method="post">
 		<xsl:call-template name="form"/>
