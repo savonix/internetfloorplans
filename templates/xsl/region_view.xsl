@@ -24,15 +24,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
-	<form action="{self}" method="post">
+	<form method="post">
 	<input type="hidden" name="region_id"><xsl:attribute name="value"><xsl:value-of select="//_get/region_id"/></xsl:attribute></input>
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/world.png" /> 
-			</td>
-		</tr>
-	</table>
 	<table border='0' cellspacing='1' cellpadding='0' >
 	<tr><td >
 		<table width="600">
