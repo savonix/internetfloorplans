@@ -47,9 +47,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<map:gate name="ifp-index">
 		<map:xsl src="templates/xsl/welcome.xsl" />
 	</map:gate>	
-	<map:gate name="ifp-loc" role="uplink_regional_manager" >
-	<map:script src="_shared/php/listing_init.php"/>
-		<map:query src="data/sql/get_all_regions.xml" />
+	<map:gate name="ifp-locations">
+        <!--
+		<map:query src="data/sql/regions_get_all.xml" />
 		<map:if name="//my_region_id">
 			<map:true>
 				<map:switch name="//my_region_id">
@@ -68,42 +68,42 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<map:query src="data/sql/get_gt_locations.xml" />
 			</map:false>
 		</map:if>
-		<map:xsl src="uplink/modules/locations/xsl/view_locations.xsl" />
-		<map:debug dump="truse"/>
+        -->
+		<map:xsl src="templates/xsl/locations_view.xsl" />
 	</map:gate>
 	<map:gate name="ifp-loc-search" role="uplink_regional_manager">
 		<map:action type="like" params="//_post/q"/>
 		<map:query src="data/sql/search_locations.xml" />
-		<map:xsl src="uplink/modules/locations/xsl/view_locations.xsl" />
+		<map:xsl src="templates/xsl/view_locations.xsl" />
 	</map:gate>
 	
 	<!-- Email locations-->
 	<map:gate name="ifp-loc/email/" role="uplink_regional_manager">
-		<map:xsl src="uplink/modules/locations/xsl/email_locations.xsl"/>
+		<map:xsl src="templates/xsl/email_locations.xsl"/>
 	</map:gate>
 
-	<!-- LOCAL MANAGER -->	
+	<!-- LOCAL MANAGER
 	<map:gate name="ifp-my-loc" role="uplink_local_manager" >
 		<map:query src="data/sql/get_my_locations.xml" />
-		<map:xsl src="uplink/modules/locations/xsl/view_my_locations.xsl" />
+		<map:xsl src="templates/xsl/view_my_locations.xsl" />
 	</map:gate>
 	<map:gate name="ifp-my-loc-view" role="uplink_local_manager" >
 		<map:query src="data/sql/get_my_locations.xml" />
 		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="data/sql/get_location_images.xml" />
-		<map:xsl src="uplink/modules/locations/xsl/view_my_location.xsl" />
+		<map:xsl src="templates/xsl/view_my_location.xsl" />
 	</map:gate>
 	<map:gate name="ifp-my-loc-view-sp" role="uplink_local_manager" >
 		<map:query src="data/sql/get_my_locations.xml" />
 		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="data/sql/get_location_space_plans.xml" />
-		<map:xsl src="uplink/modules/locations/xsl/view_my_location_sp.xsl" />
+		<map:xsl src="templates/xsl/view_my_location_sp.xsl" />
 	</map:gate>
 
 	<map:gate name="ifp-my-loc-guidelines" role="uplink_local_manager" >
 		<map:query src="data/sql/get_my_locations.xml" />
 		<map:query src="data/sql/get_location_summary.xml" />
-		<map:xsl src="uplink/modules/locations/xsl/guidelines.xsl" />
+		<map:xsl src="templates/xsl/guidelines.xsl" />
 	</map:gate>
 	<map:gate name="ifp-my-loc-install" role="uplink_local_manager">
 		<map:xsl src="uplink/modules/equipment/xsl/install_equipment_content.xsl" />
@@ -112,13 +112,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:query src="uplink/modules/equipment/qry/install_equipment_content.xml" />
 		<map:action type="redirect" params="/ifp-my-loc-"/>
 	</map:gate>
-	<!-- Add new image -->
-	<map:gate name="ifp-my-loc-view-add" role="client" cache="86400">
+    
+	<map:gate name="ifp-my-loc-view-add">
 		<map:query src="data/sql/get_my_locations.xml" />
 		<map:query src="data/sql/get_location_summary.xml" />
-		
 		<map:script src="auth/php/flow_user_account_id.php"/>
-		<map:xsl src="uplink/modules/locations/xsl/my_new_location_image.xsl" />
+		<map:xsl src="templates/xsl/my_new_location_image.xsl" />
 	</map:gate>
 	<map:gate name="ifp-my-loc-view-add-submit" role="client" >
 		<map:script src="auth/php/flow_user_account_id.php"/>
@@ -147,21 +146,21 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<map:action type="redirect" params="/ifp-my-loc-"/>
 					</map:valid>
 					<map:invalid>
-						<map:xsl src="uplink/modules/locations/xsl/new_location_image.xsl" />
+						<map:xsl src="templates/xsl/new_location_image.xsl" />
 					</map:invalid>
 				</map:validate>
 			</map:true>
 			<map:false>
-				<map:xsl src="uplink/modules/locations/xsl/new_location_image.xsl" />
+				<map:xsl src="templates/xsl/new_location_image.xsl" />
 			</map:false>
 			
 		</map:if>
 	</map:gate>
+     -->
 	
 	<!-- New Location  -->
-	<map:gate name="ifp-loc-new" role="client" cache="86400">	
-		<map:query src="data/sql/get_all_regions.xml" />
-		<map:xsl src="uplink/modules/locations/xsl/edit_location_form.xsl" />
+	<map:gate name="ifp-location-create">	
+		<map:xsl src="templates/xsl/edit_location_form.xsl" />
 	</map:gate>
 	<map:gate name="ifp-loc-new-submit" role="client">
 		<map:if name="_post/submit">
@@ -177,19 +176,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							</map:valid>
 							<map:invalid>
 								<map:query src="data/sql/get_all_regions.xml" />
-								<map:xsl src="uplink/modules/locations/xsl/edit_location_form.xsl" />
+								<map:xsl src="templates/xsl/edit_location_form.xsl" />
 							</map:invalid>
 						</map:validate>
 					</map:case>
 					<map:default>
 						<map:query src="data/sql/get_all_regions.xml" />
-						<map:xsl src="uplink/modules/locations/xsl/edit_location_form.xsl" />
+						<map:xsl src="templates/xsl/edit_location_form.xsl" />
 					</map:default>
 				</map:switch>
 			</map:true>
 			<map:false>
 				<map:query src="data/sql/get_all_regions.xml" />
-				<map:xsl src="uplink/modules/locations/xsl/edit_location_form.xsl" />
+				<map:xsl src="templates/xsl/edit_location_form.xsl" />
 			</map:false>
 		</map:if>
 	</map:gate>
@@ -229,7 +228,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							<map:query src="data/sql/get_all_regions.xml" />
 							<map:query src="data/sql/get_location_regions.xml" />
 							<map:query src="data/sql/get_location_summary.xml" />
-							<map:xsl src="uplink/modules/locations/xsl/edit_location_form.xsl" />
+							<map:xsl src="templates/xsl/edit_location_form.xsl" />
 						</map:invalid>
 					</map:validate>
 				</map:case>
@@ -241,7 +240,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<map:query src="data/sql/get_all_regions.xml" />
 			<map:query src="data/sql/get_location_regions.xml" />
 			<map:query src="data/sql/get_location_summary.xml" />
-			<map:xsl src="uplink/modules/locations/xsl/edit_location_form.xsl" />
+			<map:xsl src="templates/xsl/edit_location_form.xsl" />
 		</map:false>
 	</map:if>
 </map:gate>
@@ -274,31 +273,31 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</map:switch>
 						<map:query src="data/sql/get_location_summary.xml" />
 						<map:query src="data/sql/get_location_images.xml" />
-						<map:xsl src="uplink/modules/locations/xsl/view_location.xsl" />
+						<map:xsl src="templates/xsl/view_location.xsl" />
 					</map:valid>
 					<map:invalid>
 						<map:script src="auth/php/flow_user_account_id.php"/>
 						<map:query src="data/sql/get_location_summary.xml" />
-						<map:xsl src="uplink/modules/locations/xsl/new_location_image.xsl" />
+						<map:xsl src="templates/xsl/new_location_image.xsl" />
 					</map:invalid>
 				</map:validate>
 			</map:true>
 			<map:false>
 				<map:query src="data/sql/get_location_summary.xml" />
 				<map:query src="data/sql/get_location_images.xml" />
-				<map:xsl src="uplink/modules/locations/xsl/view_location.xsl" />
+				<map:xsl src="templates/xsl/view_location.xsl" />
 			</map:false>
 		</map:if>
 	</map:gate>
 	<!-- WHAT IS THIS? -->
 	<map:gate name="ifp-loc/view/img/" role="client">
-		<map:xsl src="uplink/modules/locations/xsl/view_image.xsl" />
+		<map:xsl src="templates/xsl/view_image.xsl" />
 	</map:gate>
 	<!-- Add new image -->
 	<map:gate name="ifp-loc/view/add/" role="client" cache="86400">
 		<map:script src="auth/php/flow_user_account_id.php"/>
 		<map:query src="data/sql/get_location_summary.xml" />
-		<map:xsl src="uplink/modules/locations/xsl/new_location_image.xsl" />
+		<map:xsl src="templates/xsl/new_location_image.xsl" />
 		
 	</map:gate>
 
@@ -347,7 +346,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
 			<map:query src="upsell/modules/lines_of_business/qry/get_lines_of_business.xml"/>
 			<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>
-			<map:xsl src="uplink/modules/locations/xsl/view_location_sp.xsl" />
+			<map:xsl src="templates/xsl/view_location_sp.xsl" />
 		</map:block>
 	</map:gate>
 	
@@ -386,7 +385,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<!-- have to get user's account for destination variable of form - BAD! -->
 				<map:script src="auth/php/flow_user_account_id.php"/>
 				<map:query src="data/sql/get_location_summary.xml" />
-				<map:xsl src="uplink/modules/locations/xsl/new_location_space_plan.xsl" />
+				<map:xsl src="templates/xsl/new_location_space_plan.xsl" />
 			</map:false>
 		</map:if>
 	</map:gate>
@@ -404,7 +403,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
 				<map:query src="upsell/modules/lines_of_business/qry/get_lines_of_business.xml"/>
 				<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>
-				<map:xsl src="uplink/modules/locations/xsl/view_location_sp.xsl" />
+				<map:xsl src="templates/xsl/view_location_sp.xsl" />
 	</map:gate>
 
 	<map:gate name="ifp-loc/view/sp/edit/submit/" role="client">	
@@ -415,21 +414,21 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
 		<map:query src="upsell/modules/lines_of_business/qry/get_lines_of_business.xml"/>
 		<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>
-		<map:xsl src="uplink/modules/locations/xsl/view_location_sp.xsl" />
+		<map:xsl src="templates/xsl/view_location_sp.xsl" />
 	</map:gate>
 	
 	<!-- View location employees -->
 	<map:gate name="ifp-loc/view/hr/" role="client" cache="86400">
 		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="data/sql/get_location_personnel.xml" />
-		<map:xsl src="uplink/modules/locations/xsl/view_location_personnel.xsl" />
+		<map:xsl src="templates/xsl/view_location_personnel.xsl" />
 	</map:gate>		
 	<!-- Remove user from location -->
 	<map:gate name="ifp-loc/view/hr/remove/" role="client" >
 		<map:query src="data/sql/del_location_personnel.xml" />
 		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="data/sql/get_location_personnel.xml" />
-		<map:xsl src="uplink/modules/locations/xsl/view_location_personnel.xsl" />
+		<map:xsl src="templates/xsl/view_location_personnel.xsl" />
 	</map:gate>	
 	<!-- View location hours of operation -->
 	<map:gate name="ifp-loc/view/hours/" role="client" >
@@ -444,7 +443,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:query src="data/sql/get_location_summary.xml" />
 		<map:script src="uplink/modules/locations/php/weekdays.php"/>
 		<map:query src="data/sql/get_location_hours.xml" />
-		<map:xsl src="uplink/modules/locations/xsl/view_location_hours.xsl" />
+		<map:xsl src="templates/xsl/view_location_hours.xsl" />
 		<map:debug dump="truse"/>
 	</map:gate>
 		<!-- Edit location hours of operation -->
@@ -452,7 +451,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:query src="data/sql/get_location_summary.xml" />
 		<!--<map:query src="data/sql/get_location_hours.xml" />-->
 		<map:script src="uplink/modules/locations/php/dayhours.php"/>
-		<map:xsl src="uplink/modules/locations/xsl/edit_location_hours.xsl" />
+		<map:xsl src="templates/xsl/edit_location_hours.xsl" />
 	</map:gate>
 
 	<!-- Delete location hours of operation -->
@@ -466,7 +465,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
 		<map:query src="data/sql/get_location_assets.xml"/>
-		<map:xsl src="uplink/modules/locations/xsl/view_location_equipment.xsl" />
+		<map:xsl src="templates/xsl/view_location_equipment.xsl" />
 	</map:gate>	
 		
 	<!-- View location equipment list -->
@@ -474,7 +473,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="uplink/modules/equipment/qry/get_equipment_types.xml"/>
 		<map:query src="data/sql/get_location_asset_details.xml"/>
-		<map:xsl src="uplink/modules/locations/xsl/view_location_equipment_list.xsl" />
+		<map:xsl src="templates/xsl/view_location_equipment_list.xsl" />
 	</map:gate>	
 	
 	<!-- Edit location equipment -->
@@ -496,7 +495,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!-- *************************************************  -->
 
-	<map:gate name="ifp-rgn/" role="client" cache="86400">
+	<map:gate name="ifp-regions">
 		<map:switch name="_post/submit">
 			<map:case value="Delete">
 				<map:query src="data/sql/del_regions.xml" />
@@ -513,7 +512,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<map:query src="data/sql/get_all_region_data.xml" />
 				<map:xsl src="uplink/modules/regions/xsl/view_all_regions.xsl" />
 			</map:false>
-		</map:if>		
+		</map:if>
 	</map:gate>
 	
 	<!-- New region -->
@@ -580,7 +579,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
  *************************************************  -->
 	<!-- View all equipment -->
-	<map:gate name="ifp-assets/" role="client" cache="86400">
+	<map:gate name="ifp-equipment" role="client" cache="86400">
 		<map:query src="uplink/modules/equipment/qry/get_all_equipment.xml"/>
 		<map:xsl src="uplink/modules/equipment/xsl/view_all_equipment.xsl"/>
 	</map:gate>

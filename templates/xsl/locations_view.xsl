@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: locations_view.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -23,7 +23,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
-<xsl:import href="../../../../_shared/xsl/previous_next.xsl"/>
 <xsl:template name="content">
 
 <script language="JavaScript" src="/resources/js/checkbox.js"> &#160; </script>
@@ -89,7 +88,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		
 		<xsl:if test="(count(//get_all_locations) = //incr) or (//_get/start!=0)">
 			<tr><td align="left" bgcolor="#FFFFFF" colspan="7">
-			<xsl:call-template name="previous_next"/>	
 			</td></tr>
 			
 		</xsl:if>

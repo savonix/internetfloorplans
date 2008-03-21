@@ -28,6 +28,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <key>index</key>
         <value>Welcome</value>
     </label>
+    <label>
+        <key>locations</key>
+        <value>Locations</value>
+    </label>
+    <label>
+        <key>regions</key>
+        <value>Regions</value>
+    </label>
+    <label>
+        <key>equipment</key>
+        <value>Equipment</value>
+    </label>
 
 	<!-- GENERAL -->
     <label>

@@ -26,4 +26,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <key>index</key>
         <url>ifp-index</url>
     </item>
+	<item>
+        <key>locations</key>
+        <url>ifp-locations</url>
+    </item>
+	<item>
+        <key>regions</key>
+        <url>ifp-regions</url>
+    </item>
+	<item>
+        <key>equipment</key>
+        <url>ifp-equipment</url>
+    </item>
 </menu>
