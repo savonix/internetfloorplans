@@ -33,7 +33,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</td>
 			<form action="/acc/link/loc/" method="post" name="form0">
 			<td align="left">
-				<font class="two">Region:</font>
+				Region:
 				<select name="my_region_id" onChange="document.form0.submit();">
 					<option value="all">All</option>	
 					<xsl:for-each select="//get_all_regions">
@@ -57,21 +57,21 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<form action="/acc/link/loc/email/" method="post" name="myform">
 	<table border='0' cellspacing='1' cellpadding='0' bgcolor="#BBBBBB" width='100%'>
 		<tr>	
-			<td bgcolor='#EEEEEE' width="20"><font class="two">Status</font></td>
-			<td bgcolor='#EEEEEE' width='110'><font class="two"><a>
-			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.name<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.name')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.name')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Branch Name</a></font></td>
+			<td width="20">Status</td>
+			<td width='110'><a>
+			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.name<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.name')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.name')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Branch Name</a></td>
 			
-			<td bgcolor='#EEEEEE' width='140'><font class="two"><a>
-			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.address_line_1<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.address_line_1')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.address_line_1')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Address</a></font></td>
+			<td width='140'><a>
+			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.address_line_1<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.address_line_1')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.address_line_1')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Address</a></td>
 			
-			<td bgcolor='#EEEEEE' width='82'><font class="two"><a>
-			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.city<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.city')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.city')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>City</a></font></td>
+			<td width='82'><a>
+			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.city<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.city')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.city')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>City</a></td>
 			
-			<td bgcolor='#EEEEEE' width='72'><font class="two"><a>
-			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.phone<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.phone')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.phone')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Phone</a></font></td>
+			<td width='72'><a>
+			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.phone<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.phone')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.phone')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Phone</a></td>
 			<!--
-			<td bgcolor='#EEEEEE'><font class="two"><a>
-			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.manager<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.manager')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.manager')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Contact</a></font></td>-->
+			<td><a>
+			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.manager<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.manager')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.manager')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Contact</a></td>-->
 			<td bgcolor="#EEEEEE" width="5">
 			
 			<input type="checkbox" value="all" title="Select All"><xsl:attribute name="onClick"><xsl:text>if(this.checked){ this.title='Deselect All'; checkAll(document.myform.locations);} else {uncheckAll(document.myform.locations); this.title='Select All';}</xsl:text>
@@ -102,21 +102,21 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<xsl:if test="(status_id=0)"><img src="/resources/img/style-1.1/images/icon_error_sml.gif" alt="Non-compliant"/></xsl:if>
 				<xsl:if test="(status_id=1) or (not(status_id))"><img src="/resources/img/style-1.1/images/icon_success_sml.gif" alt="Compliant"/></xsl:if>
 			</td>
-			<td  width='110'><font class="one"><!--<xsl:value-of select="status_id"/> - <xsl:value-of select="equipment_id"/> -->
+			<td  width='110'><!--<xsl:value-of select="status_id"/> - <xsl:value-of select="equipment_id"/> -->
 			
-			<xsl:if test="status_id=0"><a><xsl:attribute name="href">/acc/link/loc/view/sp/&amp;location_address_id=<xsl:value-of select="location_address_id"/><xsl:if test="//_get/body='true'">&amp;body=true</xsl:if></xsl:attribute><font color="red"><font class="one"><xsl:value-of select="name"/></font></font></a></xsl:if>
+			<xsl:if test="status_id=0"><a><xsl:attribute name="href">/acc/link/loc/view/sp/&amp;location_address_id=<xsl:value-of select="location_address_id"/><xsl:if test="//_get/body='true'">&amp;body=true</xsl:if></xsl:attribute><xsl:value-of select="name"/></a></xsl:if>
 			
 			<xsl:if test="not(status_id)"><a><xsl:attribute name="href">/acc/link/loc/view/sp/&amp;location_address_id=<xsl:value-of select="location_address_id"/><xsl:if test="//_get/body='true'">&amp;body=true</xsl:if></xsl:attribute><xsl:value-of select="name"/></a></xsl:if>		
 			
 			<xsl:if test="(status_id!=0)"><a href="/acc/link/loc/view/sp/&amp;location_address_id={location_address_id}"><xsl:value-of select="name"/></a></xsl:if>
 			
-			</font></td>
+			</td>
 			
-			<td  width='120'><font ><xsl:value-of select="address_line_1"/></font></td>
-			<td  width='140'><font class="one"><xsl:value-of select="city"/></font></td>
-			<td  width='92'><font class="one"><xsl:value-of select="phone"/></font></td>
-			<!--<td ><font class="one">
-			<a><xsl:attribute name="href">mailto:<xsl:value-of select="email"/></xsl:attribute><xsl:value-of select="first_name"/>&#160;<xsl:value-of select="last_name"/></a></font></td>-->
+			<td  width='120'><xsl:value-of select="address_line_1"/></td>
+			<td  width='140'><xsl:value-of select="city"/></td>
+			<td  width='92'><xsl:value-of select="phone"/></td>
+			<!--<td >
+			<a><xsl:attribute name="href">mailto:<xsl:value-of select="email"/></xsl:attribute><xsl:value-of select="first_name"/>&#160;<xsl:value-of select="last_name"/></a></td>-->
 			<td width="5"><input type="checkbox" id="locations" name="location_address_id[]" onclick=""/></td>
 		</tr>	
 </xsl:template>
