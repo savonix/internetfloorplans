@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_form.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="main.xsl"/>
 
 <xsl:template name="content">
-	<form action="/acc/link/assets/edit/submit/" method="post">
+	<form method="post">
 	<input type="hidden" value="1" name="quantity"/>
 	<xsl:if test="//_get/equipment_id">
 		<input type="hidden" name="asset_type_id" value="{//get_asset_by_id/equipment_type_id}"/>
@@ -101,11 +101,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</select></td>
 			</xsl:if>
 		</tr>
-		<!-- Wait for Upsell
-		<tr>
-			<td >Quantity:</td>
-			<td ><input type="text" size="5"/></td>
-		</tr>-->
 		<xsl:for-each select="//get_container_by_type_id">
 		<tr>
 			<td >Container:</td>
@@ -147,7 +142,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<table>
 					<tr>
 						<td><input type="submit" value="Submit" name="submit" /></td>
-						<td><INPUT TYPE="BUTTON" VALUE="Cancel" ONCLICK="window.location.href='/acc/link/assets/'"/></td>
+						<td><input type="button" value="Cancel" onclick="window.location.href={//link_prefix}ifp-equipment'"/></td>
 					</tr>
 				</table>
 			</td>
