@@ -38,13 +38,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
 <xsl:template name="form">
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/location.png" /> 
-			</td>
-		</tr>
-	</table>
 	<table border='0' cellspacing='1' cellpadding='0' >
 	<tr><td >
 		<table width="600">
@@ -57,7 +50,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </tr>
 </xsl:if>
 <tr>	
-	<td width="150">Name:*</td>
+	<td>Name:*</td>
 	<td><input type='text' name='location_name' value="{//get_location_summary/name|//_post/location_name}" /></td>
 </tr>
 <tr>
@@ -100,8 +93,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </tr>	
 <tr>
 				<td colspan="2" align="center"><br />
-			<table><tr><td><input type="submit" value="Submit" name="submit" /></td><td>
-			<INPUT TYPE="BUTTON" VALUE="Cancel" ONCLICK="window.location.href='/acc/link/loc/'"/></td></tr></table></td></tr></table>		
+			
+            <input type="submit" value="Submit" name="submit" />
+			<input type="button" value="Cancel" onclick="window.location.href='/acc/link/loc/'"/>
+            </td></tr></table>		
 	</td></tr>
 	</table>
 </xsl:template>

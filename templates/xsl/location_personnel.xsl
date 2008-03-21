@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_personnel.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -26,14 +26,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="location_summary.xsl"/>
 <xsl:import href="location_menu.xsl"/>
 <xsl:template name="content">
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/location.png" /> 
-			</td>
-			<xsl:call-template name="location_menu" />
-		</tr>
-	</table>
+    <xsl:call-template name="location_menu" />
 	<table >
 	<xsl:call-template name="location_summary" />
 	<tr>
