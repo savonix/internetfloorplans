@@ -24,7 +24,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		
 		<tr>
 			<td align="left">
@@ -45,7 +45,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</form>-->
 		</tr>
 	</table>
-	<table border='0' cellspacing='1' cellpadding='' bgcolor="#BBBBBB" width='100%'>
+	<table border='0' cellspacing='1' cellpadding=''  width='100%'>
 		<tr>
 			<!--<td bgcolor='#EEEEEE' width="20"><input type="checkbox" /></td>-->
 			<td bgcolor='#EEEEEE' width='110' class="basic-table-cell"><font class="two">Branch Name</font></td>

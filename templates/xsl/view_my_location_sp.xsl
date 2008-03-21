@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:import href="location_summary.xsl"/>
 <xsl:import href="location_menu.xsl"/>
 <xsl:template name="content">
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/location.png" /> 
@@ -35,13 +35,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	<xsl:if test="//get_all_locations/location_address_id=//_get/location_address_id">
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" bgcolor="#AAAAAA">
+	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
 	<xsl:call-template name="location_summary" />
-	<tr><td colspan="4" bgcolor="#FFFFFF">
-			<table border='0' cellspacing='0' cellpadding='10' bgcolor="#CCCCCC">
+	<tr><td colspan="4" >
+			<table border='0' cellspacing='0' cellpadding='10' >
 			<tr>
-				<td align="left" bgcolor="#FFFFFF" valign="top">
-					<table border="0" cellspacing="1" cellpadding="2" bgcolor="#DDDDDD">
+				<td align="left"  valign="top">
+					<table border="0" cellspacing="1" cellpadding="2" >
 						<tr>
 							<td valign="top">
 								<font class="one"><b>Space Plans</b></font>
@@ -49,7 +49,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</tr>
 						<xsl:for-each select="//get_location_space_plans" >
 						<tr>
-							<td bgcolor="#FFFFFF">
+							<td >
 								<font class="one">
 									<a>
 										<xsl:attribute name="href">&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/>&amp;location_space_plan_id=<xsl:value-of select="location_space_plan_id"/></xsl:attribute>
@@ -61,24 +61,24 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</table>
 					<br/>
 					<xsl:if test="//user_roles='uplink_regional_manager'">
-					<table border="0" cellspacing="1" cellpadding="2" bgcolor="#DDDDDD" width="100%">
+					<table border="0" cellspacing="1" cellpadding="2"  width="100%">
 						<tr>
 							<td valign="top">
 								<font class="one"><b>Options</b></font>
 							</td>
 						</tr>
 						<tr>
-							<td valign="top" bgcolor="#FFFFFFF">
+							<td valign="top" >
 								<font class="one"><a><xsl:attribute name="href">add/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/></xsl:attribute>Add New Plan</a></font>
 							</td>
 						</tr>
 						<tr>
-							<td valign="top" bgcolor="#FFFFFFF">
+							<td valign="top" >
 								<font class="one"><a><xsl:attribute name="href">delete/&amp;location_space_plan_id=<xsl:if test="//_get/location_space_plan_id"><xsl:value-of select="//_get/location_space_plan_id"/></xsl:if><xsl:if test="not(//_get/location_space_plan_id)"><xsl:for-each select="//get_location_space_plans"><xsl:if test="default_space_plan=1"><xsl:value-of select="location_space_plan_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Plan</a></font>
 							</td>
 						</tr>
 						<tr>
-							<td valign="top" bgcolor="#FFFFFF">
+							<td valign="top" >
 								<img src="/resources/img/sem4inc/merch_key.jpg" alt="Merchandising Key"/>
 							
 							</td>
@@ -86,8 +86,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</table>
 					</xsl:if>
 				</td>
-				<td bgcolor="#FFFFFF" align="left" valign="top">
-					<table border="0" cellspacing="1" cellpadding="5" bgcolor="#DDDDDD">
+				<td  align="left" valign="top">
+					<table border="0" cellspacing="1" cellpadding="5" >
 						<tr>
 							<td bgcolor="white">
 								<font class="two">
@@ -101,7 +101,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							</td>
 						</tr>
 						<tr>
-							<td bgcolor="#FFFFFF" valign="top" colspan="2">
+							<td  valign="top" colspan="2">
 								<xsl:if test="//_get/location_space_plan_id">
 										<xsl:for-each select="//get_location_space_plans">
 											<xsl:if test="location_space_plan_id=//_get/location_space_plan_id">
@@ -156,8 +156,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</tr>
 					</table>
 				</td>
-				<td bgcolor="#FFFFFF" align="left" valign="top" width="250">
-					<table border="0" cellspacing="1" cellpadding="5" bgcolor="#DDDDDD" width="250">
+				<td  align="left" valign="top" width="250">
+					<table border="0" cellspacing="1" cellpadding="5"  width="250">
 						<tr>
 							<td bgcolor="white">
 								<font class="two">

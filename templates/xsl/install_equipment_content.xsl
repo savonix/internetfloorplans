@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 	<form action="/acc/link/my_loc/install/submit/" method="post">
 	<input type="hidden" name="equipment_id" value="{//_post/equipment_id}"/>
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/tetris.png" /> 
@@ -35,12 +35,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			
 		</tr>
 	</table>
-	<table border="0" cellpadding="5" cellspacing="1" bgcolor="#DDDDDD" width="600">
+	<table border="0" cellpadding="5" cellspacing="1"  width="600">
 		<tr>
-			<td bgcolor="#FFFFFF" valign="top"><font class="two">
+			<td  valign="top"><font class="two">
 			Please select the appropriate response based upon the results of these campaign instructions: 
 			<br/><br/>
-			<table border="0" cellpadding="2" cellspacing="1" bgcolor="#EEEEEE">
+			<table border="0" cellpadding="2" cellspacing="1" >
 				<tr>
 					<td bgcolor="white" valign="top">
 						<input type="radio" name="response" value="success" checked="checked"/>

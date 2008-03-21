@@ -26,16 +26,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 	<form action="{self}" method="post">
 	<input type="hidden" name="region_id"><xsl:attribute name="value"><xsl:value-of select="//_get/region_id"/></xsl:attribute></input>
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/world.png" /> 
 			</td>
 		</tr>
 	</table>
-	<table border='0' cellspacing='1' cellpadding='0' bgcolor="#FFFFFF" width="100%">
+	<table border='0' cellspacing='1' cellpadding='0'  width="100%">
 	<tr><td width="100%">
-		<table border="0" cellpadding="4" cellspacing="1" bgcolor="#DDDDDD" width="600">
+		<table border="0" cellpadding="4" cellspacing="1"  width="600">
 			<tr>	
 				<td width="150" bgcolor="white"><font class='two'>Region Name:</font></td>
 				<td bgcolor="white"><input type='text' name='name'><xsl:attribute name="value"> <xsl:value-of select="//get_region_name_g/region_name" /></xsl:attribute></input></td>

@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:import href="location_menu.xsl"/>
 <xsl:template name="content">
 	
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/location.png" /> 
@@ -35,13 +35,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="location_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="1" width="100%" bgcolor="#AAAAAA">
+	<table border="0" cellspacing="1" cellpadding="1" width="100%" >
 	<xsl:call-template name="location_summary" />
-	<tr><td colspan="4" bgcolor="#FFFFFF">
-			<table border='0' cellspacing='0' cellpadding='1' bgcolor="#CCCCCC">
+	<tr><td colspan="4" >
+			<table border='0' cellspacing='0' cellpadding='1' >
 			<tr>
-				<td bgcolor="#FFFFFF" align="left" valign="top">
-					<table border="0" cellspacing="1" cellpadding="2" bgcolor="#DDDDDD">
+				<td  align="left" valign="top">
+					<table border="0" cellspacing="1" cellpadding="2" >
 						<tr>
 							<td colspan="2">
 								<b>Space Plan Options</b> : 
@@ -79,7 +79,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							</td>
 						</tr>
 						<tr>
-							<td bgcolor="#FFFFFF" valign="top" colspan="2">
+							<td  valign="top" colspan="2">
 <script type="text/javascript" src="/resources/js/swfobject.js"></script>
 <div id="space_plan">
 	<!-- Show static jpg here when the visitor does not have the flash plugin. -->
@@ -100,8 +100,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 					</table>
 				</td>
-				<td bgcolor="#FFFFFF" align="left" valign="top" width="260">
-					<table border="0" cellspacing="1" cellpadding="2" bgcolor="#DDDDDD" width="260">
+				<td  align="left" valign="top" width="260">
+					<table border="0" cellspacing="1" cellpadding="2"  width="260">
 						<tr>
 							<td bgcolor="white">
 								<font class="two">

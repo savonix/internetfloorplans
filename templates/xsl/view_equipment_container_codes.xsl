@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:import href="equipment_type_menu.xsl"/>
 <xsl:import href="equipment_type_summary.xsl"/>
 <xsl:template name="content">
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/tetris.png" /> 
@@ -35,10 +35,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	<font class="three">
-	<table border='0' cellspacing='1' cellpadding='2' bgcolor="#BBBBBB" width='100%'>
+	<table border='0' cellspacing='1' cellpadding='2'  width='100%'>
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
-		<td colspan="4" bgcolor="#FFFFFF">
+		<td colspan="4" >
 
 		
 	<table border='0' cellspacing='0' cellpadding='2' bgcolor="white" width='100%'>

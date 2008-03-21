@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:import href="equipment_type_menu.xsl"/>
 <xsl:import href="equipment_type_summary.xsl"/>
 <xsl:template name="content">
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/tetris.png" /> 
@@ -35,14 +35,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	<font class="three">
-	<table border='0' cellspacing='1' cellpadding='2' bgcolor="#BBBBBB" width='100%'>
+	<table border='0' cellspacing='1' cellpadding='2'  width='100%'>
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
-		<td colspan="4" bgcolor="#FFFFFF">
-			<table border='0' cellspacing='0' cellpadding='10' bgcolor="#CCCCCC">
+		<td colspan="4" >
+			<table border='0' cellspacing='0' cellpadding='10' >
 			<tr>
-								<td align="left" bgcolor="#FFFFFF" valign="top">
-					<table border="0" cellspacing="1" cellpadding="2" bgcolor="#DDDDDD" width="100%">
+								<td align="left"  valign="top">
+					<table border="0" cellspacing="1" cellpadding="2"  width="100%">
 						<tr>
 							<td valign="top">
 								<font class="one"><b>Add Containers</b></font>
@@ -51,7 +51,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<form action="{self}add/" method="post">
 						<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
 						<tr>
-							<td valign="top" bgcolor="#FFFFFFF">
+							<td valign="top" >
 							Name:<input type="text" size="12" name="name"/><br/>
 							<select name="container_id">
 								<xsl:for-each select="//get_container_types" >
@@ -75,7 +75,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						
 					</table>
 					<br/>
-					<table border="0" cellspacing="1" cellpadding="2" bgcolor="#DDDDDD" width="100%">
+					<table border="0" cellspacing="1" cellpadding="2"  width="100%">
 					
 						<form action="{self}delete/" method="post">
 						<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
@@ -85,7 +85,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							</td>
 						</tr>
 						<tr>
-							<td valign="top" bgcolor="#FFFFFFF">
+							<td valign="top" >
 								<select name="equipment_type_container_id">
 								<xsl:for-each select="//get_container_by_type_id" >
 									<option value="{equipment_type_container_id}"><xsl:value-of select="name"/></option>
@@ -98,8 +98,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</table>
 				</td>
 				
-				<td bgcolor="#FFFFFF" align="left" valign="top">
-					<table border="0" cellspacing="1" cellpadding="5" bgcolor="#DDDDDD">
+				<td  align="left" valign="top">
+					<table border="0" cellspacing="1" cellpadding="5" >
 						<tr>
 							<td bgcolor="white">
 								<font class="two">

@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:import href="location_summary.xsl"/>
 <xsl:import href="location_menu.xsl"/>
 <xsl:template name="content">
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/location.png" /> 
@@ -34,13 +34,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="location_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" bgcolor="#AAAAAA">
+	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
 	<xsl:call-template name="location_summary" />
 	<tr>
-		<td colspan="4" bgcolor="#FFFFFF">
-			<table border='0' cellspacing='0' cellpadding='10' bgcolor="#CCCCCC" width="100%">
+		<td colspan="4" >
+			<table border='0' cellspacing='0' cellpadding='10'  width="100%">
 			<tr>
-				<td align="left" bgcolor="#FFFFFF" valign="top">
+				<td align="left"  valign="top">
 				
 					<table width="100%">
 					<tr>

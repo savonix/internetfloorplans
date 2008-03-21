@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:for-each select="//get_asset_type_by_id">
 	<tr>
 		<xsl:if test="//_registry/user/roles='uplink_regional_manager'">
-		<td width="25%" bgcolor="#FFFFFF" valign="top">
+		<td width="25%"  valign="top">
 		<font class="one">
 		<b>Options:</b><br />
 		[ <a target="_top" href="/acc/link/types/edit/&amp;equipment_type_id={equipment_type_id}">Edit This Equipment Type</a> ] <br/>

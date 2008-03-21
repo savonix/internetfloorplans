@@ -53,7 +53,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					</xsl:for-each>
 				</td></tr>					
 			</xsl:for-each>
-			<tr><td colspan="5" bgcolor="#FFFFFF">
+			<tr><td colspan="5" >
 				<table cellpadding="5">
 					<tr>
 						<td><input type="submit" value="Delete" name="submit" 

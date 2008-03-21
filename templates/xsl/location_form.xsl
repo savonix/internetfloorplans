@@ -38,16 +38,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 
 <xsl:template name="form">
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/location.png" /> 
 			</td>
 		</tr>
 	</table>
-	<table border='0' cellspacing='1' cellpadding='0' bgcolor="#FFFFFF" width="100%">
+	<table border='0' cellspacing='1' cellpadding='0'  width="100%">
 	<tr><td width="100%">
-		<table border="0" cellpadding="4" cellspacing="1" bgcolor="#DDDDDD" width="600">
+		<table border="0" cellpadding="4" cellspacing="1"  width="600">
 <xsl:if test="//_post/submit">
 <tr>	
 	<td width="150" bgcolor="white" colspan="2"><font class='two'><font color="red">

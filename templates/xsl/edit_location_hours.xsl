@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:import href="location_menu.xsl"/>
 <xsl:template name="content">
 	<form method="post" action="/acc/link/loc/view/hours/&amp;location_address_id={//_get/location_address_id}">
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/location.png" /> 
@@ -35,15 +35,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="location_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" bgcolor="#AAAAAA">
+	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
 	<xsl:call-template name="location_summary" />
 	<tr>
-		<td colspan="4" bgcolor="#FFFFFF">
+		<td colspan="4" >
 		<font class="two">Hours of Operation:</font>
 				<br/>
-			<table border='0' cellspacing='0' cellpadding='10' bgcolor="#CCCCCC" width="100%">
+			<table border='0' cellspacing='0' cellpadding='10'  width="100%">
 			<tr>
-				<td align="left" bgcolor="#FFFFFF" valign="top">
+				<td align="left"  valign="top">
 					Open: 
 					<select name="open_h">
 					<xsl:for-each select="//hours">
@@ -63,7 +63,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				</td>
 			</tr>
 			<tr>
-				<td align="left" bgcolor="#FFFFFF" valign="top">
+				<td align="left"  valign="top">
 					Close: 
 					<select name="close_h">
 					<xsl:for-each select="//hours">

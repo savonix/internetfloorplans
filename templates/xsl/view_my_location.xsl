@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 <form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
 <input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
-<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+<table border='0' cellspacing='1' cellpadding='5' >
 	<tr>
 		<td align="left">
 			<img src="/resources/img/location.png" /> 
@@ -39,14 +39,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	
 	
 	
-<table border="0" cellspacing="1" cellpadding="2" width="100%" bgcolor="#AAAAAA">
+<table border="0" cellspacing="1" cellpadding="2" width="100%" >
 <xsl:call-template name="location_summary" />
 <tr>
-<td colspan="4" bgcolor="#FFFFFF">
-	<table border='0' cellspacing='0' cellpadding='10' bgcolor="#CCCCCC">
+<td colspan="4" >
+	<table border='0' cellspacing='0' cellpadding='10' >
 	<tr>
-		<td align="left" bgcolor="#FFFFFF" valign="top">
-			<table border="0" cellspacing="1" cellpadding="2" bgcolor="#DDDDDD" width="100%">
+		<td align="left"  valign="top">
+			<table border="0" cellspacing="1" cellpadding="2"  width="100%">
 				<tr>
 					<td valign="top">
 						<font class="one"><b>Virtual Tours</b></font>
@@ -54,7 +54,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				</tr>
 				<xsl:for-each select="//get_location_images" >
 				<tr>
-					<td bgcolor="#FFFFFF" valign="top">
+					<td  valign="top">
 					
 						<font class="one">
 						<a>
@@ -67,20 +67,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</table>
 			<br/>
 			
-			<table border="0" cellspacing="1" cellpadding="2" bgcolor="#DDDDDD" width="100%">
+			<table border="0" cellspacing="1" cellpadding="2"  width="100%">
 				<tr>
 					<td valign="top">
 						<font class="one"><b>Options</b></font>
 					</td>
 				</tr>
 				<tr>
-					<td valign="top" bgcolor="#FFFFFFF">
+					<td valign="top" >
 						<font class="one"><a><xsl:attribute name="href">add/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/></xsl:attribute>Add New Image</a></font>
 					</td>
 				</tr>
 				<xsl:if test="//_registry/user/roles='uplink_regional_manager'">
 				<tr>
-					<td valign="top" bgcolor="#FFFFFFF">
+					<td valign="top" >
 						<font class="one"><a><xsl:attribute name="href">delete/&amp;location_image_id=<xsl:if test="//_get/location_image_id"><xsl:value-of select="//_get/location_image_id"/></xsl:if><xsl:if test="not(//_get/location_image_id)"><xsl:for-each select="//get_location_images"><xsl:if test="default_image=1"><xsl:value-of select="location_image_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Image</a></font>
 					</td>
 				</tr>
@@ -88,8 +88,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</table>
 		</td>
 		
-		<td bgcolor="#FFFFFF" align="left" valign="top">
-			<table border="0" cellspacing="1" cellpadding="5" bgcolor="#DDDDDD">
+		<td  align="left" valign="top">
+			<table border="0" cellspacing="1" cellpadding="5" >
 				<tr>
 					<td bgcolor="white">
 						<font class="two">

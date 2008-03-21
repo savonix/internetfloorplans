@@ -36,7 +36,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<xsl:if test="not(//_get/equipment_id)">
 		<input type="hidden" name="type" value="new"/>
 	</xsl:if>
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/tetris.png" /> 
@@ -44,14 +44,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			
 		</tr>
 	</table>
-	<table border="0" cellpadding="4" cellspacing="1" bgcolor="#DDDDDD" width="600">
+	<table border="0" cellpadding="4" cellspacing="1"  width="600">
 		<tr>
-			<td bgcolor="#FFFFFF"><font class="two">Asset ID:</font></td>
+			<td ><font class="two">Asset ID:</font></td>
 			<xsl:if test="//_get/equipment_id">
-			<td bgcolor="#FFFFFF"><xsl:value-of select="//get_asset_by_id/asset_id"/></td>
+			<td ><xsl:value-of select="//get_asset_by_id/asset_id"/></td>
 			</xsl:if>
 			<xsl:if test="not(//_get/equipment_id)">
-			<td bgcolor="#FFFFFF"><input type="text" name="asset_id"><xsl:attribute name="value"><xsl:value-of select="//get_asset_by_id/asset_id"/></xsl:attribute></input></td>
+			<td ><input type="text" name="asset_id"><xsl:attribute name="value"><xsl:value-of select="//get_asset_by_id/asset_id"/></xsl:attribute></input></td>
 			</xsl:if>
 		
 			<td rowspan="6" bgcolor="white" width="120">
@@ -61,9 +61,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</td>
 		</tr>
 		<tr>
-			<td bgcolor="#FFFFFF"><font class="two">Asset Type:</font></td>
+			<td ><font class="two">Asset Type:</font></td>
 			<xsl:if test="//_get/equipment_id">
-			<td bgcolor="#FFFFFF">
+			<td >
 				<xsl:for-each select="//get_asset_types">
 					<xsl:if test="equipment_type_id=//get_asset_by_id/equipment_type_id">
 						<xsl:value-of select="name"/>
@@ -72,7 +72,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</td>
 			</xsl:if>
 			<xsl:if test="not(//_get/equipment_id)">
-			<td bgcolor="#FFFFFF"><select name="equipment_type_id">
+			<td ><select name="equipment_type_id">
 				<xsl:for-each select="//get_asset_types">
 					<option value="{equipment_type_id}"><xsl:if test="equipment_type_id=//get_asset_by_id/equipment_type_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
 						<xsl:value-of select="name"/></option>
@@ -81,10 +81,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</xsl:if>
 		</tr>
 		<tr>
-			<td bgcolor="#FFFFFF"><font class="two">Location:</font></td>
+			<td ><font class="two">Location:</font></td>
 			
 			<xsl:if test="//_get/equipment_id">
-			<td bgcolor="#FFFFFF">
+			<td >
 				<xsl:for-each select="//get_all_locations">
 					<xsl:if test="location_address_id=//get_asset_by_id/location_address_id">
 						<xsl:value-of select="name"/>
@@ -93,7 +93,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</td>
 			</xsl:if>			
 			<xsl:if test="not(//_get/equipment_id)">
-			<td bgcolor="#FFFFFF"><select name="location_address_id">
+			<td ><select name="location_address_id">
 				<xsl:for-each select="//get_all_locations">
 					<option value="{location_address_id}"><xsl:if test="location_address_id=//get_asset_by_id/location_address_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
 						<xsl:value-of select="name"/></option>
@@ -103,18 +103,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 		<!-- Wait for Upsell
 		<tr>
-			<td bgcolor="#FFFFFF"><font class="two">Quantity:</font></td>
-			<td bgcolor="#FFFFFF"><input type="text" size="5"/></td>
+			<td ><font class="two">Quantity:</font></td>
+			<td ><input type="text" size="5"/></td>
 		</tr>-->
 		<xsl:for-each select="//get_container_by_type_id">
 		<tr>
-			<td bgcolor="#FFFFFF"><font class="two">Container:</font></td>
-			<td bgcolor="#FFFFFF"><xsl:value-of select="name"/></td>
+			<td ><font class="two">Container:</font></td>
+			<td ><xsl:value-of select="name"/></td>
 		</tr>
 		</xsl:for-each>
 		<tr>
-			<td bgcolor="#FFFFFF"><font class="two">Priority Rating:</font></td>
-			<td bgcolor="#FFFFFF">
+			<td ><font class="two">Priority Rating:</font></td>
+			<td >
 			<select name="priority_id">
 			<xsl:for-each select="//get_priorities">
 				<option value="{priority_id}"><xsl:if test="priority_id=//get_asset_by_id/priority_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
@@ -128,8 +128,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 		</tr>
 		<tr>
-			<td bgcolor="#FFFFFF"><font class="two">Line of Business:</font></td>
-			<td bgcolor="#FFFFFF">
+			<td ><font class="two">Line of Business:</font></td>
+			<td >
 			<select name="lob_id">
 			<xsl:for-each select="//get_lob">
 				<option value="{line_of_business_id}"><xsl:if test="line_of_business_id=//get_asset_by_id/business_line_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>

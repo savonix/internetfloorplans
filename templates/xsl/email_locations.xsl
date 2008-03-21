@@ -26,37 +26,37 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:import href="location_summary.xsl"/>
 <xsl:import href="location_menu.xsl"/>
 <xsl:template name="content">
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/location.png" /> 
 			</td>
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" bgcolor="#AAAAAA">
-	<tr><td colspan="4" bgcolor="#FFFFFF">	
+	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
+	<tr><td colspan="4" >	
 			
-			<table border='0' cellspacing='0' cellpadding='10' bgcolor="#CCCCCC">
+			<table border='0' cellspacing='0' cellpadding='10' >
 			<tr>
-				<td align="left" bgcolor="#FFFFFF" valign="top" colspan="2">
+				<td align="left"  valign="top" colspan="2">
 					<font class="four">Email Locations</font>
 				</td>
 			</tr>
 			<tr>
-				<td align="left" bgcolor="#FFFFFF" valign="top">
+				<td align="left"  valign="top">
 					Subject: 
 				</td>
 				
-				<td align="left" bgcolor="#FFFFFF" valign="top">
+				<td align="left"  valign="top">
 					<input type="text" name="subject"/>
 				</td>
 			</tr>
 			<tr>
-				<td align="left" bgcolor="#FFFFFF" valign="top">
+				<td align="left"  valign="top">
 					Body:
 				</td>
 				
-				<td align="left" bgcolor="#FFFFFF" valign="top">
+				<td align="left"  valign="top">
 					<textarea name="body" rows="8" cols="40">Enter your message here.</textarea>
 				</td>
 			</tr>

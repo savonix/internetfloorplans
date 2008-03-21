@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<form enctype="multipart/form-data" action="/acc/link/types/view/sp/add/submit/" method="post">
 	<input type="hidden" name="dest"><xsl:attribute name="value">../usr/<xsl:value-of select="//user_account_id"/>/merchandising/</xsl:attribute></input>
 	<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/tetris.png" /> 
@@ -38,11 +38,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="equipment_type_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" bgcolor="#AAAAAA">
+	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
-		<td colspan="4" bgcolor="#FFFFFF">
-		<table border="0" cellpadding="10" cellspacing="1" bgcolor="#DDDDDD" width="600">
+		<td colspan="4" >
+		<table border="0" cellpadding="10" cellspacing="1"  width="600">
 		<tr><td>
 	
 		<xsl:call-template name="upload_form" />		

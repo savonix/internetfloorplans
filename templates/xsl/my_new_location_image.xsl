@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<input type="hidden" name="dest"><xsl:attribute name="value">../usr/<xsl:value-of select="//user_account_id"/>/photography/</xsl:attribute></input>
 	<input type="hidden" name="location_address_id" value="{//_get/location_address_id}"/>
 	
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/location.png" /> 
@@ -39,11 +39,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	<xsl:if test="//get_all_locations/location_address_id=//_get/location_address_id">
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" bgcolor="#AAAAAA">
+	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
 	<xsl:call-template name="location_summary" />
 	<tr>
-		<td colspan="4" bgcolor="#FFFFFF">
-		<table border="0" cellpadding="10" cellspacing="1" bgcolor="#DDDDDD" width="600">
+		<td colspan="4" >
+		<table border="0" cellpadding="10" cellspacing="1"  width="600">
 			<tr>	
 				<td bgcolor="white" colspan="2"><font class='two'>
 					You can upload an image formatted as a GIF, JPEG, PNG, or MOV. If you are uploading a MOV or a GIF file, please make sure that the file is properly formatted to fit on your display. If you are uploading a JPEG or a PNG file, 

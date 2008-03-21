@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <xsl:template name="content">
 	<form action="{self}" method="post">
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/tetris.png" /> 
@@ -38,7 +38,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</table>
 	<table border='0' cellspacing='0' cellpadding='2' bgcolor="white" width='100%'>
 		<tr>
-			<!--<td bgcolor="#EEEEEE" width="10">
+			<!--<td  width="10">
 				<input type="checkbox"></input></td>
 			<td width="10%">
 				<font class="two"><b>Asset ID</b></font></td>-->
@@ -69,7 +69,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>					
 		</xsl:for-each>
 		<!--<tr>
-			<td colspan="5" bgcolor="#FFFFFF">
+			<td colspan="5" >
 				<table cellpadding="5">
 					<tr>
 						<td><input type="submit" value="Delete" name="submit" /></td>

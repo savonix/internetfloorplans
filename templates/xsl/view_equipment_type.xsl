@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:import href="equipment_type_summary.xsl"/>
 <xsl:template name="content">
 	<form action="{self}" method="post">
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/tetris.png" /> 
@@ -36,14 +36,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	<font class="three">
-	<table border='0' cellspacing='1' cellpadding='2' bgcolor="#BBBBBB" width='100%'>
+	<table border='0' cellspacing='1' cellpadding='2'  width='100%'>
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
-		<td colspan="4" bgcolor="#FFFFFF">
-			<table border='0' cellspacing='0' cellpadding='10' bgcolor="#CCCCCC">
+		<td colspan="4" >
+			<table border='0' cellspacing='0' cellpadding='10' >
 			<tr>
-				<td align="left" bgcolor="#FFFFFF" valign="top">
-					<table border="0" cellspacing="1" cellpadding="2" bgcolor="#DDDDDD" width="100%">
+				<td align="left"  valign="top">
+					<table border="0" cellspacing="1" cellpadding="2"  width="100%">
 						<tr>
 							<td valign="top">
 								<font class="one"><b>Images</b></font>
@@ -51,7 +51,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</tr>
 						<xsl:for-each select="//get_asset_type_images" >
 						<tr>
-							<td bgcolor="#FFFFFF" valign="top">
+							<td  valign="top">
 							
 								<font class="one">
 								<a>
@@ -63,7 +63,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</xsl:for-each>
 					</table>
 					<br/>
-					<table border="0" cellspacing="1" cellpadding="2" bgcolor="#DDDDDD" width="100%">
+					<table border="0" cellspacing="1" cellpadding="2"  width="100%">
 						<tr>
 							<td valign="top">
 								<font class="one"><b>Options</b></font>
@@ -71,21 +71,21 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</tr>
 						<xsl:if test="not(//get_asset_type_images)">
 						<tr>
-							<td valign="top" bgcolor="#FFFFFFF">
+							<td valign="top" >
 								<font class="one"><a><xsl:attribute name="href">add/&amp;equipment_type_id=<xsl:value-of select="//_get/equipment_type_id"/></xsl:attribute>Add New Image</a></font>
 							</td>
 						</tr>
 						</xsl:if>
 						<tr>
-							<td valign="top" bgcolor="#FFFFFFF">
+							<td valign="top" >
 								<font class="one"><a onclick="return confirm('Are you sure you want to delete this equipment type image?')"><xsl:attribute name="href">delete/&amp;equipment_type_image_id=<xsl:if test="//_get/equipment_type_image_id"><xsl:value-of select="//_get/equipment_type_image_id"/></xsl:if><xsl:if test="not(//_get/equipment_type_image_id)"><xsl:for-each select="//get_asset_type_images"><xsl:if test="(default_image=1) or (count(//get_asset_type_images)=1)"><xsl:value-of select="equipment_type_image_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Image</a></font>
 							</td>
 						</tr>
 					</table>
 				</td>
 				
-				<td bgcolor="#FFFFFF" align="left" valign="top">
-					<table border="0" cellspacing="1" cellpadding="5" bgcolor="#DDDDDD">
+				<td  align="left" valign="top">
+					<table border="0" cellspacing="1" cellpadding="5" >
 						<tr>
 							<td bgcolor="white">
 								<font class="two">

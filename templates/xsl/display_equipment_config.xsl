@@ -55,7 +55,7 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 <tr><td><b><xsl:value-of select="//equipment_type_name"/></b></td></tr>
 	<xsl:if test="//get_lob">
 	   <tr>
-			<td bgcolor="#FFFFFF"><font class="two">Line of Business:</font>
+			<td ><font class="two">Line of Business:</font>
 			<br/>
 			<select name="lob_id">
 			<xsl:for-each select="//get_lob">
@@ -71,7 +71,7 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 	</xsl:if>
 	<xsl:if test="//get_priorities">
 		<tr>
-			<td bgcolor="#FFFFFF"><font class="two">Priority Rating:</font>
+			<td ><font class="two">Priority Rating:</font>
 			<br/>
 			<select name="priority_id">
 			<xsl:for-each select="//get_priorities">

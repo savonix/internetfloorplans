@@ -33,7 +33,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<input type="hidden" name="prefix" value="{//_get/location_address_id}" />
 	<input type="hidden" name="thumb_prefix" value="th_" />
 	<input type="hidden" name="location_address_id" value="{//_get/location_address_id}"/>
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/location.png" /> 
@@ -41,7 +41,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="location_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" bgcolor="#AAAAAA">
+	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
 	<xsl:call-template name="location_summary" />
 	<xsl:call-template name="image_form"/>
 

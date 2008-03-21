@@ -24,12 +24,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="equipment_menu">
 <td align="left">
-	<table cellpadding="2" cellspacing="1" bgcolor="#CCCCCC">
+	<table cellpadding="2" cellspacing="1" >
 		<tr>
-			<td bgcolor="#FFFFFF" class="mini-menu-selected"><a class="mini-menu-selected">
+			<td  class="mini-menu-selected"><a class="mini-menu-selected">
 			<xsl:attribute name="href"><xsl:text>/acc/link/assets/</xsl:text></xsl:attribute>List</a></td>
 			
-			<td bgcolor="#FFFFFF" class="mini-menu-selected"><a class="mini-menu-selected">
+			<td  class="mini-menu-selected"><a class="mini-menu-selected">
 			<xsl:attribute name="href"><xsl:text>/acc/link/assets/q/</xsl:text></xsl:attribute>Quantities</a></td>
 			
 			

@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <xsl:template name="content">
 	<form action="{self}" method="post">
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/tetris.png" /> 
@@ -35,13 +35,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	<font class="three">
-	<table border='0' cellspacing='0' cellpadding='2' bgcolor="#BBBBBB" width='100%'>
+	<table border='0' cellspacing='0' cellpadding='2'  width='100%'>
 	<tr>	
-				<td width="150" bgcolor="#FFFFFF"><font class='two'><b>Equipment Type Name</b></font></td>
-				<td width="250" bgcolor="#FFFFFF"><font class='two'><b>Description</b></font></td>
-				<td bgcolor="#FFFFFF">
+				<td width="150" ><font class='two'><b>Equipment Type Name</b></font></td>
+				<td width="250" ><font class='two'><b>Description</b></font></td>
+				<td >
 					<font class="two"><b>Edit</b></font></td>
-				<td bgcolor="#FFFFFF">
+				<td >
 					<font class="two"><b>Delete</b></font></td>
 			</tr>
 			<xsl:for-each select="//get_asset_types">
@@ -58,8 +58,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<font class="one"><a href="/acc/link/types/delete/&amp;equipment_type_id={equipment_type_id}" onclick="return confirm('Are you sure you want to delete this equipment type?')">Delete</a></font></td>
 			</tr>
 			</xsl:for-each>
-			<tr><td align="left" bgcolor="#FFFFFF" colspan="4">
-			<table cellpadding="15" bgcolor="#FFFFFF">
+			<tr><td align="left"  colspan="4">
+			<table cellpadding="15" >
 				<tr>
 					<td>
 					<input type="button" value="New"><xsl:attribute name="onclick">document.location.href='edit/'</xsl:attribute>

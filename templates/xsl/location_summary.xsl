@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:for-each select="//get_location_summary">
 	<tr>
 		<xsl:if test="//user_roles='uplink_regional_manager'">
-		<td width="25%" bgcolor="#FFFFFF" valign="top">
+		<td width="25%"  valign="top">
 		<font class="one">
 		<b>Location Options</b>
 		[ <a target="_top" href="/acc/link/loc/edit/&amp;location_address_id={location_address_id}">Edit</a> ]

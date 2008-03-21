@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 	<form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
 	<input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
-	<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
+	<table border='0' cellspacing='1' cellpadding='5' >
 		<tr>
 			<td align="left">
 				<img src="/resources/img/location.png" /> 
@@ -36,16 +36,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="location_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" bgcolor="#AAAAAA">
+	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
 	<xsl:call-template name="location_summary" />
 	<tr>
-		<td colspan="4" bgcolor="#FFFFFF">
-			<table border='0' cellspacing='0' cellpadding='10' bgcolor="#CCCCCC" width='100%'>
+		<td colspan="4" >
+			<table border='0' cellspacing='0' cellpadding='10'  width='100%'>
 			<tr>
-				<td align="left" bgcolor="#FFFFFF" valign="top">
+				<td align="left"  valign="top">
 					<table border='0' cellspacing='0' cellpadding='4' bgcolor="white" width='100%'>
 						<tr>
-							<!--<td bgcolor="#EEEEEE" width="10">
+							<!--<td  width="10">
 								<input type="checkbox"></input></td>-->
 							<!--<td width="10%" valign="top">
 								<font class="two"><b>Asset ID</b></font></td>-->
@@ -85,7 +85,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</tr>					
 						</xsl:for-each>
 						<!--<tr>
-							<td colspan="5" bgcolor="#FFFFFF">
+							<td colspan="5" >
 								<table cellpadding="5">
 									<tr>
 										<td><input type="submit" value="Delete" name="submit" /></td>

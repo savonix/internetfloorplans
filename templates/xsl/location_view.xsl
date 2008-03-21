@@ -31,24 +31,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 </script>
 <form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
 <input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
-<table border='0' cellspacing='1' cellpadding='5' bgcolor="#FFFFFF">
-	<tr>
-		<td align="left">
-			<img src="/resources/img/location.png" /> 
-		</td>
-		<xsl:call-template name="location_menu" />
-	</tr>
-</table>
 
+<xsl:call-template name="location_menu" />
 
-<table border="0" cellspacing="1" cellpadding="2" width="100%" bgcolor="#AAAAAA">
 <xsl:call-template name="location_summary" />
-</table>
 
-<table border="0" cellspacing="1" cellpadding="2" width="100%" bgcolor="#AAAAAA">
+<table>
 <tr>
-	<td bgcolor="#FFFFFF" width="10%" valign="top">
-		<table border="0" cellspacing="1" cellpadding="2" bgcolor="#DDDDDD" width="100%">
+	<td  width="10%" valign="top">
+		<table border="0" cellspacing="1" cellpadding="2"  width="100%">
 			<tr>
 				<td valign="top">
 					<font class="one"><b>Virtual Tours</b></font>
@@ -56,7 +47,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</tr>
 			<xsl:for-each select="//get_location_images" >
 			<tr>
-				<td bgcolor="#FFFFFF" valign="top">
+				<td  valign="top">
 				
 					<font class="one">
 					<a>
@@ -68,19 +59,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</xsl:for-each>
 		</table>
 		<br/>
-		<table border="0" cellspacing="1" cellpadding="2" bgcolor="#DDDDDD" width="100%">
+		<table border="0" cellspacing="1" cellpadding="2"  width="100%">
 			<tr>
 				<td valign="top">
 					<font class="one"><b>Tour options</b></font>
 				</td>
 			</tr>
 			<tr>
-				<td valign="top" bgcolor="#FFFFFF">
+				<td valign="top" >
 					<font class="one"><a><xsl:attribute name="href">add/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/></xsl:attribute>Add New Image</a></font>
 				</td>
 			</tr>
 			<tr>
-				<td valign="top" bgcolor="#FFFFFF">
+				<td valign="top" >
 					<font class="one"><a onclick="return confirm('Are you sure you want to delete this location image?')"><xsl:attribute name="href">delete/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id" />&amp;location_image_id=<xsl:if test="//_get/location_image_id"><xsl:value-of select="//_get/location_image_id"/></xsl:if><xsl:if test="not(//_get/location_image_id)"><xsl:for-each select="//get_location_images"><xsl:if test="(default_image=1) or (count(//get_location_images)=1)"><xsl:value-of select="location_image_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Image</a></font>
 				</td>
 			</tr>
@@ -88,8 +79,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</td>
 	
 	<xsl:variable name="image_id"><xsl:if test="//_get/location_image_id"><xsl:value-of select="//_get/location_image_id"/></xsl:if><xsl:if test="not(//_get/location_image_id)"><xsl:value-of select="//get_location_images[1]/location_image_id"/></xsl:if></xsl:variable>
-	<td bgcolor="#FFFFFF" align="left" valign="top" width="90%">
-		<table border="0" cellspacing="1" cellpadding="5" bgcolor="#DDDDDD">
+	<td  align="left" valign="top" width="90%">
+		<table border="0" cellspacing="1" cellpadding="5" >
 			<tr>
 				<td bgcolor="white">
 					<xsl:value-of select="//get_location_images[location_image_id=$image_id]/name"/>

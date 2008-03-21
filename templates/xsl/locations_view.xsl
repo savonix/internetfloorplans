@@ -26,12 +26,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 
 <script language="JavaScript" src="/resources/js/checkbox.js"> &#160; </script>
-	<table border='0' cellspacing='1' cellpadding='5' width="100%">
+	<table>
 		<tr>
-			<td align="left" WIDTH="30">
-				<img src="/resources/img/location.png" /> 
-			</td>
-			<form action="/acc/link/loc/" method="post" name="form0">
+			<form method="post" name="form0">
 			<td align="left">
 				Region:
 				<select name="my_region_id" onChange="document.form0.submit();">
@@ -54,8 +51,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</td>
 		</tr>
 	</table>
-	<form action="/acc/link/loc/email/" method="post" name="myform">
-	<table border='0' cellspacing='1' cellpadding='0' bgcolor="#BBBBBB" width='100%'>
+	<form method="post" name="myform">
+	<table>
 		<tr>	
 			<td width="20">Status</td>
 			<td width='110'>
@@ -72,7 +69,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<!--
 			<td><a>
 			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.manager<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.manager')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.manager')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Contact</a></td>-->
-			<td bgcolor="#EEEEEE" width="5">
+			<td  width="5">
 			
 			<input type="checkbox" value="all" title="Select All"><xsl:attribute name="onClick"><xsl:text>if(this.checked){ this.title='Deselect All'; checkAll(document.myform.locations);} else {uncheckAll(document.myform.locations); this.title='Select All';}</xsl:text>
 			</xsl:attribute></input></td>
@@ -102,14 +99,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<xsl:if test="(status_id=0)"><img src="/resources/img/style-1.1/images/icon_error_sml.gif" alt="Non-compliant"/></xsl:if>
 				<xsl:if test="(status_id=1) or (not(status_id))"><img src="/resources/img/style-1.1/images/icon_success_sml.gif" alt="Compliant"/></xsl:if>
 			</td>
-			<td  width='110'><!--<xsl:value-of select="status_id"/> - <xsl:value-of select="equipment_id"/> -->
+			<td><!--<xsl:value-of select="status_id"/> - <xsl:value-of select="equipment_id"/> -->
             <a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}"><xsl:value-of select="name"/></a>
 			
 			</td>
 			
-			<td  width='120'><xsl:value-of select="address_line_1"/></td>
-			<td  width='140'><xsl:value-of select="city"/></td>
-			<td  width='92'><xsl:value-of select="phone"/></td>
+			<td><xsl:value-of select="address_line_1"/></td>
+			<td><xsl:value-of select="city"/></td>
+			<td><xsl:value-of select="phone"/></td>
 			<!--<td >
 			<a><xsl:attribute name="href">mailto:<xsl:value-of select="email"/></xsl:attribute><xsl:value-of select="first_name"/>&#160;<xsl:value-of select="last_name"/></a></td>-->
 			<td width="5"><input type="checkbox" id="locations" name="location_address_id[]" onclick=""/></td>

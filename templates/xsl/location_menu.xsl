@@ -24,42 +24,40 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="location_menu" match="//get_location_summary">
 <td align="left">
-	<xsl:if test="//user_roles='uplink_regional_manager'">
 	<!-- Regional Manager -->
-	<table cellpadding="2" cellspacing="1" bgcolor="#CCCCCC">
+	<table>
 		<tr>
-			<td class="mini-menu" style="background: #555555;"><b><font color="#FFFFFF"><xsl:value-of select="//get_location_summary/name" /></font></b></td>	
-			<td bgcolor="#FFFFFF"><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/sp/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/sp/'">mini-menu</xsl:if></xsl:attribute><a>
+			<td><b><font color="#FFFFFF"><xsl:value-of select="//get_location_summary/name" /></font></b></td>	
+			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/sp/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/sp/'">mini-menu</xsl:if></xsl:attribute><a>
 			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/sp/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Space Plans</a></td>
 			
-			<td bgcolor="#FFFFFF"><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/'">mini-menu</xsl:if></xsl:attribute><a>
+			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/'">mini-menu</xsl:if></xsl:attribute><a>
 			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Virtual Tours</a></td>
 			
-			<td bgcolor="#FFFFFF"><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/eqp/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/eqp/'">mini-menu</xsl:if></xsl:attribute><a>
+			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/eqp/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/eqp/'">mini-menu</xsl:if></xsl:attribute><a>
 			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/eqp/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Equipment Quantities</a></td>			
 			
-			<td bgcolor="#FFFFFF"><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/eqp/list/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/eqp/list/'">mini-menu</xsl:if></xsl:attribute><a>
+			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/eqp/list/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/eqp/list/'">mini-menu</xsl:if></xsl:attribute><a>
 			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/eqp/list/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Equipment List</a></td>
 			<!--
-			<td bgcolor="#FFFFFF"><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/hr/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/hr/'">mini-menu</xsl:if></xsl:attribute><a>
+			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/hr/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/hr/'">mini-menu</xsl:if></xsl:attribute><a>
 			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/hr/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Personnel</a></td>	
 			
-			<td bgcolor="#FFFFFF"><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/hours/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/hours/'">mini-menu</xsl:if></xsl:attribute><a>
+			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/hours/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/hours/'">mini-menu</xsl:if></xsl:attribute><a>
 			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/hours/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Hours</a></td>-->
 			
 		</tr>
 	</table>
-	</xsl:if>
 	
 	<xsl:if  test="//user_roles='uplink_local_manager'">
 	<!-- Local Manager -->
-	<table cellpadding="2" cellspacing="1" bgcolor="#CCCCCC">
+	<table cellpadding="2" cellspacing="1" >
 		<tr>
 		
-			<td bgcolor="#FFFFFF"><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/my_loc/view/sp/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/my_loc/view/sp/'">mini-menu</xsl:if></xsl:attribute><a class="mini-menu-selected">
+			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/my_loc/view/sp/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/my_loc/view/sp/'">mini-menu</xsl:if></xsl:attribute><a class="mini-menu-selected">
 			<xsl:attribute name="href"><xsl:text>/acc/link/my_loc/view/sp/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Space Plans</a></td>
 		
-			<td bgcolor="#FFFFFF"><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/my_loc/guidelines/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/my_loc/guidelines/'">mini-menu</xsl:if></xsl:attribute><a class="mini-menu-selected">
+			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/my_loc/guidelines/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/my_loc/guidelines/'">mini-menu</xsl:if></xsl:attribute><a class="mini-menu-selected">
 			<xsl:attribute name="href"><xsl:text>/acc/link/my_loc/guidelines/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Guidelines</a></td>
 			
 		</tr>
