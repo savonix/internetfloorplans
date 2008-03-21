@@ -739,8 +739,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>
 	
 	<!-- View equipment type symbols -->
-	<map:gate name="ifp-types/view/sp/" role="client">
-		<map:query src="data/sql/get_equipment_type_by_id.xml" />
+	<map:gate name="ifp-equipment-type-symbols" role="client">
+		<map:query src="data/sql/equipment_type_get_by_id.xml" />
 		<map:query src="data/sql/get_equipment_type_symbols.xml" />
 		<map:xsl src="templates/xsl/view_equipment_type_symbols.xsl" />
 	</map:gate>	
