@@ -69,6 +69,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</map:false>
 		</map:if>
         -->
+        <map:query src="data/sql/locations_get_all.xml" />
 		<map:xsl src="templates/xsl/locations_view.xsl" />
 	</map:gate>
 	<map:gate name="ifp-loc-search" role="uplink_regional_manager">

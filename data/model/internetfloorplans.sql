@@ -173,7 +173,6 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_type_symbol` (
 
 CREATE TABLE IF NOT EXISTS `uplink_locations` (
   `location_address_id` int(11) NOT NULL default '0',
-  `account_id` char(100) NOT NULL default '-',
   `name` char(100) NOT NULL default '0',
   `address_line_1` char(100) NOT NULL default '',
   `address_line_2` char(100) default NULL,

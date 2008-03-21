@@ -22,31 +22,29 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <query name="get_all_assets2">
-    <connection>savonix</connection>
+    <connection>uplink</connection>
     <params>
         <param name="php:date('Y-m-d H:i:s')" type="text"/>
 		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
         <param name="php:date('Y-m-d H:i:s')" type="text"/>
         <param name="php:date('Y-m-d H:i:s')" type="text"/>
         <param name="php:date('Y-m-d H:i:s')" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
 	</params>
     <sql>
-        SELECT DISTINCT uplink_equipment.*, uplink_equipment_type.name, uplink_equipment_type.equipment_type_id, (uplink_location_address.name) as location_address_name, uplink_location_address.location_address_id
+        SELECT DISTINCT uplink_equipment.*, uplink_equipment_type.name, uplink_equipment_type.equipment_type_id, (uplink_locations.name) as location_address_name, uplink_locations.location_address_id
 		
-		FROM (uplink_equipment, uplink_equipment_type, uplink_location_address)
+		FROM (uplink_equipment, uplink_equipment_type, uplink_locations)
 		
 		LEFT JOIN uplink_location_equipment
-		ON (uplink_location_address.location_address_id=uplink_location_equipment.location_address_id)
+		ON (uplink_locations.location_address_id=uplink_location_equipment.location_address_id)
 		
 		WHERE uplink_equipment.deletion_datetime &gt; ? 
 		AND uplink_equipment.account_id = ?
 		AND uplink_equipment.equipment_type_id=uplink_equipment_type.equipment_type_id
 		AND uplink_location_equipment.equipment_id=uplink_equipment.equipment_id
-		AND uplink_location_address.deletion_datetime &gt; ?
+		AND uplink_locations.deletion_datetime &gt; ?
 		AND uplink_location_equipment.deletion_datetime &gt; ?
 		AND uplink_equipment_type.deletion_datetime &gt; ?
-		AND uplink_location_address.account_id=?
-		ORDER BY uplink_location_address.name, uplink_equipment_type.name
+		ORDER BY uplink_locations.name, uplink_equipment_type.name
     </sql>
 </query>
