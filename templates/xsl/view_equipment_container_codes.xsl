@@ -34,24 +34,24 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="equipment_type_menu" />
 		</tr>
 	</table>
-	<font class="three">
+	
 	<table border='0' cellspacing='1' cellpadding='2'  width='100%'>
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
 		<td colspan="4" >
 
 		
-	<table border='0' cellspacing='0' cellpadding='2' bgcolor="white" width='100%'>
+	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
 		<tr>
 
 			<td width="100">
-				<font class="two"><b>Equipment Type</b></font></td>
+				<b>Equipment Type</b></td>
 			<td width="100">
-				<font class="two"><b>Container</b></font></td>
+				<b>Container</b></td>
 			<td width="50">
-				<font class="two"><b>Business</b></font></td>
+				<b>Business</b></td>
 			<td width="50">
-				<font class="two"><b>Options</b></font></td>
+				<b>Options</b></td>
 			<td> </td>
 		</tr>
 		
@@ -62,9 +62,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<form action="/acc/link/types/containers/code/&amp;equipment_type_id={//_get/equipment_type_id}" method="post">	
 				<input type="hidden" name="equipment_type_container_id" value="{equipment_type_container_id}"/>
 				<td width="100">
-					<font class="one"><xsl:value-of select="//equipment_type_name"/></font></td>
+					<xsl:value-of select="//equipment_type_name"/></td>
 				<td width="100">
-					<font class="one"><xsl:value-of select="name"/></font></td>
+					<xsl:value-of select="name"/></td>
 				<td>
 						<select name="business_line_id">
 						<xsl:for-each select="//get_lob">
@@ -91,6 +91,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</td>
 	</tr>
 	</table>
-	</font>
+	
 </xsl:template>
 </xsl:stylesheet>

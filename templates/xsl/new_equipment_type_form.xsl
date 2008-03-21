@@ -37,18 +37,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			
 		</tr>
 	</table>
-	<font class="three">
+	
 	<table border='0' cellspacing='1' cellpadding=''  width='100%'>
-	<tr><td width="100%" >
+	<tr><td  >
 		<table border="0" cellpadding="4" cellspacing="1"  width="600">
 			<tr>	
-				<td width="150" bgcolor="white"><font class='two'>Asset Type Name:</font></td>
-				<td bgcolor="white"><input type='text' name='name'><xsl:attribute name="value"><xsl:value-of select="//get_asset_type_by_id/name"/></xsl:attribute></input></td>
+				<td width="150"><font class='two'>Asset Type Name:</td>
+				<td><input type='text' name='name'><xsl:attribute name="value"><xsl:value-of select="//get_asset_type_by_id/name"/></xsl:attribute></input></td>
 			</tr>
 			<!--
 			<tr>	
-				<td width="150" bgcolor="white" valign="top"><font class='two'>Category:</font></td>
-				<td bgcolor="white">
+				<td width="150" valign="top"><font class='two'>Category:</td>
+				<td>
 					<select name="asset_category_type_id">
 						<xsl:for-each select="//get_asset_categories" >
 							<option value="{equipment_category_id}"><xsl:value-of select="name"/></option>
@@ -58,21 +58,21 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</tr>
 			-->
 			<tr>	
-				<td width="150" bgcolor="white" valign="top"><font class='two'>Description:</font></td>
-				<td bgcolor="white"><textarea name='description' cols="25" rows="5"><xsl:value-of select="//get_asset_type_by_id/description"/></textarea></td>
+				<td width="150" valign="top"><font class='two'>Description:</td>
+				<td><textarea name='description' cols="25" rows="5"><xsl:value-of select="//get_asset_type_by_id/description"/></textarea></td>
 			</tr>
 			<!--
 			<tr>	
-				<td width="150" bgcolor="white" valign="top"><font class='two'>Image:</font></td>
-				<td bgcolor="white"><input type="file" name="file"/></td>
+				<td width="150" valign="top"><font class='two'>Image:</td>
+				<td><input type="file" name="file"/></td>
 			</tr>
 			<tr>	
-				<td width="150" bgcolor="white" valign="top"><font class='two'>Template:</font></td>
-				<td bgcolor="white"><textarea name='template' cols="25" rows="5"></textarea></td>
+				<td width="150" valign="top"><font class='two'>Template:</td>
+				<td><textarea name='template' cols="25" rows="5"></textarea></td>
 			</tr>
 			-->
 			<tr>
-				<td bgcolor="white" colspan="2" align="center"><br />
+				<td colspan="2" align="center"><br />
 					<table cellpadding="5">
 						<tr>
 							<td><input type="submit" value="Submit" name="submit" /></td>
@@ -84,7 +84,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</table>		
 	</td></tr>
 	</table>
-	</font>
+	
 	</form>
 </xsl:template>
 </xsl:stylesheet>

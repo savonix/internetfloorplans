@@ -35,13 +35,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="location_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
+	<table border="0" cellspacing="1" cellpadding="2"  >
 	<xsl:call-template name="location_summary" />
 	<tr>
 		<td colspan="4" >
-		<font class="two">Hours of Operation:</font>
+		Hours of Operation:
 				<br/>
-			<table border='0' cellspacing='0' cellpadding='10'  width="100%">
+			<table border='0' cellspacing='0' cellpadding='10'  >
 			<tr>
 				<td align="left"  valign="top">
 					Open: 

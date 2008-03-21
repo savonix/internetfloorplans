@@ -33,16 +33,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</td>
 		</tr>
 	</table>
-	<table border='0' cellspacing='1' cellpadding='0'  width="100%">
-	<tr><td width="100%">
+	<table border='0' cellspacing='1' cellpadding='0'  >
+	<tr><td >
 		<table border="0" cellpadding="4" cellspacing="1"  width="600">
 			<tr>	
-				<td width="150" bgcolor="white"><font class='two'>Region Name:</font></td>
-				<td bgcolor="white"><input type='text' name='name'><xsl:attribute name="value"> <xsl:value-of select="//get_region_name_g/region_name" /></xsl:attribute></input></td>
+				<td width="150"><font class='two'>Region Name:</td>
+				<td><input type='text' name='name'><xsl:attribute name="value"> <xsl:value-of select="//get_region_name_g/region_name" /></xsl:attribute></input></td>
 			</tr>
 			<tr>	
-				<td width="150" bgcolor="white" valign="top"><font class='two'>Locations:</font></td>
-				<td bgcolor="white">
+				<td width="150" valign="top"><font class='two'>Locations:</td>
+				<td>
                     <table>
                         <xsl:for-each select="//get_all_locations" >
                             <tr><td valign="top"><input type="checkbox" name="location_address_id[]" value="{location_address_id}"> 
@@ -54,13 +54,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 									</xsl:for-each>
 								</input>
 							</td>
-                            <td><font class="two"><xsl:value-of select="name"/></font></td></tr>
+                            <td><xsl:value-of select="name"/></td></tr>
                         </xsl:for-each>
                     </table>
                 </td>
 			</tr>
 			<tr>
-				<td bgcolor="white" colspan="2" align="center"><br />
+				<td colspan="2" align="center"><br />
 					<table cellpadding="5">
 						<tr>
 							<td><input type="submit" value="Update" name="submit" /></td>

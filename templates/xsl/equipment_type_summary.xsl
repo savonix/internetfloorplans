@@ -27,26 +27,26 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<tr>
 		<xsl:if test="//_registry/user/roles='uplink_regional_manager'">
 		<td width="25%"  valign="top">
-		<font class="one">
+		
 		<b>Options:</b><br />
 		[ <a target="_top" href="/acc/link/types/edit/&amp;equipment_type_id={equipment_type_id}">Edit This Equipment Type</a> ] <br/>
 		[ <a target="_top" href="/acc/link/types/delete/&amp;equipment_type_id={equipment_type_id}" onclick="return confirm('Are you sure you want to delete this equipment type?')">Delete This Equipment Type</a> ]
-		</font>
+		
 		</td>
 		</xsl:if>
 		
 		
-		<td width="25%" bgcolor="white" valign="top">
-		<font class="one">
+		<td width="25%" valign="top">
+		
 		<b>Name:</b><br/>
-		<xsl:value-of select="//get_asset_type_by_id/name" /></font>
+		<xsl:value-of select="//get_asset_type_by_id/name" />
 		</td>
 
-		<td width="25%" bgcolor="white" valign="top" colspan="2">
-		<font class="one">
+		<td width="25%" valign="top" colspan="2">
+		
 		<b>Description:</b> <br/>
 		<xsl:value-of select="//get_asset_type_by_id/description" />
-		</font>
+		
 		</td>
 
 

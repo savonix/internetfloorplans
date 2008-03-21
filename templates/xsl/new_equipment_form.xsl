@@ -46,7 +46,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</table>
 	<table border="0" cellpadding="4" cellspacing="1"  width="600">
 		<tr>
-			<td ><font class="two">Asset ID:</font></td>
+			<td >Asset ID:</td>
 			<xsl:if test="//_get/equipment_id">
 			<td ><xsl:value-of select="//get_asset_by_id/asset_id"/></td>
 			</xsl:if>
@@ -54,14 +54,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<td ><input type="text" name="asset_id"><xsl:attribute name="value"><xsl:value-of select="//get_asset_by_id/asset_id"/></xsl:attribute></input></td>
 			</xsl:if>
 		
-			<td rowspan="6" bgcolor="white" width="120">
+			<td rowspan="6" width="120">
 				<xsl:if test="//_get/equipment_id">
 				<img border="0" ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;type=merchandising</xsl:attribute></img>
 				</xsl:if>
 			</td>
 		</tr>
 		<tr>
-			<td ><font class="two">Asset Type:</font></td>
+			<td >Asset Type:</td>
 			<xsl:if test="//_get/equipment_id">
 			<td >
 				<xsl:for-each select="//get_asset_types">
@@ -81,7 +81,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</xsl:if>
 		</tr>
 		<tr>
-			<td ><font class="two">Location:</font></td>
+			<td >Location:</td>
 			
 			<xsl:if test="//_get/equipment_id">
 			<td >
@@ -103,17 +103,17 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 		<!-- Wait for Upsell
 		<tr>
-			<td ><font class="two">Quantity:</font></td>
+			<td >Quantity:</td>
 			<td ><input type="text" size="5"/></td>
 		</tr>-->
 		<xsl:for-each select="//get_container_by_type_id">
 		<tr>
-			<td ><font class="two">Container:</font></td>
+			<td >Container:</td>
 			<td ><xsl:value-of select="name"/></td>
 		</tr>
 		</xsl:for-each>
 		<tr>
-			<td ><font class="two">Priority Rating:</font></td>
+			<td >Priority Rating:</td>
 			<td >
 			<select name="priority_id">
 			<xsl:for-each select="//get_priorities">
@@ -128,7 +128,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 		</tr>
 		<tr>
-			<td ><font class="two">Line of Business:</font></td>
+			<td >Line of Business:</td>
 			<td >
 			<select name="lob_id">
 			<xsl:for-each select="//get_lob">
@@ -143,7 +143,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 		
 		<tr>
-			<td bgcolor="white" colspan="2" align="center"><br />
+			<td colspan="2" align="center"><br />
 				<table cellpadding="5">
 					<tr>
 						<td><input type="submit" value="Submit" name="submit" /></td>

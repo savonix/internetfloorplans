@@ -34,39 +34,39 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="location_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
+	<table border="0" cellspacing="1" cellpadding="2"  >
 	<xsl:call-template name="location_summary" />
 	<tr>
 		<td colspan="4" >
-			<table border='0' cellspacing='0' cellpadding='10'  width="100%">
+			<table border='0' cellspacing='0' cellpadding='10'  >
 			<tr>
 				<td align="left"  valign="top">
-					<table width="100%">
+					<table >
 					<tr><td></td>
 						<td width="10%" valign="top">
-							<font class="two"><b>Username</b></font></td>
+							<b>Username</b></td>
 						<td width="20%" valign="top">
-							<font class="two"><b>Edit</b></font></td>
+							<b>Edit</b></td>
 						<td width="20%" valign="top">
-							<font class="two"><b>Delete</b></font></td>
+							<b>Delete</b></td>
 						<td width="20%" valign="top">
-							<font class="two"><b>Remove</b></font></td>
+							<b>Remove</b></td>
 					</tr>
 					<xsl:for-each select="//get_all_personnel">
 					<tr class="row{position() mod 2}">
 						<td width="90"></td>
 						<td valign="top">
-							<font class="one"><xsl:if test="//user_roles='update'"><a href="/acc/date/people/view/&amp;user_id={user_id}"><xsl:value-of select="user_name"/></a></xsl:if>
+							<xsl:if test="//user_roles='update'"><a href="/acc/date/people/view/&amp;user_id={user_id}"><xsl:value-of select="user_name"/></a></xsl:if>
 							<xsl:if test="not(//user_roles='update')"><xsl:value-of select="user_name"/></xsl:if>
-							</font>
+							
 						</td>
 
 						<td valign="top">
-							<font class="one"><a href="/setup/admin/users/edit/&amp;user_id={user_id}">Edit</a></font></td>
+							<a href="/setup/admin/users/edit/&amp;user_id={user_id}">Edit</a></td>
 						<td valign="top">
-							<font class="one"><a href="/setup/admin/users/delete/&amp;user_id={user_id}" onclick="return confirm('Are you sure you want to delete this person?')">Delete</a></font></td>
+							<a href="/setup/admin/users/delete/&amp;user_id={user_id}" onclick="return confirm('Are you sure you want to delete this person?')">Delete</a></td>
 						<td valign="top">
-							<font class="one"><a href="/acc/link/loc/view/hr/remove/&amp;user_id={user_id}&amp;location_address_id={//_get/location_address_id}" onclick="return confirm('Are you sure you want to remove this person?')">Remove</a></font></td>
+							<a href="/acc/link/loc/view/hr/remove/&amp;user_id={user_id}&amp;location_address_id={//_get/location_address_id}" onclick="return confirm('Are you sure you want to remove this person?')">Remove</a></td>
 					</tr>					
 					</xsl:for-each>
 					</table>
@@ -77,8 +77,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</tr>
 	<tr>
 		<td  colspan="4" align="center">
-			<font class="two"><br/>[ <a href="/setup/admin/users/add/&amp;location_address_id={//_get/location_address_id}">Add New Personnel</a>
-			 ]<br/><br/></font>
+			<br/>[ <a href="/setup/admin/users/add/&amp;location_address_id={//_get/location_address_id}">Add New Personnel</a>
+			 ]<br/><br/>
 		</td>
 	</tr>
 	</table>

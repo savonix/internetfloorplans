@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	
 	<!--
 	
-	<table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="white">
+	<table  cellpadding="0" cellspacing="0" border="0">
 	<tr><td>
 Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 </tr>
@@ -55,7 +55,7 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 <tr><td><b><xsl:value-of select="//equipment_type_name"/></b></td></tr>
 	<xsl:if test="//get_lob">
 	   <tr>
-			<td ><font class="two">Line of Business:</font>
+			<td >Line of Business:
 			<br/>
 			<select name="lob_id">
 			<xsl:for-each select="//get_lob">
@@ -71,7 +71,7 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 	</xsl:if>
 	<xsl:if test="//get_priorities">
 		<tr>
-			<td ><font class="two">Priority Rating:</font>
+			<td >Priority Rating:
 			<br/>
 			<select name="priority_id">
 			<xsl:for-each select="//get_priorities">

@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="equipment_type_menu" />
 		</tr>
 	</table>
-	<font class="three">
+	
 	<table border='0' cellspacing='1' cellpadding='2'  width='100%'>
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
@@ -43,42 +43,42 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<table border='0' cellspacing='0' cellpadding='10' >
 			<tr>
 				<td align="left"  valign="top">
-					<table border="0" cellspacing="1" cellpadding="2"  width="100%">
+					<table border="0" cellspacing="1" cellpadding="2"  >
 						<tr>
 							<td valign="top">
-								<font class="one"><b>Symbols</b></font>
+								<b>Symbols</b>
 							</td>
 						</tr>
 						<xsl:for-each select="//get_equipment_type_symbols" >
 						<tr>
 							<td  valign="top">
 							
-								<font class="one">
+								
 								<a>
 										<xsl:attribute name="href">&amp;equipment_type_id=<xsl:value-of select="//_get/equipment_type_id"/>&amp;equipment_type_symbol_id=<xsl:value-of select="equipment_type_symbol_id"/></xsl:attribute>
 											<xsl:value-of select="name"/></a>
-								</font>
+								
 							</td>
 						</tr>
 						</xsl:for-each>
 					</table>
 					<br/>
-					<table border="0" cellspacing="1" cellpadding="2"  width="100%">
+					<table border="0" cellspacing="1" cellpadding="2"  >
 						<tr>
 							<td valign="top">
-								<font class="one"><b>Options</b></font>
+								<b>Options</b>
 							</td>
 						</tr>
 						<xsl:if test="not(//get_equipment_type_symbols)">
 						<tr>
 							<td valign="top" >
-								<font class="one"><a><xsl:attribute name="href">add/&amp;equipment_type_id=<xsl:value-of select="//_get/equipment_type_id"/></xsl:attribute>Add New Symbol</a></font>
+								<a><xsl:attribute name="href">add/&amp;equipment_type_id=<xsl:value-of select="//_get/equipment_type_id"/></xsl:attribute>Add New Symbol</a>
 							</td>
 						</tr>
 						</xsl:if>
 						<tr>
 							<td valign="top" >
-								<font class="one"><a onclick="return confirm('Are you sure you want to delete this equipment type symbol?')"><xsl:attribute name="href">delete/&amp;equipment_type_symbol_id=<xsl:if test="//_get/equipment_type_symbol_id"><xsl:value-of select="//_get/equipment_type_symbol_id"/></xsl:if><xsl:if test="not(//_get/equipment_type_symbol_id)"><xsl:for-each select="//get_equipment_type_symbols"><xsl:if test="default_symbol=1"><xsl:value-of select="equipment_type_symbol_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Symbol</a></font>
+								<a onclick="return confirm('Are you sure you want to delete this equipment type symbol?')"><xsl:attribute name="href">delete/&amp;equipment_type_symbol_id=<xsl:if test="//_get/equipment_type_symbol_id"><xsl:value-of select="//_get/equipment_type_symbol_id"/></xsl:if><xsl:if test="not(//_get/equipment_type_symbol_id)"><xsl:for-each select="//get_equipment_type_symbols"><xsl:if test="default_symbol=1"><xsl:value-of select="equipment_type_symbol_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Symbol</a>
 							</td>
 						</tr>
 					</table>
@@ -87,15 +87,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<td  align="left" valign="top">
 					<table border="0" cellspacing="1" cellpadding="5" >
 						<tr>
-							<td bgcolor="white">
-								<font class="two">
+							<td>
+								
 								<xsl:for-each select="//get_equipment_type_symbols">
 									<xsl:if test="equipment_type_symbol_id=//_get/equipment_type_symbol_id
 									or (not(//_get/equipment_type_symbol_id) and default_symbol=1)">
 										<xsl:value-of select="name"/>
 									</xsl:if>
 								</xsl:for-each>
-								</font>
+								
 							</td>
 						</tr>
 						<tr>
@@ -107,20 +107,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</tr>
 						<tr>
 							<td>
-								<font class="two">Comments:
-								</font>
+								Comments:
+								
 							</td>
 						</tr>
 						<tr>
-							<td bgcolor="white">
-								<font class="two">
+							<td>
+								
 								<xsl:for-each select="//get_equipment_type_symbols">
 									<xsl:if test="equipment_type_symbol_id=//_get/equipment_type_symbol_id
 									or (not(//_get/equipment_type_symbol_id) and default_symbol=1)">
 										<xsl:value-of select="comments"/>
 									</xsl:if>
 								</xsl:for-each>
-								</font>
+								
 							</td>
 						</tr>
 					</table>
@@ -130,7 +130,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</td>
 	</tr>
 	</table>
-	</font>
+	
 	</form>
 </xsl:template>
 </xsl:stylesheet>

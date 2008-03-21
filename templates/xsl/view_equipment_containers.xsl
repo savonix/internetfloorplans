@@ -34,7 +34,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="equipment_type_menu" />
 		</tr>
 	</table>
-	<font class="three">
+	
 	<table border='0' cellspacing='1' cellpadding='2'  width='100%'>
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
@@ -42,10 +42,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<table border='0' cellspacing='0' cellpadding='10' >
 			<tr>
 								<td align="left"  valign="top">
-					<table border="0" cellspacing="1" cellpadding="2"  width="100%">
+					<table border="0" cellspacing="1" cellpadding="2"  >
 						<tr>
 							<td valign="top">
-								<font class="one"><b>Add Containers</b></font>
+								<b>Add Containers</b>
 							</td>
 						</tr>
 						<form action="{self}add/" method="post">
@@ -75,13 +75,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						
 					</table>
 					<br/>
-					<table border="0" cellspacing="1" cellpadding="2"  width="100%">
+					<table border="0" cellspacing="1" cellpadding="2"  >
 					
 						<form action="{self}delete/" method="post">
 						<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
 						<tr>
 							<td valign="top">
-								<font class="one"><b>Delete Container</b></font>
+								<b>Delete Container</b>
 							</td>
 						</tr>
 						<tr>
@@ -101,15 +101,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<td  align="left" valign="top">
 					<table border="0" cellspacing="1" cellpadding="5" >
 						<tr>
-							<td bgcolor="white">
-								<font class="two">
+							<td>
+								
 								<xsl:for-each select="//get_asset_type_images">
 									<xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id
 									or (not(//_get/equipment_type_image_id) and default_image=1)">
 										<xsl:value-of select="name"/>
 									</xsl:if>
 								</xsl:for-each>
-								</font>
+								
 							</td>
 						</tr>
 						<tr>
@@ -164,20 +164,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</tr>
 						<tr>
 							<td>
-								<font class="two">Comments:
-								</font>
+								Comments:
+								
 							</td>
 						</tr>
 						<tr>
-							<td bgcolor="white">
-								<font class="two">
+							<td>
+								
 								<xsl:for-each select="//get_asset_type_images">
 									<xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id
 									or (not(//_get/equipment_type_image_id) and default_image=1)">
 										<xsl:value-of select="comments"/>
 									</xsl:if>
 								</xsl:for-each>
-								</font>
+								
 							</td>
 						</tr>
 					</table>
@@ -187,6 +187,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</td>
 	</tr>
 	</table>
-	</font>
+	
 </xsl:template>
 </xsl:stylesheet>

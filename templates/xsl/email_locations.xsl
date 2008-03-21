@@ -33,13 +33,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</td>
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
+	<table border="0" cellspacing="1" cellpadding="2"  >
 	<tr><td colspan="4" >	
 			
 			<table border='0' cellspacing='0' cellpadding='10' >
 			<tr>
 				<td align="left"  valign="top" colspan="2">
-					<font class="four">Email Locations</font>
+					Email Locations
 				</td>
 			</tr>
 			<tr>
@@ -61,7 +61,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				</td>
 			</tr>
 			<tr>
-				<td bgcolor="white" colspan="2" align="center"><input type="submit" name="submit" value="Submit"/>
+				<td colspan="2" align="center"><input type="submit" name="submit" value="Submit"/>
 				<input type="button" value="Cancel" onclick="window.location.href='/acc/link/loc/'"/>
 				</td>
 			</tr>

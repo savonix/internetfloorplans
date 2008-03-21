@@ -37,38 +37,38 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</table>
 	<table border="0" cellpadding="5" cellspacing="1"  width="600">
 		<tr>
-			<td  valign="top"><font class="two">
+			<td  valign="top">
 			Please select the appropriate response based upon the results of these campaign instructions: 
 			<br/><br/>
 			<table border="0" cellpadding="2" cellspacing="1" >
 				<tr>
-					<td bgcolor="white" valign="top">
+					<td valign="top">
 						<input type="radio" name="response" value="success" checked="checked"/>
 					</td>
-					<td bgcolor="white">The materials have been successfully installed. <b>Please select this option only if you have already installed the materials as prescribed by these instructions.</b></td>
+					<td>The materials have been successfully installed. <b>Please select this option only if you have already installed the materials as prescribed by these instructions.</b></td>
 				</tr>
 				<tr>
-					<td bgcolor="white">
+					<td>
 						<input type="radio" name="response" value="never"/>
 					</td>
-					<td bgcolor="white">Never received the materials.</td>
+					<td>Never received the materials.</td>
 				</tr>
 				<tr>
-					<td bgcolor="white">
+					<td>
 						<input type="radio" name="response" value="replace"/>
 					</td>
-					<td bgcolor="white">Received materials but need replacements.</td>
+					<td>Received materials but need replacements.</td>
 				</tr>
 				<tr>
-					<td bgcolor="white">
+					<td>
 						<input type="radio" name="response" value="impossible"/>
 					</td>
-					<td bgcolor="white">The fixture is not there.</td>
+					<td>The fixture is not there.</td>
 				</tr>
 			</table>
 				
-			</font></td>
-			<td bgcolor="white">
+			</td>
+			<td>
 				<iframe name="config" id="config" width="275" height="525"><xsl:attribute name="src">/acc/link/types/display_config/&amp;location_equipment_id=<xsl:value-of select="//_post/location_equipment_id"/>&amp;equipment_id=<xsl:value-of select="//_post/equipment_id"/>&amp;asset_id=<xsl:value-of select="//_post/asset_id"/>&amp;equipment_type_id=<xsl:value-of select="//_post/equipment_type_id"/>&amp;equipment_type_image_id=<xsl:value-of select="//_post/equipment_type_image_id"/></xsl:attribute> 
 				
 				&#160;
@@ -79,7 +79,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 		
 		<tr>
-			<td bgcolor="white" colspan="2" align="center"><br />
+			<td colspan="2" align="center"><br />
 				<table cellpadding="5">
 					<tr>
 						<td><input type="submit" value="Submit" name="submit" /></td>

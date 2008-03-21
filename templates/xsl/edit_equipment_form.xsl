@@ -37,7 +37,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<table><tr><td valign="top">
 	<table border="0" cellpadding="1" cellspacing="1" >
 		<tr>
-			<td ><font class="two">Asset Type:</font></td>
+			<td >Asset Type:</td>
 			<xsl:if test="//_get/equipment_id">
 			<td >
 				<xsl:for-each select="//get_asset_types">
@@ -49,7 +49,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</xsl:if>
 		</tr>
 		<tr>
-			<td ><font class="two">Location:</font></td>
+			<td >Location:</td>
 			
 			<td >
 				<a href="/acc/link/loc/view/sp/&amp;location_address_id={//get_location_summary/location_address_id}"><xsl:value-of select="//get_location_summary/name"/></a>
@@ -65,7 +65,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		
 		<xsl:variable name="my_business_line_id"><xsl:value-of select="//get_container_by_id[equipment_type_container_id=$my_container_id]/business_line_id"/></xsl:variable>
 		<tr>
-			<td ><input type="checkbox" name="equipment_type_container_id[]" value="{equipment_type_container_id}"><xsl:if test="count(//get_container_by_type_id)=1"><xsl:attribute name="checked"/></xsl:if></input><font class="two">Container:</font></td>
+			<td ><input type="checkbox" name="equipment_type_container_id[]" value="{equipment_type_container_id}"><xsl:if test="count(//get_container_by_type_id)=1"><xsl:attribute name="checked"/></xsl:if></input>Container:</td>
 			<td ><b><xsl:value-of select="name"/><xsl:value-of select="equipment_id"/></b> - <xsl:value-of select="//get_priorities[priority_id=$my_priority_id]/name"/>, <xsl:value-of select="//get_lob[line_of_business_id=$my_business_line_id]/name"/> 
 			</td>
 		</tr>
@@ -74,10 +74,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<input type="hidden" name="equipment_id" value="{//_get/equipment_id}"/>
 		<input type="hidden" name="equipment_type_container_id" value="{equipment_type_container_id}"/>
 		<input type="hidden" name="type" value="edit"/>
-		<tr><td colspan="2"><table bgcolor="black" cellpadding="1" cellspacing="0" border="0"><tr><td>
+		<tr><td colspan="2"><table cellpadding="1" cellspacing="0" border="0"><tr><td>
 		<table cellpadding="0" cellspacing="0" border="0">
 		<tr>
-			<td ><input type="checkbox" name="equipment_type_container_id" value="{equipment_type_container_id}"/><font class="two">Container:</font></td>
+			<td ><input type="checkbox" name="equipment_type_container_id" value="{equipment_type_container_id}"/>Container:</td>
 			<td ><b><xsl:value-of select="name"/></b></td>
 		</tr>
 		<tr>
@@ -85,7 +85,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<table cellpadding="0" cellspacing="0" border="0">
 
 		<tr>
-			<td ><font class="two">Priority:</font></td>
+			<td >Priority:</td>
 			<td >
 			<select name="priority_id">
 			<xsl:for-each select="//get_priorities">
@@ -100,7 +100,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 		</tr>
 		<tr>
-			<td ><font class="two">Business:</font></td>
+			<td >Business:</td>
 			<td >
 			<select name="lob_id">
 			<xsl:for-each select="//get_lob">
@@ -123,7 +123,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</form>-->
 		</xsl:for-each>
 		<tr>
-			<td ><font class="two">Option:</font></td>
+			<td >Option:</td>
 			<td >
 			<select name="priority_id">
 			<xsl:for-each select="//get_priorities">
@@ -138,7 +138,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 		</tr>
 		<tr>
-			<td ><font class="two">Business:</font></td>
+			<td >Business:</td>
 			<td >
 			<select name="lob_id">
 			<xsl:for-each select="//get_lob">
@@ -157,7 +157,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<td valign="top">
 	<table>
 		<tr>
-					<td rowspan="6" bgcolor="white" width="120">
+					<td rowspan="6" width="120">
 				<xsl:if test="//_get/equipment_id">
 				<img border="0" ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;type=merchandising</xsl:attribute></img>
 				</xsl:if>

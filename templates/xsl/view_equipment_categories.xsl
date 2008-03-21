@@ -34,28 +34,28 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</td>
 		</tr>
 	</table>
-	<font class="three">
+	
 	<table border='0' cellspacing='0' cellpadding='2'  width='100%'>
 	<tr>	
-				<td width="150" ><font class='two'><b>Department Name</b></font></td>
-				<td width="150" ><font class='two'><b>Description</b></font></td>
+				<td width="150" ><font class='two'><b>Department Name</b></td>
+				<td width="150" ><font class='two'><b>Description</b></td>
 			<td >
-				<font class="two"><b>Edit</b></font></td>
+				<b>Edit</b></td>
 			<td >
-				<font class="two"><b>Delete</b></font></td>
+				<b>Delete</b></td>
 	</tr>
 			<xsl:for-each select="//get_asset_categories">
 			<tr class="row{position() mod 2}">
 				<td>
-					<font class="two"><xsl:value-of select="name"/></font>
+					<xsl:value-of select="name"/>
 				</td>
 				<td>
-					<font class="two"><xsl:value-of select="description"/></font>
+					<xsl:value-of select="description"/>
 				</td>
 			<td>
-				<font class="one"><a href="/acc/link/depts/edit/&amp;equipment_category_id={equipment_category_id}">Edit</a></font></td>
+				<a href="/acc/link/depts/edit/&amp;equipment_category_id={equipment_category_id}">Edit</a></td>
 			<td>
-				<font class="one"><a href="/acc/link/depts/delete/&amp;equipment_category_id={equipment_category_id}" onclick="return confirm('Are you sure you want to delete this department?')">Delete</a></font></td>
+				<a href="/acc/link/depts/delete/&amp;equipment_category_id={equipment_category_id}" onclick="return confirm('Are you sure you want to delete this department?')">Delete</a></td>
 			</tr>
 			</xsl:for-each>
 			
@@ -70,7 +70,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</table>
 	</td></tr>
 	</table>
-	</font>
+	
 	</form>
 
 </xsl:template>

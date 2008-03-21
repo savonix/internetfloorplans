@@ -36,39 +36,39 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			
 		</tr>
 	</table>
-	<table border='0' cellspacing='0' cellpadding='2' bgcolor="white" width='100%'>
+	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
 		<tr>
 			<!--<td  width="10">
 				<input type="checkbox"></input></td>
 			<td width="10%">
-				<font class="two"><b>Asset ID</b></font></td>-->
+				<b>Asset ID</b></td>-->
 			<td width="300">
-				<font class="two"><b>Equipment Type</b></font></td>
+				<b>Equipment Type</b></td>
 			<td width="30%">
-				<font class="two"><b>Quantity</b></font></td>
+				<b>Quantity</b></td>
 
 		</tr>
 		<xsl:for-each select="//get_asset_types">
 						<xsl:variable name="my_equipment_type_id"><xsl:value-of select="equipment_type_id"/></xsl:variable>
 						<tr class="row{position() mod 2}">
 							<td valign="top">
-								<font class="one"><xsl:value-of select="name"/></font></td>
+								<xsl:value-of select="name"/></td>
 								<td><xsl:value-of select="count(//get_all_assets2[equipment_type_id=$my_equipment_type_id])"/></td>
-							<!--<td bgcolor="white" width="10">
+							<!--<td width="10">
 								<input type="checkbox" name="asset_id[]"><xsl:attribute name="value"><xsl:value-of select="asset_id"/></xsl:attribute></input></td>-->
 							<!--<td valign="top">
-								<font class="one"><a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}"><xsl:value-of select="asset_id"/></a></font>
+								<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}"><xsl:value-of select="asset_id"/></a>
 							</td>-->
 							
 							<!--
 							<td valign="top">
-								<font class="one"><img src="/resources/img/22x28_ActNow_red.gif"/></font></td>
+								<img src="/resources/img/22x28_ActNow_red.gif"/></td>
 							-->
 							
 							<!--<td valign="top">
-								<font class="one"><a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></font></td>
+								<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></td>
 							<td valign="top">
-								<font class="one"><a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></font></td>-->
+								<a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></td>-->
 		</tr>					
 		</xsl:for-each>
 		<!--<tr>

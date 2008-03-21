@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	<xsl:if test="//get_all_locations/location_address_id=//_get/location_address_id">
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
+	<table border="0" cellspacing="1" cellpadding="2"  >
 	<xsl:call-template name="location_summary" />
 	<tr><td colspan="4" >
 			<table border='0' cellspacing='0' cellpadding='10' >
@@ -44,37 +44,37 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<table border="0" cellspacing="1" cellpadding="2" >
 						<tr>
 							<td valign="top">
-								<font class="one"><b>Space Plans</b></font>
+								<b>Space Plans</b>
 							</td>
 						</tr>
 						<xsl:for-each select="//get_location_space_plans" >
 						<tr>
 							<td >
-								<font class="one">
+								
 									<a>
 										<xsl:attribute name="href">&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/>&amp;location_space_plan_id=<xsl:value-of select="location_space_plan_id"/></xsl:attribute>
 											<xsl:value-of select="name"/></a>
-								</font>
+								
 							</td>
 						</tr>
 						</xsl:for-each>
 					</table>
 					<br/>
 					<xsl:if test="//user_roles='uplink_regional_manager'">
-					<table border="0" cellspacing="1" cellpadding="2"  width="100%">
+					<table border="0" cellspacing="1" cellpadding="2"  >
 						<tr>
 							<td valign="top">
-								<font class="one"><b>Options</b></font>
+								<b>Options</b>
 							</td>
 						</tr>
 						<tr>
 							<td valign="top" >
-								<font class="one"><a><xsl:attribute name="href">add/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/></xsl:attribute>Add New Plan</a></font>
+								<a><xsl:attribute name="href">add/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/></xsl:attribute>Add New Plan</a>
 							</td>
 						</tr>
 						<tr>
 							<td valign="top" >
-								<font class="one"><a><xsl:attribute name="href">delete/&amp;location_space_plan_id=<xsl:if test="//_get/location_space_plan_id"><xsl:value-of select="//_get/location_space_plan_id"/></xsl:if><xsl:if test="not(//_get/location_space_plan_id)"><xsl:for-each select="//get_location_space_plans"><xsl:if test="default_space_plan=1"><xsl:value-of select="location_space_plan_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Plan</a></font>
+								<a><xsl:attribute name="href">delete/&amp;location_space_plan_id=<xsl:if test="//_get/location_space_plan_id"><xsl:value-of select="//_get/location_space_plan_id"/></xsl:if><xsl:if test="not(//_get/location_space_plan_id)"><xsl:for-each select="//get_location_space_plans"><xsl:if test="default_space_plan=1"><xsl:value-of select="location_space_plan_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Plan</a>
 							</td>
 						</tr>
 						<tr>
@@ -89,15 +89,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<td  align="left" valign="top">
 					<table border="0" cellspacing="1" cellpadding="5" >
 						<tr>
-							<td bgcolor="white">
-								<font class="two">
+							<td>
+								
 								<xsl:for-each select="//get_location_space_plans">
 									<xsl:if test="location_space_plan_id=//_get/location_space_plan_id
 									or (not(//_get/location_space_plan_id) and default_space_plan=1)">
 										<xsl:value-of select="name"/>
 									</xsl:if>
 								</xsl:for-each>
-								</font>
+								
 							</td>
 						</tr>
 						<tr>
@@ -138,20 +138,20 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						</tr>
 						<tr>
 							<td>
-								<font class="two">Comments:
-								</font>
+								Comments:
+								
 							</td>
 						</tr>
 						<tr>
-							<td bgcolor="white">
-								<font class="two">
+							<td>
+								
 								<xsl:for-each select="//get_location_space_plans">
 									<xsl:if test="location_space_plan_id=//_get/location_space_plan_id
 									or (not(//_get/location_space_plan_id) and default_space_plan=1)">
 										<xsl:copy-of select="comments"/>
 									</xsl:if>
 								</xsl:for-each>
-								</font>
+								
 							</td>
 						</tr>
 					</table>
@@ -159,14 +159,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<td  align="left" valign="top" width="250">
 					<table border="0" cellspacing="1" cellpadding="5"  width="250">
 						<tr>
-							<td bgcolor="white">
-								<font class="two">
+							<td>
+								
 								Equipment Configuration
-								</font>
+								
 							</td>
 						</tr>
 						<tr>
-							<td bgcolor="white">
+							<td>
 							<iframe name="config" id="config" src="" width="240" height="480" frameborder="0"></iframe>
 							
 							

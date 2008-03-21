@@ -36,48 +36,48 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="location_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
+	<table border="0" cellspacing="1" cellpadding="2"  >
 	<xsl:call-template name="location_summary" />
 	<tr>
 		<td colspan="4" >
-	<table border='0' cellspacing='0' cellpadding='2' bgcolor="white" width='100%'>
+	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
 		<tr>
 			<!--<td  width="10">
 				<input type="checkbox"></input></td>-->
 			<td width="10%">
-				<font class="two"><b>ID</b></font></td>
+				<b>ID</b></td>
 			<td width="100">
-				<font class="two"><b>Equipment Type</b></font></td>
+				<b>Equipment Type</b></td>
 			<td width="100">
-				<font class="two"><b>Container</b></font></td>
+				<b>Container</b></td>
 			<td width="50">
-				<font class="two"><b>Business</b></font></td>
+				<b>Business</b></td>
 			<td width="50">
-				<font class="two"><b>Options</b></font></td>
+				<b>Options</b></td>
 			<td width="50">
-				<font class="two"><b>Edit</b></font></td>
+				<b>Edit</b></td>
 			<td width="50">
-				<font class="two"><b>Delete</b></font></td>
+				<b>Delete</b></td>
 		</tr>
 		<xsl:for-each select="//get_all_assets">
 		<tr class="row{position() mod 2}">
-			<!--<td bgcolor="white" width="10">
+			<!--<td width="10">
 				<input type="checkbox" name="asset_id[]"><xsl:attribute name="value"><xsl:value-of select="asset_id"/></xsl:attribute></input></td>-->
 			<td>
-				<font class="one"><a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}&amp;location_address_id={//_get/location_address_id}"><xsl:value-of select="equipment_id"/></a></font>
+				<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}&amp;location_address_id={//_get/location_address_id}"><xsl:value-of select="equipment_id"/></a>
 			</td>
 			<td width="100">
-				<font class="one"><xsl:value-of select="name"/></font></td>
+				<xsl:value-of select="name"/></td>
 			<td width="100">
-				<font class="one"><xsl:value-of select="container_name"/><!--<xsl:value-of select="equipment_type_container_id"/>--></font></td>
+				<xsl:value-of select="container_name"/><!--<xsl:value-of select="equipment_type_container_id"/>--></td>
 			<td>
-				<font class="one"><xsl:value-of select="lob_name"/></font></td>
+				<xsl:value-of select="lob_name"/></td>
 			<td>
-				<font class="one"><xsl:value-of select="priority_name"/></font></td>
+				<xsl:value-of select="priority_name"/></td>
 			<td>
-				<font class="one"><a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></font></td>
+				<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></td>
 			<td>
-				<font class="one"><a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></font></td>
+				<a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></td>
 		</tr>					
 		</xsl:for-each>
 		<!--<tr>

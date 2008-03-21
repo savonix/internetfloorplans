@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="location_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="1" width="100%" >
+	<table border="0" cellspacing="1" cellpadding="1"  >
 	<xsl:call-template name="location_summary" />
 	<tr><td colspan="4" >
 			<table border='0' cellspacing='0' cellpadding='1' >
@@ -46,7 +46,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 							<td colspan="2">
 								<b>Space Plan Options</b> : 
 								<xsl:if test="not(//location_space_plan_id)">
-								<font class="one"><a><xsl:attribute name="href">add/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/></xsl:attribute>Add New Plan</a></font>
+								<a><xsl:attribute name="href">add/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/></xsl:attribute>Add New Plan</a>
 								</xsl:if>
 								
 								
@@ -103,14 +103,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<td  align="left" valign="top" width="260">
 					<table border="0" cellspacing="1" cellpadding="2"  width="260">
 						<tr>
-							<td bgcolor="white">
-								<font class="two">
+							<td>
+								
 								Equipment Configuration
-								</font>
+								
 							</td>
 						</tr>
 						<tr>
-							<td bgcolor="white">
+							<td>
 							
 <iframe name="config" id="config" width="260" height="525" frameborder="0"><xsl:attribute name="src">/resources/img/clear.gif</xsl:attribute> </iframe>
 							

@@ -37,34 +37,34 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="equipment_type_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
+	<table border="0" cellspacing="1" cellpadding="2"  >
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
 		<td colspan="4" >
 		<table border="0" cellpadding="10" cellspacing="1"  width="600">
 			<tr>	
-				<td bgcolor="white" colspan="2"><font class='two'>
-					You can upload an image formatted as a JPEG.  </font></td>
+				<td colspan="2"><font class='two'>
+					You can upload an image formatted as a JPEG.  </td>
 			</tr>
 			<tr>	
-				<td bgcolor="white"><font class='two'>Image name:</font></td>
-				<td bgcolor="white"><input type='text' name='name' size="25" ><xsl:attribute name="value"><xsl:value-of select="//_post/name"/></xsl:attribute></input></td>
+				<td><font class='two'>Image name:</td>
+				<td><input type='text' name='name' size="25" ><xsl:attribute name="value"><xsl:value-of select="//_post/name"/></xsl:attribute></input></td>
 			</tr>
 			<tr>	
-				<td bgcolor="white"><font class='two'>Image file:</font></td>
-				<td bgcolor="white"><input type='file' name='file' size="25" /></td>
+				<td><font class='two'>Image file:</td>
+				<td><input type='file' name='file' size="25" /></td>
 			</tr>
 			<tr>
-				<td bgcolor="white"><font class='two'>Comments:</font></td>
-				<td bgcolor="white"><textarea cols="35" rows="5" name="comments"><xsl:value-of select="//_post/comments"/></textarea></td>
+				<td><font class='two'>Comments:</td>
+				<td><textarea cols="35" rows="5" name="comments"><xsl:value-of select="//_post/comments"/></textarea></td>
 			</tr>
 			<!--<tr>
-				<td bgcolor="white"><font class='two'>Default image:</font></td>
-				<td bgcolor="white"><input type="checkbox" name="default" value="1"><xsl:if test="//_post/default"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if></input></td>
+				<td><font class='two'>Default image:</td>
+				<td><input type="checkbox" name="default" value="1"><xsl:if test="//_post/default"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if></input></td>
 			</tr>-->
 			<input type="hidden" name="default" value="1"/>
 			<tr>
-				<td bgcolor="white" colspan="2" align="center"><br />
+				<td colspan="2" align="center"><br />
 					<table cellpadding="5">
 						<tr>
 							<td><input type="submit" value="Upload" name="submit" /></td>

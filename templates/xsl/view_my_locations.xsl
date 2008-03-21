@@ -33,7 +33,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<!--
 			<form action="{self}" method="post">
 			<td align="left">
-				<font class="two">Region:</font>
+				Region:
 				<select name="region_id">
 					<option value="all">All</option>	
 					<xsl:for-each select="//get_all_regions">
@@ -48,21 +48,21 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<table border='0' cellspacing='1' cellpadding=''  width='100%'>
 		<tr>
 			<!--<td bgcolor='#EEEEEE' width="20"><input type="checkbox" /></td>-->
-			<td bgcolor='#EEEEEE' width='110' class="basic-table-cell"><font class="two">Branch Name</font></td>
-			<td bgcolor='#EEEEEE' width='140' class="basic-table-cell"><font class="two">Address</font></td>
-			<td bgcolor='#EEEEEE' width='82' class="basic-table-cell"><font class="two">City</font></td>
-			<td bgcolor='#EEEEEE' width='72' class="basic-table-cell"><font class="two">Phone</font></td>
-			<td bgcolor='#EEEEEE' class="basic-table-cell"><font class="two">Contact</font></td>
+			<td bgcolor='#EEEEEE' width='110' class="basic-table-cell">Branch Name</td>
+			<td bgcolor='#EEEEEE' width='140' class="basic-table-cell">Address</td>
+			<td bgcolor='#EEEEEE' width='82' class="basic-table-cell">City</td>
+			<td bgcolor='#EEEEEE' width='72' class="basic-table-cell">Phone</td>
+			<td bgcolor='#EEEEEE' class="basic-table-cell">Contact</td>
 		</tr>
 		<xsl:for-each select="//get_all_locations">
 		<tr>
 			<!--<td bgcolor='white'><input type="checkbox" /></td>-->
-			<td bgcolor='white' width='110' class="basic-table-cell"><font class="one"><a href="/acc/link/my_loc/view/sp/&amp;location_address_id={location_address_id}" class="basic-table-cell"><xsl:value-of select="name"/></a></font></td>
-			<td bgcolor='white' width='120' class="basic-table-cell"><font  class="basic-table-cell"><xsl:value-of select="address_line_1"/></font></td>
-			<td bgcolor='white' width='140' class="basic-table-cell"><font class="one"><xsl:value-of select="city"/></font></td>
-			<td bgcolor='white' width='92' class="basic-table-cell"><font class="one"><xsl:value-of select="phone"/></font></td>
-			<td bgcolor='white' class="basic-table-cell"><font class="one">
-			<a class="basic-table-cell"><xsl:attribute name="href">mailto:<xsl:value-of select="email"/></xsl:attribute><xsl:value-of select="manager"/></a></font></td>
+			<td bgcolor='white' width='110' class="basic-table-cell"><a href="/acc/link/my_loc/view/sp/&amp;location_address_id={location_address_id}" class="basic-table-cell"><xsl:value-of select="name"/></a></td>
+			<td bgcolor='white' width='120' class="basic-table-cell"><font  class="basic-table-cell"><xsl:value-of select="address_line_1"/></td>
+			<td bgcolor='white' width='140' class="basic-table-cell"><xsl:value-of select="city"/></td>
+			<td bgcolor='white' width='92' class="basic-table-cell"><xsl:value-of select="phone"/></td>
+			<td bgcolor='white' class="basic-table-cell">
+			<a class="basic-table-cell"><xsl:attribute name="href">mailto:<xsl:value-of select="email"/></xsl:attribute><xsl:value-of select="manager"/></a></td>
 		</tr>					
 		</xsl:for-each>
 	</table>

@@ -36,36 +36,36 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			
 		</tr>
 	</table>
-	<table border='0' cellspacing='0' cellpadding='2' bgcolor="white" width='100%'>
+	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
 		<tr>
 			<!--<td  width="10">
 				<input type="checkbox"></input></td>
 			<td width="10%">
-				<font class="two"><b>Asset ID</b></font></td>-->
+				<b>Asset ID</b></td>-->
 			<td width="300">
-				<font class="two"><b>Equipment Type</b></font></td>
+				<b>Equipment Type</b></td>
 			<td width="30%">
-				<font class="two"><b>Location</b></font></td>
+				<b>Location</b></td>
 			<td width="20%">
-				<font class="two"><b>Edit</b></font></td>
+				<b>Edit</b></td>
 			<td width="20%">
-				<font class="two"><b>Delete</b></font></td>
+				<b>Delete</b></td>
 		</tr>
 		<xsl:for-each select="//get_all_assets2">
 		<tr class="row{position() mod 2}">
-			<!--<td bgcolor="white" width="10">
+			<!--<td width="10">
 				<input type="checkbox" name="asset_id[]"><xsl:attribute name="value"><xsl:value-of select="asset_id"/></xsl:attribute></input></td>
 			<td>
-				<font class="one"><a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}"><xsl:value-of select="asset_id"/></a></font>
+				<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}"><xsl:value-of select="asset_id"/></a>
 			</td>-->
 			<td width="300">
-				<font class="one"><xsl:value-of select="name"/></font></td>
+				<xsl:value-of select="name"/></td>
 			<td>
-				<font class="one"><a href="/acc/link/loc/view/eqp/&amp;location_address_id={location_address_id}"><xsl:value-of select="location_address_name"/></a></font></td>
+				<a href="/acc/link/loc/view/eqp/&amp;location_address_id={location_address_id}"><xsl:value-of select="location_address_name"/></a></td>
 			<td>
-				<font class="one"><a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></font></td>
+				<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></td>
 			<td>
-				<font class="one"><a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></font></td>
+				<a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></td>
 		</tr>					
 		</xsl:for-each>
 		<!--<tr>

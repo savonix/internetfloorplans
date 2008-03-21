@@ -34,33 +34,33 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<xsl:call-template name="location_menu" />
 		</tr>
 	</table>
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
+	<table border="0" cellspacing="1" cellpadding="2"  >
 	<xsl:call-template name="location_summary" />
 	<tr>
 		<td colspan="4" >
-			<table border='0' cellspacing='0' cellpadding='10'  width="100%">
+			<table border='0' cellspacing='0' cellpadding='10'  >
 			<tr>
 				<td align="left"  valign="top">
 				
-					<table width="100%">
+					<table >
 					<tr>
 						<td width="10%" valign="top">
-							<font class="two"><b>Day</b></font></td>
+							<b>Day</b></td>
 						<td width="10%" valign="top">
-							<font class="two"><b>Hours</b></font></td>
+							<b>Hours</b></td>
 						<td width="20%" valign="top">
-							<font class="two"><b>Edit</b></font></td>
+							<b>Edit</b></td>
 						<td width="20%" valign="top">
-							<font class="two"><b>Delete</b></font></td>
+							<b>Delete</b></td>
 					</tr>
 					<!-- Need to somehow get the seven days of the week in here. -->
 					<xsl:for-each select="//days">
 					<tr class="row{position() mod 2}">
 						<td valign="top">
-							<font class="one"><a href="/acc/link/loc/view/hours/edit/&amp;location_address_id={//_get/location_address_id}&amp;day_id={day_id}"><xsl:value-of select="day"/></a></font>
+							<a href="/acc/link/loc/view/hours/edit/&amp;location_address_id={//_get/location_address_id}&amp;day_id={day_id}"><xsl:value-of select="day"/></a>
 						</td>
 						<td valign="top">
-							<font class="one">
+							
 							<xsl:variable name="this_day_id"><xsl:value-of select="day_id"/></xsl:variable>
 							<xsl:for-each select="//get_location_hours">
 								<xsl:if test="day_id=$this_day_id">
@@ -93,16 +93,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 										</xsl:choose>
 								</xsl:if>
 							</xsl:for-each>
-							</font>
+							
 						</td>
 
 						<td valign="top">
-							<font class="one"><a href="/acc/link/loc/view/hours/edit/&amp;location_address_id={//_get/location_address_id}&amp;day_id={day_id}">
-							Edit</a></font></td>
+							<a href="/acc/link/loc/view/hours/edit/&amp;location_address_id={//_get/location_address_id}&amp;day_id={day_id}">
+							Edit</a></td>
 						<td valign="top">
-							<font class="one"><a href="/acc/link/loc/view/hours/delete/&amp;location_address_id={//_get/location_address_id}&amp;day_id={day_id}"
+							<a href="/acc/link/loc/view/hours/delete/&amp;location_address_id={//_get/location_address_id}&amp;day_id={day_id}"
 							onclick="return confirm('Are you sure you want to delete these hours?')">
-							Delete</a></font></td>
+							Delete</a></td>
 					</tr>					
 					</xsl:for-each>
 					</table>

@@ -34,28 +34,28 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			
 		</tr>
 	</table>
-	<font class="three">
+	
 	<table border='0' cellspacing='0' cellpadding='2'  width='100%'>
 	<tr>	
-				<td width="150" ><font class='two'><b>Equipment Type Name</b></font></td>
-				<td width="250" ><font class='two'><b>Description</b></font></td>
+				<td width="150" ><font class='two'><b>Equipment Type Name</b></td>
+				<td width="250" ><font class='two'><b>Description</b></td>
 				<td >
-					<font class="two"><b>Edit</b></font></td>
+					<b>Edit</b></td>
 				<td >
-					<font class="two"><b>Delete</b></font></td>
+					<b>Delete</b></td>
 			</tr>
 			<xsl:for-each select="//get_asset_types">
 			<tr class="row{position() mod 2}">
 				<td>
-					<font class="two"><a href="view/&amp;equipment_type_id={equipment_type_id}"><xsl:value-of select="name"/></a></font>
+					<a href="view/&amp;equipment_type_id={equipment_type_id}"><xsl:value-of select="name"/></a>
 				</td>
 				<td>
-					<font class="two"><xsl:value-of select="description"/></font>
+					<xsl:value-of select="description"/>
 				</td>
 				<td>
-					<font class="one"><a href="/acc/link/types/edit/&amp;equipment_type_id={equipment_type_id}">Edit</a></font></td>
+					<a href="/acc/link/types/edit/&amp;equipment_type_id={equipment_type_id}">Edit</a></td>
 				<td>
-					<font class="one"><a href="/acc/link/types/delete/&amp;equipment_type_id={equipment_type_id}" onclick="return confirm('Are you sure you want to delete this equipment type?')">Delete</a></font></td>
+					<a href="/acc/link/types/delete/&amp;equipment_type_id={equipment_type_id}" onclick="return confirm('Are you sure you want to delete this equipment type?')">Delete</a></td>
 			</tr>
 			</xsl:for-each>
 			<tr><td align="left"  colspan="4">
@@ -69,7 +69,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</table>
 	</td></tr>
 	</table>
-	</font>
+	
 	</form>
 </xsl:template>
 </xsl:stylesheet>

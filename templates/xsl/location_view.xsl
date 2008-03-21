@@ -39,40 +39,40 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <table>
 <tr>
 	<td  width="10%" valign="top">
-		<table border="0" cellspacing="1" cellpadding="2"  width="100%">
+		<table border="0" cellspacing="1" cellpadding="2"  >
 			<tr>
 				<td valign="top">
-					<font class="one"><b>Virtual Tours</b></font>
+					<b>Virtual Tours</b>
 				</td>
 			</tr>
 			<xsl:for-each select="//get_location_images" >
 			<tr>
 				<td  valign="top">
 				
-					<font class="one">
+					
 					<a>
 							<xsl:attribute name="href">&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/>&amp;location_image_id=<xsl:value-of select="location_image_id"/></xsl:attribute>
 								<xsl:value-of select="name"/></a>
-					</font>
+					
 				</td>
 			</tr>
 			</xsl:for-each>
 		</table>
 		<br/>
-		<table border="0" cellspacing="1" cellpadding="2"  width="100%">
+		<table border="0" cellspacing="1" cellpadding="2"  >
 			<tr>
 				<td valign="top">
-					<font class="one"><b>Tour options</b></font>
+					<b>Tour options</b>
 				</td>
 			</tr>
 			<tr>
 				<td valign="top" >
-					<font class="one"><a><xsl:attribute name="href">add/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/></xsl:attribute>Add New Image</a></font>
+					<a><xsl:attribute name="href">add/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/></xsl:attribute>Add New Image</a>
 				</td>
 			</tr>
 			<tr>
 				<td valign="top" >
-					<font class="one"><a onclick="return confirm('Are you sure you want to delete this location image?')"><xsl:attribute name="href">delete/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id" />&amp;location_image_id=<xsl:if test="//_get/location_image_id"><xsl:value-of select="//_get/location_image_id"/></xsl:if><xsl:if test="not(//_get/location_image_id)"><xsl:for-each select="//get_location_images"><xsl:if test="(default_image=1) or (count(//get_location_images)=1)"><xsl:value-of select="location_image_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Image</a></font>
+					<a onclick="return confirm('Are you sure you want to delete this location image?')"><xsl:attribute name="href">delete/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id" />&amp;location_image_id=<xsl:if test="//_get/location_image_id"><xsl:value-of select="//_get/location_image_id"/></xsl:if><xsl:if test="not(//_get/location_image_id)"><xsl:for-each select="//get_location_images"><xsl:if test="(default_image=1) or (count(//get_location_images)=1)"><xsl:value-of select="location_image_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Image</a>
 				</td>
 			</tr>
 		</table>
@@ -82,12 +82,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<td  align="left" valign="top" width="90%">
 		<table border="0" cellspacing="1" cellpadding="5" >
 			<tr>
-				<td bgcolor="white">
+				<td>
 					<xsl:value-of select="//get_location_images[location_image_id=$image_id]/name"/>
 				</td>
 			</tr>
 			<tr>
-				<td valign="top" bgcolor="white">
+				<td valign="top">
 				
 				<xsl:choose>
 					<xsl:when test="contains(image_pointer,'.mov')"> 

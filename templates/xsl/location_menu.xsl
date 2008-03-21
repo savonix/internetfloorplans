@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<!-- Regional Manager -->
 	<table>
 		<tr>
-			<td><b><font color="#FFFFFF"><xsl:value-of select="//get_location_summary/name" /></font></b></td>	
+			<td><b><font color="#FFFFFF"><xsl:value-of select="//get_location_summary/name" /></b></td>	
 			<td ><xsl:attribute name="class"><xsl:if test="//_get/nid='acc/link/loc/view/sp/'">mini-menu-selected</xsl:if><xsl:if test="//_get/nid!='acc/link/loc/view/sp/'">mini-menu</xsl:if></xsl:attribute><a>
 			<xsl:attribute name="href"><xsl:text>/acc/link/loc/view/sp/&amp;location_address_id=</xsl:text><xsl:value-of select="//location_address_id" /></xsl:attribute>Space Plans</a></td>
 			

@@ -35,13 +35,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</tr>
 	</table>
 	<xsl:if test="//get_all_locations/location_address_id=//_get/location_address_id">
-	<table border="0" cellspacing="1" cellpadding="2" width="100%" >
+	<table border="0" cellspacing="1" cellpadding="2"  >
 	<xsl:call-template name="location_summary" />
 	<tr><td colspan="4" >
 			<table border='0' cellspacing='0' cellpadding='10' >
 			<tr>
 				<td align="left"  valign="top">
-					<font class="five"><font color="red">Do not make hand made signage!</font></font>
+					<font color="red">Do not make hand made signage!
 					<br/><br/>
 					Click <a href="#">here</a> if you would like to order custom signage. 
 				</td>
