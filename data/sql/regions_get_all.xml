@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: regions_get_all.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -21,14 +21,14 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<query name="get_all_regions">
+<!DOCTYPE query SYSTEM "__default_table_names__.txt">
+<query name="regions_get_all">
     <connection>uplink</connection>
     <params>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
+        <param name="//runtime/gmtime" type="text"/>
 	</params>
     <sql>
-        SELECT * FROM uplink_region WHERE account_id = ? AND deletion_datetime &gt; ? 
+        SELECT * FROM &ifp_regions; WHERE account_id = ? AND deletion_datetime &gt; ? 
 		ORDER BY region_name
     </sql>
 </query>
