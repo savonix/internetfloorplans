@@ -1,7 +1,7 @@
 <?
 /*
 Program: Internet Floor Plans
-Component: container_type_form.xsl
+Component: display_position_containers.php
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3

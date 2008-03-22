@@ -31,12 +31,12 @@ $path_prefix = dirname($path)."/";
 //$app_prefix = "acc/".APP_NAME."/";
 //$link_prefix = $path."?nid=".$app_prefix;
 $link_prefix = $path."?nid=";
-$right_now = gmdate('Y-m-d H:i:s');
+$utdate = gmdate('Y-m-d H:i:s');
 
 $runtime = array('host_name'=>$_SERVER['SERVER_NAME'],
                 'path_prefix'=>$path_prefix,
                 'link_prefix'=>$link_prefix,
-                'right_now'=>$right_now,
+                'utdate'=>$right_now,
                 'user_id'=>$current_user_id,
                 'debug'=>$debug);
 
