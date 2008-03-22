@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_get_by_id.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -26,29 +26,31 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
         <param name="runtime/utdate" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
 		<param name="_get/equipment_id" type="integer"/>
         <param name="runtime/utdate" type="text"/>
         <param name="runtime/utdate" type="text"/>
 		<param name="_get/equipment_id" type="integer"/>
         <param name="runtime/utdate" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
         <param name="runtime/utdate" type="text"/>
 	</params>
     <sql>
-        SELECT &ifp_equipment;.*, &ifp_equipment;_type.name, &ifp_locations;.location_id, uplink_location_equipment.equipment_id, uplink_location_equipment.location_equipment_id, &ifp_equipment;_type_images.*
-		FROM &ifp_equipment;, &ifp_equipment;_type, &ifp_locations;, uplink_location_equipment, &ifp_equipment;_type_images
-		WHERE &ifp_equipment;.deletion_datetime &gt; ? 
-		AND &ifp_equipment;.account_id = ?
+        SELECT &ifp_equipment;.*, &ifp_equipment;_type.name, 
+        &ifp_locations;.location_id, uplink_location_equipment.equipment_id, 
+        uplink_location_equipment.location_equipment_id, 
+        &ifp_equipment_type_images;.*
+		
+        FROM &ifp_equipment;, &ifp_equipment;_type, &ifp_locations;, uplink_location_equipment, &ifp_equipment_type_images;
+		
+        WHERE 
+        &ifp_equipment;.deletion_datetime &gt; ? 
 		AND &ifp_equipment;.equipment_type_id=&ifp_equipment;_type.equipment_type_id
-		AND &ifp_equipment;.equipment_id=?
+		AND &ifp_equipment;.equipment_id = ?
 		AND &ifp_locations;.deletion_datetime &gt; ?
 		AND uplink_location_equipment.deletion_datetime &gt; ?
 		AND uplink_location_equipment.equipment_id = ?
-		AND uplink_location_equipment.location_id=&ifp_locations;.location_id
-		AND &ifp_equipment;_type_images.equipment_type_id=&ifp_equipment;_type.equipment_type_id
-		AND &ifp_equipment;_type_images.deletion_datetime &gt; ?
-		AND &ifp_locations;.account_id=?
+		AND uplink_location_equipment.location_id = &ifp_locations;.location_id
+		AND &ifp_equipment_type_images;.equipment_type_id = &ifp_equipment;_type.equipment_type_id
+		AND &ifp_equipment_type_images;.deletion_datetime &gt; ?
 		AND &ifp_equipment;_type.deletion_datetime &gt; ?
    </sql>
  </query>

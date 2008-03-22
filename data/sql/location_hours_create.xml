@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_hours_create.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -29,12 +29,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<param name="//open_iso_time" type="time"/>
 		<param name="//close_iso_time" type="time"/>
 		<param name="//right_now" type="text" />
-				<param name="//_post/day_id" type="text" default="0"/>
+        <param name="//_post/day_id" type="text" default="0"/>
     </params>
     <sql>
 		INSERT INTO uplink_location_hours 
-        (location_hours_id,location_id,open_time,close_time,creation_datetime,account_id,day_id) 
+        (location_id,open_time,close_time,creation_datetime,day_id) 
         VALUES 
-        (_AUTO_,?,?,?,?,?,?)
+        (?,?,?,?,?)
 	</sql>
 </query>

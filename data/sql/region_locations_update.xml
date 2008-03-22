@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: region_locations_update.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -28,8 +28,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param array="_post/location_id" type="integer"/>
         <param name="_post/region_id" type="integer" />
         <param name="runtime/utdate" type="text"/>
-				</params>
+    </params>
     <sql>
-		INSERT INTO uplink_location_region (location_id,region_id,creation_datetime,account_id) VALUES (?,?,?,?)
+		INSERT INTO &ifp_location_region; (location_id,region_id,creation_datetime) VALUES (?,?,?)
 	</sql>
 </query>

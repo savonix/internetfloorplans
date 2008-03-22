@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: locations_get_by_region_id.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
 		<param name="//last_database_update" type="text"/>
-						<param name="//my_region_id" type="integer"/>
+        <param name="//my_region_id" type="integer"/>
 		<param name="//_get/sort" type="integer" default="&ifp_locations;.name"/>
 		<param name="//_get/start" type="integer" default="0"/>
 		<param name="//_get/incr" type="integer" default="100"/>
@@ -36,13 +36,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		SELECT
 		&ifp_locations;.*
 		
-		FROM &ifp_locations;, uplink_location_region
+		FROM &ifp_locations;, &ifp_location_region;
 	
 		WHERE &ifp_locations;.deletion_datetime &gt; ?  
-		AND &ifp_locations;.account_id=?
-		AND uplink_location_region.account_id=?
-		AND uplink_location_region.region_id=?
-		AND uplink_location_region.location_id=&ifp_locations;.location_id
+		AND &ifp_location_region;.region_id=?
+		AND &ifp_location_region;.location_id=&ifp_locations;.location_id
 		GROUP BY &ifp_locations;.name
 		
 		ORDER BY ? ASC

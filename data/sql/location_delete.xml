@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_delete.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -24,16 +24,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="delete_location">
-
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="runtime/utdate" type="text"/>		
         <param name="_get/location_id" type="text"/>
-			</params>
-	
+    </params>
     <sql>
-        UPDATE &ifp_locations; SET deletion_datetime=? WHERE location_id = ?
-		AND account_id = ?
+        DELETE FROM &ifp_locations; 
+        WHERE location_id = ?
     </sql>
-    
 </query>

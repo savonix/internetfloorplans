@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_category_delete.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -25,14 +25,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="delete_asset_category">
     <connection>&ifp_connection;</connection>
     <params>
-		<param name="runtime/utdate" type="timestamp"/>
         <param name="_get/equipment_category_id" type="text"/>
-		        <param name="runtime/utdate" type="timestamp"/>
 	</params>
     <sql>
-        UPDATE &ifp_equipment;_category SET deletion_datetime=?
+        DELETE FROM &ifp_equipment_category; 
 		WHERE equipment_category_id=?
-		
-		AND deletion_datetime &gt; ?
     </sql>
 </query>

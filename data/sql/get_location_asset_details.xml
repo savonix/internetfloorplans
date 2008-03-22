@@ -26,30 +26,30 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
         <param name="//last_database_update" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+		
 		<!--
         <param name="//last_database_update" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />-->
+		-->
         <param name="//last_database_update" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+		
         <param name="//last_database_update" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+		
         <param name="//last_database_update" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+		
         <param name="//last_database_update" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+		
         <param name="//last_database_update" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+		
         <param name="//last_database_update" type="text"/>
 		<param name="_get/location_id" type="text" />
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+		
+		
         <param name="//last_database_update" type="text"/>
 	</params>
 	<sql>
-        SELECT &ifp_equipment;.*, &ifp_equipment;_type.name, &ifp_location_equipment;.location_id, (&ifp_locations;.name) as location_address_name, upsell_priorities.name as priority_name,upsell_lines_of_business.name as lob_name, &ifp_equipment;_type_container.equipment_type_container_id, &ifp_equipment;_type_container.name as container_name
+        SELECT &ifp_equipment;.*, &ifp_equipment_type;.name, &ifp_location_equipment;.location_id, (&ifp_locations;.name) as location_address_name, upsell_priorities.name as priority_name,upsell_lines_of_business.name as lob_name, &ifp_equipment_type_container;.equipment_type_container_id, &ifp_equipment_type_container;.name as container_name
 		
-		FROM (&ifp_equipment;, &ifp_equipment;_type,&ifp_location_equipment;, &ifp_locations;)
+		FROM (&ifp_equipment;, &ifp_equipment_type;,&ifp_location_equipment;, &ifp_locations;)
 
 		
 LEFT JOIN &ipf_equipment_container;
@@ -58,15 +58,15 @@ ON (&ipf_equipment_container;.equipment_id=&ifp_equipment;.equipment_id
 AND &ipf_equipment_container;.deletion_datetime &gt; ?
 AND &ipf_equipment_container;.account_id=?)
 
-LEFT JOIN &ifp_equipment;_type_container
-ON (&ifp_equipment;_type_container.equipment_type_id=&ifp_equipment;_type.equipment_type_id
-AND &ifp_equipment;_type_container.equipment_type_container_id=&ipf_equipment_container;.equipment_type_container_id
-AND &ifp_equipment;_type_container.deletion_datetime &gt; ?
-AND &ifp_equipment;_type_container.account_id=?)
+LEFT JOIN &ifp_equipment_type_container;
+ON (&ifp_equipment_type_container;.equipment_type_id=&ifp_equipment_type;.equipment_type_id
+AND &ifp_equipment_type_container;.equipment_type_container_id=&ipf_equipment_container;.equipment_type_container_id
+AND &ifp_equipment_type_container;.deletion_datetime &gt; ?
+AND &ifp_equipment_type_container;.account_id=?)
 
 <!--
 LEFT JOIN &ifp_containers;
-ON &ifp_containers;.container_id=&ifp_equipment;_type_container.container_id
+ON &ifp_containers;.container_id=&ifp_equipment_type_container;.container_id
 AND &ifp_containers;.deletion_datetime &gt; ?
 AND &ifp_containers;.account_id=?
 -->
@@ -87,7 +87,7 @@ AND &ifp_containers;.account_id=?
 		
 		&ifp_equipment;.deletion_datetime &gt; ? 
 		AND &ifp_equipment;.account_id = ?
-		AND &ifp_equipment;.equipment_type_id=&ifp_equipment;_type.equipment_type_id
+		AND &ifp_equipment;.equipment_type_id=&ifp_equipment_type;.equipment_type_id
 
 		
 		AND &ifp_location_equipment;.deletion_datetime &gt; ?
@@ -99,8 +99,8 @@ AND &ifp_containers;.account_id=?
 		AND &ifp_locations;.location_id=?
 		AND &ifp_locations;.account_id=?
 		
-		AND &ifp_equipment;_type.account_id=?
-		AND &ifp_equipment;_type.deletion_datetime &gt; ?
+		AND &ifp_equipment_type;.account_id=?
+		AND &ifp_equipment_type;.deletion_datetime &gt; ?
 		
 		ORDER BY equipment_id, container_name
     </sql>

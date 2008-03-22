@@ -30,14 +30,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="runtime/utdate" type="text"/>
 	</params>
     <sql>
-        SELECT &ifp_equipment;_type_container.*, &ifp_containers;.name as container_name, &ifp_containers;.width, &ifp_containers;.height 
+        SELECT &ifp_equipment_type_container;.*, &ifp_containers;.name as container_name, &ifp_containers;.width, &ifp_containers;.height 
 		
-		FROM &ifp_equipment;_type_container, &ifp_containers; 
+		FROM &ifp_equipment_type_container;, &ifp_containers; 
 		
-		WHERE &ifp_equipment;_type_container.account_id=?
-		AND &ifp_equipment;_type_container.equipment_type_id=?
-		AND &ifp_equipment;_type_container.deletion_datetime &gt; ?
-		AND &ifp_equipment;_type_container.container_id=&ifp_containers;.container_id
+		WHERE &ifp_equipment_type_container;.account_id=?
+		AND &ifp_equipment_type_container;.equipment_type_id=?
+		AND &ifp_equipment_type_container;.deletion_datetime &gt; ?
+		AND &ifp_equipment_type_container;.container_id=&ifp_containers;.container_id
 		AND &ifp_containers;.deletion_datetime &gt; ?
     </sql>
 </query>

@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_containers_create.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,16 +22,16 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="add_equipment_containers">
+<query name="equipment_containers_create">
     <connection>&ifp_connection;</connection>
     <params>
         <param name="//_post/name" type="text"/>
-                <param name="//_post/equipment_type_id" type="text"/>
+        <param name="//_post/equipment_type_id" type="text"/>
         <param name="runtime/utdate" type="text"/>
         <param name="//_post/container_id" type="text"/>
     </params>
     <sql>
-        INSERT INTO &ifp_equipment;_type_container (equipment_type_container_id,name,account_id,equipment_type_id,creation_datetime,container_id) 
-		VALUES (_AUTO_,?,?,?,?,?)
+        INSERT INTO &ifp_equipment_type_container; (name,equipment_type_id,creation_datetime,container_id) 
+		VALUES (?,?,?,?)
 	</sql>
 </query>

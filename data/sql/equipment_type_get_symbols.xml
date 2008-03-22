@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_type_get_symbols.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -28,11 +28,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
         <param name="_get/equipment_type_id" type="text"/>
-				<param name="runtime/utdate" type="text"/>
+        <param name="runtime/utdate" type="text"/>
 	</params>
 	
     <sql>
-        SELECT * FROM &ifp_equipment_type_symbol; WHERE equipment_type_id = ?
+        SELECT * FROM &ifp_equipment_type_symbol; 
+        WHERE equipment_type_id = ?
 		 AND deletion_datetime &gt; ?
     </sql>
     

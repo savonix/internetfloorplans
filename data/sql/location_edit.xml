@@ -39,7 +39,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <sql>
         UPDATE &ifp_locations; 
 		SET 
-		account_id=?,
 		name=?,
 		address_line_1=?,
 		address_line_2=?,

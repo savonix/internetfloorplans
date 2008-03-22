@@ -26,7 +26,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
         <param name="runtime/utdate" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
 		<param name="_post/equipment_id" type="integer"/>
         <param name="runtime/utdate" type="text"/>
         <param name="runtime/utdate" type="text"/>
@@ -34,8 +33,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="runtime/utdate" type="text"/>
 	</params>
     <sql>
-        SELECT &ifp_equipment;.*, &ifp_equipment;_type.name as equipment_type_name, &ifp_locations;.location_id, &ifp_location_equipment;.equipment_id, &ifp_equipment;_type_images.equipment_type_image_id
-		FROM &ifp_equipment;, &ifp_equipment;_type, &ifp_locations;, &ifp_location_equipment;, &ifp_equipment;_type_images
+        SELECT &ifp_equipment;.*, &ifp_equipment;_type.name as equipment_type_name, &ifp_locations;.location_id, &ifp_location_equipment;.equipment_id, &ifp_equipment_type_images;.equipment_type_image_id
+		FROM &ifp_equipment;, &ifp_equipment;_type, &ifp_locations;, &ifp_location_equipment;, &ifp_equipment_type_images;
 		WHERE &ifp_equipment;.deletion_datetime &gt; ? 
 		AND &ifp_equipment;.account_id = ?
 		AND &ifp_equipment;.equipment_type_id=&ifp_equipment;_type.equipment_type_id
@@ -44,8 +43,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		AND &ifp_location_equipment;.deletion_datetime &gt; ?
 		AND &ifp_location_equipment;.equipment_id = ?
 		AND &ifp_location_equipment;.location_id=&ifp_locations;.location_id
-		AND &ifp_equipment;_type_images.equipment_type_id=&ifp_equipment;_type.equipment_type_id
-		AND &ifp_equipment;_type_images.deletion_datetime &gt; ?
+		AND &ifp_equipment_type_images;.equipment_type_id=&ifp_equipment;_type.equipment_type_id
+		AND &ifp_equipment_type_images;.deletion_datetime &gt; ?
  
    </sql>
  </query>

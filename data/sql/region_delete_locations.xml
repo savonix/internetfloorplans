@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: region_delete_locations.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -27,11 +27,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <params>
         <param name="runtime/utdate" type="text"/>
         <param name="_post/region_id" type="integer" />
-		        <param name="runtime/utdate" type="text"/>
+        <param name="runtime/utdate" type="text"/>
     </params>
     <sql>
-		UPDATE uplink_location_region SET deletion_datetime = ?
+		UPDATE &ifp_location_region; SET deletion_datetime = ?
 		WHERE region_id= ?
-		AND account_id = ? AND deletion_datetime &gt; ?
+        AND deletion_datetime &gt; ?
 	</sql>
 </query>

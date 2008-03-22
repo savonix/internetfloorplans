@@ -25,12 +25,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="get_container_by_type_id">
     <connection>&ifp_connection;</connection>
     <params>
-        		<param name="//_get/equipment_type_id|//get_asset_by_id/equipment_type_id|//_post/equipment_type_id" type="text"/>
+        <param name="//_get/equipment_type_id|//get_asset_by_id/equipment_type_id|//_post/equipment_type_id" type="text"/>
         <param name="runtime/utdate" type="text"/>
         <param name="runtime/utdate" type="text"/>
 	</params>
     <sql>
-        SELECT &ifp_equipment;_type_container.*, &ifp_containers;.name as container_name, &ifp_containers;.width, &ifp_containers;.height
+        SELECT &ifp_equipment;_type_container.*,
+        &ifp_containers;.name as container_name, &ifp_containers;.width, &ifp_containers;.height
 		
 		FROM &ifp_equipment;_type_container, &ifp_containers; 
 		
