@@ -204,7 +204,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:if name="//delete">
 			<map:true>
 				<map:query src="data/sql/equipment_get_by_id.xml"/>
-				<map:query src="data/sql/delete_equipment.xml"/>
+				<map:query src="data/sql/equipment_delete.xml"/>
 				<map:query src="data/sql/delete_equipment_location.xml"/>
 				<map:query src="data/sql/delete_equipment_container.xml"/>
 				<map:query src="data/sql/delete_location_equipment_position.xml" />
@@ -265,7 +265,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:if name="//_post/submit">
 			<map:true>
 				<map:action type="upload" params="file,//_post/dest"/>
-				<map:script src="uplink/modules/locations/php/floorplan_processor.php"/>
+				<map:script src="lib/php/floorplan_processor.php"/>
 				<map:query src="data/sql/add_location_space_plan.xml"/>
 				<map:insert name="sp_view"/>
 			</map:true>
@@ -313,7 +313,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</map:true>
 		</map:if>
 		<map:query src="data/sql/location_get_summary.xml" />
-		<map:script src="uplink/modules/locations/php/weekdays.php"/>
+		<map:script src="lib/php/weekdays.php"/>
 		<map:query src="data/sql/get_location_hours.xml" />
 		<map:xsl src="templates/xsl/view_location_hours.xsl" />
 		<map:debug dump="truse"/>
@@ -322,7 +322,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<map:gate name="ifp-loc/view/hours/edit/" role="client" >
 		<map:query src="data/sql/location_get_summary.xml" />
 		<!--<map:query src="data/sql/get_location_hours.xml" />-->
-		<map:script src="uplink/modules/locations/php/dayhours.php"/>
+		<map:script src="lib/php/dayhours.php"/>
 		<map:xsl src="templates/xsl/edit_location_hours.xsl" />
 	</map:gate>
 
@@ -474,7 +474,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:if name="_get/equipment_id">
 			<!-- EDIT FORM-->
 			<map:true>
-				<map:query src="data/sql/get_equipment_by_id.xml"/>
+				<map:query src="data/sql/equipment_get_by_id.xml"/>
 				<map:query src="data/sql/get_eqp_containers_by_type_id.xml"/>
 				<map:query src="data/sql/get_eqp_containers_by_id.xml"/>
 				<map:xsl src="templates/xsl/equipment_form.xsl"/>
@@ -502,7 +502,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 					<map:query src="data/sql/equipment_containers_create.xml"/>
 				</map:case>
 				<map:case value="edit">
-					<map:query src="data/sql/edit_equipment_container.xml"/>
+					<map:query src="data/sql/equipment_container_update.xml"/>
 				</map:case>	
 				<map:default>
 				</map:default>
@@ -514,15 +514,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<map:gate name="ifp-assets/edit/submit2/" role="client">
 		<map:if name="_post/submit">
 			<map:true>
-				<map:query src="data/sql/delete_equipment.xml"/>
-				<map:query src="data/sql/edit_equipment.xml"/>
+				<map:query src="data/sql/equipment_delete.xml"/>
+				<map:query src="data/sql/equipment_update.xml"/>
 			</map:true>
 		</map:if>
 	</map:gate>
 	<!-- Delete equipment -->
 	<map:gate name="ifp-equipment-delete" role="client">
 		<map:query src="data/sql/equipment_get_by_id.xml"/>
-		<map:query src="data/sql/delete_equipment.xml"/>
+		<map:query src="data/sql/equipment_delete.xml"/>
 		<map:query src="data/sql/delete_equipment_location.xml"/>
 		<map:query src="data/sql/delete_equipment_container.xml"/>
 		<map:query src="data/sql/delete_location_equipment_position.xml" />
@@ -557,7 +557,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<map:query src="data/sql/get_equipment_category_by_id.xml"/>
 					</map:true>
 				</map:if>
-				<map:xsl src="templates/xsl/new_equipment_category_form.xsl" />
+				<map:xsl src="templates/xsl/equipment_category_form.xsl" />
 			</map:false>
 		</map:if>
 	</map:gate>	
@@ -605,13 +605,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<map:insert name="type_images"/>
              </map:true>
 			<map:false>
-				<map:xsl src="templates/xsl/new_equipment_image.xsl" />
+				<map:xsl src="templates/xsl/equipment_image_form.xsl" />
 			</map:false>
 		</map:if>
 	</map:gate>
 	<map:gate name="ifp-types/view/delete/" role="client" >
 		<map:query src="data/sql/delete_equipment_type_image.xml"/>
-		<map:action type="redirect" params="/ifp-types/"/>
+        <map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
 	</map:gate>
 
 	<!-- Add new plan symbol -->
@@ -693,32 +693,32 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<map:gate name="ifp-equipment-type-containers">
 		<map:query src="data/sql/equipment_type_get_by_id.xml" />
 		<map:query src="data/sql/get_eqp_containers_by_type_id.xml" />
-		<map:query src="uplink/modules/containers/qry/get_container_types.xml" />
+		<map:query src="data/sql/get_container_types.xml" />
 		<map:query src="data/sql/get_equipment_type_images.xml" />
-		<map:xsl src="templates/xsl/view_equipment_containers.xsl" />
+		<map:xsl src="templates/xsl/equipment_containers.xsl" />
 	</map:gate>
 	<!-- ADD EQUIPMENT CONTAINERS -->
 	<map:gate name="ifp-equipment-type-container-edit">
-		<map:query src="uplink/modules/containers/qry/equipment_containers_create.xml" />
+		<map:query src="data/sql/equipment_containers_create.xml" />
 		<map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
 	</map:gate>	
 	<!-- DELETE EQUIPMENT CONTAINERS -->
 	<map:gate name="ifp-equipment-type-container-delete">
-		<map:query src="uplink/modules/containers/qry/del_equipment_containers.xml" />
+		<map:query src="data/sql/del_equipment_containers.xml" />
 		<map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
 	</map:gate>	
 	<!-- CONTAINER EDIT MENU --> 
 	<map:gate name="ifp-types/containers/code/">
 		<map:if name="//_post">
 			<map:true>
-				<map:query src="uplink/modules/containers/qry/edit_equipment_type_containers.xml"/>
+				<map:query src="data/sql/edit_equipment_type_containers.xml"/>
 			</map:true>
 			<map:false>
 			</map:false>
 		</map:if>
 		<map:query src="data/sql/equipment_type_get_by_id.xml" />
 		<map:query src="data/sql/get_eqp_containers_by_type_id.xml" />
-		<map:query src="uplink/modules/containers/qry/get_container_types.xml" />
+		<map:query src="data/sql/get_container_types.xml" />
 		<map:xsl src="templates/xsl/view_equipment_container_codes.xsl" />
 	</map:gate>
 	
@@ -726,19 +726,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	
 	<!-- LIST CONTAINERS -->
 	<map:gate name="ifp-containers" >
-		<map:query src="uplink/modules/containers/qry/get_container_types.xml" />
-		<map:xsl src="uplink/modules/containers/xsl/view_container_types.xsl" />
+		<map:query src="data/sql/get_container_types.xml" />
+		<map:xsl src="templates/xsl/view_container_types.xsl" />
 	</map:gate>
 	
 	<!-- ADD CONTAINER -->
 <map:gate name="ifp-containers/edit/" role="uplink" >
 	<map:if name="_get/container_id">
 		<map:true>
-			<map:query src="uplink/modules/containers/qry/get_container_type_by_id.xml"/>
-			<map:xsl src="uplink/modules/containers/xsl/container_type_form.xsl"/>
+			<map:query src="data/sql/get_container_type_by_id.xml"/>
+			<map:xsl src="templates/xsl/container_type_form.xsl"/>
 		</map:true>
 		<map:false>
-			<map:xsl src="uplink/modules/containers/xsl/container_type_form.xsl"/>
+			<map:xsl src="templates/xsl/container_type_form.xsl"/>
 		</map:false>
 	</map:if>
 </map:gate>
@@ -746,14 +746,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <map:gate name="ifp-containers/edit/submit/" role="uplink">
 	<map:switch name="_post/type">
 		<map:case value="new">
-			<map:query src="uplink/modules/containers/qry/new_container_type.xml"/>
+			<map:query src="data/sql/new_container_type.xml"/>
 		</map:case>
 		<map:case value="edit">
-			<map:query src="uplink/modules/containers/qry/del_container_type.xml"/>
-			<map:query src="uplink/modules/containers/qry/edit_container_type.xml"/>
+			<map:query src="data/sql/del_container_type.xml"/>
+			<map:query src="data/sql/edit_container_type.xml"/>
 		</map:case>
 		<map:default>
-			<map:query src="uplink/modules/containers/qry/new_container_type.xml"/>
+			<map:query src="data/sql/new_container_type.xml"/>
 		</map:default>
 	</map:switch>
 		<map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
@@ -761,13 +761,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <!-- DELETE CONTAINER TYPE-->
 <map:gate name="ifp-containers/delete/" role="uplink">
-	<map:query src="uplink/modules/containers/qry/del_container_type.xml"/>
+	<map:query src="data/sql/del_container_type.xml"/>
     <map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
 </map:gate>
 
 <!-- Symbol and Image servers -->
 	<map:gate name="ifp-types/display_config/" role="client">		
-		<map:query src="data/sql/get_equipment_by_id_p.xml"/>
+		<map:query src="data/sql/equipment_get_by_id_p.xml"/>
 		<map:query src="data/sql/post_eqp_containers_by_type_id.xml" />
 		<map:xsl src="templates/xsl/display_equipment_config.xsl"/>
 	</map:gate>
@@ -775,7 +775,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	
 	<map:gate name="ifp-equipment-types-symbol-server" role="client" >
 		<map:query src="data/sql/get_symbol_pointer_by_id.xml" />
-		<map:script src="uplink/modules/equipment/php/show_symbol.php" />
+		<map:script src="lib/php/show_symbol.php" />
 	</map:gate>
 	
 	<!-- FLASH SERVER!!!! -->
@@ -803,7 +803,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:query src="data/sql/get_image_pointer_by_id.xml" />
 		<map:query src="data/sql/get_equipment_content.xml" />
 		<map:query src="data/sql/get_image_pointers_by_id.xml" /><!--
-		<map:script src="uplink/modules/equipment/php/display_equipment_setup.php" />-->
+		<map:script src="lib/php/display_equipment_setup.php" />-->
 	</map:gate>
 	
 	<!-- MING SPACE PLAN SERVER -->
