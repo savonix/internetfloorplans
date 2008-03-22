@@ -25,18 +25,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="main.xsl"/>
 <xsl:import href="equipment_type_summary.xsl"/>
 <xsl:import href="equipment_type_menu.xsl"/>
-<xsl:import href="../../../../_shared/xsl/upload_form.xsl"/>
 <xsl:template name="content">
 	<form enctype="multipart/form-data" action="/acc/link/types/view/sp/add/submit/" method="post">
-	<input type="hidden" name="dest"><xsl:attribute name="value">../usr/<xsl:value-of select="//user_account_id"/>/merchandising/</xsl:attribute></input>
+	<input type="hidden" name="dest"/>
 	<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
     <xsl:call-template name="equipment_type_menu" />
-	<table>
-	<xsl:call-template name="asset_type_summary" />
-	<tr>
-		<td colspan="4" >
-		<xsl:call-template name="upload_form" />
-	</td></tr></table>
+	<xsl:call-template name="equipment_type_summary" />
+    <xsl:call-template name="upload_form" />
 	</form>
 </xsl:template>
 </xsl:stylesheet>

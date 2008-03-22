@@ -26,38 +26,35 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="location_summary.xsl"/>
 <xsl:import href="location_menu.xsl"/>
 <xsl:template name="content">
-	<table>
-	<tr><td colspan="4">
-			<table border='0' cellspacing='0' cellpadding='10' >
-			<tr>
-				<td align="left" valign="top" colspan="2">
-					Email Locations
-				</td>
-			</tr>
-			<tr>
-				<td align="left" valign="top">
-					Subject: 
-				</td>
-				
-				<td align="left" valign="top">
-					<input type="text" name="subject"/>
-				</td>
-			</tr>
-			<tr>
-				<td align="left" valign="top">
-					Body:
-				</td>
-				
-				<td align="left" valign="top">
-					<textarea name="body" rows="8" cols="40">Enter your message here.</textarea>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" name="submit" value="Submit"/>
-				<input type="button" value="Cancel" onclick="window.location.href='/acc/link/loc/'"/>
-				</td>
-			</tr>
-			</table>
-	</td></tr></table>
+    <table>
+    <tr>
+        <td align="left" valign="top" colspan="2">
+            Email Locations
+        </td>
+    </tr>
+    <tr>
+        <td align="left" valign="top">
+            Subject: 
+        </td>
+        
+        <td align="left" valign="top">
+            <input type="text" name="subject"/>
+        </td>
+    </tr>
+    <tr>
+        <td align="left" valign="top">
+            Body:
+        </td>
+        
+        <td align="left" valign="top">
+            <textarea name="body" rows="8" cols="40">Enter your message here.</textarea>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center"><input type="submit" name="submit" value="Submit"/>
+        <input type="button" value="Cancel" onclick="window.location.href='{//link_prefix}ifp-locations'"/>
+        </td>
+    </tr>
+    </table>
 </xsl:template>
 </xsl:stylesheet>

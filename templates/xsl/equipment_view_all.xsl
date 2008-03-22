@@ -26,8 +26,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="equipment_menu.xsl"/>
 
 <xsl:template name="content">
-	<form action="{self}" method="post">
-	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
+	<form method="post">
+	<table>
 		<tr>
 			<!--<td width="10">
 				<input type="checkbox"></input></td>
@@ -57,7 +57,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></td>
 			<td>
 				<a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></td>
-		</tr>					
+		</tr>
 		</xsl:for-each>
 		<!--<tr>
 			<td colspan="5" >

@@ -26,22 +26,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="equipment_type_menu.xsl"/>
 <xsl:import href="equipment_type_summary.xsl"/>
 <xsl:template name="content">
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/tetris.png" /> 
-			</td>
-			<xsl:call-template name="equipment_type_menu" />
-		</tr>
-	</table>
-	
-	<table border='0' cellspacing='1' cellpadding='2' width='100%'>
+    <xsl:call-template name="equipment_type_menu" />
+	<table>
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
 		<td colspan="4" >
-			<table border='0' cellspacing='0' cellpadding='10' >
+			<table>
 			<tr>
-								<td align="left" valign="top">
+                <td align="left" valign="top">
 					<table >
 						<tr>
 							<td valign="top">
@@ -58,25 +50,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 									<option value="{container_id}"><xsl:value-of select="name"/></option>
 								</xsl:for-each>
 							</select>
-								<!--<br/>
-								Quantity:<select value="quantity">
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-								</select>-->
-								<br/>
 								<input type="submit" value="Add"/>
-								
 							</td>
 						</tr>
 						</form>
-						
 					</table>
 					<br/>
 					<table >
-					
 						<form action="{self}delete/" method="post">
 						<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
 						<tr>
@@ -187,6 +167,5 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</td>
 	</tr>
 	</table>
-	
 </xsl:template>
 </xsl:stylesheet>

@@ -27,40 +27,37 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <xsl:template name="content">
     <xsl:call-template name="equipment_menu" />
-	<form action="{self}" method="post">
-	<table>
+	<form method="post">
+	<table class="simple-table">
 		<tr>
-			<!--<td width="10">
-				<input type="checkbox"></input></td>
-			<td width="10%">
-				Asset ID</td>-->
-			<td width="300">
-				Equipment Type</td>
-			<td width="30%">
-				Quantity</td>
-
+			<td>
+				Equipment Type
+            </td>
+			<td>
+				Quantity
+            </td>
 		</tr>
-		<xsl:for-each select="//get_asset_types">
-						<xsl:variable name="my_equipment_type_id"><xsl:value-of select="equipment_type_id"/></xsl:variable>
-						<tr class="row{position() mod 2}">
-							<td valign="top">
-								<xsl:value-of select="name"/></td>
-								<td><xsl:value-of select="count(//get_all_assets2[equipment_type_id=$my_equipment_type_id])"/></td>
-							<!--<td width="10">
-								<input type="checkbox" name="asset_id[]"><xsl:attribute name="value"><xsl:value-of select="asset_id"/></xsl:attribute></input></td>-->
-							<!--<td valign="top">
-								<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}"><xsl:value-of select="asset_id"/></a>
-							</td>-->
-							
-							<!--
-							<td valign="top">
-								<img src="/resources/img/22x28_ActNow_red.gif"/></td>
-							-->
-							
-							<!--<td valign="top">
-								<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></td>
-							<td valign="top">
-								<a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></td>-->
+		<xsl:for-each select="//equipment_types_get_all">
+            <xsl:variable name="my_equipment_type_id"><xsl:value-of select="equipment_type_id"/></xsl:variable>
+            <tr class="row{position() mod 2}">
+                <td valign="top">
+                    <xsl:value-of select="name"/></td>
+                    <td><xsl:value-of select="count(//get_all_assets2[equipment_type_id=$my_equipment_type_id])"/></td>
+                <!--<td width="10">
+                    <input type="checkbox" name="asset_id[]"><xsl:attribute name="value"><xsl:value-of select="asset_id"/></xsl:attribute></input></td>-->
+                <!--<td valign="top">
+                    <a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}"><xsl:value-of select="asset_id"/></a>
+                </td>-->
+                
+                <!--
+                <td valign="top">
+                    <img src="/resources/img/22x28_ActNow_red.gif"/></td>
+                -->
+                
+                <!--<td valign="top">
+                    <a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></td>
+                <td valign="top">
+                    <a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></td>-->
 		</tr>					
 		</xsl:for-each>
 		<!--<tr>
