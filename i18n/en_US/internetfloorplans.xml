@@ -40,6 +40,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <key>equipment</key>
         <value>Equipment</value>
     </label>
+    <label>
+        <key>equipment_types</key>
+        <value>Equipment Types</value>
+    </label>
 
 	<!-- GENERAL -->
     <label>

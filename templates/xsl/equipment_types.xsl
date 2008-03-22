@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_types.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -23,53 +23,34 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
-
 <xsl:template name="content">
-	<form action="{self}" method="post">
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/tetris.png" /> 
-			</td>
-			
-		</tr>
+	<table class="simple-table">
+	<thead>
+    <tr>
+        <th>Equipment Type Name</th>
+        <th>Description</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <xsl:for-each select="//equipment_types_get_all">
+    <tr class="row{position() mod 2}">
+        <td>
+            <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}"><xsl:value-of select="name"/></a>
+        </td>
+        <td>
+            <xsl:value-of select="description"/>
+        </td>
+        <td>
+            <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">Edit</a></td>
+        <td>
+            <a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}" 
+            onclick="return confirm('Are you sure you want to delete this equipment type?')">Delete</a></td>
+    </tr>
+    </xsl:for-each>
+    </tbody>
 	</table>
-	
-	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
-	<tr>	
-				<td width="150" ><font class='two'><b>Equipment Type Name</b></td>
-				<td width="250" ><font class='two'><b>Description</b></td>
-				<td >
-					<b>Edit</b></td>
-				<td >
-					<b>Delete</b></td>
-			</tr>
-			<xsl:for-each select="//get_asset_types">
-			<tr class="row{position() mod 2}">
-				<td>
-					<a href="view/&amp;equipment_type_id={equipment_type_id}"><xsl:value-of select="name"/></a>
-				</td>
-				<td>
-					<xsl:value-of select="description"/>
-				</td>
-				<td>
-					<a href="/acc/link/types/edit/&amp;equipment_type_id={equipment_type_id}">Edit</a></td>
-				<td>
-					<a href="/acc/link/types/delete/&amp;equipment_type_id={equipment_type_id}" onclick="return confirm('Are you sure you want to delete this equipment type?')">Delete</a></td>
-			</tr>
-			</xsl:for-each>
-			<tr><td align="left" colspan="4">
-			<table cellpadding="15" >
-				<tr>
-					<td>
-					<input type="button" value="New"><xsl:attribute name="onclick">document.location.href='edit/'</xsl:attribute>
-					</input>
-					</td>
-				</tr>
-			</table>
-	</td></tr>
-	</table>
-	
-	</form>
+    <a href="{//link_prefix}ifp-equipment-type-edit">New Equipment Type</a>
 </xsl:template>
 </xsl:stylesheet>

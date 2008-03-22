@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_type_symbol_form.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -30,24 +30,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<form enctype="multipart/form-data" action="/acc/link/types/view/sp/add/submit/" method="post">
 	<input type="hidden" name="dest"><xsl:attribute name="value">../usr/<xsl:value-of select="//user_account_id"/>/merchandising/</xsl:attribute></input>
 	<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/tetris.png" /> 
-			</td>
-			<xsl:call-template name="equipment_type_menu" />
-		</tr>
-	</table>
-	<table >
+    <xsl:call-template name="equipment_type_menu" />
+	<table>
 	<xsl:call-template name="asset_type_summary" />
 	<tr>
 		<td colspan="4" >
-		<table cellpadding="10" width="600">
-		<tr><td>
-	
-		<xsl:call-template name="upload_form" />		
-		</td></tr>
-	</table>
+		<xsl:call-template name="upload_form" />
 	</td></tr></table>
 	</form>
 </xsl:template>

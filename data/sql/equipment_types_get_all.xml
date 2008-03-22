@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_types_get_all.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,16 +22,11 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="get_asset_types">
-    <connection>savonix</connection>
+<query name="equipment_types_get_all">
+    <connection>&ifp_connection;</connection>
     <params>
-        <param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
 	</params>
     <sql>
-        SELECT * FROM uplink_equipment_type
-		WHERE uplink_equipment_type.account_id=?
-		AND uplink_equipment_type.deletion_datetime &gt; ? 
-		ORDER BY uplink_equipment_type.name
+        SELECT * FROM &ifp_equipment_types;
     </sql>
 </query>
