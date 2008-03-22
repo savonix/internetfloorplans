@@ -28,9 +28,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<input type="hidden" name="location_id" value="{//_get/location_is}"/>
 		<xsl:call-template name="form"/>
 	</form>
- 
-	<xsl:if test="contains(//nid,'acc/link/loc/new/')">
-	<form action="/acc/link/loc/new/submit/" method="post">
+	<xsl:if test="//_get/location_id">
+	<form method="post">
 		<xsl:call-template name="form"/>
 	</form>
 	</xsl:if>
@@ -49,40 +48,40 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </xsl:if>
 <tr>	
 	<td>Name:*</td>
-	<td><input type='text' name='location_name' value="{//get_location_summary/name|//_post/location_name}" /></td>
+	<td><input type="text" name="location_name" value="{//get_location_summary/name|//_post/location_name}" /></td>
 </tr>
 <tr>
 	<td>Address Line 1:*</td>
-	<td><input type='text' name='address_line_1' size="40" value="{//get_location_summary/address_line_1|//_post/address_line_1}" /></td>
+	<td><input type="text" name="address_line_1" size="40" value="{//get_location_summary/address_line_1|//_post/address_line_1}" /></td>
 </tr>
 <tr>
 	<td>Address Line 2:</td>
-	<td><input type='text' name='address_line_2' size="40" value="{//get_location_summary/address_line_2|//_post/address_line_2}" /></td>
+	<td><input type="text" name="address_line_2" size="40" value="{//get_location_summary/address_line_2|//_post/address_line_2}" /></td>
 </tr>
 <tr>
 	<td>City:*</td>
-	<td><input type='text' name='city' size="20" value="{//get_location_summary/city|//_post/city}" /></td>
+	<td><input type="text" name="city" size="20" value="{//get_location_summary/city|//_post/city}" /></td>
 </tr>
 <tr>
 	<td>State:*</td>
-	<td><input type='text' name='state' size="5" value="{//get_location_summary/state|//_post/state}" /></td>
+	<td><input type="text" name="state" size="5" value="{//get_location_summary/state|//_post/state}" /></td>
 </tr>
 <tr>
 	<td>Zip:*</td>
-	<td><input type='text' name='zip' size="10" value="{//get_location_summary/zip|//_post/zip}" /></td>
+	<td><input type="text" name="zip" size="10" value="{//get_location_summary/zip|//_post/zip}" /></td>
 </tr>
 <tr>
 	<td>Phone:</td>
-	<td><input type='text' name='phone' value="{//get_location_summary/phone|//_post/phone}" /></td>
+	<td><input type="text" name="phone" value="{//get_location_summary/phone|//_post/phone}" /></td>
 </tr>
 <tr>
 	<td>Fax:</td>
-	<td><input type='text' name='fax' value="{//get_location_summary/fax|//_post/fax}" /></td>
+	<td><input type="text" name="fax" value="{//get_location_summary/fax|//_post/fax}" /></td>
 </tr>
 <tr>
 	<td valign="top">Regions:</td>
 	<td>
-	<xsl:for-each select="//get_all_regions">
+	<xsl:for-each select="//regions_get_all">
 		<input type="checkbox" name="regions[]" value="{region_id}"><xsl:if test="region_id=//get_location_regions/region_id"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if></input>
 		<xsl:value-of select="region_name" />
 		<br/>
