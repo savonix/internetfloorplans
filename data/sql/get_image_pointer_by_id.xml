@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
         <param name="//equipment_type_image_id" type="text"/>
-				<param name="php:date('Y-m-d H:i:s')" type="text"/>
+				<param name="runtime/utdate" type="text"/>
 	</params>
     <sql>
         SELECT image_pointer, thumb_pointer, mime_type FROM &ifp_equipment;_type_images WHERE equipment_type_image_id = ?

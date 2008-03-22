@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <params>
         <param name="php:date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s')-1, date('m'), date('d'), date('Y')))" type="text"/>		
         <param array="_post/region_id" type="text"/>
-		        <param name="php:date('Y-m-d H:i:s')" type="text"/>
+		        <param name="runtime/utdate" type="text"/>
 	</params>
     <sql>
         UPDATE uplink_region SET deletion_datetime=? WHERE region_id = ?

@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: container_type_get_by_id.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -25,12 +25,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="get_container_type_by_id">
     <connection>&ifp_connection;</connection>
     <params>
-        		<param name="//_get/container_id" type="text"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
+        <param name="//_get/container_id" type="text"/>
+        <param name="runtime/utdate" type="text"/>
 	</params>
     <sql>
-        SELECT * FROM &ifp_containers; WHERE account_id=?
-		AND container_id=?
+        SELECT * 
+        FROM &ifp_containers; 
+        WHERE container_id=?
 		AND deletion_datetime &gt; ?
     </sql>
 </query>

@@ -27,8 +27,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <params>
         <param name="_get/region_id" type="text"/>
         <param name="_get/region_id" type="text"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
+        <param name="runtime/utdate" type="text"/>
+        <param name="runtime/utdate" type="text"/>
 			</params>
     <sql>
         SELECT uplink_region.region_name, location_id FROM uplink_region, uplink_location_region 

@@ -25,13 +25,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="get_asset_by_id">
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
+        <param name="runtime/utdate" type="text"/>
 		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
 		<param name="_post/equipment_id" type="integer"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
+        <param name="runtime/utdate" type="text"/>
+        <param name="runtime/utdate" type="text"/>
 		<param name="_post/equipment_id" type="integer"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
+        <param name="runtime/utdate" type="text"/>
 	</params>
     <sql>
         SELECT &ifp_equipment;.*, &ifp_equipment;_type.name as equipment_type_name, &ifp_locations;.location_id, &ifp_location_equipment;.equipment_id, &ifp_equipment;_type_images.equipment_type_image_id

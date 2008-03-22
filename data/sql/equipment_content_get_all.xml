@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_content_get_all.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -25,16 +25,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="get_equipment_content">
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
+        <param name="runtime/utdate" type="text"/>
 		<param name="_get/equipment_id" />
 	</params>
     <sql>
         SELECT *
 		FROM &ifp_equipment;_content
-		
 		WHERE &ifp_equipment;_content.deletion_datetime &gt; ? 
-		AND &ifp_equipment;_content.account_id = ?
 		AND &ifp_equipment;_content.equipment_id=?
     </sql>
 </query>

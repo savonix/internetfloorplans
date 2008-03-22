@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_container_delete.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -26,10 +26,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
         <param name="//_get/equipment_id" type="text"/>
-			</params>
+    </params>
     <sql>
-        DELETE FROM &ifp_equipment;_container 
+        DELETE FROM 
+        &ipf_equipment_container;
 		WHERE equipment_id=?
-		
     </sql>
 </query>

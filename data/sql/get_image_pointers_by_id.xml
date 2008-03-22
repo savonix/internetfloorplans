@@ -26,9 +26,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
         <param array="//get_equipment_content/content_id" type="text"/>
-				<param name="php:date('Y-m-d H:i:s')" type="text"/>
+				<param name="runtime/utdate" type="text"/>
         <param array="//get_equipment_content/content_id" type="text"/>
-		<param name="php:date('Y-m-d H:i:s')" type="text"/>
+		<param name="runtime/utdate" type="text"/>
         <param array="//get_equipment_content/equipment_type_container_id" type="text"/>
 	</params>
     <sql>
