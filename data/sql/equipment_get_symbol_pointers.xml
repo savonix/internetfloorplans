@@ -23,14 +23,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="get_account_symbol_pointers">
-    <connection>savonix</connection>
+    <connection>&ifp_connection;</connection>
     <params>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
+    
 	</params>
     <sql>
         SELECT DISTINCT uplink_equipment_type_symbol.symbol_pointer, 
@@ -44,17 +39,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		
 		LEFT JOIN uplink_equipment_type_images ON 
 		uplink_equipment_type_images.equipment_type_id=uplink_equipment_type.equipment_type_id
-		AND uplink_equipment_type_images.account_id=?
-		AND uplink_equipment_type_images.deletion_datetime &gt; ?
-		
-		WHERE uplink_equipment_type_symbol.account_id=? 
-		AND uplink_equipment_type.account_id=? 
-		AND uplink_equipment_type_symbol.deletion_datetime &gt; ? 
-		AND uplink_equipment_type_symbol.equipment_type_id=uplink_equipment_type.equipment_type_id
-		AND uplink_equipment_type.deletion_datetime &gt; ?
-		ORDER BY uplink_equipment_type.name ASC
+
     </sql>
 </query>
-<!-- 
-        SELECT * FROM uplink_equipment_type_images WHERE equipment_type_id = ?
-		AND account_id=? AND deletion_datetime &gt; ? -->
