@@ -28,17 +28,17 @@ Fifth Floor, Boston, MA 02110-1301  USA
     
 	</params>
     <sql>
-        SELECT DISTINCT uplink_equipment_type_symbol.symbol_pointer, 
-		uplink_equipment_type_symbol.equipment_type_id,
-		uplink_equipment_type.name,
-		uplink_equipment_type_symbol.equipment_type_symbol_id,
-		uplink_equipment_type.equipment_type_id,
-		uplink_equipment_type_images.equipment_type_image_id
+        SELECT DISTINCT &ifp_equipment;_type_symbol.symbol_pointer, 
+		&ifp_equipment;_type_symbol.equipment_type_id,
+		&ifp_equipment;_type.name,
+		&ifp_equipment;_type_symbol.equipment_type_symbol_id,
+		&ifp_equipment;_type.equipment_type_id,
+		&ifp_equipment;_type_images.equipment_type_image_id
 		
-		FROM uplink_equipment_type_symbol, uplink_equipment_type
+		FROM &ifp_equipment;_type_symbol, &ifp_equipment;_type
 		
-		LEFT JOIN uplink_equipment_type_images ON 
-		uplink_equipment_type_images.equipment_type_id=uplink_equipment_type.equipment_type_id
+		LEFT JOIN &ifp_equipment;_type_images ON 
+		&ifp_equipment;_type_images.equipment_type_id=&ifp_equipment;_type.equipment_type_id
 
     </sql>
 </query>

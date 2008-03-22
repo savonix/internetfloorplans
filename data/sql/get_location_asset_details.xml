@@ -47,60 +47,60 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="//last_database_update" type="text"/>
 	</params>
 	<sql>
-        SELECT uplink_equipment.*, uplink_equipment_type.name, uplink_location_equipment.location_id, (&ifp_locations;.name) as location_address_name, upsell_priorities.name as priority_name,upsell_lines_of_business.name as lob_name, uplink_equipment_type_container.equipment_type_container_id, uplink_equipment_type_container.name as container_name
+        SELECT &ifp_equipment;.*, &ifp_equipment;_type.name, &ifp_location_equipment;.location_id, (&ifp_locations;.name) as location_address_name, upsell_priorities.name as priority_name,upsell_lines_of_business.name as lob_name, &ifp_equipment;_type_container.equipment_type_container_id, &ifp_equipment;_type_container.name as container_name
 		
-		FROM (uplink_equipment, uplink_equipment_type,uplink_location_equipment, &ifp_locations;)
+		FROM (&ifp_equipment;, &ifp_equipment;_type,&ifp_location_equipment;, &ifp_locations;)
 
 		
-LEFT JOIN uplink_equipment_container
+LEFT JOIN &ifp_equipment;_container
 
-ON (uplink_equipment_container.equipment_id=uplink_equipment.equipment_id
-AND uplink_equipment_container.deletion_datetime &gt; ?
-AND uplink_equipment_container.account_id=?)
+ON (&ifp_equipment;_container.equipment_id=&ifp_equipment;.equipment_id
+AND &ifp_equipment;_container.deletion_datetime &gt; ?
+AND &ifp_equipment;_container.account_id=?)
 
-LEFT JOIN uplink_equipment_type_container
-ON (uplink_equipment_type_container.equipment_type_id=uplink_equipment_type.equipment_type_id
-AND uplink_equipment_type_container.equipment_type_container_id=uplink_equipment_container.equipment_type_container_id
-AND uplink_equipment_type_container.deletion_datetime &gt; ?
-AND uplink_equipment_type_container.account_id=?)
+LEFT JOIN &ifp_equipment;_type_container
+ON (&ifp_equipment;_type_container.equipment_type_id=&ifp_equipment;_type.equipment_type_id
+AND &ifp_equipment;_type_container.equipment_type_container_id=&ifp_equipment;_container.equipment_type_container_id
+AND &ifp_equipment;_type_container.deletion_datetime &gt; ?
+AND &ifp_equipment;_type_container.account_id=?)
 
 <!--
-LEFT JOIN uplink_container
-ON uplink_container.container_id=uplink_equipment_type_container.container_id
-AND uplink_container.deletion_datetime &gt; ?
-AND uplink_container.account_id=?
+LEFT JOIN &ifp_containers;
+ON &ifp_containers;.container_id=&ifp_equipment;_type_container.container_id
+AND &ifp_containers;.deletion_datetime &gt; ?
+AND &ifp_containers;.account_id=?
 -->
 
 		LEFT JOIN upsell_priorities
-		ON (upsell_priorities.priority_id=uplink_equipment_container.priority_id
+		ON (upsell_priorities.priority_id=&ifp_equipment;_container.priority_id
 		AND upsell_priorities.deletion_datetime &gt; ?	
 		AND upsell_priorities.account_id=?)	
 
 		
 		LEFT JOIN upsell_lines_of_business
-		ON (upsell_lines_of_business.line_of_business_id=uplink_equipment_container.business_line_id
+		ON (upsell_lines_of_business.line_of_business_id=&ifp_equipment;_container.business_line_id
 		AND upsell_lines_of_business.deletion_datetime &gt;?	
 		AND upsell_lines_of_business.account_id=?)	
 		
 		
 		WHERE 
 		
-		uplink_equipment.deletion_datetime &gt; ? 
-		AND uplink_equipment.account_id = ?
-		AND uplink_equipment.equipment_type_id=uplink_equipment_type.equipment_type_id
+		&ifp_equipment;.deletion_datetime &gt; ? 
+		AND &ifp_equipment;.account_id = ?
+		AND &ifp_equipment;.equipment_type_id=&ifp_equipment;_type.equipment_type_id
 
 		
-		AND uplink_location_equipment.deletion_datetime &gt; ?
-		AND uplink_location_equipment.account_id=?
-		AND uplink_location_equipment.equipment_id=uplink_equipment.equipment_id
+		AND &ifp_location_equipment;.deletion_datetime &gt; ?
+		AND &ifp_location_equipment;.account_id=?
+		AND &ifp_location_equipment;.equipment_id=&ifp_equipment;.equipment_id
 		
-		AND &ifp_locations;.location_id=uplink_location_equipment.location_id
+		AND &ifp_locations;.location_id=&ifp_location_equipment;.location_id
 		AND &ifp_locations;.deletion_datetime &gt; ?
 		AND &ifp_locations;.location_id=?
 		AND &ifp_locations;.account_id=?
 		
-		AND uplink_equipment_type.account_id=?
-		AND uplink_equipment_type.deletion_datetime &gt; ?
+		AND &ifp_equipment;_type.account_id=?
+		AND &ifp_equipment;_type.deletion_datetime &gt; ?
 		
 		ORDER BY equipment_id, container_name
     </sql>

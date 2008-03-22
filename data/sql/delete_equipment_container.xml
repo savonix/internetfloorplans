@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="//_get/equipment_id" type="text"/>
 			</params>
     <sql>
-        DELETE FROM uplink_equipment_container 
+        DELETE FROM &ifp_equipment;_container 
 		WHERE equipment_id=?
 		
     </sql>

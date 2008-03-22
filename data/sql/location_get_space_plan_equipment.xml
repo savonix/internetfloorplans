@@ -31,37 +31,37 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<sql>
         SELECT  
 		uplink_location_space_plan.location_id, 
-		uplink_equipment.*, 
-		uplink_equipment_type.name, 
-		uplink_equipment_type_images.equipment_type_image_id,
-		uplink_location_equipment_position.*, 
-		uplink_location_equipment.location_id, 
+		&ifp_equipment;.*, 
+		&ifp_equipment;_type.name, 
+		&ifp_equipment;_type_images.equipment_type_image_id,
+		&ifp_location_equipment;_position.*, 
+		&ifp_location_equipment;.location_id, 
 		(uplink_locations.name) as location_address_name,
- 		uplink_equipment_type_container.equipment_type_container_id
+ 		&ifp_equipment;_type_container.equipment_type_container_id
 		
 		
 		FROM 
 		(uplink_location_space_plan,
-		uplink_equipment, 
-		uplink_equipment_type,
-		uplink_location_equipment, 
-		uplink_location_equipment_position,
+		&ifp_equipment;, 
+		&ifp_equipment;_type,
+		&ifp_location_equipment;, 
+		&ifp_location_equipment;_position,
 		uplink_locations,
-		uplink_equipment_type_images)
+		&ifp_equipment;_type_images)
 		
-		LEFT JOIN uplink_equipment_type_container
-		ON (uplink_equipment_type_container.equipment_type_id=uplink_equipment_type.equipment_type_id)
+		LEFT JOIN &ifp_equipment;_type_container
+		ON (&ifp_equipment;_type_container.equipment_type_id=&ifp_equipment;_type.equipment_type_id)
 		
 		WHERE 
-        uplink_equipment.equipment_type_id=uplink_equipment_type.equipment_type_id
-		AND uplink_equipment.equipment_id=uplink_location_equipment.equipment_id
-		AND uplink_location_equipment.location_id=uplink_locations.location_id
+        &ifp_equipment;.equipment_type_id=&ifp_equipment;_type.equipment_type_id
+		AND &ifp_equipment;.equipment_id=&ifp_location_equipment;.equipment_id
+		AND &ifp_location_equipment;.location_id=uplink_locations.location_id
 		AND uplink_location_space_plan.location_space_plan_id=?
-		AND uplink_location_equipment.location_id=?
+		AND &ifp_location_equipment;.location_id=?
 		AND uplink_locations.location_id=uplink_location_space_plan.location_id
-		AND uplink_location_equipment_position.location_equipment_id=uplink_location_equipment.location_equipment_id
-		AND uplink_equipment_type_images.equipment_type_id=uplink_equipment.equipment_type_id
-		AND uplink_equipment_type_images.default_image='1'
+		AND &ifp_location_equipment;_position.location_equipment_id=&ifp_location_equipment;.location_equipment_id
+		AND &ifp_equipment;_type_images.equipment_type_id=&ifp_equipment;.equipment_type_id
+		AND &ifp_equipment;_type_images.default_image='1'
 		
 		GROUP BY equipment_id
     </sql>

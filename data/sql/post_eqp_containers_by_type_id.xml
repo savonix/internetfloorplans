@@ -30,14 +30,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="php:date('Y-m-d H:i:s')" type="text"/>
 	</params>
     <sql>
-        SELECT uplink_equipment_type_container.*, uplink_container.name as container_name, uplink_container.width, uplink_container.height 
+        SELECT &ifp_equipment;_type_container.*, &ifp_containers;.name as container_name, &ifp_containers;.width, &ifp_containers;.height 
 		
-		FROM uplink_equipment_type_container, uplink_container 
+		FROM &ifp_equipment;_type_container, &ifp_containers; 
 		
-		WHERE uplink_equipment_type_container.account_id=?
-		AND uplink_equipment_type_container.equipment_type_id=?
-		AND uplink_equipment_type_container.deletion_datetime &gt; ?
-		AND uplink_equipment_type_container.container_id=uplink_container.container_id
-		AND uplink_container.deletion_datetime &gt; ?
+		WHERE &ifp_equipment;_type_container.account_id=?
+		AND &ifp_equipment;_type_container.equipment_type_id=?
+		AND &ifp_equipment;_type_container.deletion_datetime &gt; ?
+		AND &ifp_equipment;_type_container.container_id=&ifp_containers;.container_id
+		AND &ifp_containers;.deletion_datetime &gt; ?
     </sql>
 </query>

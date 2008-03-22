@@ -29,15 +29,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="php:date('Y-m-d H:i:s')" type="text"/>
 	</params>
     <sql>
-        SELECT uplink_equipment_container.priority_id,uplink_equipment_container.business_line_id,
-		uplink_equipment_container.equipment_type_container_id
+        SELECT &ifp_equipment;_container.priority_id,&ifp_equipment;_container.business_line_id,
+		&ifp_equipment;_container.equipment_type_container_id
 		
-		FROM uplink_equipment_container 
+		FROM &ifp_equipment;_container 
 		
 		
 		
-		WHERE uplink_equipment_container.account_id=?
-		AND uplink_equipment_container.equipment_id=?
-		AND uplink_equipment_container.deletion_datetime &gt; ?
+		WHERE &ifp_equipment;_container.account_id=?
+		AND &ifp_equipment;_container.equipment_id=?
+		AND &ifp_equipment;_container.deletion_datetime &gt; ?
     </sql>
 </query>

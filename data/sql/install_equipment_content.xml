@@ -29,7 +29,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		        <param name="php:date('Y-m-d H:i:s')" type="timestamp"/>
 	</params>
     <sql>
-        UPDATE uplink_equipment SET status_id=1
+        UPDATE &ifp_equipment; SET status_id=1
 		WHERE equipment_id=?
 		
 		AND deletion_datetime &gt; ?

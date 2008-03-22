@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="php:date('Y-m-d H:i:s')" type="text"/>
 	</params>
     <sql>
-        INSERT INTO uplink_equipment_category (equipment_category_id,account_id,name,description,creation_datetime)
+        INSERT INTO &ifp_equipment;_category (equipment_category_id,account_id,name,description,creation_datetime)
 		VALUES 
 		(_AUTO_,?,?,?,?)
     </sql>

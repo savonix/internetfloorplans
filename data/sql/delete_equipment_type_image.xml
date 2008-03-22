@@ -29,7 +29,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<param name="_get/equipment_type_image_id" type="text"/>
     </params>
     <sql>
-        UPDATE uplink_equipment_type_images
+        UPDATE &ifp_equipment;_type_images
 		SET deletion_datetime=? WHERE account_id=? AND equipment_type_image_id=?
     </sql>
 </query>

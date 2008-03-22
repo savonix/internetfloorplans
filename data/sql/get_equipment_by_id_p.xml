@@ -34,18 +34,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="php:date('Y-m-d H:i:s')" type="text"/>
 	</params>
     <sql>
-        SELECT uplink_equipment.*, uplink_equipment_type.name as equipment_type_name, &ifp_locations;.location_id, uplink_location_equipment.equipment_id, uplink_equipment_type_images.equipment_type_image_id
-		FROM uplink_equipment, uplink_equipment_type, &ifp_locations;, uplink_location_equipment, uplink_equipment_type_images
-		WHERE uplink_equipment.deletion_datetime &gt; ? 
-		AND uplink_equipment.account_id = ?
-		AND uplink_equipment.equipment_type_id=uplink_equipment_type.equipment_type_id
-		AND uplink_equipment.equipment_id=?
+        SELECT &ifp_equipment;.*, &ifp_equipment;_type.name as equipment_type_name, &ifp_locations;.location_id, &ifp_location_equipment;.equipment_id, &ifp_equipment;_type_images.equipment_type_image_id
+		FROM &ifp_equipment;, &ifp_equipment;_type, &ifp_locations;, &ifp_location_equipment;, &ifp_equipment;_type_images
+		WHERE &ifp_equipment;.deletion_datetime &gt; ? 
+		AND &ifp_equipment;.account_id = ?
+		AND &ifp_equipment;.equipment_type_id=&ifp_equipment;_type.equipment_type_id
+		AND &ifp_equipment;.equipment_id=?
 		AND &ifp_locations;.deletion_datetime &gt; ?
-		AND uplink_location_equipment.deletion_datetime &gt; ?
-		AND uplink_location_equipment.equipment_id = ?
-		AND uplink_location_equipment.location_id=&ifp_locations;.location_id
-		AND uplink_equipment_type_images.equipment_type_id=uplink_equipment_type.equipment_type_id
-		AND uplink_equipment_type_images.deletion_datetime &gt; ?
+		AND &ifp_location_equipment;.deletion_datetime &gt; ?
+		AND &ifp_location_equipment;.equipment_id = ?
+		AND &ifp_location_equipment;.location_id=&ifp_locations;.location_id
+		AND &ifp_equipment;_type_images.equipment_type_id=&ifp_equipment;_type.equipment_type_id
+		AND &ifp_equipment;_type_images.deletion_datetime &gt; ?
  
    </sql>
  </query>
