@@ -10,7 +10,7 @@
 <!ATTLIST param type CDATA #IMPLIED>
 <!ATTLIST param default CDATA #IMPLIED>
 <!ELEMENT sql      (#PCDATA)>
-<!ENTITY ifp_connection "pbooks">
+<!ENTITY ifp_connection "uplink">
 <!ENTITY prefix "uplink_">
 <!ENTITY ifp_locations "&prefix;locations">
 <!ENTITY ifp_regions "&prefix;region">
