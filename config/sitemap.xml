@@ -323,11 +323,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 	<map:gate name="ifp-location-space-plan-pdf-server" role="uplink">
 		<map:query src="data/sql/get_location_summary.xml" />
-		<map:query src="data/sql/get_location_space_plans.xml" />
-		<map:query src="data/sql/get_equipment_types.xml"/>
-		<map:query src="data/sql/get_sp_pointer_by_id.xml" />
-		<map:query src="data/sql/get_location_space_plan_assets.xml" />
-		<map:query src="data/sql/get_account_symbol_pointers.xml" />
+		<map:query src="data/sql/location_get_space_plans.xml" />
+		<map:query src="data/sql/equipment_get_all_types.xml"/>
+		<map:query src="data/sql/location_get_space_plan_by_id.xml" />
+		<map:query src="data/sql/location_get_space_plan_equipment.xml" />
+		<map:query src="data/sql/equipment_get_symbol_pointers.xml" />
 		<map:script src="lib/php/floorplan_pdf.php"/>
 	</map:gate>
 	
@@ -873,11 +873,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>
 	
 	<!-- MING SPACE PLAN SERVER -->
-	<map:gate name="ifp-location-space-plan-server" role="client">
-		<map:query src="data/sql/get_sp_pointer_by_id.xml" />
-		<map:query src="data/sql/get_location_space_plan_assets.xml" />
-		<map:query src="data/sql/get_account_symbol_pointers.xml" />
-		<map:script src="uplink/modules/locations/php/floorplan_generator.php" />
+	<map:gate name="ifp-location-space-plan-server" role="client" cache="0">
+		<map:query src="data/sql/location_get_space_plan_by_id.xml" />
+		<map:query src="data/sql/location_get_space_plan_equipment.xml" />
+		<map:query src="data/sql/equipment_get_symbol_pointers.xml" />
+		<map:script src="lib/php/floorplan_generator.php" />
+        
 	</map:gate>	
 	<!-- MING SPACE PLAN SERVER what is this 12-15-06?-->
 	<map:gate name="ifp-types/containers/nu_sp_server2/" role="client">

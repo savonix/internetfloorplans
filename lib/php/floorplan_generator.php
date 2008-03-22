@@ -39,7 +39,7 @@ $num_icons = 0;
 $account_id = $_SESSION['NX_AUTH']['account_id'];
 $this_url=$_SERVER['REQUEST_URI'];
 
-$space_plan_locked = Path::get("//get_sp_pointer_by_id/space_plan_locked","flow");
+$space_plan_locked = Nexista_Path::get("//get_sp_pointer_by_id/space_plan_locked","flow");
 if($space_plan_locked=="false") { 
 	$space_plan_locked=false;
 } elseif($space_plan_locked=="true") { 
@@ -61,12 +61,12 @@ $path = dirname(dirname($path));
 $f = new SWFFont("_sans");
 
 
-$roles = Path::get("//user_roles","flow");
-$file_path = Path::get("//get_sp_pointer_by_id/space_plan_pointer","flow"); 
-$x_position = Path::get("//get_sp_pointer_by_id/x_position","flow"); 
-$y_shift = Path::get("//get_sp_pointer_by_id/y_position","flow"); 
-$key_x_position = Path::get("//get_sp_pointer_by_id/key_x_position","flow"); 
-$key_y_position = Path::get("//get_sp_pointer_by_id/key_y_position","flow"); 
+$roles = Nexista_Path::get("//user_roles","flow");
+$file_path = Nexista_Path::get("//get_sp_pointer_by_id/space_plan_pointer","flow"); 
+$x_position = Nexista_Path::get("//get_sp_pointer_by_id/x_position","flow"); 
+$y_shift = Nexista_Path::get("//get_sp_pointer_by_id/y_position","flow"); 
+$key_x_position = Nexista_Path::get("//get_sp_pointer_by_id/key_x_position","flow"); 
+$key_y_position = Nexista_Path::get("//get_sp_pointer_by_id/key_y_position","flow"); 
 
 if($key_x_position > 775 || $key_x_position < 25) { 
 	$key_x_position = 25;
@@ -76,15 +76,15 @@ if($key_y_position > 775 || $key_y_position < 25) {
 	$key_y_position = 25;
 }
 
-$location_space_plan_id = Path::get("//_get/location_space_plan_id","flow");
+$location_space_plan_id = Nexista_Path::get("//_get/location_space_plan_id","flow");
 
 if(empty($key_x_position)) { $key_x_position=0;}
 if(empty($key_y_position)) { $key_y_position=0;}
 
 $x_shift=$x_shift+$x_position;
-$display_eqp_icons=Path::get("//get_sp_pointer_by_id/display_eqp_icons","flow"); 
+$display_eqp_icons=Nexista_Path::get("//get_sp_pointer_by_id/display_eqp_icons","flow"); 
 
-$my_address_id = Path::get("//_get/location_address_id","flow"); 
+$my_address_id = Nexista_Path::get("//_get/location_address_id","flow"); 
 $a_path = $path."/usr/".$account_id; 
 
 $file = $a_path . "/spaceplans/" . $file_path;
@@ -305,10 +305,10 @@ entire_key.cacheAsBitmap = true;
 
 
 
-$symbol_pointers['filename'] = Path::get("//get_account_symbol_pointers/symbol_pointer","flow");
-$symbol_pointers['name'] = Path::get("//get_account_symbol_pointers/name","flow");
-$symbol_pointers['equipment_type_image_id'] = Path::get("//get_account_symbol_pointers/equipment_type_image_id","flow");
-$symbol_pointers['equipment_type_id'] = Path::get("//get_account_symbol_pointers/equipment_type_id","flow");
+$symbol_pointers['filename'] = Nexista_Path::get("//get_account_symbol_pointers/symbol_pointer","flow");
+$symbol_pointers['name'] = Nexista_Path::get("//get_account_symbol_pointers/name","flow");
+$symbol_pointers['equipment_type_image_id'] = Nexista_Path::get("//get_account_symbol_pointers/equipment_type_image_id","flow");
+$symbol_pointers['equipment_type_id'] = Nexista_Path::get("//get_account_symbol_pointers/equipment_type_id","flow");
 
 $number_of_symbols = count($symbol_pointers['filename']);
 	
@@ -377,18 +377,18 @@ unset($i);
 
 
 /* NOW BEGINS THE FIXTURE ICONS THAT ARE IN INVENTORY!!! */
-$assets['x_pos'] = Path::get("//get_all_assets/x_position","flow");
+$assets['x_pos'] = Nexista_Path::get("//get_all_assets/x_position","flow");
 if($assets['x_pos']!=NULL) {
 
-	$assets['y_pos'] = (array)Path::get("//get_all_assets/y_position","flow");
-	$assets['rotation_angle'] = (array)Path::get("//get_all_assets/rotation_angle","flow");
-	$assets['equipment_type_id'] = (array)Path::get("//get_all_assets/equipment_type_id","flow");
-	$assets['location_equipment_id'] = (array)Path::get("//get_all_assets/location_equipment_id","flow");
-	$assets['equipment_id'] = (array)Path::get("//get_all_assets/equipment_id","flow");
-	$assets['asset_id'] = (array)Path::get("//get_all_assets/asset_id","flow");
-	$assets['equipment_type_image_id'] =(array) Path::get("//get_all_assets/equipment_type_image_id","flow");
-	$assets['status_id'] = (array)Path::get("//get_all_assets/status_id","flow");
-	$assets['container'] = Path::get("//get_all_assets","flow");
+	$assets['y_pos'] = (array)Nexista_Path::get("//get_all_assets/y_position","flow");
+	$assets['rotation_angle'] = (array)Nexista_Path::get("//get_all_assets/rotation_angle","flow");
+	$assets['equipment_type_id'] = (array)Nexista_Path::get("//get_all_assets/equipment_type_id","flow");
+	$assets['location_equipment_id'] = (array)Nexista_Path::get("//get_all_assets/location_equipment_id","flow");
+	$assets['equipment_id'] = (array)Nexista_Path::get("//get_all_assets/equipment_id","flow");
+	$assets['asset_id'] = (array)Nexista_Path::get("//get_all_assets/asset_id","flow");
+	$assets['equipment_type_image_id'] =(array) Nexista_Path::get("//get_all_assets/equipment_type_image_id","flow");
+	$assets['status_id'] = (array)Nexista_Path::get("//get_all_assets/status_id","flow");
+	$assets['container'] = Nexista_Path::get("//get_all_assets","flow");
 	// should container be an array - no, see below??
 	
 	$num_icons = count($assets['y_pos']);
@@ -454,4 +454,4 @@ echo substr_replace($flash,chr(8),3,1);
 
 
 
-?>
+?>ss
