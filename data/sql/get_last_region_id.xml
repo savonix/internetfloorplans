@@ -23,7 +23,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="get_last_region_id">
-    <connection>uplink</connection>
+    <connection>&ifp_connection;</connection>
     <sql>
         SELECT MAX(region_id) as region_id FROM uplink_region
     </sql>

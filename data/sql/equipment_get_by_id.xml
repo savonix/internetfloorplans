@@ -23,7 +23,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="get_asset_by_id">
-    <connection>savonix</connection>
+    <connection>&ifp_connection;</connection>
     <params>
         <param name="php:date('Y-m-d H:i:s')" type="text"/>
 		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />

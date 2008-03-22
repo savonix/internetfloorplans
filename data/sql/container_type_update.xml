@@ -23,7 +23,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="edit_container_type">
-    <connection>savonix</connection>
+    <connection>&ifp_connection;</connection>
     <params>
         <param name="//_post/container_id" type="text"/>
         <param name="//_post/name" type="text"/>

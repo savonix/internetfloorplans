@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="new_asset_category">
 
-    <connection>savonix</connection>
+    <connection>&ifp_connection;</connection>
     <params>
 		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
         <param name="_post/name" type="text"/>
