@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_image_form.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -33,18 +33,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<input type="hidden" name="prefix" value="{//_get/location_address_id}" />
 	<input type="hidden" name="thumb_prefix" value="th_" />
 	<input type="hidden" name="location_address_id" value="{//_get/location_address_id}"/>
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/location.png" /> 
-			</td>
-			<xsl:call-template name="location_menu" />
-		</tr>
-	</table>
-	<table >
 	<xsl:call-template name="location_summary" />
+	<table >
 	<xsl:call-template name="image_form"/>
-
 	</table>
 	</form>
 </xsl:template>

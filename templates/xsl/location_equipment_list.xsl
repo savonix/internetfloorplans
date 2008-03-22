@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_equipment_list.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -28,10 +28,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 	<form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
 	<input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
-
     <xsl:call-template name="location_menu" />
 	<xsl:call-template name="location_summary" />
-
     <table class="simple-table">
         <thead>
 		<tr>

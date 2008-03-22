@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_container_codes.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -26,22 +26,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="equipment_type_menu.xsl"/>
 <xsl:import href="equipment_type_summary.xsl"/>
 <xsl:template name="content">
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/tetris.png" /> 
-			</td>
-			<xsl:call-template name="equipment_type_menu" />
-		</tr>
-	</table>
-	
-	<table border='0' cellspacing='1' cellpadding='2' width='100%'>
+    <xsl:call-template name="equipment_type_menu" />
 	<xsl:call-template name="asset_type_summary" />
-	<tr>
-		<td colspan="4" >
-
-		
-	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
+	<table>
 		<tr>
 
 			<td width="100">
@@ -54,7 +41,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				Options</td>
 			<td> </td>
 		</tr>
-		
 		<xsl:for-each select="//get_container_by_type_id">
 		<xsl:variable name="my_lob_id"><xsl:value-of select="default_business_line_id"/></xsl:variable>
 		<xsl:variable name="my_priority_id"> <xsl:value-of select="default_priority_id"/></xsl:variable>
@@ -82,15 +68,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<input type="submit" value="Go" name="submit" />
 				</td>
 			</form>
-
-		</tr>					
+		</tr>
 		</xsl:for-each>
 	</table>
-	
-	
-		</td>
-	</tr>
-	</table>
-	
 </xsl:template>
 </xsl:stylesheet>

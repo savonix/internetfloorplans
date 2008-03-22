@@ -27,15 +27,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <xsl:template name="content">
 	<form action="{self}" method="post">
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/tetris.png" /> 
-			</td>
-			<xsl:call-template name="equipment_menu" />
-			
-		</tr>
-	</table>
 	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
 		<tr>
 			<!--<td width="10">

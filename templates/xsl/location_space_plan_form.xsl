@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_space_plan_form.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -30,20 +30,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<form enctype="multipart/form-data" action="/acc/link/loc/view/sp/add/&amp;location_address_id={//_get/location_address_id}" method="post">
 	<input type="hidden" name="dest"><xsl:attribute name="value">../usr/<xsl:value-of select="//user_account_id"/>/spaceplans/</xsl:attribute></input>
 	<input type="hidden" name="location_address_id" value="{//location_address_id}"/>
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/location.png" /> 
-			</td>
-			<xsl:call-template name="location_menu" />
-		</tr>
-	</table>
+    <xsl:call-template name="location_menu" />
 	<table >
 	<xsl:call-template name="location_summary" />
 	<tr>
 	<td colspan="4" >
 		<xsl:call-template name="upload_form" />
-				
 	</td>
 	</tr>
 	</table>

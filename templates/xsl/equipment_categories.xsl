@@ -27,14 +27,20 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 	<form method="post">
 	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
-	<tr>	
-        <td width="150">Department Name</td>
-        <td width="150">Description</td>
-			<td >
-				Edit</td>
-			<td >
-				Delete</td>
-	</tr>
+	<tr>
+        <td>
+            Department Name
+        </td>
+        <td>
+            Description
+        </td>
+        <td >
+            Edit
+        </td>
+        <td >
+            Delete
+        </td>
+    </tr>
 			<xsl:for-each select="//get_asset_categories">
 			<tr class="row{position() mod 2}">
 				<td>
@@ -50,19 +56,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</tr>
 			</xsl:for-each>
 			
-			<tr><td align="left" colspan="4">
-			<table cellpadding="15" >
-				<tr>
-					<td>
+			<tr>
+                <td align="left" colspan="4">
 					<input type="button" value="New"><xsl:attribute name="onclick">document.location.href='edit/'</xsl:attribute>
 					</input>
-					</td>
-				</tr>
-			</table>
 	</td></tr>
 	</table>
-	
 	</form>
-
 </xsl:template>
 </xsl:stylesheet>

@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_hours_form.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -26,22 +26,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="location_summary.xsl"/>
 <xsl:import href="location_menu.xsl"/>
 <xsl:template name="content">
-	<form method="post" action="/acc/link/loc/view/hours/&amp;location_address_id={//_get/location_address_id}">
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/location.png" /> 
-			</td>
-			<xsl:call-template name="location_menu" />
-		</tr>
-	</table>
-	<table >
+	<form method="post" action="{//link_prefix}&amp;location_address_id={//_get/location_address_id}">
+    <xsl:call-template name="location_menu" />
 	<xsl:call-template name="location_summary" />
+	<table >
 	<tr>
 		<td colspan="4" >
 		Hours of Operation:
 				<br/>
-			<table border='0' cellspacing='0' cellpadding='10' >
+			<table>
 			<tr>
 				<td align="left" valign="top">
 					Open: 
@@ -88,7 +81,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<input type="submit" value="Submit"/>
 		</td>
 	</tr>
-	
 	</table>
 	</form>
 </xsl:template>

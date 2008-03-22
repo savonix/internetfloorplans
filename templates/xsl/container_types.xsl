@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: container_types.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -23,50 +23,40 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
-
 <xsl:template name="content">
-	<form action="{self}" method="post">
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/tetris.png" /> 
-			</td>
-			
-		</tr>
-	</table>
-	
-	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
-	<tr>	
-				<td width="150" >Equipment Type Name</td>
-				<td width="150" >Description</td>
-				<td >
-					Edit</td>
-				<td >
-					Delete</td>
-			</tr>
-			<xsl:for-each select="//get_container_types">
-			<tr class="row{position() mod 2}">
-				<td>
-					<a href="/acc/link/containers/edit/&amp;container_id={container_id}"><xsl:value-of select="name"/></a>
-				</td>
-				<td>
-					<xsl:value-of select="description"/>
-				</td>
-				<td>
-					<a href="/acc/link/containers/edit/&amp;container_id={container_id}">Edit</a></td>
-				<td>
-					<a href="/acc/link/containers/delete/&amp;container_id={container_id}" onclick="return confirm('Are you sure you want to delete this container type?')">Delete</a></td>
-			</tr>
-			</xsl:for-each>
-			<tr><td align="left" colspan="4">
-			<table cellpadding="15" >
-				<tr>
-					<td>
-					<input type="button" value="New"><xsl:attribute name="onclick">document.location.href='edit/'</xsl:attribute>
-					</input>
-					</td>
-				</tr>
-			</table>
+	<form method="post">
+	<table>
+    	<tr>
+            <td width="150" >Equipment Type Name</td>
+            <td width="150" >Description</td>
+            <td >
+                Edit</td>
+            <td >
+                Delete</td>
+        </tr>
+        <xsl:for-each select="//get_container_types">
+        <tr class="row{position() mod 2}">
+            <td>
+                <a href="{//link_prefix}edit/&amp;container_id={container_id}"><xsl:value-of select="name"/></a>
+            </td>
+            <td>
+                <xsl:value-of select="description"/>
+            </td>
+            <td>
+                <a href="{//link_prefix}edit/&amp;container_id={container_id}">Edit</a></td>
+            <td>
+                <a href="{//link_prefix}delete/&amp;container_id={container_id}" onclick="return confirm('Are you sure you want to delete this container type?')">Delete</a></td>
+        </tr>
+        </xsl:for-each>
+        <tr><td align="left" colspan="4">
+        <table cellpadding="15" >
+            <tr>
+                <td>
+                <input type="button" value="New"><xsl:attribute name="onclick">document.location.href='edit/'</xsl:attribute>
+                </input>
+                </td>
+            </tr>
+        </table>
 	</td></tr>
 	</table>
 	
