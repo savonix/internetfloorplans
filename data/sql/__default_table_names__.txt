@@ -13,6 +13,7 @@
 <!ENTITY ifp_connection "uplink">
 <!ENTITY prefix "uplink_">
 <!ENTITY ifp_locations "&prefix;locations">
+<!ENTITY ifp_location_images "&prefix;location_images">
 <!ENTITY ifp_regions "&prefix;region">
 <!ENTITY ifp_equipment_types "&prefix;equipment_type">
 <!ENTITY ifp_equipment_type_images "&prefix;equipment_type_images">

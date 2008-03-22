@@ -29,8 +29,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <params>
         <param name="php:date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s')-1, date('m'), date('d'), date('Y')))" type="text"/>		
         <param name="_get/location_id" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-	</params>
+			</params>
 	
     <sql>
         UPDATE &ifp_locations; SET deletion_datetime=? WHERE location_id = ?

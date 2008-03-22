@@ -26,9 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
 		<param name="//last_database_update" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-		<param name="//my_region_id" type="integer"/>
+						<param name="//my_region_id" type="integer"/>
 		<param name="//_get/sort" type="integer" default="&ifp_locations;.name"/>
 		<param name="//_get/start" type="integer" default="0"/>
 		<param name="//_get/incr" type="integer" default="100"/>

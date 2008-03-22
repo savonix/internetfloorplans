@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_get_hours.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -26,14 +26,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
         <param name="//_get/location_id" type="integer" />
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-		<param name="//last_database_update" type="text" />
+				<param name="//last_database_update" type="text" />
     </params>
     <sql>
 		SELECT * FROM uplink_location_hours 
         WHERE 
 		location_id=?
-		AND account_id=?
+		
 		AND deletion_datetime &gt; ?
 	</sql>
 </query>

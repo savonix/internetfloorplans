@@ -26,11 +26,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
         <param name="//equipment_type_image_id" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-		<param name="php:date('Y-m-d H:i:s')" type="text"/>
+				<param name="php:date('Y-m-d H:i:s')" type="text"/>
 	</params>
     <sql>
         SELECT image_pointer, thumb_pointer, mime_type FROM uplink_equipment_type_images WHERE equipment_type_image_id = ?
-		AND account_id=? AND deletion_datetime &gt; ?
+		 AND deletion_datetime &gt; ?
     </sql>
 </query>

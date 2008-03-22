@@ -25,8 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="no_default_equipment_type_symbol">
     <connection>&ifp_connection;</connection>
     <params>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-        <param name="_post/location_id" type="text"/>
+		        <param name="_post/location_id" type="text"/>
     </params>
     <sql>
         UPDATE uplink_equipment_type_symbol

@@ -27,8 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <params>
         <param name="//_post/business_line_id" type="text"/>
         <param name="//_post/priority_id" type="text"/>
-        <param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-        <param name="//_post/equipment_type_container_id" type="text"/>
+                <param name="//_post/equipment_type_container_id" type="text"/>
         <param name="php:date('Y-m-d H:i:s')" type="text"/>
     </params>
     <sql>

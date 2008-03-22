@@ -28,13 +28,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="//_post/x_origin" type="text"/>
         <param name="//_post/y_origin" type="text"/>
         <param name="//_post/equipment_type_container_id" type="text"/>
-        <param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
+                <param name="php:date('Y-m-d H:i:s')" type="text"/>
     </params>
     <sql>
         UPDATE uplink_equipment_type_container SET x_origin=?, y_origin=? WHERE
 		equipment_type_container_id=?
-		AND account_id=?
+		
 		AND deletion_datetime &gt; ?
 	</sql>
 </query>

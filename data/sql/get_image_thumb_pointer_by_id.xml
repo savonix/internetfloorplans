@@ -26,11 +26,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
         <param name="_get/location_image_id" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-		<param name="//last_database_update" type="text"/>
+				<param name="//last_database_update" type="text"/>
 	</params>
     <sql>
-        SELECT thumb_pointer, mime_type FROM uplink_location_images WHERE location_image_id = ?
-		AND account_id=? AND deletion_datetime &gt; ?
+        SELECT thumb_pointer, mime_type FROM &ifp_location_images; WHERE location_image_id = ?
+		 AND deletion_datetime &gt; ?
     </sql>
 </query>

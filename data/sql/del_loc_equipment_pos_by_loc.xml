@@ -26,8 +26,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
         <param name="php:date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s')-1, date('m'), date('d'), date('Y')))" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-		<param array="//get_loc_equipment_ids/location_equipment_id" type="integer"/>
+				<param array="//get_loc_equipment_ids/location_equipment_id" type="integer"/>
     </params>
     <sql>
         UPDATE uplink_location_equipment_position

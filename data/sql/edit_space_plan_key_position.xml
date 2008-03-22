@@ -27,8 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <params>
         <param name="//key_x_position" type="integer"/>
         <param name="//key_y_position" type="integer"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-		<param name="//location_space_plan_id" type="text"/>
+				<param name="//location_space_plan_id" type="text"/>
     </params>
     <sql>
         UPDATE uplink_location_space_plan
