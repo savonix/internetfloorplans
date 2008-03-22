@@ -15,5 +15,6 @@
 <!ENTITY ifp_locations "&prefix;locations">
 <!ENTITY ifp_regions "&prefix;region">
 <!ENTITY ifp_equipment_types "&prefix;equipment_type">
+<!ENTITY ifp_equipment_type_images "&prefix;equipment_type_images">
 <!ENTITY ifp_equipment "&prefix;equipment">
 <!ENTITY ifp_containers "&prefix;containers">
