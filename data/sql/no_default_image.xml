@@ -29,6 +29,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </params>
     <sql>
         UPDATE &ifp_equipment;_type_images
-		SET default_image='0' WHERE account_id=? AND equipment_type_id=?
+		SET default_image='0' WHERE equipment_type_id=?
     </sql>
 </query>

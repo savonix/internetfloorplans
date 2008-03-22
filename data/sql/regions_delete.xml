@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="delete_regions" loop="_post/region_id">
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="php:date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s')-1, date('m'), date('d'), date('Y')))" type="text"/>		
+        <param name="runtime/utdate" type="text"/>		
         <param array="_post/region_id" type="text"/>
 		        <param name="runtime/utdate" type="text"/>
 	</params>

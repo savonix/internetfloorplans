@@ -28,14 +28,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
     
 	</params>
     <sql>
-        SELECT DISTINCT &ifp_equipment;_type_symbol.symbol_pointer, 
-		&ifp_equipment;_type_symbol.equipment_type_id,
+        SELECT DISTINCT &ifp_equipment_type_symbol;.symbol_pointer, 
+		&ifp_equipment_type_symbol;.equipment_type_id,
 		&ifp_equipment;_type.name,
-		&ifp_equipment;_type_symbol.equipment_type_symbol_id,
+		&ifp_equipment_type_symbol;.equipment_type_symbol_id,
 		&ifp_equipment;_type.equipment_type_id,
 		&ifp_equipment;_type_images.equipment_type_image_id
 		
-		FROM &ifp_equipment;_type_symbol, &ifp_equipment;_type
+		FROM &ifp_equipment_type_symbol;, &ifp_equipment;_type
 		
 		LEFT JOIN &ifp_equipment;_type_images ON 
 		&ifp_equipment;_type_images.equipment_type_id=&ifp_equipment;_type.equipment_type_id

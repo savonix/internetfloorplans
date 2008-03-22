@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="delete_asset_category">
     <connection>&ifp_connection;</connection>
     <params>
-		<param name="php:date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s')-1, date('m'), date('d'), date('Y')))" type="timestamp"/>
+		<param name="runtime/utdate" type="timestamp"/>
         <param name="_get/equipment_category_id" type="text"/>
 		        <param name="runtime/utdate" type="timestamp"/>
 	</params>

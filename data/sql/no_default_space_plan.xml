@@ -29,6 +29,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </params>
     <sql>
         UPDATE uplink_location_space_plan
-		SET default_space_plan='0' WHERE account_id=? AND location_id=?
+		SET default_space_plan='0' WHERE location_id=?
     </sql>
 </query>

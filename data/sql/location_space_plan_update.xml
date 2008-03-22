@@ -30,6 +30,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </params>
     <sql>
         UPDATE uplink_location_space_plan
-		SET comments=? WHERE account_id=? AND location_space_plan_id=?
+		SET comments=? WHERE location_space_plan_id=?
     </sql>
 </query>

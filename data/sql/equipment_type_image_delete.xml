@@ -25,11 +25,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="delete_equipment_type_image">
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="php:date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s')-1, date('m'), date('d'), date('Y')))" type="text"/>
+        <param name="runtime/utdate" type="text"/>
 				<param name="_get/equipment_type_image_id" type="text"/>
     </params>
     <sql>
         UPDATE &ifp_equipment;_type_images
-		SET deletion_datetime=? WHERE account_id=? AND equipment_type_image_id=?
+		SET deletion_datetime=? WHERE equipment_type_image_id=?
     </sql>
 </query>

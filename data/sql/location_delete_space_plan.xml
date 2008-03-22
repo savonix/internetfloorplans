@@ -25,11 +25,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="delete_location_space_plan_by_loc">
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="php:date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s')-1, date('m'), date('d'), date('Y')))" type="text"/>
+        <param name="runtime/utdate" type="text"/>
 				<param name="_post/location_id" type="text"/>
     </params>
     <sql>
         UPDATE uplink_location_space_plan
-		SET deletion_datetime=? WHERE account_id=? AND location_id=?
+		SET deletion_datetime=? WHERE location_id=?
     </sql>
 </query>
