@@ -52,7 +52,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</tr>
         </thead>
         <tbody>
-		<xsl:for-each select="//get_all_assets">
+		<xsl:for-each select="//location_get_equipment">
 		<tr class="row{position() mod 2}">
 			<!--<td width="10">
 				<input type="checkbox" name="asset_id[]"><xsl:attribute name="value"><xsl:value-of select="asset_id"/></xsl:attribute></input></td>-->

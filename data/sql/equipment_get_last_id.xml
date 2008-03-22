@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_get_last_id.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,14 +22,12 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="get_last_equipment_id">
-    <connection>savonix</connection>
+<query name="location_get_last_equipment_id">
+    <connection>&ifp_connection;</connection>
 	<params>
-        <param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
-        <param name="php:date('Y-m-d H:i:s')" type="text"/>
 	</params>
     <sql>
-        SELECT Max(equipment_id) as equipment_id FROM uplink_equipment
-		WHERE account_id=? AND creation_datetime=?
+        SELECT Max(equipment_id) as equipment_id 
+        FROM uplink_equipment
     </sql>
 </query>

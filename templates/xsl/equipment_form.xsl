@@ -79,16 +79,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<xsl:if test="//_get/equipment_id">
 			<td >
 				<xsl:for-each select="//locations_get_all">
-					<xsl:if test="location_address_id=//get_asset_by_id/location_address_id">
+					<xsl:if test="location_id=//get_asset_by_id/location_address_id">
 						<xsl:value-of select="name"/>
 					</xsl:if>
 				</xsl:for-each>
 			</td>
 			</xsl:if>			
 			<xsl:if test="not(//_get/equipment_id)">
-			<td ><select name="location_address_id">
+			<td ><select name="location_id">
 				<xsl:for-each select="//locations_get_all">
-					<option value="{location_address_id}"><xsl:if test="location_address_id=//get_asset_by_id/location_address_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
+					<option value="{location_id}"><xsl:if test="location_address_id=//get_asset_by_id/location_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
 						<xsl:value-of select="name"/></option>
 				</xsl:for-each>
 			</select></td>
