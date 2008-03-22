@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS `uplink_container` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `container_index` (`container_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment` (
   `business_line_id` int(11) NOT NULL default '0',
   `priority_id` int(11) NOT NULL default '0',
   UNIQUE KEY `equipment_id` (`equipment_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_category` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `equipment_category_id` (`equipment_category_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_container` (
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   `equipment_type_container_id` int(11) NOT NULL default '0',
   UNIQUE KEY `equipment_container_id` (`equipment_type_container_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_content` (
   `installed_id` int(11) NOT NULL default '0',
   `equipment_type_container_id` int(11) NOT NULL default '0',
   UNIQUE KEY `equipment_content_index` (`equipment_id`,`content_id`,`equipment_type_container_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_type` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `equipment_type_id` (`equipment_type_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_type_container` (
   `default_priority_id` int(11) NOT NULL default '0',
   `default_business_line_id` int(11) NOT NULL default '0',
   UNIQUE KEY `equipment_container_index` (`equipment_type_container_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_type_images` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `equipment_type_image_id` (`equipment_type_image_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_type_symbol` (
   `name` char(100) NOT NULL default '-',
   `mime_type` char(50) NOT NULL default 'application/x-shockwave-flash',
   UNIQUE KEY `equipment_type_symbol_id` (`equipment_type_symbol_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `uplink_locations` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `location_id` (`location_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -194,7 +194,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_categories` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `location_category_id` (`location_category_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -211,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_category_types` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `location_category_type_id` (`location_category_type_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -228,7 +228,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_equipment` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `location_equipment_id` (`location_equipment_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -249,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_equipment_position` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `location_equipment_position_id` (`location_equipment_position_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -264,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_equipment_status` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `location_equipment_status_id` (`location_equipment_status_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -281,7 +281,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_hours` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `location_hours_id` (`location_hours_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -303,7 +303,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_images` (
   `height` int(11) NOT NULL default '0',
   `width` int(11) NOT NULL default '0',
   UNIQUE KEY `location_image_id` (`location_image_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -317,7 +317,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_region` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `location_region_index` (`region_id`,`location_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -345,7 +345,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_space_plan` (
   `key_y_position` int(11) NOT NULL default '0',
   `space_plan_locked` varchar(100) default 'false',
   UNIQUE KEY `location_space_plan_id` (`location_space_plan_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -361,7 +361,7 @@ CREATE TABLE IF NOT EXISTS `uplink_location_status` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `location_status_id` (`location_status_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -375,7 +375,7 @@ CREATE TABLE IF NOT EXISTS `uplink_region` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `region_id` (`region_id`,`creation_datetime`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
