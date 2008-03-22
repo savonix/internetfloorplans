@@ -66,7 +66,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:variable name="my_business_line_id"><xsl:value-of select="//get_container_by_id[equipment_type_container_id=$my_container_id]/business_line_id"/></xsl:variable>
 		<tr>
 			<td ><input type="checkbox" name="equipment_type_container_id[]" value="{equipment_type_container_id}"><xsl:if test="count(//get_container_by_type_id)=1"><xsl:attribute name="checked"/></xsl:if></input>Container:</td>
-			<td ><b><xsl:value-of select="name"/><xsl:value-of select="equipment_id"/></b> - <xsl:value-of select="//get_priorities[priority_id=$my_priority_id]/name"/>, <xsl:value-of select="//get_lob[line_of_business_id=$my_business_line_id]/name"/> 
+			<td ><xsl:value-of select="name"/><xsl:value-of select="equipment_id"/> - <xsl:value-of select="//get_priorities[priority_id=$my_priority_id]/name"/>, <xsl:value-of select="//get_lob[line_of_business_id=$my_business_line_id]/name"/> 
 			</td>
 		</tr>
 		<!--
@@ -78,7 +78,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<table >
 		<tr>
 			<td ><input type="checkbox" name="equipment_type_container_id" value="{equipment_type_container_id}"/>Container:</td>
-			<td ><b><xsl:value-of select="name"/></b></td>
+			<td ><xsl:value-of select="name"/></td>
 		</tr>
 		<tr>
 			<td colspan="2">

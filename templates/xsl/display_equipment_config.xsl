@@ -52,7 +52,7 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 		<input type="hidden" name="type" value="edit"/>
 	</xsl:if>
 	
-<tr><td><b><xsl:value-of select="//equipment_type_name"/></b></td></tr>
+<tr><td><xsl:value-of select="//equipment_type_name"/></td></tr>
 	<xsl:if test="//get_lob">
 	 <tr>
 			<td >Line of Business:

@@ -28,12 +28,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<form method="post">
 	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
 	<tr>	
-        <td width="150" ><b>Department Name</b></td>
-        <td width="150" ><b>Description</b></td>
+        <td width="150">Department Name</td>
+        <td width="150">Description</td>
 			<td >
-				<b>Edit</b></td>
+				Edit</td>
 			<td >
-				<b>Delete</b></td>
+				Delete</td>
 	</tr>
 			<xsl:for-each select="//get_asset_categories">
 			<tr class="row{position() mod 2}">

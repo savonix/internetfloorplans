@@ -45,7 +45,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<table >
 						<tr>
 							<td valign="top">
-								<b>Add Containers</b>
+								Add Containers
 							</td>
 						</tr>
 						<form action="{self}add/" method="post">
@@ -81,7 +81,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
 						<tr>
 							<td valign="top">
-								<b>Delete Container</b>
+								Delete Container
 							</td>
 						</tr>
 						<tr>

@@ -45,7 +45,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<td valign="top">
 						<input type="radio" name="response" value="success" checked="checked"/>
 					</td>
-					<td>The materials have been successfully installed. <b>Please select this option only if you have already installed the materials as prescribed by these instructions.</b></td>
+					<td>The materials have been successfully installed. Please select this option only if you have already installed the materials as prescribed by these instructions.</td>
 				</tr>
 				<tr>
 					<td>

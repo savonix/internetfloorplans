@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<table>
 			<tr>
 				<td valign="top">
-					<b>Virtual Tours</b>
+					Virtual Tours
 				</td>
 			</tr>
 			<xsl:for-each select="//get_location_images" >
@@ -53,7 +53,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<table >
 			<tr>
 				<td valign="top">
-					<b>Tour options</b>
+					Tour options
 				</td>
 			</tr>
 			<tr>

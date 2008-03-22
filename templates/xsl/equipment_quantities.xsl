@@ -41,11 +41,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<!--<td width="10">
 				<input type="checkbox"></input></td>
 			<td width="10%">
-				<b>Asset ID</b></td>-->
+				Asset ID</td>-->
 			<td width="300">
-				<b>Equipment Type</b></td>
+				Equipment Type</td>
 			<td width="30%">
-				<b>Quantity</b></td>
+				Quantity</td>
 
 		</tr>
 		<xsl:for-each select="//get_asset_types">

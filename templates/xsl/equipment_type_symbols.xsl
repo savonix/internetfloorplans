@@ -46,7 +46,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<table >
 						<tr>
 							<td valign="top">
-								<b>Symbols</b>
+								Symbols
 							</td>
 						</tr>
 						<xsl:for-each select="//get_equipment_type_symbols" >
@@ -66,7 +66,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<table >
 						<tr>
 							<td valign="top">
-								<b>Options</b>
+								Options
 							</td>
 						</tr>
 						<xsl:if test="not(//get_equipment_type_symbols)">

@@ -31,7 +31,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table >
     <tr>
         <td colspan="2">
-            <b>Space Plan Options</b> : 
+            Space Plan Options : 
             <a href="#">Add New Plan</a> - 
             <a href="#">Unlock This Plan</a>
             <br/>

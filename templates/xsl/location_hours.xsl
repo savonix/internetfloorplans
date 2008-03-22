@@ -45,13 +45,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<table >
 					<tr>
 						<td width="10%" valign="top">
-							<b>Day</b></td>
+							Day</td>
 						<td width="10%" valign="top">
-							<b>Hours</b></td>
+							Hours</td>
 						<td width="20%" valign="top">
-							<b>Edit</b></td>
+							Edit</td>
 						<td width="20%" valign="top">
-							<b>Delete</b></td>
+							Delete</td>
 					</tr>
 					<!-- Need to somehow get the seven days of the week in here. -->
 					<xsl:for-each select="//days">

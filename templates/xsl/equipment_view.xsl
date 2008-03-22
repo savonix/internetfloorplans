@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<table >
 						<tr>
 							<td valign="top">
-								<b>Images</b>
+								Images
 							</td>
 						</tr>
 						<xsl:for-each select="//get_asset_type_images" >
@@ -59,7 +59,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<table >
 						<tr>
 							<td valign="top">
-								<b>Options</b>
+								Options
 							</td>
 						</tr>
 						<xsl:if test="not(//get_asset_type_images)">

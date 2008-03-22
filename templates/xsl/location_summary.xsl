@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<tr>
 		<td width="25%" valign="top">
 		
-		<b>Location Options</b>
+		Location Options
 		[ <a target="_top" href="/acc/link/loc/edit/&amp;location_address_id={location_address_id}">Edit</a> ]
 		[ <a target="_top" href="/acc/link/loc/del/&amp;location_address_id={location_address_id}" onclick="return confirm('Are you sure you want to delete this location?')">Delete</a> ]
 		

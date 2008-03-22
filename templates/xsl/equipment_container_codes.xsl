@@ -45,13 +45,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<tr>
 
 			<td width="100">
-				<b>Equipment Type</b></td>
+				Equipment Type</td>
 			<td width="100">
-				<b>Container</b></td>
+				Container</td>
 			<td width="50">
-				<b>Business</b></td>
+				Business</td>
 			<td width="50">
-				<b>Options</b></td>
+				Options</td>
 			<td> </td>
 		</tr>
 		

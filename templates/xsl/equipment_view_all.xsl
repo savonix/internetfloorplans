@@ -41,15 +41,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<!--<td width="10">
 				<input type="checkbox"></input></td>
 			<td width="10%">
-				<b>Asset ID</b></td>-->
+				Asset ID</td>-->
 			<td width="300">
-				<b>Equipment Type</b></td>
+				Equipment Type</td>
 			<td width="30%">
-				<b>Location</b></td>
+				Location</td>
 			<td width="20%">
-				<b>Edit</b></td>
+				Edit</td>
 			<td width="20%">
-				<b>Delete</b></td>
+				Delete</td>
 		</tr>
 		<xsl:for-each select="//get_all_assets2">
 		<tr class="row{position() mod 2}">
