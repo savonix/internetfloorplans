@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 
 <script language="JavaScript" src="/resources/js/checkbox.js"> &#160; </script>
-	<table>
+	<table class="simple-table">
 		<tr>
 			<form method="post" name="form0">
 			<td align="left">
@@ -45,50 +45,42 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			Search: <input type="text" name="q"/> <input type="submit" value="Go"/>
 			</td>
 			</form>
-			
-			<td align="right">
+
+			<td>
 				Results <xsl:value-of select="//start + 1"/> - <xsl:if test="//x_view"><xsl:value-of select="//start + count(//get_all_locations[status_id='0'])"/></xsl:if><xsl:if test="not(//x_view)"><xsl:value-of select="//start + count(//get_all_locations)"/></xsl:if> of a total of <xsl:if test="//x_view"><xsl:value-of select="count(//get_gt_locations[status_id='0'])"/></xsl:if><xsl:if test="not(//x_view)"><xsl:value-of select="count(//get_gt_locations)"/></xsl:if>.
 			</td>
 		</tr>
 	</table>
 	<form method="post" name="myform">
-	<table>
-		<tr>	
-			<td width="20">Status</td>
-			<td width='110'>
-			Branch Name</td>
-			
-			<td width='140'>
-			Address</td>
-			
-			<td width='82'>
-			City</td>
-			
-			<td width='72'>
-			Phone</td>
-			<!--
-			<td><a>
-			<xsl:attribute name="href">/acc/link/loc/&amp;sort=uplink_location_address.manager<xsl:if test="contains(//_get/dir,'ASC') and contains(//_get/sort,'uplink_location_address.manager')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=DESC</xsl:if><xsl:if test="contains(//_get/dir,'DESC') and contains(//_get/sort,'uplink_location_address.manager')">&amp;start=<xsl:value-of select="//_get/start"/>&amp;dir=ASC</xsl:if></xsl:attribute>Contact</a></td>-->
-			<td width="5">
-			
+	<table class="simple-table">
+		<tr>
+			<th>Status</th>
+			<th>
+			Branch Name</th>
+			<th>
+			Address</th>
+			<th>
+			City</th>
+			<th>
+			Phone</th>
+            <th width="5">
 			<input type="checkbox" value="all" title="Select All"><xsl:attribute name="onClick"><xsl:text>if(this.checked){ this.title='Deselect All'; checkAll(document.myform.locations);} else {uncheckAll(document.myform.locations); this.title='Select All';}</xsl:text>
-			</xsl:attribute></input></td>
+			</xsl:attribute></input>
+            </th>
 		</tr>
 		<xsl:for-each select="//get_all_locations">
 			<xsl:if test="not(//x_view)">
 				<xsl:call-template name="location_row"/>
-			</xsl:if>				
+			</xsl:if>
 			<xsl:if test="(//x_view) and (status_id=0)">
 				<xsl:call-template name="location_row"/>
-			</xsl:if>				
+			</xsl:if>
 		</xsl:for-each>
-		
 		<xsl:if test="(count(//get_all_locations) = //incr) or (//_get/start!=0)">
-			<tr><td align="left" colspan="7">
-			</td></tr>
-			
 		</xsl:if>
 	</table></form>
+
+    <a href="{//link_prefix}ifp-location-edit">Add Location</a>
 </xsl:template>
 
 
@@ -100,8 +92,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:if test="(status_id=1) or (not(status_id))"><img src="/resources/img/style-1.1/images/icon_success_sml.gif" alt="Compliant"/></xsl:if>
 			</td>
 			<td><!--<xsl:value-of select="status_id"/> - <xsl:value-of select="equipment_id"/> -->
-  <a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}"><xsl:value-of select="name"/></a>
-			
+<a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}"><xsl:value-of select="name"/></a>
 			</td>
 			
 			<td><xsl:value-of select="address_line_1"/></td>

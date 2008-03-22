@@ -28,37 +28,32 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 	<form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
 	<input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/location.png" /> 
-			</td>
+
 			<xsl:call-template name="location_menu" />
-		</tr>
-	</table>
 	<table >
 	<xsl:call-template name="location_summary" />
 	<tr>
 		<td colspan="4" >
-	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
+	<table class="simple-table">
+        <thead>
 		<tr>
-			<!--<td width="10">
-				<input type="checkbox"></input></td>-->
-			<td width="10%">
-				<b>ID</b></td>
-			<td width="100">
-				<b>Equipment Type</b></td>
-			<td width="100">
-				<b>Container</b></td>
-			<td width="50">
-				<b>Business</b></td>
-			<td width="50">
-				<b>Options</b></td>
-			<td width="50">
-				<b>Edit</b></td>
-			<td width="50">
-				<b>Delete</b></td>
+			<th>
+				ID</th>
+			<th>
+				Equipment Type</th>
+			<th>
+				Container</th>
+			<th>
+				Business</th>
+			<th>
+				Options</th>
+			<th>
+				Edit</th>
+			<th>
+				Delete</th>
 		</tr>
+        </thead>
+        <tbody>
 		<xsl:for-each select="//get_all_assets">
 		<tr class="row{position() mod 2}">
 			<!--<td width="10">
@@ -78,17 +73,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></td>
 			<td>
 				<a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></td>
-		</tr>					
+		</tr>
 		</xsl:for-each>
-		<!--<tr>
-			<td colspan="5" >
-				<table>
-					<tr>
-						<td><input type="submit" value="Delete" name="submit" /></td>
-					</tr>
-				</table>
-			</td>
-		</tr>-->
+        </tbody>
 	</table>
 		</td>
 	</tr>

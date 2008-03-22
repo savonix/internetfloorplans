@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_equipment.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -28,75 +28,29 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 	<form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
 	<input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/location.png" /> 
-			</td>
 			<xsl:call-template name="location_menu" />
-		</tr>
-	</table>
-	<table >
+    <table >
 	<xsl:call-template name="location_summary" />
 	<tr>
-		<td colspan="4" >
-			<table border='0' cellspacing='0' cellpadding='10' width='100%'>
-			<tr>
-				<td align="left" valign="top">
-					<table border='0' cellspacing='0' cellpadding='4' width='100%'>
-						<tr>
-							<!--<td width="10">
-								<input type="checkbox"></input></td>-->
-							<!--<td width="10%" valign="top">
-								<b>Asset ID</b></td>-->
-							<td width="30%" valign="top">
-								<b>Equipment Type</b></td>
-							<!--
-							<td width="20%" valign="top">
-								<b>Content</b></td>
-							-->
-							<!--<td width="20%" valign="top">
-								<b>Edit</b></td>
-							<td width="20%" valign="top">
-								<b>Delete</b></td>-->
-							<td>Quantity</td>
-						</tr>
-						<xsl:for-each select="//get_asset_types">
-						<xsl:variable name="my_equipment_type_id"><xsl:value-of select="equipment_type_id"/></xsl:variable>
-						<tr class="row{position() mod 2}">
-							<td valign="top">
-								<xsl:value-of select="name"/></td>
-								<td><xsl:value-of select="count(//get_all_assets[equipment_type_id=$my_equipment_type_id])"/></td>
-							<!--<td width="10">
-								<input type="checkbox" name="asset_id[]"><xsl:attribute name="value"><xsl:value-of select="asset_id"/></xsl:attribute></input></td>-->
-							<!--<td valign="top">
-								<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}"><xsl:value-of select="asset_id"/></a>
-							</td>-->
-							
-							<!--
-							<td valign="top">
-								<img src="/resources/img/22x28_ActNow_red.gif"/></td>
-							-->
-							
-							<!--<td valign="top">
-								<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></td>
-							<td valign="top">
-								<a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></td>-->
-						</tr>					
-						</xsl:for-each>
-						<!--<tr>
-							<td colspan="5" >
-								<table>
-									<tr>
-										<td><input type="submit" value="Delete" name="submit" /></td>
-									</tr>
-								</table>
-							</td>
-						</tr>-->
-					</table>
-				</td>
-			</tr>
-			</table>
+		<td colspan="4">
+            <table>
+                <thead>
+                <tr>
+                    <th>Equipment Type</th>
+                    <th>Quantity</th>
+                </tr>
+                </thead>
+                <tbody>
+                <xsl:for-each select="//get_asset_types">
+                <xsl:variable name="my_equipment_type_id"><xsl:value-of select="equipment_type_id"/></xsl:variable>
+                <tr class="row{position() mod 2}">
+                    <td valign="top">
+                        <xsl:value-of select="name"/></td>
+                        <td><xsl:value-of select="count(//get_all_assets[equipment_type_id=$my_equipment_type_id])"/></td>
+                </tr>
+                </xsl:for-each>
+                </tbody>
+            </table>
 		</td>
 	</tr>
 	</table>

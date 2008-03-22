@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
 	<form method="post">
-	<input type="hidden" name="location_address_id" value="{//_get/location_address_id}"/>
+	<input type="hidden" name="location_id" value="{//_get/location_is}"/>
 		<xsl:call-template name="form"/>
 	</form>
  
@@ -38,9 +38,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
 <xsl:template name="form">
-	<table border='0' cellspacing='1' cellpadding='0' >
-	<tr><td >
-		<table width="600">
+		<table>
 <xsl:if test="//_post/submit">
 <tr>	
 	<td width="150" colspan="2">
@@ -92,12 +90,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</td>
 </tr>	
 <tr>
-				<td colspan="2" align="center"><br />
-			
-            <input type="submit" value="Submit" name="submit" />
-			<input type="button" value="Cancel" onclick="window.location.href='/acc/link/loc/'"/>
-            </td></tr></table>		
-	</td></tr>
-	</table>
+    <td colspan="2" align="center"><br />
+
+<input type="submit" value="Submit" name="submit" />
+<input type="button" value="Cancel" onclick="window.location.href='{//link_prefix}ifp-locations'"/>
+</td></tr></table>		
+
 </xsl:template>
 </xsl:stylesheet>

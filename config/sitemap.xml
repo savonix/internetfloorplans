@@ -164,18 +164,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<map:true>
 				<map:switch name="_post/submit">
 					<map:case value="Submit">
-						<map:validate src="uplink/modules/locations/validators/valid_location.xml">
-							<map:valid>
-								<map:query src="data/sql/new_location.xml" />
-								<map:query src="data/sql/get_last_location_address_id.xml" />
-								<map:query src="data/sql/new_location_regions.xml" />
-								<map:action type="redirect" params="/ifp-loc/" />
-							</map:valid>
-							<map:invalid>
-								<map:query src="data/sql/get_all_regions.xml" />
-								<map:xsl src="templates/xsl/edit_location_form.xsl" />
-							</map:invalid>
-						</map:validate>
+                        <map:query src="data/sql/new_location.xml" />
+                        <map:query src="data/sql/get_last_location_address_id.xml" />
+                        <map:query src="data/sql/new_location_regions.xml" />
+                        <map:action type="redirect" params="/ifp-loc/" />
 					</map:case>
 					<map:default>
 						<map:query src="data/sql/get_all_regions.xml" />
@@ -290,7 +282,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<map:query src="data/sql/delete_equipment.xml"/>
 				<map:query src="data/sql/delete_equipment_location.xml"/>
 				<map:query src="data/sql/delete_equipment_container.xml"/>
-				<map:query src="upsell/modules/campaigns/qry/del_equipment_content.xml"/>
 				<map:query src="data/sql/delete_location_equipment_position.xml" />
 				<map:block name="clear_cache">
 				
@@ -318,8 +309,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<map:query src="data/sql/get_location_summary.xml" />
 			<map:query src="data/sql/get_location_space_plans.xml" />
 			<map:query src="data/sql/get_equipment_types.xml"/>
-			<map:query src="upsell/modules/lines_of_business/qry/get_lines_of_business.xml"/>
-			<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>  -->
+            -->
 			<map:xsl src="templates/xsl/location_space_plan.xsl" />
 		</map:block>
 	</map:gate>
@@ -335,12 +325,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="data/sql/get_location_space_plans.xml" />
 		<map:query src="data/sql/get_equipment_types.xml"/>
-		<map:query src="upsell/modules/lines_of_business/qry/get_lines_of_business.xml"/>
-		<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>
 		<map:query src="data/sql/get_sp_pointer_by_id.xml" />
 		<map:query src="data/sql/get_location_space_plan_assets.xml" />
 		<map:query src="data/sql/get_account_symbol_pointers.xml" />
-		<map:script src="uplink/modules/locations/php/floorplan_pdf.php"/>
+		<map:script src="lib/php/floorplan_pdf.php"/>
 	</map:gate>
 	
 	
@@ -389,20 +377,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:query src="upsell/modules/priorities/qry/get_priorities.xml"/>
 		<map:xsl src="templates/xsl/view_location_sp.xsl" />
 	</map:gate>
-	
-	<!-- View location employees -->
-	<map:gate name="ifp-loc/view/hr/" role="client">
-		<map:query src="data/sql/get_location_summary.xml" />
-		<map:query src="data/sql/get_location_personnel.xml" />
-		<map:xsl src="templates/xsl/view_location_personnel.xsl" />
-	</map:gate>		
-	<!-- Remove user from location -->
-	<map:gate name="ifp-loc/view/hr/remove/" role="client" >
-		<map:query src="data/sql/del_location_personnel.xml" />
-		<map:query src="data/sql/get_location_summary.xml" />
-		<map:query src="data/sql/get_location_personnel.xml" />
-		<map:xsl src="templates/xsl/view_location_personnel.xsl" />
-	</map:gate>	
+
+
 	<!-- View location hours of operation -->
 	<map:gate name="ifp-loc/view/hours/" role="client" >
 		<map:if name="//_post">
@@ -439,7 +415,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="data/sql/get_equipment_types.xml"/>
 		<map:query src="data/sql/get_location_assets.xml"/>  -->
-		<map:xsl src="templates/xsl/view_location_equipment.xsl" />
+		<map:xsl src="templates/xsl/location_equipment.xsl" />
 	</map:gate>	
 		
 	<!-- View location equipment list -->
@@ -448,7 +424,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:query src="data/sql/get_location_summary.xml" />
 		<map:query src="data/sql/get_equipment_types.xml"/>
 		<map:query src="data/sql/get_location_asset_details.xml"/>  -->
-		<map:xsl src="templates/xsl/view_location_equipment_list.xsl" />
+		<map:xsl src="templates/xsl/location_equipment_list.xsl" />
 	</map:gate>	
 	
 	<!-- Edit location equipment -->
@@ -897,7 +873,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>
 	
 	<!-- MING SPACE PLAN SERVER -->
-	<map:gate name="ifp-types/containers/nu_sp_server/" role="client">
+	<map:gate name="ifp-location-space-plan-server" role="client">
 		<map:query src="data/sql/get_sp_pointer_by_id.xml" />
 		<map:query src="data/sql/get_location_space_plan_assets.xml" />
 		<map:query src="data/sql/get_account_symbol_pointers.xml" />

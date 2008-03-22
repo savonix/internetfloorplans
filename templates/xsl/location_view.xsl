@@ -25,10 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="main.xsl"/>
 <xsl:import href="location_summary.xsl"/>
 <xsl:import href="location_menu.xsl"/>
-<xsl:template name="content">	
-	
-<script type="text/javascript" src="/resources/js/popup.js"> &#160; 
-</script>
+<xsl:template name="content">
 <form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
 <input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
 
@@ -61,12 +58,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</tr>
 			<tr>
 				<td valign="top" >
-					<a><xsl:attribute name="href">add/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/></xsl:attribute>Add New Image</a>
+					<a>Add New Image</a>
 				</td>
 			</tr>
 			<tr>
 				<td valign="top" >
-					<a onclick="return confirm('Are you sure you want to delete this location image?')"><xsl:attribute name="href">delete/&amp;location_address_id=<xsl:value-of select="//_get/location_address_id" />&amp;location_image_id=<xsl:if test="//_get/location_image_id"><xsl:value-of select="//_get/location_image_id"/></xsl:if><xsl:if test="not(//_get/location_image_id)"><xsl:for-each select="//get_location_images"><xsl:if test="(default_image=1) or (count(//get_location_images)=1)"><xsl:value-of select="location_image_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Image</a>
+					<a onclick="return confirm('Are you sure you want to delete this location image?')">
+                    Delete This Image</a>
 				</td>
 			</tr>
 		</table>
@@ -82,18 +80,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</tr>
 			<tr>
 				<td valign="top">
-				
-				<xsl:choose>
-					<xsl:when test="contains(image_pointer,'.mov')"> 
-						<EMBED type="video/quicktime" cache='true' autoplay='true' controller='false' height='480' width='640'>
-							<xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_location_images[location_image_id=$image_id]/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_location_images[location_image_id=$image_id]/mime_type"/>&amp;type=photography</xsl:attribute>
-						</EMBED>
-					</xsl:when>
-					<xsl:otherwise>
-						<a>
-<xsl:attribute name="onclick">PopupPic('/full_size_image_server/&amp;pointer=<xsl:value-of select="//get_location_images[location_image_id=$image_id]/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_location_images[location_image_id=//_get/location_image_id]/mime_type"/>&amp;type=photography',576,768)</xsl:attribute><img><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_location_images[location_image_id=$image_id]/thumb_pointer"/>&amp;mime_type=<xsl:value-of select="//get_location_images[location_image_id=$image_id]/mime_type"/>&amp;type=photography</xsl:attribute></img></a>
-					</xsl:otherwise>
-				</xsl:choose>	
+                <!-- IMAGE OR MOVIE GOES HERE - REDO THIS -->
 				</td>
 
 			</tr>
