@@ -22,15 +22,15 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="update_region_locations" loop="_post/location_address_id">
+<query name="update_region_locations" loop="_post/location_id">
     <connection>&ifp_connection;</connection>
     <params>
-        <param array="_post/location_address_id" type="integer"/>
+        <param array="_post/location_id" type="integer"/>
         <param name="_post/region_id" type="integer" />
         <param name="php:date('Y-m-d H:i:s')" type="text"/>
 		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
 		</params>
     <sql>
-		INSERT INTO uplink_location_region (location_address_id,region_id,creation_datetime,account_id) VALUES (?,?,?,?)
+		INSERT INTO uplink_location_region (location_id,region_id,creation_datetime,account_id) VALUES (?,?,?,?)
 	</sql>
 </query>

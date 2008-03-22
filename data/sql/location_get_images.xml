@@ -27,13 +27,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="_get/location_address_id" type="text"/>
+        <param name="_get/location_id" type="text"/>
 		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
 		<param name="//last_database_update" type="text"/>
 	</params>
 	
     <sql>
-        SELECT * FROM uplink_location_images WHERE location_address_id = ?
+        SELECT * FROM uplink_location_images WHERE location_id = ?
 		AND account_id=? AND deletion_datetime &gt; ?
     </sql>
     

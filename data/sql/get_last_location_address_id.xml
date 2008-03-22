@@ -22,9 +22,9 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="get_last_location_address_id">
+<query name="get_last_location_id">
     <connection>&ifp_connection;</connection>
     <sql>
-        SELECT MAX(location_address_id) as location_address_id FROM uplink_location_address
+        SELECT MAX(location_id) as location_id FROM &ifp_locations;
     </sql>
 </query>

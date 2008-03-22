@@ -29,23 +29,23 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
 		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
 		<param name="//my_region_id" type="integer"/>
-		<param name="//_get/sort" type="integer" default="uplink_location_address.name"/>
+		<param name="//_get/sort" type="integer" default="&ifp_locations;.name"/>
 		<param name="//_get/start" type="integer" default="0"/>
 		<param name="//_get/incr" type="integer" default="100"/>
 	</params>
     <sql>
 		
 		SELECT
-		uplink_location_address.*
+		&ifp_locations;.*
 		
-		FROM uplink_location_address, uplink_location_region
+		FROM &ifp_locations;, uplink_location_region
 	
-		WHERE uplink_location_address.deletion_datetime &gt; ?  
-		AND uplink_location_address.account_id=?
+		WHERE &ifp_locations;.deletion_datetime &gt; ?  
+		AND &ifp_locations;.account_id=?
 		AND uplink_location_region.account_id=?
 		AND uplink_location_region.region_id=?
-		AND uplink_location_region.location_address_id=uplink_location_address.location_address_id
-		GROUP BY uplink_location_address.name
+		AND uplink_location_region.location_id=&ifp_locations;.location_id
+		GROUP BY &ifp_locations;.name
 		
 		ORDER BY ? ASC
 		LIMIT ?,? 

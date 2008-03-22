@@ -35,12 +35,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <sql>
         SELECT 
 		uplink_location_region.region_id, uplink_region.region_name,
-		uplink_locations.location_address_id, uplink_locations.name
+		uplink_locations.location_id, uplink_locations.name
 		
 		FROM uplink_locations
 		
 		LEFT JOIN uplink_location_region
-		ON uplink_location_region.location_address_id=uplink_locations.location_address_id
+		ON uplink_location_region.location_id=uplink_locations.location_id
 		AND uplink_location_region.deletion_datetime &gt; ?
 		AND uplink_location_region.account_id=?
 		

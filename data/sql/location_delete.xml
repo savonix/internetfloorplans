@@ -28,12 +28,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <connection>&ifp_connection;</connection>
     <params>
         <param name="php:date('Y-m-d H:i:s', mktime(date('H'), date('i'), date('s')-1, date('m'), date('d'), date('Y')))" type="text"/>		
-        <param name="_get/location_address_id" type="text"/>
+        <param name="_get/location_id" type="text"/>
 		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
 	</params>
 	
     <sql>
-        UPDATE uplink_location_address SET deletion_datetime=? WHERE location_address_id = ?
+        UPDATE &ifp_locations; SET deletion_datetime=? WHERE location_id = ?
 		AND account_id = ?
     </sql>
     

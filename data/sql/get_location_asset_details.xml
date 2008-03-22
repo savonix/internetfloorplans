@@ -41,15 +41,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="//last_database_update" type="text"/>
 		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
         <param name="//last_database_update" type="text"/>
-		<param name="_get/location_address_id" type="text" />
+		<param name="_get/location_id" type="text" />
 		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
 		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text" />
         <param name="//last_database_update" type="text"/>
 	</params>
 	<sql>
-        SELECT uplink_equipment.*, uplink_equipment_type.name, uplink_location_equipment.location_address_id, (uplink_location_address.name) as location_address_name, upsell_priorities.name as priority_name,upsell_lines_of_business.name as lob_name, uplink_equipment_type_container.equipment_type_container_id, uplink_equipment_type_container.name as container_name
+        SELECT uplink_equipment.*, uplink_equipment_type.name, uplink_location_equipment.location_id, (&ifp_locations;.name) as location_address_name, upsell_priorities.name as priority_name,upsell_lines_of_business.name as lob_name, uplink_equipment_type_container.equipment_type_container_id, uplink_equipment_type_container.name as container_name
 		
-		FROM (uplink_equipment, uplink_equipment_type,uplink_location_equipment, uplink_location_address)
+		FROM (uplink_equipment, uplink_equipment_type,uplink_location_equipment, &ifp_locations;)
 
 		
 LEFT JOIN uplink_equipment_container
@@ -94,10 +94,10 @@ AND uplink_container.account_id=?
 		AND uplink_location_equipment.account_id=?
 		AND uplink_location_equipment.equipment_id=uplink_equipment.equipment_id
 		
-		AND uplink_location_address.location_address_id=uplink_location_equipment.location_address_id
-		AND uplink_location_address.deletion_datetime &gt; ?
-		AND uplink_location_address.location_address_id=?
-		AND uplink_location_address.account_id=?
+		AND &ifp_locations;.location_id=uplink_location_equipment.location_id
+		AND &ifp_locations;.deletion_datetime &gt; ?
+		AND &ifp_locations;.location_id=?
+		AND &ifp_locations;.account_id=?
 		
 		AND uplink_equipment_type.account_id=?
 		AND uplink_equipment_type.deletion_datetime &gt; ?

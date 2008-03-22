@@ -35,16 +35,16 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</params>
     <sql>
         SELECT
-		uplink_location_address.*
+		&ifp_locations;.*
 		
-		FROM uplink_location_address
+		FROM &ifp_locations;
 		
-		WHERE uplink_location_address.deletion_datetime &gt; ?  
-		AND uplink_location_address.account_id=?
-		AND (uplink_location_address.name LIKE ? OR uplink_location_address.address_line_1 LIKE ? OR uplink_location_address.city LIKE ?)  
-		GROUP BY uplink_location_address.name
+		WHERE &ifp_locations;.deletion_datetime &gt; ?  
+		AND &ifp_locations;.account_id=?
+		AND (&ifp_locations;.name LIKE ? OR &ifp_locations;.address_line_1 LIKE ? OR &ifp_locations;.city LIKE ?)  
+		GROUP BY &ifp_locations;.name
 		
-		ORDER BY uplink_location_address.name ASC
+		ORDER BY &ifp_locations;.name ASC
 		LIMIT ?,? 
     </sql>
 </query>

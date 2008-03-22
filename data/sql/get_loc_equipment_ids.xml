@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <params>
         <param name="last_database_update" type="text"/>
 		<param name="account_id" type="text" />
-		<param name="_get/location_address_id" type="text" />
+		<param name="_get/location_id" type="text" />
 	</params>
 	<sql>
         SELECT location_equipment_id
@@ -36,6 +36,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		
 		WHERE deletion_datetime &gt; ? 
 		AND account_id = ?
-		AND location_address_id=?
+		AND location_id=?
     </sql>
 </query>

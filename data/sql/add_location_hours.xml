@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="add_location_hours">
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="//_post/location_address_id" type="integer" />
+        <param name="//_post/location_id" type="integer" />
 		<param name="//open_iso_time" type="time"/>
 		<param name="//close_iso_time" type="time"/>
 		<param name="//right_now" type="text" />
@@ -34,7 +34,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </params>
     <sql>
 		INSERT INTO uplink_location_hours 
-        (location_hours_id,location_address_id,open_time,close_time,creation_datetime,account_id,day_id) 
+        (location_hours_id,location_id,open_time,close_time,creation_datetime,account_id,day_id) 
         VALUES 
         (_AUTO_,?,?,?,?,?,?)
 	</sql>
