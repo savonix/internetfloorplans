@@ -22,16 +22,15 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="new_asset">
+<query name="equipment_create">
     <connection>&ifp_connection;</connection>
     <params>
-	    <param name="_post/asset_id" type="text" default="0001"/>
 		<param name="_post/equipment_type_id" type="text"/>
 		<param name="_post/priority_id" type="text" default="1"/>
 		<param name="_post/lob_id" type="text" default="1"/>
 	</params>
     <sql>
-        INSERT INTO uplink_equipment (equipment_type_id,priority_id,business_line_id,creation_datetime)
-		VALUES (?,?,?,?)
+        INSERT INTO uplink_equipment (equipment_type_id,priority_id,business_line_id)
+		VALUES (?,?,?)
     </sql>
 </query>

@@ -1,3 +1,19 @@
+-- phpMyAdmin SQL Dump
+-- version 2.10.3deb1ubuntu0.1
+-- http://www.phpmyadmin.net
+-- 
+-- Host: localhost
+-- Generation Time: Mar 22, 2008 at 12:35 AM
+-- Server version: 5.0.45
+-- PHP Version: 5.2.3-1ubuntu6.3
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+-- 
+-- Database: `uplink`
+-- 
+
+-- --------------------------------------------------------
 
 -- 
 -- Table structure for table `uplink_container`
@@ -30,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment` (
   `business_line_id` int(11) NOT NULL default '0',
   `priority_id` int(11) NOT NULL default '0',
   UNIQUE KEY `equipment_id` (`equipment_id`,`creation_datetime`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -54,14 +70,14 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_category` (
 -- 
 
 CREATE TABLE IF NOT EXISTS `uplink_equipment_container` (
-  `equipment_id` int(11) NOT NULL default '0',
+  `equipment_id` int(11) NOT NULL auto_increment,
   `business_line_id` int(11) NOT NULL default '0',
   `priority_id` int(11) NOT NULL default '0',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   `equipment_type_container_id` int(11) NOT NULL default '0',
-  UNIQUE KEY `equipment_container_id` (`equipment_type_container_id`,`creation_datetime`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY  (`equipment_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -86,14 +102,14 @@ CREATE TABLE IF NOT EXISTS `uplink_equipment_content` (
 -- 
 
 CREATE TABLE IF NOT EXISTS `uplink_equipment_type` (
-  `equipment_type_id` int(11) NOT NULL default '0',
+  `equipment_type_id` int(11) NOT NULL auto_increment,
   `equipment_category_id` int(11) NOT NULL default '0',
   `name` varchar(100) NOT NULL default '0',
   `description` varchar(255) default NULL,
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `equipment_type_id` (`equipment_type_id`,`creation_datetime`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY  (`equipment_type_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -179,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `uplink_locations` (
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `location_id` (`location_id`,`creation_datetime`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -190,7 +206,6 @@ CREATE TABLE IF NOT EXISTS `uplink_locations` (
 CREATE TABLE IF NOT EXISTS `uplink_location_categories` (
   `location_category_id` int(11) NOT NULL default '0',
   `location_id` int(11) NOT NULL default '0',
-  `account_id` char(100) NOT NULL default '-',
   `category_id` int(11) NOT NULL default '0',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
@@ -206,7 +221,6 @@ CREATE TABLE IF NOT EXISTS `uplink_location_categories` (
 CREATE TABLE IF NOT EXISTS `uplink_location_category_types` (
   `location_category_type_id` int(11) NOT NULL default '0',
   `location_category_type_group_id` int(11) NOT NULL default '0',
-  `account_id` char(100) NOT NULL default '-',
   `name` char(100) default NULL,
   `description` char(255) default NULL,
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
@@ -223,12 +237,11 @@ CREATE TABLE IF NOT EXISTS `uplink_location_category_types` (
 CREATE TABLE IF NOT EXISTS `uplink_location_equipment` (
   `location_equipment_id` int(11) NOT NULL auto_increment,
   `location_id` int(11) NOT NULL default '0',
-  `account_id` char(100) NOT NULL default '-',
   `equipment_id` int(11) NOT NULL default '0',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   UNIQUE KEY `location_equipment_id` (`location_equipment_id`,`creation_datetime`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -239,7 +252,6 @@ CREATE TABLE IF NOT EXISTS `uplink_location_equipment` (
 CREATE TABLE IF NOT EXISTS `uplink_location_equipment_position` (
   `location_equipment_position_id` int(11) NOT NULL auto_increment,
   `location_equipment_id` int(11) NOT NULL default '0',
-  `account_id` char(100) NOT NULL default '-',
   `x_position` int(11) NOT NULL default '0',
   `y_position` int(11) NOT NULL default '0',
   `x_scale` int(11) NOT NULL default '100',
@@ -358,7 +370,6 @@ CREATE TABLE IF NOT EXISTS `uplink_location_space_plan` (
 CREATE TABLE IF NOT EXISTS `uplink_location_status` (
   `location_status_id` int(11) NOT NULL default '0',
   `location_id` int(11) NOT NULL default '0',
-  `account_id` char(100) NOT NULL default '-',
   `status_id` int(11) NOT NULL default '0',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
@@ -382,6 +393,12 @@ CREATE TABLE IF NOT EXISTS `uplink_region` (
 -- 
 -- Constraints for dumped tables
 -- 
+
+-- 
+-- Constraints for table `uplink_equipment_container`
+-- 
+ALTER TABLE `uplink_equipment_container`
+  ADD CONSTRAINT `uplink_equipment_container_ibfk_1` FOREIGN KEY (`equipment_id`) REFERENCES `uplink_equipment` (`equipment_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 -- 
 -- Constraints for table `uplink_location_images`

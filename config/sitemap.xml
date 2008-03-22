@@ -524,9 +524,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<map:switch name="//_post/type">
 					<map:case value="new">
 						<map:query src="data/sql/equipment_create.xml"/>
+						<map:query src="data/sql/location_equipment_create.xml"/>
                         <!--
 						<map:query src="data/sql/get_last_equipment_id.xml"/>
-						<map:query src="data/sql/add_equipment_location.xml"/>
 						<map:query src="data/sql/get_last_location_equipment_id.xml"/>
 						<map:query src="data/sql/add_equipment_location_position.xml"/>
 						<map:query src="data/sql/get_eqp_containers_by_type_id.xml"/>
@@ -536,11 +536,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<map:query src="data/sql/edit_equipment_container.xml"/>
 					</map:case>	
 					<map:default>
+						<map:query src="data/sql/equipment_create.xml"/>
 					</map:default>
 				</map:switch>
 			</map:true>
 		</map:if>
 		<map:query src="data/sql/location_get_summary.xml"/>
+		<map:query src="data/sql/locations_get_all.xml"/>
 		<map:query src="data/sql/equipment_types_get_all.xml"/>
 		<map:if name="_get/equipment_id">
 			<!-- EDIT FORM-->
@@ -548,13 +550,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				<map:query src="data/sql/get_equipment_by_id.xml"/>
 				<map:query src="data/sql/get_eqp_containers_by_type_id.xml"/>
 				<map:query src="data/sql/get_eqp_containers_by_id.xml"/>
-				<map:xsl src="templates/xsl/edit_equipment_form.xsl"/>
+				<map:xsl src="templates/xsl/equipment_form.xsl"/>
 			</map:true>
 			<map:false>
 				<map:xsl src="templates/xsl/equipment_form.xsl"/>
 			</map:false>
 		</map:if>
-		<map:debug dump="trsue"/>
 	</map:gate>
 	<map:gate name="ifp-equipment-edit-submit" role="client">
 	<map:if name="//_post/submit">

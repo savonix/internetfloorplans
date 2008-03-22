@@ -40,7 +40,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<input type="checkbox" name="x_view" value="all" onclick="document.form0.submit();"><xsl:if test="//x_view"><xsl:attribute name="checked"></xsl:attribute></xsl:if></input> Hide compliant offices
 			</td>
 			</form>
-			<form action="/acc/link/loc/search/" method="post" name="search">
+			<form method="post" name="search">
 			<td>
 			Search: <input type="text" name="q"/> <input type="submit" value="Go"/>
 			</td>
@@ -68,7 +68,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</xsl:attribute></input>
             </th>
 		</tr>
-		<xsl:for-each select="//get_all_locations">
+		<xsl:for-each select="//locations_get_all">
 			<xsl:if test="not(//x_view)">
 				<xsl:call-template name="location_row"/>
 			</xsl:if>

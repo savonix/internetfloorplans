@@ -28,6 +28,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<form method="post">
 	<input type="hidden" value="1" name="quantity"/>
 	<xsl:if test="//_get/equipment_id">
+		<input type="hidden" name="location_id" value="{//_get/location_id}"/>
 		<input type="hidden" name="asset_type_id" value="{//get_asset_by_id/equipment_type_id}"/>
 		<input type="hidden" name="asset_id" value="{//get_asset_by_id/asset_id}"/>
 		<input type="hidden" name="equipment_id" value="{//_get/equipment_id}"/>
@@ -36,14 +37,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<xsl:if test="not(//_get/equipment_id)">
 		<input type="hidden" name="type" value="new"/>
 	</xsl:if>
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/tetris.png" /> 
-			</td>
-			
-		</tr>
-	</table>
 	<table width="600">
 		<tr>
 			<td >Asset ID:</td>
@@ -64,7 +57,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<td >Asset Type:</td>
 			<xsl:if test="//_get/equipment_id">
 			<td >
-				<xsl:for-each select="//get_asset_types">
+				<xsl:for-each select="//equipment_types_get_all">
 					<xsl:if test="equipment_type_id=//get_asset_by_id/equipment_type_id">
 						<xsl:value-of select="name"/>
 					</xsl:if>
@@ -73,7 +66,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</xsl:if>
 			<xsl:if test="not(//_get/equipment_id)">
 			<td ><select name="equipment_type_id">
-				<xsl:for-each select="//get_asset_types">
+				<xsl:for-each select="//equipment_types_get_all">
 					<option value="{equipment_type_id}"><xsl:if test="equipment_type_id=//get_asset_by_id/equipment_type_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
 						<xsl:value-of select="name"/></option>
 				</xsl:for-each>
@@ -85,7 +78,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			
 			<xsl:if test="//_get/equipment_id">
 			<td >
-				<xsl:for-each select="//get_all_locations">
+				<xsl:for-each select="//locations_get_all">
 					<xsl:if test="location_address_id=//get_asset_by_id/location_address_id">
 						<xsl:value-of select="name"/>
 					</xsl:if>
@@ -94,7 +87,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</xsl:if>			
 			<xsl:if test="not(//_get/equipment_id)">
 			<td ><select name="location_address_id">
-				<xsl:for-each select="//get_all_locations">
+				<xsl:for-each select="//locations_get_all">
 					<option value="{location_address_id}"><xsl:if test="location_address_id=//get_asset_by_id/location_address_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
 						<xsl:value-of select="name"/></option>
 				</xsl:for-each>
