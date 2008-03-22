@@ -42,11 +42,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<tr><td >
 		<table width="600">
 			<tr>	
-				<td width="150"><font class='two'>Asset Type Name:</td>
+				<td width="150">Asset Type Name:</td>
 				<td><input type='text' name='name'><xsl:attribute name="value"><xsl:value-of select="//get_asset_category_by_id/name"/></xsl:attribute></input></td>
 			</tr>
 			<tr>	
-				<td width="150"><font class='two'>Description:</td>
+				<td width="150">Description:</td>
 				<td><textarea name='description' cols="25" rows="5"><xsl:value-of select="//get_asset_category_by_id/description"/></textarea></td>
 			</tr>
 			<tr>

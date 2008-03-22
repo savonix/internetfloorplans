@@ -30,11 +30,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<tr><td >
 		<table width="600">
 			<tr>	
-				<td width="150"><font class='two'>Region Name:</td>
+				<td width="150">Region Name:</td>
 				<td><input type='text' name='name'><xsl:attribute name="value"> <xsl:value-of select="//get_region_name_g/region_name" /></xsl:attribute></input></td>
 			</tr>
 			<tr>	
-				<td width="150" valign="top"><font class='two'>Locations:</td>
+				<td width="150" valign="top">Locations:</td>
 				<td>
    <table>
    <xsl:for-each select="//get_all_locations" >

@@ -37,8 +37,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	
 	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
 	<tr>	
-				<td width="150" ><font class='two'><b>Equipment Type Name</b></td>
-				<td width="150" ><font class='two'><b>Description</b></td>
+				<td width="150" ><b>Equipment Type Name</b></td>
+				<td width="150" ><b>Description</b></td>
 				<td >
 					<b>Edit</b></td>
 				<td >

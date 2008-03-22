@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_categories.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -25,20 +25,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="main.xsl"/>
 
 <xsl:template name="content">
-	<form action="{self}" method="post">
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/tetris.png" /> 
-				
-			</td>
-		</tr>
-	</table>
-	
+	<form method="post">
 	<table border='0' cellspacing='0' cellpadding='2' width='100%'>
 	<tr>	
-				<td width="150" ><font class='two'><b>Department Name</b></td>
-				<td width="150" ><font class='two'><b>Description</b></td>
+        <td width="150" ><b>Department Name</b></td>
+        <td width="150" ><b>Description</b></td>
 			<td >
 				<b>Edit</b></td>
 			<td >

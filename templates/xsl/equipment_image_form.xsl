@@ -43,23 +43,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<td colspan="4" >
 		<table cellpadding="10" width="600">
 			<tr>	
-				<td colspan="2"><font class='two'>
+				<td colspan="2">
 					You can upload an image formatted as a JPEG. </td>
 			</tr>
 			<tr>	
-				<td><font class='two'>Image name:</td>
+				<td>Image name:</td>
 				<td><input type='text' name='name' size="25" ><xsl:attribute name="value"><xsl:value-of select="//_post/name"/></xsl:attribute></input></td>
 			</tr>
 			<tr>	
-				<td><font class='two'>Image file:</td>
+				<td>Image file:</td>
 				<td><input type='file' name='file' size="25" /></td>
 			</tr>
 			<tr>
-				<td><font class='two'>Comments:</td>
+				<td>Comments:</td>
 				<td><textarea cols="35" rows="5" name="comments"><xsl:value-of select="//_post/comments"/></textarea></td>
 			</tr>
 			<!--<tr>
-				<td><font class='two'>Default image:</td>
+				<td>Default image:</td>
 				<td><input type="checkbox" name="default" value="1"><xsl:if test="//_post/default"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if></input></td>
 			</tr>-->
 			<input type="hidden" name="default" value="1"/>
