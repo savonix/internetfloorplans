@@ -29,12 +29,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
 	<input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
 
-			<xsl:call-template name="location_menu" />
-	<table >
+    <xsl:call-template name="location_menu" />
 	<xsl:call-template name="location_summary" />
-	<tr>
-		<td colspan="4" >
-	<table class="simple-table">
+
+    <table class="simple-table">
         <thead>
 		<tr>
 			<th>
@@ -59,27 +57,27 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<!--<td width="10">
 				<input type="checkbox" name="asset_id[]"><xsl:attribute name="value"><xsl:value-of select="asset_id"/></xsl:attribute></input></td>-->
 			<td>
-				<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}&amp;location_address_id={//_get/location_address_id}"><xsl:value-of select="equipment_id"/></a>
+				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}&amp;location_address_id={//_get/location_address_id}"><xsl:value-of select="equipment_id"/></a>
 			</td>
-			<td width="100">
-				<xsl:value-of select="name"/></td>
-			<td width="100">
+			<td>
+				<xsl:value-of select="name"/>
+            </td>
+			<td>
 				<xsl:value-of select="container_name"/><!--<xsl:value-of select="equipment_type_container_id"/>--></td>
 			<td>
 				<xsl:value-of select="lob_name"/></td>
 			<td>
 				<xsl:value-of select="priority_name"/></td>
 			<td>
-				<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></td>
+				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}">Edit</a></td>
 			<td>
-				<a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></td>
+				<a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}" 
+                onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></td>
 		</tr>
 		</xsl:for-each>
         </tbody>
 	</table>
-		</td>
-	</tr>
-	</table>
 	</form>
+    <a href="{//link_prefix}ifp-equipment-edit&amp;location_id={//_get/location_id}">Add New Equipment</a>
 </xsl:template>
 </xsl:stylesheet>

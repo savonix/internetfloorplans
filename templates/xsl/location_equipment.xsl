@@ -28,31 +28,25 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 	<form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
 	<input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
-			<xsl:call-template name="location_menu" />
-    <table >
+    <xsl:call-template name="location_menu" />
 	<xsl:call-template name="location_summary" />
-	<tr>
-		<td colspan="4">
-            <table>
-                <thead>
-                <tr>
-                    <th>Equipment Type</th>
-                    <th>Quantity</th>
-                </tr>
-                </thead>
-                <tbody>
-                <xsl:for-each select="//get_asset_types">
-                <xsl:variable name="my_equipment_type_id"><xsl:value-of select="equipment_type_id"/></xsl:variable>
-                <tr class="row{position() mod 2}">
-                    <td valign="top">
-                        <xsl:value-of select="name"/></td>
-                        <td><xsl:value-of select="count(//get_all_assets[equipment_type_id=$my_equipment_type_id])"/></td>
-                </tr>
-                </xsl:for-each>
-                </tbody>
-            </table>
-		</td>
-	</tr>
+    <table class="simple-table">
+        <thead>
+        <tr>
+            <th>Equipment Type</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <xsl:for-each select="//equipment_types_get_all">
+        <xsl:variable name="my_equipment_type_id"><xsl:value-of select="equipment_type_id"/></xsl:variable>
+        <tr class="row{position() mod 2}">
+            <td valign="top">
+                <xsl:value-of select="name"/></td>
+                <td><xsl:value-of select="count(//get_all_assets[equipment_type_id=$my_equipment_type_id])"/></td>
+        </tr>
+        </xsl:for-each>
+        </tbody>
 	</table>
 	</form>
 </xsl:template>

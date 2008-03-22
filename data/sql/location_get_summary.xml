@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_get_summary.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,34 +22,14 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="get_location_summary">
-    <connection>uplink</connection>
+<query name="location_get_summary">
+    <connection>&ifp_connection;</connection>
     <params>
-        <param name="_get/location_address_id" type="text"/>
-		<param name="//last_database_update" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['employer_id']" type="text"/>
-        <param name="_get/location_address_id" type="text"/>
-		<param name="//last_database_update" type="text"/>
-		<param name="php:$_SESSION['NX_AUTH']['account_id']" type="text"/>
+        <param name="_get/location_id" type="text"/>
 	</params>
     <sql>
-        SELECT uplink_location_address.name, uplink_location_address.location_address_id, 
-		uplink_location_address.address_line_1,uplink_location_address.address_line_2,
-		uplink_location_address.city, uplink_location_address.phone, uplink_location_address.fax,
-		 uplink_location_address.zip, uplink_location_address.state,
-		 auth_user.*, uplink_user_location.user_id FROM uplink_location_address 
-				
-		LEFT JOIN uplink_user_location
-		ON uplink_user_location.location_address_id=?
-		AND uplink_user_location.deletion_datetime &gt; ?
-		LEFT JOIN auth_user
-		ON auth_user.user_id=uplink_user_location.user_id
-		AND auth_user.employer_id=?
-		
-		
-		WHERE uplink_location_address.location_address_id = ?
-		AND uplink_location_address.deletion_datetime &gt; ?
-		AND uplink_location_address.account_id=?
-		LIMIT 1
+        SELECT *
+        FROM &ifp_locations; 
+		WHERE &ifp_locations;.location_id = ?
     </sql>
 </query>
