@@ -36,7 +36,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </tr>
 
         <tr>	
-            <td valign="top">Description:</td>
+            <td>Description:</td>
             <td><textarea name='description' cols="25" rows="5"><xsl:value-of select="//equipment_type_get_by_id/description"/></textarea></td>
         </tr>
         <tr>

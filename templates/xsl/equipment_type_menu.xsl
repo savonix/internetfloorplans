@@ -23,7 +23,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="equipment_type_menu" match="//get_location_summary">
-<table >
+<table>
     <tr>
         <td>Images</td>
         <td>Icons</td>

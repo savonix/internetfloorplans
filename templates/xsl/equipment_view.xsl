@@ -31,47 +31,47 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:call-template name="asset_type_summary" />
 <table>
 <tr>
-    <td align="left" valign="top">
-        <table >
+    <td align="left">
+        <table>
             <tr>
-                <td valign="top">
+                <td>
                     Images
                 </td>
             </tr>
-            <xsl:for-each select="//get_asset_type_images" >
+            <xsl:for-each select="//equipment_type_images_get_all" >
             <tr>
-                <td valign="top">
-                    <a>
-                            <xsl:attribute name="href">&amp;equipment_type_id=<xsl:value-of select="//_get/equipment_type_id"/>&amp;equipment_type_image_id=<xsl:value-of select="equipment_type_image_id"/></xsl:attribute>
-                                <xsl:value-of select="name"/></a>
+                <td>
+                    <a><xsl:value-of select="name"/></a>
                 </td>
             </tr>
             </xsl:for-each>
         </table>
         <br/>
-        <table >
+        <table>
             <tr>
-                <td valign="top">
+                <td>
                     Options
                 </td>
             </tr>
             <xsl:if test="not(//get_asset_type_images)">
             <tr>
-                <td valign="top" >
-                    <a><xsl:attribute name="href">add/&amp;equipment_type_id=<xsl:value-of select="//_get/equipment_type_id"/></xsl:attribute>Add New Image</a>
+                <td >
+                    <a href="#">Add New Image</a>
                 </td>
             </tr>
             </xsl:if>
             <tr>
-                <td valign="top" >
-                    <a onclick="return confirm('Are you sure you want to delete this equipment type image?')"><xsl:attribute name="href">delete/&amp;equipment_type_image_id=<xsl:if test="//_get/equipment_type_image_id"><xsl:value-of select="//_get/equipment_type_image_id"/></xsl:if><xsl:if test="not(//_get/equipment_type_image_id)"><xsl:for-each select="//get_asset_type_images"><xsl:if test="(default_image=1) or (count(//get_asset_type_images)=1)"><xsl:value-of select="equipment_type_image_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Image</a>
+                <td>
+                    <a href="#"
+                    onclick="return confirm('Are you sure you want to delete this equipment type image?')">
+                    Delete This Image</a>
                 </td>
             </tr>
         </table>
     </td>
     
-    <td align="left" valign="top">
-        <table >
+    <td align="left">
+        <table>
             <tr>
                 <td>
                     <xsl:for-each select="//get_asset_type_images">
@@ -84,7 +84,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 </td>
             </tr>
             <tr>
-                <td valign="top">
+                <td>
                     <img ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_asset_type_images/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_asset_type_images/mime_type"/>&amp;type=merchandising</xsl:attribute></img>
                 </td>
             </tr>

@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 <xsl:call-template name="location_menu" />
 <xsl:call-template name="location_summary" />
-<table >
+<table>
     <tr>
         <td colspan="2">
             Space Plan Options : 
@@ -53,7 +53,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </td>
     </tr>
     <tr>
-        <td valign="top" colspan="2">
+        <td colspan="2">
 <script type="text/javascript" src="/resources/js/swfobject.js"></script>
 <div id="space_plan">
 <!-- Show static jpg here when the visitor does not have the flash plugin. -->

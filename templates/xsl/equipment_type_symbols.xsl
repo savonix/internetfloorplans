@@ -28,42 +28,42 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 <xsl:call-template name="equipment_type_menu" />
 <xsl:call-template name="asset_type_summary" />
-<table >
+<table>
 <tr>
-    <td valign="top">
+    <td>
         Symbols
     </td>
 </tr>
 <xsl:for-each select="//get_equipment_type_symbols" >
 <tr>
-    <td valign="top">
+    <td>
         <a><xsl:value-of select="name"/></a>
     </td>
 </tr>
 </xsl:for-each>
 </table>
-<table >
+<table>
 <tr>
-    <td valign="top">
+    <td>
         Options
     </td>
 </tr>
 <xsl:if test="not(//get_equipment_type_symbols)">
 <tr>
-    <td valign="top" >
+    <td >
         <a><xsl:attribute name="href">add/&amp;equipment_type_id=<xsl:value-of select="//_get/equipment_type_id"/></xsl:attribute>Add New Symbol</a>
     </td>
 </tr>
 </xsl:if>
 <tr>
-    <td valign="top" >
+    <td >
         <a onclick="return confirm('Are you sure you want to delete this equipment type symbol?')"><xsl:attribute name="href">delete/&amp;equipment_type_symbol_id=<xsl:if test="//_get/equipment_type_symbol_id"><xsl:value-of select="//_get/equipment_type_symbol_id"/></xsl:if><xsl:if test="not(//_get/equipment_type_symbol_id)"><xsl:for-each select="//get_equipment_type_symbols"><xsl:if test="default_symbol=1"><xsl:value-of select="equipment_type_symbol_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Symbol</a>
     </td>
 </tr>
 </table>
 
 
-<table >
+<table>
 <tr>
     <td>
         

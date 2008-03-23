@@ -29,14 +29,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<form method="post" action="{//link_prefix}&amp;location_address_id={//_get/location_address_id}">
     <xsl:call-template name="location_menu" />
 	<xsl:call-template name="location_summary" />
-	<table >
+	<table>
 	<tr>
 		<td colspan="4" >
 		Hours of Operation:
 				<br/>
 			<table>
 			<tr>
-				<td align="left" valign="top">
+				<td align="left">
 					Open: 
 					<select name="open_h">
 					<xsl:for-each select="//hours">
@@ -56,7 +56,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</td>
 			</tr>
 			<tr>
-				<td align="left" valign="top">
+				<td align="left">
 					Close: 
 					<select name="close_h">
 					<xsl:for-each select="//hours">

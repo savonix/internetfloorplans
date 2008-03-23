@@ -40,23 +40,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:for-each select="//equipment_types_get_all">
             <xsl:variable name="my_equipment_type_id"><xsl:value-of select="equipment_type_id"/></xsl:variable>
             <tr class="row{position() mod 2}">
-                <td valign="top">
+                <td>
                     <xsl:value-of select="name"/></td>
                     <td><xsl:value-of select="count(//get_all_assets2[equipment_type_id=$my_equipment_type_id])"/></td>
                 <!--<td>
                     <input type="checkbox" name="asset_id[]"><xsl:attribute name="value"><xsl:value-of select="asset_id"/></xsl:attribute></input></td>-->
-                <!--<td valign="top">
+                <!--<td>
                     <a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}"><xsl:value-of select="asset_id"/></a>
                 </td>-->
                 
                 <!--
-                <td valign="top">
+                <td>
                     <img src="/resources/img/22x28_ActNow_red.gif"/></td>
                 -->
                 
-                <!--<td valign="top">
+                <!--<td>
                     <a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}">Edit</a></td>
-                <td valign="top">
+                <td>
                     <a href="/acc/link/assets/delete/&amp;equipment_id={equipment_id}" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></td>-->
 		</tr>					
 		</xsl:for-each>

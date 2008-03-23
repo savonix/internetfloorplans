@@ -33,17 +33,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<td colspan="4" >
 			<table>
 			<tr>
-                <td align="left" valign="top">
-					<table >
+                <td align="left">
+					<table>
 						<tr>
-							<td valign="top">
+							<td>
 								Add Containers
 							</td>
 						</tr>
 						<form action="{self}add/" method="post">
 						<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
 						<tr>
-							<td valign="top" >
+							<td >
 							Name:<input type="text" size="12" name="name"/><br/>
 							<select name="container_id">
 								<xsl:for-each select="//get_container_types" >
@@ -56,16 +56,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						</form>
 					</table>
 					<br/>
-					<table >
+					<table>
 						<form action="{self}delete/" method="post">
 						<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
 						<tr>
-							<td valign="top">
+							<td>
 								Delete Container
 							</td>
 						</tr>
 						<tr>
-							<td valign="top" >
+							<td >
 								<select name="equipment_type_container_id">
 								<xsl:for-each select="//get_container_by_type_id" >
 									<option value="{equipment_type_container_id}"><xsl:value-of select="name"/></option>
@@ -78,8 +78,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					</table>
 				</td>
 				
-				<td align="left" valign="top">
-					<table >
+				<td align="left">
+					<table>
 						<tr>
 							<td>
 								
@@ -93,7 +93,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							</td>
 						</tr>
 						<tr>
-							<td valign="top">
+							<td>
 								<xsl:choose>
 									<xsl:when test="//_get/equipment_type_image_id">
 										<xsl:for-each select="//get_asset_type_images">

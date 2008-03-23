@@ -28,25 +28,25 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
     <table>
     <tr>
-        <td align="left" valign="top" colspan="2">
+        <td align="left" colspan="2">
             Email Locations
         </td>
     </tr>
     <tr>
-        <td align="left" valign="top">
+        <td align="left">
             Subject: 
         </td>
         
-        <td align="left" valign="top">
+        <td align="left">
             <input type="text" name="subject"/>
         </td>
     </tr>
     <tr>
-        <td align="left" valign="top">
+        <td align="left">
             Body:
         </td>
         
-        <td align="left" valign="top">
+        <td align="left">
             <textarea name="body" rows="8" cols="40">Enter your message here.</textarea>
         </td>
     </tr>

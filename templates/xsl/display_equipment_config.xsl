@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	
 	<!--
 	
-	<table >
+	<table>
 	<tr><td>
 Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 </tr>
@@ -43,7 +43,7 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 
 <br/>-->
 
-<table >
+<table>
 	<form action="/acc/link/assets/edit/submit2/" method="post">
 	<xsl:if test="//_post/equipment_id">
 		<input type="hidden" name="equipment_id" value="{//equipment_id}"/>

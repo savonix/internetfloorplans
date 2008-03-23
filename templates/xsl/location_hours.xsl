@@ -45,10 +45,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <!-- Need to somehow get the seven days of the week in here. -->
     <xsl:for-each select="//days">
     <tr class="row{position() mod 2}">
-        <td valign="top">
+        <td>
             <a href="/acc/link/loc/view/hours/edit/&amp;location_address_id={//_get/location_address_id}&amp;day_id={day_id}"><xsl:value-of select="day"/></a>
         </td>
-        <td valign="top">
+        <td>
             
             <xsl:variable name="this_day_id"><xsl:value-of select="day_id"/></xsl:variable>
             <xsl:for-each select="//get_location_hours">
@@ -83,10 +83,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 </xsl:if>
             </xsl:for-each>
         </td>
-        <td valign="top">
+        <td>
             <a href="#}">
             Edit</a></td>
-        <td valign="top">
+        <td>
             <a href="#"
             onclick="return confirm('Are you sure you want to delete these hours?')">
             Delete</a></td>

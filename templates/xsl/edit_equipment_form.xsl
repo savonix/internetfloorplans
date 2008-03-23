@@ -26,16 +26,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <xsl:template name="content">
 
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/tetris.png" /> 
-			</td>
-			
-		</tr>
-	</table>
-	<table><tr><td valign="top">
-	<table >
+	<table><tr><td>
+	<table>
 		<tr>
 			<td >Asset Type:</td>
 			<xsl:if test="//_get/equipment_id">
@@ -74,15 +66,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<input type="hidden" name="equipment_id" value="{//_get/equipment_id}"/>
 		<input type="hidden" name="equipment_type_container_id" value="{equipment_type_container_id}"/>
 		<input type="hidden" name="type" value="edit"/>
-		<tr><td colspan="2"><table ><tr><td>
-		<table >
+		<tr><td colspan="2"><table><tr><td>
+		<table>
 		<tr>
 			<td ><input type="checkbox" name="equipment_type_container_id" value="{equipment_type_container_id}"/>Container:</td>
 			<td ><xsl:value-of select="name"/></td>
 		</tr>
 		<tr>
 			<td colspan="2">
-			<table >
+			<table>
 
 		<tr>
 			<td >Priority:</td>
@@ -154,7 +146,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</form>
 	</table>
 	</td>
-	<td valign="top">
+	<td>
 	<table>
 		<tr>
 					<td rowspan="6">

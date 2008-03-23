@@ -79,7 +79,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<td><input type="text" name="fax" value="{//get_location_summary/fax|//_post/fax}" /></td>
 </tr>
 <tr>
-	<td valign="top">Regions:</td>
+	<td>Regions:</td>
 	<td>
 	<xsl:for-each select="//regions_get_all">
 		<input type="checkbox" name="regions[]" value="{region_id}"><xsl:if test="region_id=//get_location_regions/region_id"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if></input>

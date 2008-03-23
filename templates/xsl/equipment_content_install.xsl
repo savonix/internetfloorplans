@@ -37,12 +37,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</table>
 	<table>
 		<tr>
-			<td valign="top">
+			<td>
 			Please select the appropriate response based upon the results of these campaign instructions: 
 			<br/><br/>
-			<table >
+			<table>
 				<tr>
-					<td valign="top">
+					<td>
 						<input type="radio" name="response" value="success" checked="checked"/>
 					</td>
 					<td>The materials have been successfully installed. Please select this option only if you have already installed the materials as prescribed by these instructions.</td>

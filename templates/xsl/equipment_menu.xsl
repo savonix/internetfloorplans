@@ -23,17 +23,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="equipment_menu">
-<td align="left">
-	<table >
-		<tr>
-			<td><a href="">Equipment List</a></td>
-			
-			<td><a href="">Equipment Quantities</a></td>
-			
-			
-
-		</tr>
-	</table>
-</td>
+<a href="#">Equipment List</a>
+<a href="#">Equipment Quantities</a>
 </xsl:template>
 </xsl:stylesheet>

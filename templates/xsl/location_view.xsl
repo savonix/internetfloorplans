@@ -35,34 +35,34 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <table>
 <tr>
-	<td valign="top">
+	<td>
 		<table>
 			<tr>
-				<td valign="top">
+				<td>
 					Virtual Tours
 				</td>
 			</tr>
 			<xsl:for-each select="//get_location_images" >
 			<tr>
-				<td valign="top">
+				<td>
                         <xsl:value-of select="name"/>
 				</td>
 			</tr>
 			</xsl:for-each>
 		</table>
-		<table >
+		<table>
 			<tr>
-				<td valign="top">
+				<td>
 					Tour options
 				</td>
 			</tr>
 			<tr>
-				<td valign="top" >
+				<td >
 					<a>Add New Image</a>
 				</td>
 			</tr>
 			<tr>
-				<td valign="top" >
+				<td >
 					<a onclick="return confirm('Are you sure you want to delete this location image?')">
                     Delete This Image</a>
 				</td>
@@ -71,15 +71,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</td>
 	
 	<xsl:variable name="image_id"><xsl:if test="//_get/location_image_id"><xsl:value-of select="//_get/location_image_id"/></xsl:if><xsl:if test="not(//_get/location_image_id)"><xsl:value-of select="//get_location_images[1]/location_image_id"/></xsl:if></xsl:variable>
-	<td align="left" valign="top">
-		<table >
+	<td align="left">
+		<table>
 			<tr>
 				<td>
 					<xsl:value-of select="//get_location_images[location_image_id=$image_id]/name"/>
 				</td>
 			</tr>
 			<tr>
-				<td valign="top">
+				<td>
                 <!-- IMAGE OR MOVIE GOES HERE - REDO THIS -->
 				</td>
 

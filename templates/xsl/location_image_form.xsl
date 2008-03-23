@@ -34,7 +34,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<input type="hidden" name="thumb_prefix" value="th_" />
 	<input type="hidden" name="location_address_id" value="{//_get/location_address_id}"/>
 	<xsl:call-template name="location_summary" />
-	<table >
+	<table>
 	<xsl:call-template name="image_form"/>
 	</table>
 	</form>
