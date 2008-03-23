@@ -390,6 +390,18 @@ CREATE TABLE IF NOT EXISTS `uplink_region` (
   UNIQUE KEY `region_id` (`region_id`,`creation_datetime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
+
+
+CREATE TABLE IF NOT EXISTS `uplink_options` (
+  `option_id` int(11) NOT NULL auto_increment,
+  `option_key` char(100) NULL,
+  `option_value` char(100) NULL,
+  `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
+  `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
+  PRIMARY KEY `option_index` (`option_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
 -- 
 -- Constraints for dumped tables
 -- 
