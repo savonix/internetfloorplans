@@ -28,7 +28,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
     <xsl:call-template name="location_menu" />
 	<xsl:call-template name="location_summary" />
-    <table >
+    <table class="simple-table">
+    <thead>
     <tr>
         <td>
             Day</td>
@@ -39,6 +40,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <td>
             Delete</td>
     </tr>
+    </thead>
+    <tbody>
     <!-- Need to somehow get the seven days of the week in here. -->
     <xsl:for-each select="//days">
     <tr class="row{position() mod 2}">
@@ -81,14 +84,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </xsl:for-each>
         </td>
         <td valign="top">
-            <a href="/acc/link/loc/view/hours/edit/&amp;location_address_id={//_get/location_address_id}&amp;day_id={day_id}">
+            <a href="#}">
             Edit</a></td>
         <td valign="top">
-            <a href="/acc/link/loc/view/hours/delete/&amp;location_address_id={//_get/location_address_id}&amp;day_id={day_id}"
+            <a href="#"
             onclick="return confirm('Are you sure you want to delete these hours?')">
             Delete</a></td>
     </tr>
     </xsl:for-each>
-    </table>
+    </tbody>
+</table>
 </xsl:template>
 </xsl:stylesheet>

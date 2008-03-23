@@ -24,47 +24,38 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
-	<form method="post">
-	<input type="hidden" name="region_id"><xsl:attribute name="value"><xsl:value-of select="//_get/region_id"/></xsl:attribute></input>
-	<table border='0' cellspacing='1' cellpadding='0' >
-	<tr><td >
-		<table>
-			<tr>	
-				<td>Region Name:</td>
-				<td><input type='text' name='name'><xsl:attribute name="value"> <xsl:value-of select="//get_region_name_g/region_name" /></xsl:attribute></input></td>
-			</tr>
-			<tr>	
-				<td valign="top">Locations:</td>
-				<td>
-   <table>
-   <xsl:for-each select="//get_all_locations" >
-    <tr><td valign="top"><input type="checkbox" name="location_address_id[]" value="{location_address_id}"> 
-									<xsl:variable name="current_id"><xsl:value-of select="location_address_id"/></xsl:variable>
-									<xsl:for-each select="//get_region_data">
-										<xsl:if test="$current_id=//get_region_data/location_address_id">
-											<xsl:attribute name="checked">true</xsl:attribute>
-										</xsl:if>
-									</xsl:for-each>
-								</input>
-							</td>
-    <td><xsl:value-of select="name"/></td></tr>
-   </xsl:for-each>
-   </table>
-  </td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><br />
-					<table>
-						<tr>
-							<td><input type="submit" value="Update" name="submit" /></td>
-							<td><INPUT TYPE="BUTTON" VALUE="Cancel" ONCLICK="window.location.href='/acc/link/rgn/'"/></td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>		
-	</td></tr>
-	</table>
-	</form>
+<form method="post">
+<input type="hidden" name="region_id"><xsl:attribute name="value"><xsl:value-of select="//_get/region_id"/></xsl:attribute></input>
+    <table>
+    <tr>	
+    <td>Region Name:</td>
+    <td><input type='text' name='name'><xsl:attribute name="value"> <xsl:value-of select="//get_region_name_g/region_name" /></xsl:attribute></input></td>
+    </tr>
+    <tr>	
+    <td valign="top">Locations:</td>
+    <td>
+<table>
+<xsl:for-each select="//locations_get_all" >
+<tr><td valign="top"><input type="checkbox" name="location_address_id[]" value="{location_address_id}"> 
+    <xsl:variable name="current_id"><xsl:value-of select="location_address_id"/></xsl:variable>
+    <xsl:for-each select="//get_region_data">
+        <xsl:if test="$current_id=//get_region_data/location_address_id">
+            <xsl:attribute name="checked">true</xsl:attribute>
+        </xsl:if>
+    </xsl:for-each>
+</input>
+</td>
+<td><xsl:value-of select="name"/></td></tr>
+</xsl:for-each>
+</table>
+</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+            <input type="submit" value="Update" name="submit"/>
+            </td>
+        </tr>
+    </table>
+</form>
 </xsl:template>
 </xsl:stylesheet>
