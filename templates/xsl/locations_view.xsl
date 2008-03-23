@@ -98,7 +98,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<td><xsl:value-of select="address_line_1"/></td>
 			<td><xsl:value-of select="city"/></td>
 			<td><xsl:value-of select="phone"/></td>
-			<!--<td >
+			<!--<td>
 			<a><xsl:attribute name="href">mailto:<xsl:value-of select="email"/></xsl:attribute><xsl:value-of select="first_name"/>&#160;<xsl:value-of select="last_name"/></a></td>-->
 			<td width="5"><input type="checkbox" id="locations" name="location_address_id[]" onclick=""/></td>
 		</tr>	

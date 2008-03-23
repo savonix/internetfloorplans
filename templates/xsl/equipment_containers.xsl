@@ -43,7 +43,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<form action="{self}add/" method="post">
 						<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
 						<tr>
-							<td >
+							<td>
 							Name:<input type="text" size="12" name="name"/><br/>
 							<select name="container_id">
 								<xsl:for-each select="//get_container_types" >
@@ -65,7 +65,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 							</td>
 						</tr>
 						<tr>
-							<td >
+							<td>
 								<select name="equipment_type_container_id">
 								<xsl:for-each select="//get_container_by_type_id" >
 									<option value="{equipment_type_container_id}"><xsl:value-of select="name"/></option>

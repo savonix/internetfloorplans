@@ -57,12 +57,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</td>
 			</tr>
 			<tr>
-				<td >
+				<td>
 					<a>Add New Image</a>
 				</td>
 			</tr>
 			<tr>
-				<td >
+				<td>
 					<a onclick="return confirm('Are you sure you want to delete this location image?')">
                     Delete This Image</a>
 				</td>

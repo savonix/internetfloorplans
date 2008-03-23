@@ -27,11 +27,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<form method="post">
 	<table>
     	<tr>
-            <td >Equipment Type Name</td>
-            <td >Description</td>
-            <td >
+            <td>Equipment Type Name</td>
+            <td>Description</td>
+            <td>
                 Edit</td>
-            <td >
+            <td>
                 Delete</td>
         </tr>
         <xsl:for-each select="//get_container_types">

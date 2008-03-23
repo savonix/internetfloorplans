@@ -55,7 +55,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </tr>
             <xsl:if test="not(//get_asset_type_images)">
             <tr>
-                <td >
+                <td>
                     <a href="#">Add New Image</a>
                 </td>
             </tr>

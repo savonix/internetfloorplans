@@ -34,10 +34,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <td>
             Description
         </td>
-        <td >
+        <td>
             Edit
         </td>
-        <td >
+        <td>
             Delete
         </td>
     </tr>

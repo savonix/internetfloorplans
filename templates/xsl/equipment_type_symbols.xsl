@@ -42,25 +42,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </tr>
 </xsl:for-each>
 </table>
-<table>
-<tr>
-    <td>
-        Options
-    </td>
-</tr>
+
+Options
 <xsl:if test="not(//get_equipment_type_symbols)">
-<tr>
-    <td >
-        <a><xsl:attribute name="href">add/&amp;equipment_type_id=<xsl:value-of select="//_get/equipment_type_id"/></xsl:attribute>Add New Symbol</a>
-    </td>
-</tr>
+        <a>Add New Symbol</a>
 </xsl:if>
-<tr>
-    <td >
-        <a onclick="return confirm('Are you sure you want to delete this equipment type symbol?')"><xsl:attribute name="href">delete/&amp;equipment_type_symbol_id=<xsl:if test="//_get/equipment_type_symbol_id"><xsl:value-of select="//_get/equipment_type_symbol_id"/></xsl:if><xsl:if test="not(//_get/equipment_type_symbol_id)"><xsl:for-each select="//get_equipment_type_symbols"><xsl:if test="default_symbol=1"><xsl:value-of select="equipment_type_symbol_id"/></xsl:if></xsl:for-each></xsl:if></xsl:attribute>Delete This Symbol</a>
-    </td>
-</tr>
-</table>
+        <a onclick="return confirm('Are you sure you want to delete this equipment type symbol?')">
+        Delete This Symbol</a>
 
 
 <table>
