@@ -25,17 +25,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="location_summary">
 <xsl:for-each select="//get_location_summary">
 	<tr>
-		<td width="25%" valign="top">
+		<td valign="top">
 		Location Options
 		[ <a target="_top" href="/acc/link/loc/edit/&amp;location_address_id={location_address_id}">Edit</a> ]
 		[ <a target="_top" href="/acc/link/loc/del/&amp;location_address_id={location_address_id}" onclick="return confirm('Are you sure you want to delete this location?')">Delete</a> ]
 		</td>
-		<td width="25%" valign="top">
+		<td valign="top">
 		<xsl:value-of select="//get_location_summary/address_line_1" /><br />
 		<xsl:value-of select="//get_location_summary/city" />&#160; <xsl:value-of select="//get_location_summary/state" />, 
 		<xsl:value-of select="//get_location_summary/zip" />
 		</td>
-		<td width="25%" valign="top">
+		<td valign="top">
 		Tel: <xsl:value-of select="//get_location_summary/phone" /><br />
 		Fax: <xsl:value-of select="//get_location_summary/fax" />
 		</td>

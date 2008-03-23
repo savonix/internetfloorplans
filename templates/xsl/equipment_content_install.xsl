@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			
 		</tr>
 	</table>
-	<table width="600">
+	<table>
 		<tr>
 			<td valign="top">
 			Please select the appropriate response based upon the results of these campaign instructions: 
@@ -69,7 +69,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				
 			</td>
 			<td>
-				<iframe name="config" id="config" width="275" height="525"><xsl:attribute name="src">/acc/link/types/display_config/&amp;location_equipment_id=<xsl:value-of select="//_post/location_equipment_id"/>&amp;equipment_id=<xsl:value-of select="//_post/equipment_id"/>&amp;asset_id=<xsl:value-of select="//_post/asset_id"/>&amp;equipment_type_id=<xsl:value-of select="//_post/equipment_type_id"/>&amp;equipment_type_image_id=<xsl:value-of select="//_post/equipment_type_image_id"/></xsl:attribute> 
+				<iframe name="config" id="config" height="525"><xsl:attribute name="src">/acc/link/types/display_config/&amp;location_equipment_id=<xsl:value-of select="//_post/location_equipment_id"/>&amp;equipment_id=<xsl:value-of select="//_post/equipment_id"/>&amp;asset_id=<xsl:value-of select="//_post/asset_id"/>&amp;equipment_type_id=<xsl:value-of select="//_post/equipment_type_id"/>&amp;equipment_type_image_id=<xsl:value-of select="//_post/equipment_type_image_id"/></xsl:attribute> 
 				
 				&#160;
 				</iframe>

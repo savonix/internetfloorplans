@@ -27,8 +27,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<form method="post">
 	<table>
     	<tr>
-            <td width="150" >Equipment Type Name</td>
-            <td width="150" >Description</td>
+            <td >Equipment Type Name</td>
+            <td >Description</td>
             <td >
                 Edit</td>
             <td >

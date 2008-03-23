@@ -28,13 +28,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<input type="hidden" name="region_id"><xsl:attribute name="value"><xsl:value-of select="//_get/region_id"/></xsl:attribute></input>
 	<table border='0' cellspacing='1' cellpadding='0' >
 	<tr><td >
-		<table width="600">
+		<table>
 			<tr>	
-				<td width="150">Region Name:</td>
+				<td>Region Name:</td>
 				<td><input type='text' name='name'><xsl:attribute name="value"> <xsl:value-of select="//get_region_name_g/region_name" /></xsl:attribute></input></td>
 			</tr>
 			<tr>	
-				<td width="150" valign="top">Locations:</td>
+				<td valign="top">Locations:</td>
 				<td>
    <table>
    <xsl:for-each select="//get_all_locations" >

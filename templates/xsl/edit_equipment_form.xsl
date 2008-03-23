@@ -157,7 +157,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<td valign="top">
 	<table>
 		<tr>
-					<td rowspan="6" width="120">
+					<td rowspan="6">
 				<xsl:if test="//_get/equipment_id">
 				<img ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;type=merchandising</xsl:attribute></img>
 				</xsl:if>

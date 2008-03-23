@@ -40,7 +40,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<table>
 <xsl:if test="//_post/submit">
 <tr>	
-	<td width="150" colspan="2">
+	<td colspan="2">
 	The data you have submitted is not valid, the field titles with an asterisk are required. The form 
 	has been reverted to its original data.
 	</td>

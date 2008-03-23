@@ -37,7 +37,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<xsl:if test="not(//_get/equipment_id)">
 		<input type="hidden" name="type" value="new"/>
 	</xsl:if>
-	<table width="600">
+	<table>
 		<tr>
 			<td >Asset ID:</td>
 			<xsl:if test="//_get/equipment_id">
@@ -47,7 +47,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<td ><input type="text" name="asset_id"><xsl:attribute name="value"><xsl:value-of select="//get_asset_by_id/asset_id"/></xsl:attribute></input></td>
 			</xsl:if>
 		
-			<td rowspan="6" width="120">
+			<td rowspan="6">
 				<xsl:if test="//_get/equipment_id">
 				<img ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_asset_by_id/image_pointer"/>&amp;type=merchandising</xsl:attribute></img>
 				</xsl:if>

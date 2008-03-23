@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <table>
 <tr>
-	<td width="10%" valign="top">
+	<td valign="top">
 		<table>
 			<tr>
 				<td valign="top">
@@ -71,7 +71,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</td>
 	
 	<xsl:variable name="image_id"><xsl:if test="//_get/location_image_id"><xsl:value-of select="//_get/location_image_id"/></xsl:if><xsl:if test="not(//_get/location_image_id)"><xsl:value-of select="//get_location_images[1]/location_image_id"/></xsl:if></xsl:variable>
-	<td align="left" valign="top" width="90%">
+	<td align="left" valign="top">
 		<table >
 			<tr>
 				<td>

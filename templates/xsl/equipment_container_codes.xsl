@@ -30,14 +30,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<xsl:call-template name="asset_type_summary" />
 	<table>
 		<tr>
-
-			<td width="100">
+			<td>
 				Equipment Type</td>
-			<td width="100">
+			<td>
 				Container</td>
-			<td width="50">
+			<td>
 				Business</td>
-			<td width="50">
+			<td>
 				Options</td>
 			<td> </td>
 		</tr>
@@ -47,9 +46,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<tr class="row{position() mod 2}">
 			<form action="/acc/link/types/containers/code/&amp;equipment_type_id={//_get/equipment_type_id}" method="post">	
 				<input type="hidden" name="equipment_type_container_id" value="{equipment_type_container_id}"/>
-				<td width="100">
+				<td>
 					<xsl:value-of select="//equipment_type_name"/></td>
-				<td width="100">
+				<td>
 					<xsl:value-of select="name"/></td>
 				<td>
 						<select name="business_line_id">

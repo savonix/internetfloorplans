@@ -127,7 +127,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 														<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
 												 codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
 												 WIDTH="730" HEIGHT="500">
-												<embed quality="high" bgcolor="#ffffff" width="730" height="500" name="main2" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="https://www.macromedia.com/go/getflashplayer">
+												<embed quality="high" bgcolor="#ffffff" height="500" name="main2" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="https://www.macromedia.com/go/getflashplayer">
 												<xsl:attribute name="src">/acc/link/types/containers/position_server/&amp;equipment_type_image_id=<xsl:value-of select="equipment_type_image_id"/>&amp;equipment_type_id=<xsl:value-of select="//_get/equipment_type_id"/></xsl:attribute>
 												</embed>
 												<PARAM NAME="movie"><xsl:attribute name="VALUE">/acc/link/types/containers/position_server/&amp;equipment_type_image_id=<xsl:value-of select="equipment_type_image_id"/>&amp;equipment_type_id=<xsl:value-of select="//_get/equipment_type_id"/></xsl:attribute></PARAM>

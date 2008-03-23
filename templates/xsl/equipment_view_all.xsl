@@ -29,27 +29,27 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<form method="post">
 	<table>
 		<tr>
-			<!--<td width="10">
+			<!--<td>
 				<input type="checkbox"></input></td>
-			<td width="10%">
+			<td>
 				Asset ID</td>-->
-			<td width="300">
+			<td>
 				Equipment Type</td>
-			<td width="30%">
+			<td>
 				Location</td>
-			<td width="20%">
+			<td>
 				Edit</td>
-			<td width="20%">
+			<td>
 				Delete</td>
 		</tr>
 		<xsl:for-each select="//get_all_assets2">
 		<tr class="row{position() mod 2}">
-			<!--<td width="10">
+			<!--<td>
 				<input type="checkbox" name="asset_id[]"><xsl:attribute name="value"><xsl:value-of select="asset_id"/></xsl:attribute></input></td>
 			<td>
 				<a href="/acc/link/assets/edit/&amp;equipment_id={equipment_id}"><xsl:value-of select="asset_id"/></a>
 			</td>-->
-			<td width="300">
+			<td>
 				<xsl:value-of select="name"/></td>
 			<td>
 				<a href="/acc/link/loc/view/eqp/&amp;location_address_id={location_address_id}"><xsl:value-of select="location_address_name"/></a></td>

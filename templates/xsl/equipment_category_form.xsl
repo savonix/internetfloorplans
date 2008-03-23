@@ -23,48 +23,31 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
-
 <xsl:template name="content">
-	<form action="{self}" method="post">
-	<xsl:if test="//_get/equipment_category_id">
-		<input type="hidden" name="equipment_category_id"><xsl:attribute name="value"><xsl:value-of select="//_get/equipment_category_id"/></xsl:attribute></input>
-	</xsl:if>
-	<table border='0' cellspacing='1' cellpadding='5' >
-		<tr>
-			<td align="left">
-				<img src="/resources/img/tetris.png" /> 
-			</td>
-			
-		</tr>
-	</table>
-	
-	<table border='0' cellspacing='1' cellpadding='0' width='100%'>
-	<tr><td >
-		<table width="600">
-			<tr>	
-				<td width="150">Asset Type Name:</td>
-				<td><input type='text' name='name'><xsl:attribute name="value"><xsl:value-of select="//get_asset_category_by_id/name"/></xsl:attribute></input></td>
-			</tr>
-			<tr>	
-				<td width="150">Description:</td>
-				<td><textarea name='description' cols="25" rows="5"><xsl:value-of select="//get_asset_category_by_id/description"/></textarea></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><br />
-					<table>
-						<tr>
-							<td><input type="submit" value="Submit" name="submit" /></td>
-							<td><INPUT TYPE="BUTTON" VALUE="Cancel" ONCLICK="window.location.href='/acc/link/types/'"/></td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>		
-	</td></tr>
-	</table>
-	
-	</form>
-
+<form method="post">
+<xsl:if test="//_get/equipment_category_id">
+    <input type="hidden" name="equipment_category_id"><xsl:attribute name="value"><xsl:value-of select="//_get/equipment_category_id"/></xsl:attribute></input>
+</xsl:if>
+<table>
+    <tr>	
+        <td>Asset Type Name:</td>
+        <td><input type='text' name='name'><xsl:attribute name="value"><xsl:value-of select="//get_asset_category_by_id/name"/></xsl:attribute></input></td>
+    </tr>
+    <tr>	
+        <td>Description:</td>
+        <td><textarea name='description' cols="25" rows="5"><xsl:value-of select="//get_asset_category_by_id/description"/></textarea></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center"><br />
+            <table>
+                <tr>
+                    <td><input type="submit" value="Submit" name="submit" /></td>
+                    <td><input type="button" value="Cancel" onclick="window.location.href='{//link_prefix}'"/></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</form>
 </xsl:template>
 </xsl:stylesheet>
-
