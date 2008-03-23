@@ -22,8 +22,9 @@
 <!ENTITY ifp_regions "&prefix;region">
 <!ENTITY ifp_equipment_types "&prefix;equipment_type">
 <!ENTITY ifp_equipment_container "&prefix;equipment_container">
+<!ENTITY ifp_equipment_type_container "&prefix;equipment_type_container">
 <!ENTITY ifp_equipment_category "&prefix;equipment_category">
 <!ENTITY ifp_equipment_type_images "&prefix;equipment_type_images">
 <!ENTITY ifp_equipment_type_symbol "&prefix;equipment_type_symbols">
 <!ENTITY ifp_equipment "&prefix;equipment">
-<!ENTITY ifp_containers "&prefix;containers">
+<!ENTITY ifp_containers "&prefix;container">

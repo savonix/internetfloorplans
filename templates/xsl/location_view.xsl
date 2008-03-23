@@ -26,8 +26,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="location_summary.xsl"/>
 <xsl:import href="location_menu.xsl"/>
 <xsl:template name="content">
-<form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
-<input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
+<form method="post">
+<input type="hidden" name="location_id" value="{//_get/location_id}"/>
 
 <xsl:call-template name="location_menu" />
 
@@ -36,7 +36,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table>
 <tr>
 	<td>
-		<table>
+		<table class="simple-table">
 			<tr>
 				<td>
 					Virtual Tours
@@ -50,7 +50,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</tr>
 			</xsl:for-each>
 		</table>
-		<table>
+		<table class="simple-table">
 			<tr>
 				<td>
 					Tour options

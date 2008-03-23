@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<!-- Regional Manager -->
 <table class="simple-table">
     <tr>
-        <td><xsl:value-of select="//get_location_summary/name" /></td>	
+        <td><xsl:value-of select="//get_location_summary/name" /></td>
         <td><a href="{//link_prefix}ifp-location-space-plans&amp;location_id={//_get/location_id}">Space Plans</a></td>
         <td><a href="{//link_prefix}ifp-location-view&amp;location_id={//_get/location_id}">Virtual Tours</a></td>
         <td><a href="{//link_prefix}ifp-location-equipment-quantities&amp;location_id={//_get/location_id}">Equipment Quantities</a></td>
