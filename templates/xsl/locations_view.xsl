@@ -24,63 +24,61 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
+<table class="simple-table">
+    <tr>
+        <form method="post" name="form0">
+        <td align="left">
+            Region:
+            <select name="my_region_id" onChange="document.form0.submit();">
+                <option value="all">All</option>	
+                <xsl:for-each select="//get_all_regions">
+                    <option value="{region_id}"><xsl:if test="//my_region_id=region_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if><xsl:value-of select="region_name"/></option>
+                </xsl:for-each>
+            </select>
+            <input type="checkbox" name="x_view" value="all" onclick="document.form0.submit();"><xsl:if test="//x_view"><xsl:attribute name="checked"></xsl:attribute></xsl:if></input> Hide compliant offices
+        </td>
+        </form>
+        <form method="post" name="search">
+        <td>
+        Search: <input type="text" name="q"/> <input type="submit" value="Go"/>
+        </td>
+        </form>
 
-<script language="JavaScript" src="/resources/js/checkbox.js"> &#160; </script>
-	<table class="simple-table">
-		<tr>
-			<form method="post" name="form0">
-			<td align="left">
-				Region:
-				<select name="my_region_id" onChange="document.form0.submit();">
-					<option value="all">All</option>	
-					<xsl:for-each select="//get_all_regions">
-						<option value="{region_id}"><xsl:if test="//my_region_id=region_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if><xsl:value-of select="region_name"/></option>
-					</xsl:for-each>
-				</select>
-				<input type="checkbox" name="x_view" value="all" onclick="document.form0.submit();"><xsl:if test="//x_view"><xsl:attribute name="checked"></xsl:attribute></xsl:if></input> Hide compliant offices
-			</td>
-			</form>
-			<form method="post" name="search">
-			<td>
-			Search: <input type="text" name="q"/> <input type="submit" value="Go"/>
-			</td>
-			</form>
+        <td>
+            Results <xsl:value-of select="//start + 1"/> - <xsl:if test="//x_view"><xsl:value-of select="//start + count(//get_all_locations[status_id='0'])"/></xsl:if><xsl:if test="not(//x_view)"><xsl:value-of select="//start + count(//get_all_locations)"/></xsl:if> of a total of <xsl:if test="//x_view"><xsl:value-of select="count(//get_gt_locations[status_id='0'])"/></xsl:if><xsl:if test="not(//x_view)"><xsl:value-of select="count(//get_gt_locations)"/></xsl:if>.
+        </td>
+    </tr>
+</table>
+<form method="post" name="myform">
+<table class="simple-table">
+    <tr>
+        <th>Status</th>
+        <th>
+        Branch Name</th>
+        <th>
+        Address</th>
+        <th>
+        City</th>
+        <th>
+        Phone</th>
+        <th width="5">
+        <input type="checkbox" value="all" title="Select All"><xsl:attribute name="onClick"><xsl:text>if(this.checked){ this.title='Deselect All'; checkAll(document.myform.locations);} else {uncheckAll(document.myform.locations); this.title='Select All';}</xsl:text>
+        </xsl:attribute></input>
+        </th>
+    </tr>
+    <xsl:for-each select="//locations_get_all">
+        <xsl:if test="not(//x_view)">
+            <xsl:call-template name="location_row"/>
+        </xsl:if>
+        <xsl:if test="(//x_view) and (status_id=0)">
+            <xsl:call-template name="location_row"/>
+        </xsl:if>
+    </xsl:for-each>
+    <xsl:if test="(count(//get_all_locations) = //incr) or (//_get/start!=0)">
+    </xsl:if>
+</table></form>
 
-			<td>
-				Results <xsl:value-of select="//start + 1"/> - <xsl:if test="//x_view"><xsl:value-of select="//start + count(//get_all_locations[status_id='0'])"/></xsl:if><xsl:if test="not(//x_view)"><xsl:value-of select="//start + count(//get_all_locations)"/></xsl:if> of a total of <xsl:if test="//x_view"><xsl:value-of select="count(//get_gt_locations[status_id='0'])"/></xsl:if><xsl:if test="not(//x_view)"><xsl:value-of select="count(//get_gt_locations)"/></xsl:if>.
-			</td>
-		</tr>
-	</table>
-	<form method="post" name="myform">
-	<table class="simple-table">
-		<tr>
-			<th>Status</th>
-			<th>
-			Branch Name</th>
-			<th>
-			Address</th>
-			<th>
-			City</th>
-			<th>
-			Phone</th>
-            <th width="5">
-			<input type="checkbox" value="all" title="Select All"><xsl:attribute name="onClick"><xsl:text>if(this.checked){ this.title='Deselect All'; checkAll(document.myform.locations);} else {uncheckAll(document.myform.locations); this.title='Select All';}</xsl:text>
-			</xsl:attribute></input>
-            </th>
-		</tr>
-		<xsl:for-each select="//locations_get_all">
-			<xsl:if test="not(//x_view)">
-				<xsl:call-template name="location_row"/>
-			</xsl:if>
-			<xsl:if test="(//x_view) and (status_id=0)">
-				<xsl:call-template name="location_row"/>
-			</xsl:if>
-		</xsl:for-each>
-		<xsl:if test="(count(//get_all_locations) = //incr) or (//_get/start!=0)">
-		</xsl:if>
-	</table></form>
-
-    <a href="{//link_prefix}ifp-location-edit">Add Location</a>
+<a href="{//link_prefix}ifp-location-edit">Add Location</a>
 </xsl:template>
 
 

@@ -25,44 +25,41 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
 	<form method="post">
-	<table>
+	<table class="simple-table">
+        <thead>
 		<tr>
-			<td><!--<input type="checkbox"></input>--></td>
-			<td>
-				Region Name</td>
-			<td>
-				Type</td>
-			<td>Locations</td></tr>
+			<th><!--<input type="checkbox"></input>--></th>
+			<th>
+				Region Name</th>
+			<th>
+				Type</th>
+			<th>Locations</th>
+        </tr>
+        </thead>
+        <tbody>
 		<!-- Regions-->
 		<xsl:for-each select="//regions_get_all">
 			<xsl:sort select="region_name"/>
 			<xsl:variable name="current_region_id"><xsl:value-of select="region_id"/></xsl:variable>
 			<tr>
 				<td><input type="checkbox" name="region_id[]"><xsl:attribute name="value"><xsl:value-of select="region_id"/></xsl:attribute></input></td>
-				<td class="basic-table-cell">
+				<td>
 					<a href="/acc/link/rgn/view/&amp;region_id={region_id}" class="basic-table-cell">
 					<xsl:value-of select="region_name"/></a>
 				</td>
 				<td>
 				Geographic</td>
-				<td class="basic-table">
+				<td>
 					<xsl:for-each select="//get_all_region_data">
 						<xsl:if test="$current_region_id=region_id">
 								<xsl:value-of select="name"/><xsl:text> </xsl:text>
 						</xsl:if>
 					</xsl:for-each>
-				</td></tr>					
+				</td></tr>
 			</xsl:for-each>
-			<tr><td colspan="5" >
-				<table>
-					<tr>
-						<td><input type="submit" value="Delete" name="submit" 
-   onclick="return confirm('Are you sure you want to delete these regions?')" /></td>
-					</tr>
-				</table>						
-			</td>
-		</tr>
-	</table>
+        </tbody>
+	</table><input type="submit" value="Delete" name="submit" 
+   onclick="return confirm('Are you sure you want to delete these regions?')" />
 	</form>
 </xsl:template>
 </xsl:stylesheet>
