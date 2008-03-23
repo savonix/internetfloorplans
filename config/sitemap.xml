@@ -823,8 +823,22 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <!--
 		<map:script src="uplink/modules/locations/php/floorplan_generator.php" />-->
 	</map:gate>
-    
-    
+
+
+<map:gate name="ifp-options">
+    <map:xml src="data/xml/ifp_options.xml"/>
+    <map:if name="//_post">
+        <map:true>
+            <map:query src="data/sql/option_delete.xml"/>
+            <map:query src="data/sql/option_update.xml"/>
+            <map:action type="redirect" params="{//link_prefix}es-options"/>
+        </map:true>
+        <map:false>
+        </map:false>
+    </map:if>
+    <map:query src="data/sql/option_get.xml"/>
+    <map:xsl src="templates/xsl/options.xsl"/>
+</map:gate>
 
     <map:gate name="ifp-themed-css" cache="0">
         <map:action type="content" params="text/css"/>
