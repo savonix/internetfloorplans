@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="delete_regions" loop="_post/region_id">
     <connection>&ifp_connection;</connection>
     <params>
-        <param array="_post/region_id" type="text"/>
+        <param array="_post/region_id" type="integer"/>
 	</params>
     <sql>
         DELETE FROM  &ifp_regions;

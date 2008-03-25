@@ -25,6 +25,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
 <form method="post">
+<xsl:if test="//_get/region_id">
+    <input type="hidden" name="region_id" value="{//_get/region_id}"/>
+</xsl:if>
 <table>
     <tr>
         <td>Region Name:</td>
