@@ -348,14 +348,23 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<map:gate name="ifp-region-edit" role="client" >
 		<map:if name="_post/submit">
 			<map:true>
-				<map:query src="data/sql/region_create.xml"/>
+                <map:if name="_post/region_id">
+                    <map:true>
+                    </map:true>
+                    <map:false>
+                        <map:query src="data/sql/region_create.xml"/>
+                    </map:false>
+                </map:if>
+				<map:query src="data/sql/region_locations_delete.xml" />
+				<map:query src="data/sql/region_locations_update.xml" />
                 <map:action type="redirect" params="{//link_prefix}ifp-regions"/>
             </map:true>
 			<map:false>
-                <map:query src="data/sql/locations_get_all.xml" />
-				<map:xsl src="templates/xsl/region_form.xsl" />
 			</map:false>
 		</map:if>
+        <map:query src="data/sql/region_get_data.xml" />
+        <map:query src="data/sql/locations_get_all.xml" />
+        <map:xsl src="templates/xsl/region_form.xsl" />
 	</map:gate>
 
 	<!-- Region view and edit -->
@@ -364,7 +373,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			<map:true>
 				<map:query src="data/sql/del_regions.xml" />
 				<map:query src="data/sql/update_region.xml" />
-				<map:query src="data/sql/del_region_locations.xml" />
 				<map:query src="data/sql/update_region_locations.xml" />
                 <map:action type="redirect" params="{//link_prefix}ifp-regions"/>
 			</map:true>
@@ -374,10 +382,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</map:false>
 		</map:if>
 	</map:gate>
-	<!-- Delete Regions -->
-	<map:gate name="ifp-rgn/del/multiple/" role="client">
-		<map:query src="data/sql/del_regions.xml" />
-	</map:gate>
+    
 
 <!-- *************************************************  
 

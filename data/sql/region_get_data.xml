@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: region_get_data.xml
+Component: region_get_by_id.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,19 +22,15 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="get_region_data">
+<query name="region_get_by_id">
     <connection>&ifp_connection;</connection>
     <params>
         <param name="_get/region_id" type="text"/>
-        <param name="_get/region_id" type="text"/>
-        <param name="runtime/utdate" type="text"/>
-        <param name="runtime/utdate" type="text"/>
-			</params>
+    </params>
     <sql>
-        SELECT &ifp_regions;.region_name, location_id 
-        FROM &ifp_regions;, uplink_location_region 
-		WHERE &ifp_regions;.region_id=? AND uplink_location_region.region_id=?
-		AND &ifp_regions;.deletion_datetime &gt; ?
-		AND uplink_location_region.deletion_datetime &gt; ?
+        SELECT *
+        FROM &ifp_regions;
+        
+		WHERE &ifp_regions;.region_id=? 
     </sql>
 </query>
