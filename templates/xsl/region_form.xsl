@@ -26,9 +26,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 <form method="post">
 <table>
-    <tr>	
+    <tr>
         <td>Region Name:</td>
-        <td><input type="text" name="name" /></td>
+        <td><input type="text" name="name" value="{//region_get_by_id/region_name}"/></td>
     </tr>
     <tr>
         <td>Locations:</td>
