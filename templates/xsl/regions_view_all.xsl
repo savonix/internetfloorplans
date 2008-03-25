@@ -58,7 +58,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</td></tr>
 			</xsl:for-each>
         </tbody>
-	</table><input type="submit" value="Delete" name="submit" 
+	</table>
+    <a href="{//link_prefix}ifp-region-edit">Add new region</a>
+    <input type="submit" value="Delete" name="submit" 
    onclick="return confirm('Are you sure you want to delete these regions?')" />
 	</form>
 </xsl:template>
