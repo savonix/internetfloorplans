@@ -67,10 +67,11 @@ a.main-menu:hover	{
     }
     
 .simple-table { 
-border-spacing: 1px;
-background-color: #CCC;
-margin: 5px;
-}  
+    border-spacing: 1px;
+    background-color: #CCC;
+    margin: 5px;
+    width: 100%;
+}
 
 .simple-table td { 
 background-color: #FFF; padding: 5px;
