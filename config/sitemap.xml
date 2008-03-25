@@ -294,46 +294,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <map:xsl src="templates/xsl/view_location_sp.xsl" />
 	</map:gate>
 
-	<map:gate name="ifp-loc/view/sp/edit/submit/" role="client">	
-		<map:insert name="clear_cache"/>
-		<map:query src="data/sql/edit_location_space_plan.xml" />
-		<map:query src="data/sql/location_get_summary.xml" />
-		<map:query src="data/sql/get_location_space_plans.xml" />
-		<map:query src="data/sql/equipment_types_get_all.xml"/>
-		<map:xsl src="templates/xsl/view_location_sp.xsl" />
-	</map:gate>
-
-
-	<!-- View location hours of operation -->
-	<map:gate name="ifp-loc/view/hours/" role="client" >
-		<map:if name="//_post">
-			<map:true>
-				<map:action type="timeconvert" params="//_post/open_h,//_post/open_m,//_post/open_am_pm,open"/>
-				<map:action type="timeconvert" params="//_post/close_h,//_post/close_m,//_post/close_am_pm,close"/>
-				<map:query src="data/sql/del_location_hours.xml" />
-				<map:query src="data/sql/add_location_hours.xml" />
-			</map:true>
-		</map:if>
-		<map:query src="data/sql/location_get_summary.xml" />
-		<map:script src="lib/php/weekdays.php"/>
-		<map:query src="data/sql/get_location_hours.xml" />
-		<map:xsl src="templates/xsl/view_location_hours.xsl" />
-		<map:debug dump="truse"/>
-	</map:gate>
-		<!-- Edit location hours of operation -->
-	<map:gate name="ifp-loc/view/hours/edit/" role="client" >
-		<map:query src="data/sql/location_get_summary.xml" />
-		<!--<map:query src="data/sql/get_location_hours.xml" />-->
-		<map:script src="lib/php/dayhours.php"/>
-		<map:xsl src="templates/xsl/edit_location_hours.xsl" />
-	</map:gate>
-
-	<!-- Delete location hours of operation -->
-	<map:gate name="ifp-loc/view/hours/delete/" role="client" >
-		<map:query src="data/sql/del_location_hours.xml" />
-		<map:action type="redirect" params="/ifp-loc/"/>
-	</map:gate>	
-	
 	<!-- View location equipment -->
 	<map:gate name="ifp-location-equipment-quantities" role="client">
 		<map:query src="data/sql/location_get_summary.xml" />
@@ -820,7 +780,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<map:query src="data/sql/get_sp_pointer_by_id.xml" />
 		<map:query src="data/sql/get_location_space_plan_assets.xml" />
 		<map:query src="data/sql/get_account_symbol_pointers.xml" />
-		<map:debug dump="true"/>
 <!--
 		<map:script src="uplink/modules/locations/php/floorplan_generator.php" />-->
 	</map:gate>
