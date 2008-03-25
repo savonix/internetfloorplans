@@ -32,24 +32,23 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <sql>
         SELECT 
 		&ifp_location_region;.region_id, 
-        uplink_region.region_name,
-		uplink_locations.location_id, 
-        uplink_locations.name
+        &ifp_regions;.region_name,
+		&ifp_locations;.location_id, 
+        &ifp_locations;.name
 		
-		FROM uplink_locations
+		FROM &ifp_locations;
 		
 		LEFT JOIN &ifp_location_region;
-		ON &ifp_location_region;.location_id=uplink_locations.location_id
+		ON &ifp_location_region;.location_id=&ifp_locations;.location_id
 		AND &ifp_location_region;.deletion_datetime &gt; ?
 		
-		LEFT JOIN uplink_region
-		ON uplink_region.region_id=&ifp_location_region;.region_id
-		AND uplink_region.deletion_datetime &gt; ?
+		LEFT JOIN &ifp_regions;
+		ON &ifp_regions;.region_id=&ifp_location_region;.region_id
+		AND &ifp_regions;.deletion_datetime &gt; ?
+
+		WHERE
+		&ifp_locations;.deletion_datetime &gt; ?
 		
-		
-		WHERE 
-		uplink_locations.deletion_datetime &gt; ?
-		
-		ORDER BY uplink_region.region_id DESC
+		ORDER BY &ifp_regions;.region_id DESC
     </sql>
 </query>

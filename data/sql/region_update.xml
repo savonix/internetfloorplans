@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <param name="runtime/utdate" type="text"/>
     </params>
     <sql>
-        INSERT INTO uplink_region 
+        INSERT INTO &ifp_regions; 
         (region_id,region_name, creation_datetime) 
         VALUES 
         (?,?,?)

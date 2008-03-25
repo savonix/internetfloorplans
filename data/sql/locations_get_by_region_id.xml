@@ -32,7 +32,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<param name="//_get/incr" type="integer" default="100"/>
 	</params>
     <sql>
-		
 		SELECT
 		&ifp_locations;.*
 		
