@@ -44,7 +44,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<tr>
 				<td><input type="checkbox" name="region_id[]"><xsl:attribute name="value"><xsl:value-of select="region_id"/></xsl:attribute></input></td>
 				<td>
-					<a href="/acc/link/rgn/view/&amp;region_id={region_id}" class="basic-table-cell">
+					<a href="{//link_prefix}ifp-region-edit&amp;region_id={region_id}" class="basic-table-cell">
 					<xsl:value-of select="region_name"/></a>
 				</td>
 				<td>
