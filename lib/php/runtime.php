@@ -28,8 +28,6 @@ $path = $_SERVER['REQUEST_URI'];
 Nexista_Flow::add("request_uri",$path);
 $path = dirname($path)."/".basename($_SERVER['SCRIPT_NAME']);
 $path_prefix = dirname($path)."/";
-//$app_prefix = "acc/".APP_NAME."/";
-//$link_prefix = $path."?nid=".$app_prefix;
 $link_prefix = $path."?nid=";
 $utdate = gmdate('Y-m-d H:i:s');
 

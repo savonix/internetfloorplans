@@ -22,10 +22,12 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 */
-require('/usr/share/php/savoncore-2.1/external/fpdf153/fpdf.php');
-require('/usr/share/php/savoncore-2.1/external/fpdi1.1/fpdi.php');
 
-ini_set('include_path','/usr/share/php/savoncore-2.1/external/fpdf153/font/');
+
+require('/path/to/fpdf153/fpdf.php');
+require('/path/to/fpdi1.1/fpdi.php');
+
+ini_set('include_path','/path/to/fpdf153/font/');
 $filename = Path::get("//get_sp_pointer_by_id/space_plan_pointer","flow"); 
 
 $path = $_SERVER['SCRIPT_FILENAME'];
