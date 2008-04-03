@@ -80,7 +80,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
                             <xsl:value-of select="name"/>
                         </xsl:if>
                     </xsl:for-each>
-                    
                 </td>
             </tr>
             <tr>

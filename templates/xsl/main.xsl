@@ -2,7 +2,7 @@
 Program: Internet Floor Plans
 Component: main.xsl
 Copyright: Savonix Corporation
-Author: Albert L. Lash, IV 
+Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
 http://www.gnu.org/licenses
 

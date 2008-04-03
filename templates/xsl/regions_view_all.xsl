@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<table class="simple-table">
         <thead>
 		<tr>
-			<th><!--<input type="checkbox"></input>--></th>
+			<th></th>
 			<th>
 				Region Name</th>
 			<th>
@@ -42,9 +42,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<xsl:sort select="region_name"/>
 			<xsl:variable name="current_region_id"><xsl:value-of select="region_id"/></xsl:variable>
 			<tr>
-				<td><input type="checkbox" name="region_id[]"><xsl:attribute name="value"><xsl:value-of select="region_id"/></xsl:attribute></input></td>
 				<td>
-					<a href="{//link_prefix}ifp-region-edit&amp;region_id={region_id}" class="basic-table-cell">
+                    <input type="checkbox" name="region_id[]">
+                        <xsl:attribute name="value">
+                            <xsl:value-of select="region_id"/>
+                        </xsl:attribute>
+                    </input>
+                </td>
+				<td>
+					<a href="{//link_prefix}ifp-region-edit&amp;region_id={region_id}" 
+                    class="basic-table-cell">
 					<xsl:value-of select="region_name"/></a>
 				</td>
 				<td>

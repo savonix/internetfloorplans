@@ -24,8 +24,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
-	<table class="simple-table">
-	<thead>
+<table class="simple-table">
+    <thead>
     <tr>
         <th>Equipment Type Name</th>
         <th>Description</th>
@@ -47,12 +47,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <td>
             <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">Edit</a></td>
         <td>
-            <a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}" 
+            <a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}"
             onclick="return confirm('Are you sure you want to delete this equipment type?')">Delete</a></td>
     </tr>
     </xsl:for-each>
     </tbody>
-	</table>
-    <a href="{//link_prefix}ifp-equipment-type-edit">New Equipment Type</a>
+</table>
+<a href="{//link_prefix}ifp-equipment-type-edit">New Equipment Type</a>
 </xsl:template>
 </xsl:stylesheet>

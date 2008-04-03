@@ -87,13 +87,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<br/>
 	</xsl:for-each>
 	</td>
-</tr>	
+</tr>
 <tr>
     <td colspan="2" align="center"><br />
 
 <input type="submit" value="Submit" name="submit" />
 <input type="button" value="Cancel" onclick="window.location.href='{//link_prefix}ifp-locations'"/>
-</td></tr></table>		
+</td></tr></table>
 
 </xsl:template>
 </xsl:stylesheet>
