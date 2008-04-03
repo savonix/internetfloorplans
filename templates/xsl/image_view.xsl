@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: image_view.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,21 +22,19 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:output method="xml" indent="yes" encoding="UTF-8" />
+<xsl:output method="html" indent="yes" encoding="UTF-8" 
+	omit-xml-declaration="yes" 
+	doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
+    doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
 <xsl:template match="/">
 <html>
 <head>
 <title>Image Viewer</title>
-<style>
-
-.dragme{position:relative;}
-
-</style>
-
-<script language="JavaScript1.2" src="/resources/js/dragme.js"/>
-
-
- </head>
+    <style>
+    .dragme{position:relative;}
+    </style>
+    <script type="text/javascript" src="/s/js/dragme.js"/>
+</head>
 <body>
 
 

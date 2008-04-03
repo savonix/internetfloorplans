@@ -29,19 +29,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template match="/">
 <html>
 <head>
-	<title></title>
-
- <meta name="generator" content="Nexista 0.2.1"/>
- <link rel="stylesheet" type="text/css" href="{//link_prefix}ifp-themed-css" ></link>
- <xsl:for-each select="//in_head">
- <xsl:sort select="priority"/>
- <xsl:value-of select="string" disable-output-escaping="yes"/>
- </xsl:for-each>
+	<title>Internet Floor Plans</title>
+    <link rel="stylesheet" type="text/css" href="{//link_prefix}ifp-themed-css" ></link>
+    <xsl:for-each select="//in_head">
+        <xsl:sort select="priority"/>
+        <xsl:value-of select="string" disable-output-escaping="yes"/>
+    </xsl:for-each>
 </head>
 <body>
 <xsl:for-each select="//pre_body_content">
- <xsl:sort select="priority"/>
- <xsl:value-of select="string" disable-output-escaping="yes"/>
+    <xsl:sort select="priority"/>
+    <xsl:value-of select="string" disable-output-escaping="yes"/>
 </xsl:for-each>
 
 <div id="page">
@@ -59,17 +57,17 @@ Internet Floor Plan Software. Copyright Savonix Corporation. License under the A
 </html>
 </xsl:template>
 <xsl:template name="main-menu">
- <div id="top-main-menu">
- <xsl:for-each select="//menu/item[not(@active=0)]">
- <xsl:call-template name="button">
- <xsl:with-param name="key"><xsl:value-of select="key"/></xsl:with-param>
- </xsl:call-template> 
- </xsl:for-each>
- </div>
+    <div id="top-main-menu">
+    <xsl:for-each select="//menu/item[not(@active=0)]">
+    <xsl:call-template name="button">
+    <xsl:with-param name="key"><xsl:value-of select="key"/></xsl:with-param>
+    </xsl:call-template> 
+    </xsl:for-each>
+    </div>
 </xsl:template>
 
 <xsl:template name="button">
- <xsl:param name="key"/>&#160;
- <a class="main-menu" href="{/__ROOT__/runtime/link_prefix}{//menu/item[key=$key]/url}" id="{$key}"><xsl:if test="//show_tool_tips='yes'"><xsl:attribute name="title"><xsl:value-of select="//labels/label[key=$key]/description" /></xsl:attribute></xsl:if><xsl:value-of select="//labels/label[key=$key]/value"/></a>
-</xsl:template>
+    <xsl:param name="key"/>&#160;
+        <a class="main-menu" href="{/__ROOT__/runtime/link_prefix}{//menu/item[key=$key]/url}" id="{$key}"><xsl:if test="//show_tool_tips='yes'"><xsl:attribute name="title"><xsl:value-of select="//labels/label[key=$key]/description" /></xsl:attribute></xsl:if><xsl:value-of select="//labels/label[key=$key]/value"/></a>
+     </xsl:template>
 </xsl:stylesheet>
