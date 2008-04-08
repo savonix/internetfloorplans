@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <html>
 <head>
 	<title>Internet Floor Plans</title>
-    <link rel="stylesheet" type="text/css" href="{//link_prefix}ifp-themed-css" ></link>
+    <link rel="stylesheet" type="text/css" href="{//link_prefix}ifp-themed-css" >&#160;</link>
     <xsl:for-each select="//in_head">
         <xsl:sort select="priority"/>
         <xsl:value-of select="string" disable-output-escaping="yes"/>
