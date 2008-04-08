@@ -31,12 +31,13 @@ $path_prefix = dirname($path)."/";
 $link_prefix = $path."?nid=";
 $utdate = gmdate('Y-m-d H:i:s');
 
-$runtime = array('host_name'=>$_SERVER['SERVER_NAME'],
-                'path_prefix'=>$path_prefix,
-                'link_prefix'=>$link_prefix,
-                'utdate'=>$right_now,
-                'user_id'=>$current_user_id,
-                'debug'=>$debug);
+$runtime = array('host_name' => $_SERVER['SERVER_NAME'],
+                'path_prefix' => $path_prefix,
+                'link_prefix' => $link_prefix,
+                'utdate' => $right_now,
+                'utcdate' => $right_now,
+                'user_id' => $current_user_id,
+                'debug' => $debug);
 
 Nexista_Flow::add("runtime",$runtime,false);
 ?>
