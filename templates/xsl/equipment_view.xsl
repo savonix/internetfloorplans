@@ -84,7 +84,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </tr>
             <tr>
                 <td>
-                    <img ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//get_asset_type_images/image_pointer"/>&amp;mime_type=<xsl:value-of select="//get_asset_type_images/mime_type"/>&amp;type=merchandising</xsl:attribute></img>
                 </td>
             </tr>
         </table>

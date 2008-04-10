@@ -58,7 +58,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</tr>
 			<tr>
 				<td>
-					<a>Add New Image</a>
+					<a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_image}">Add New Image</a>
 				</td>
 			</tr>
 			<tr>
@@ -70,7 +70,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</table>
 	</td>
 	
-	<xsl:variable name="image_id"><xsl:if test="//_get/location_image_id"><xsl:value-of select="//_get/location_image_id"/></xsl:if><xsl:if test="not(//_get/location_image_id)"><xsl:value-of select="//get_location_images[1]/location_image_id"/></xsl:if></xsl:variable>
+	<xsl:variable name="image_id">
+        <xsl:if test="//_get/location_image_id">
+            <xsl:value-of select="//_get/location_image_id"/>
+        </xsl:if>
+        <xsl:if test="not(//_get/location_image_id)">
+            <xsl:value-of select="//get_location_images[1]/location_image_id"/>
+        </xsl:if>
+    </xsl:variable>
 	<td align="left">
 		<table>
 			<tr>

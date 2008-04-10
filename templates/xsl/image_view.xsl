@@ -38,7 +38,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <body>
 
 
-<img class="dragme"><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//_get/pointer"/>&amp;mime_type=<xsl:value-of select="//_get/mime_type"/>&amp;type=photography</xsl:attribute></img>
+<img class="dragme" src=""/>
 
 </body>
 </html>

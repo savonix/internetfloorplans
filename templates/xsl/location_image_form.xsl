@@ -23,19 +23,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
-<xsl:import href="../../../../_shared/xsl/image_form.xsl"/>
 <xsl:import href="location_summary.xsl"/>
 <xsl:import href="location_menu.xsl"/>
 <xsl:template name="content">
 	
-	<form enctype="multipart/form-data" action="/acc/link/loc/view/&amp;location_address_id={//_get/location_address_id}" method="post">
-	<input type="hidden" name="dest"><xsl:attribute name="value">../usr/<xsl:value-of select="//user_account_id"/>/photography/</xsl:attribute></input>
-	<input type="hidden" name="prefix" value="{//_get/location_address_id}" />
-	<input type="hidden" name="thumb_prefix" value="th_" />
+	<form enctype="multipart/form-data" method="post">
 	<input type="hidden" name="location_address_id" value="{//_get/location_address_id}"/>
 	<xsl:call-template name="location_summary" />
 	<table>
-	<xsl:call-template name="image_form"/>
 	</table>
 	</form>
 </xsl:template>
