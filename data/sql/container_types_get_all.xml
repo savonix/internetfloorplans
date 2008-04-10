@@ -22,13 +22,13 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="get_container_types">
+<query name="container_types_get_all">
     <connection>&ifp_connection;</connection>
     <params>
         <param name="runtime/utdate" type="text"/>
 	</params>
     <sql>
-        SELECT * FROM &ifp_containers; 
+        SELECT * FROM &ifp_containers;
         WHERE
         deletion_datetime &gt; ?
     </sql>
