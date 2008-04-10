@@ -28,17 +28,21 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
     <xsl:call-template name="equipment_type_menu" />
 	<xsl:call-template name="asset_type_summary" />
-	<table>
+	<table class="simpletable">
 		<tr>
-			<td>
-				Equipment Type</td>
-			<td>
-				Container</td>
-			<td>
-				Business</td>
-			<td>
-				Options</td>
-			<td> </td>
+			<th>
+				Equipment Type
+            </th>
+			<th>
+				Container
+            </th>
+			<th>
+				Business
+            </th>
+			<th>
+				Options
+            </th>
+			<th> </th>
 		</tr>
 		<xsl:for-each select="//get_container_by_type_id">
 		<xsl:variable name="my_lob_id"><xsl:value-of select="default_business_line_id"/></xsl:variable>
