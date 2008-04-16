@@ -62,6 +62,23 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <key>done</key>
         <value>Done</value>
     </label>
+    <label>
+        <key>comments</key>
+        <value>Comments</value>
+    </label>
+    <!-- upload form -->
+    <label>
+        <key>file_title</key>
+        <value>File Title</value>
+    </label>
+    <label>
+        <key>file_type</key>
+        <value>File Type</value>
+    </label>
+    <label>
+        <key>file_to_upload</key>
+        <value>File to upload</value>
+    </label>
 
 </labels>
 </i18n>

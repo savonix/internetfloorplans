@@ -58,7 +58,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</tr>
 			<tr>
 				<td>
-					<a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_image}">Add New Image</a>
+					<a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
+                        Add New Image
+                    </a>
 				</td>
 			</tr>
 			<tr>

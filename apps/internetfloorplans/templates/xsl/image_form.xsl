@@ -27,11 +27,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <table>
     <tr>
-        <td colspan="2">
-             <xsl:value-of select="//labels/label[key='enter_file_title']/value"/>. 
-        </td>
-    </tr>
-    <tr>
         <td> <xsl:value-of select="//labels/label[key='file_title']/value"/>:</td>
         <td><input type='text' name='name' size="25" ><xsl:attribute name="value"><xsl:value-of select="//_post/name"/></xsl:attribute></input></td>
     </tr>
@@ -51,7 +46,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         </td>
     </tr>
     <tr>
-        <td> <xsl:value-of select="//labels/label[key='file_to_pload']/value"/>: * </td>
+        <td> <xsl:value-of select="//labels/label[key='file_to_upload']/value"/>: * </td>
         <td><input type='file' name='file' size="25" class="box" /></td>
     </tr>
     <tr>
