@@ -43,15 +43,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </xsl:for-each>
 
 <div id="page">
-<h1>Welcome</h1>
-<xsl:call-template name="main-menu"/>
+    <div id="banner">
+    <h1>Welcome</h1>
+    <a href="{//link_prefix}">
+        <img src="{//path_prefix}s/img/antenna3.jpg"/>
+    </a>
+    </div>
+    <br/>
+    <br/>
+    <xsl:call-template name="main-menu"/>
 
-<div id="content">
-<xsl:call-template name="content"/>
+    <div id="content">
+        <xsl:call-template name="content"/>
+    </div>
 </div>
-</div>
+
 <div id="footer">
-Internet Floor Plan Software. Copyright Savonix Corporation. License under the AGPL.
+<a href="http://www.internetfloorplans.com/blog/">Open Source Internet Floor Plan Software</a>. Copyright Savonix Corporation. License under the AGPL.
 </div>
 </body>
 </html>
