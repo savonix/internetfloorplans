@@ -34,18 +34,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <table>
         <tr>	
             <td colspan="2">
-                You can upload an image formatted as a JPEG. </td>
+                <xsl: value-of select="labels/label[key='upload_image_jpeg_format']/value"/>. </td>
         </tr>
         <tr>	
-            <td>Image name:</td>
+            <td><xsl: value-of select="labels/label[key='image_name']/value"/>:</td>
             <td><input type='text' name='name' size="25" ><xsl:attribute name="value"><xsl:value-of select="//_post/name"/></xsl:attribute></input></td>
         </tr>
         <tr>	
-            <td>Image file:</td>
+            <td><xsl: value-of select="labels/label[key='image_file']/value"/>:</td>
             <td><input type='file' name='file' size="25" /></td>
         </tr>
         <tr>
-            <td>Comments:</td>
+            <td><xsl: value-of select="labels/label[key='comments']/value"/>:</td>
             <td><textarea cols="35" rows="5" name="comments"><xsl:value-of select="//_post/comments"/></textarea></td>
         </tr>
         <!--<tr>

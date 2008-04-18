@@ -31,16 +31,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<table class="simpletable">
 		<tr>
 			<th>
-				Equipment Type
+				<xsl: value-of select="labels/label[key='equip_type']/value"/>
             </th>
 			<th>
-				Container
+				<xsl: value-of select="labels/label[key='container']/value"/>
             </th>
 			<th>
-				Business
+				<xsl: value-of select="labels/label[key='business']/value"/>
             </th>
 			<th>
-				Options
+				<xsl: value-of select="labels/label[key='options']/value"/>
             </th>
 			<th> </th>
 		</tr>
