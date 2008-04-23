@@ -31,9 +31,38 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table>
     <tr>
         <td colspan="2">
-            Space Plan Options : 
-            <a href="#">Add New Plan</a> - 
-            <a href="#">Unlock This Plan</a>
+            <table class="simple-table">
+                <thead>
+                <tr>
+                    <th>
+                        Space Plan Options:
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
+                            Add New Plan
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
+                            Lock Plan
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a onclick="return confirm('Are you sure you want to delete this location image?')">
+                        Delete Plan</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <!--
             <br/>
             [ PDF Not Available ] / [ PDF ]
             
@@ -49,6 +78,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </xsl:if>
             
             [ <a>Debug SWF</a> ]
+            -->
             
         </td>
     </tr>
