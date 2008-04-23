@@ -24,7 +24,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
 <xsl:import href="equipment_menu.xsl"/>
-
 <xsl:template name="content">
 	<form method="post">
 	<table class="simple-table">
@@ -61,7 +60,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </td>
 			<td>
 				<a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}" 
-                    onclick="return confirm('Are you sure you want to delete this asset?')">
+                    onclick="return false;">
                     Delete
                 </a>
             </td>

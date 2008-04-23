@@ -23,7 +23,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="equipment_menu">
-<a href="#"><xsl: value-of select="labels/label[key='equipment_list']/value"/></a>
-<a href="#"><xsl: value-of select="labels/label[key='equipment_quantities']/value"/></a>
+<a href="#"><xsl:value-of select="//labels/label[key='equipment_list']/value"/></a>
+<a href="#"><xsl:value-of select="//labels/label[key='equipment_quantities']/value"/></a>
 </xsl:template>
 </xsl:stylesheet>
