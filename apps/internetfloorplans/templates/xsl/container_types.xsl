@@ -28,18 +28,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table class="simpletable">
     <tr>
         <th>
-            <xsl: value-of select="labels/label[key='equip_name']/value"/>
+            <xsl:value-of select="labels/label[key='equip_name']/value"/>
         </th>
         <th>
-            <xsl: value-of select="labels/label[key='description']/value"/>
+            <xsl:value-of select="labels/label[key='description']/value"/>
 
         </th>
         <th>
-            <xsl: value-of select="labels/label[key='edit']/value"/>
+            <xsl:value-of select="labels/label[key='edit']/value"/>
 
         </th>
         <th>
-            <xsl: value-of select="labels/label[key='delete']/value"/>
+            <xsl:value-of select="labels/label[key='delete']/value"/>
         </th>
     </tr>
     <xsl:for-each select="//container_types_get_all">
@@ -65,16 +65,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </td>
     </tr>
     </xsl:for-each>
-    <tr><td align="left" colspan="4">
-    <table cellpadding="15" >
-        <tr>
-            <td>
-            <input type="button" value="New"
-            onclick="document.location.href='edit'"/>
-            </td>
-        </tr>
-    </table>
-</td></tr>
+    <tr>
+        <td align="left" colspan="4">
+            <input type="button" value="New" onclick="document.location.href='edit'"/>
+        </td>
+    </tr>
 </table>
 </form>
 </xsl:template>
