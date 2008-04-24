@@ -91,15 +91,15 @@ $(document).ready(function()
     <table>
         <tr>
         <td>
-		<img src="{/__ROOT__/runtime/path_prefix}/s/js/blue/first.png" class="first"/>
-		<img src="{/__ROOT__/runtime/path_prefix}/s/js/blue/prev.png" class="prev"/>
+		<img src="{/__ROOT__/runtime/path_prefix}/s/css/blue/first.png" class="first"/>
+		<img src="{/__ROOT__/runtime/path_prefix}/s/css/blue/prev.png" class="prev"/>
 		</td>
         <td>
         <input type="text" class="pagedisplay" size="10" readonly="readonly"/>
         </td>
         <td>
-		<img src="{/__ROOT__/runtime/path_prefix}/s/js/blue/next.png" class="next"/>
-		<img src="{/__ROOT__/runtime/path_prefix}/s/js/blue/last.png" class="last"/>
+		<img src="{/__ROOT__/runtime/path_prefix}/s/css/blue/next.png" class="next"/>
+		<img src="{/__ROOT__/runtime/path_prefix}/s/css/blue/last.png" class="last"/>
         </td>
         </tr>
     </table>

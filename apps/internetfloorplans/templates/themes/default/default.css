@@ -83,3 +83,22 @@ background-color: #FFF; padding: 5px;
 .simple-table thead th { 
 background-color: #EEE; padding: 5px;
 }
+.generic-button {
+    text-align: center;
+    margin-left: 5px;
+}
+
+.generic-button a {
+    padding: 2px 5px 2px 5px;
+    border: 2px; border-style: solid;
+    border-color: #BBB;
+    text-align: center;
+}
+.generic-button img {
+    margin-bottom: -4px; margin-right: 6px;
+}
+a.generic-button {
+    padding: 2px 5px 2px 5px; border: 2px; border-style: solid; border-color: #BBB;
+    text-align: center;
+}
+

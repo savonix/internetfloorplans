@@ -23,7 +23,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
+<xsl:include href="pager.xsl"/>
 <xsl:template name="content">
+<xsl:call-template name="jquery-setup">
+    <xsl:with-param name="my-table">mylocations</xsl:with-param>
+    <xsl:with-param name="my-table-div">my-locations-div</xsl:with-param>
+    <xsl:with-param name="no-sort-column">,
+        headers: { 
+            4: {sorter: false},
+            5: {sorter: false},
+            6: {sorter: false}
+        }
+    </xsl:with-param>
+</xsl:call-template>
 <table class="simple-table">
     <tr>
         <form method="post" name="form0">
@@ -50,7 +62,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </tr>
 </table>
 <form method="post" name="myform">
-<table class="simple-table">
+<div id="my-locations-div">
+<script type="text/javascript">
+    document.getElementById('my-locations-div').style.visibility = 'hidden';
+</script>
+<table width="100%" class="tablesorter" id="mylocations">
+    <thead>
     <tr>
         <th>Status</th>
         <th>
@@ -66,6 +83,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </xsl:attribute></input>
         </th>
     </tr>
+    </thead>
+    <tbody>
     <xsl:for-each select="//locations_get_all">
         <xsl:if test="not(//x_view)">
             <xsl:call-template name="location_row"/>
@@ -76,9 +95,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </xsl:for-each>
     <xsl:if test="(count(//get_all_locations) = //incr) or (//_get/start!=0)">
     </xsl:if>
-</table></form>
+    </tbody>
+</table>
 
-<a href="{//link_prefix}ifp-location-edit">Add Location</a>
+</div>
+</form>
+<div style="float: right;" class="generic-button">
+    <a href="{//link_prefix}ifp-location-edit">Add Location</a>
+</div>
+<xsl:call-template name="pager">
+    <xsl:with-param name="my-table">mylocations</xsl:with-param>
+</xsl:call-template>
 </xsl:template>
 
 
