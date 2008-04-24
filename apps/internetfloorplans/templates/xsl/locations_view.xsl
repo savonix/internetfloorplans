@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <td align="left">
             Region:
             <select name="my_region_id" onChange="document.form0.submit();">
-                <option value="all">All</option>	
+                <option value="all">All</option>
                 <xsl:for-each select="//get_all_regions">
                     <option value="{region_id}"><xsl:if test="//my_region_id=region_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if><xsl:value-of select="region_name"/></option>
                 </xsl:for-each>
