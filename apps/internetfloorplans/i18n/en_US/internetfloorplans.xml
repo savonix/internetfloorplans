@@ -142,6 +142,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<label>
 		<key>please_select_responce</key>
 		<value>Please select the appropriate response based upon the results of these campaign instructions</value>
+	</label>
 <!-- equipment display config -->
 	<label>
 		<key>line_of_business</key>
@@ -206,6 +207,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<label>
 		<key>description</key>
 		<value>Description</value>
+	</label>
+	<!-- equipment type -->
+	<label>
+		<key>equipment_type_name</key>
+		<value>Equipment Type Name</value>
+	</label>
+	<label>
+		<key>new_equipment_type</key>
+		<value>New Equipment Type</value>
 	</label>
 	<!-- equipment type menu -->
 	<label>
@@ -302,6 +312,40 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<label>
 		<key>delete_this_symbol</key>
 		<value>Delete This Symbol</value>
+	</label>
+	<!-- main -->
+	<label>
+		<key>welcome</key>
+		<value>Welcome</value>
+	</label>
+	<label>
+		<key>open_source_internet_software</key>
+		<value>Open Source Internet Floor Plan Software</value>
+	</label>
+	<label>
+		<key>copyright</key>
+		<value>Copyright Savonix Corporation</value>
+	</label>
+	<label>
+		<key>license</key>
+		<value>License under the AGPL</value>
+	</label>
+	<!-- location_space_plan-->
+	<label>
+		<key>delete_plan</key>
+		<value>Delete Plan</value>
+	</label>
+	<label>
+		<key>lock_plan</key>
+		<value>Lock Plan</value>
+	</label>
+	<label>
+		<key>add_new_plan</key>
+		<value>Add New Plan</value>
+	</label>
+	<label>
+		<key>space_plan_options</key>
+		<value>Space Plan Options</value>
 	</label>
 </labels>
 </i18n>

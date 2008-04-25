@@ -54,7 +54,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <div id="page">
     <div id="banner">
-    <h1>Welcome</h1>
+    <h1><xsl:value-of select="//labels/label[key='welcome']/value"/></h1>
     <a href="{//link_prefix}">
         <img src="{//path_prefix}s/img/antenna3.jpg"/>
     </a>
@@ -69,7 +69,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </div>
 
 <div id="footer">
-<a href="http://www.internetfloorplans.com/blog/">Open Source Internet Floor Plan Software</a>. Copyright Savonix Corporation. License under the AGPL.
+<a href="http://www.internetfloorplans.com/blog/"><xsl:value-of select="//labels/label[key='open_source_internet_software']/value"/></a>. <xsl:value-of select="//labels/label[key='copyright']/value"/>. <xsl:value-of select="//labels/label[key='license']/value"/>.
 </div>
 </body>
 </html>

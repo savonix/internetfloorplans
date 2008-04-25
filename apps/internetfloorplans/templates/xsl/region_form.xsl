@@ -38,8 +38,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <td>
             <table>
             <xsl:for-each select="//locations_get_all" >
-            <tr><td><input type="checkbox" name="location_address_id[]" value="{location_address_id}" /></td>
-            <td><xsl:value-of select="name"/></td></tr>
+            <tr>
+	    	<td><input type="checkbox" name="location_address_id[]" value="{location_address_id}" /></td>
+		<td><xsl:value-of select="name"/></td>
+	    </tr>
             </xsl:for-each>
             </table>
         </td>

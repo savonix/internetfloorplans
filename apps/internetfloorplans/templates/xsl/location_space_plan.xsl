@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <thead>
                 <tr>
                     <th>
-                        Space Plan Options:
+                        <xsl:value-of select="//labels/label[key='space_plan_options']/value"/>:
                     </th>
                 </tr>
                 </thead>
@@ -43,21 +43,21 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <tr>
                     <td>
                         <a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
-                            Add New Plan
+                           <xsl:value-of select="//labels/label[key='add_new_plan']/value"/>
                         </a>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
-                            Lock Plan
+                            <xsl:value-of select="//labels/label[key='lock_plan']/value"/>
                         </a>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <a onclick="return confirm('Are you sure you want to delete this location image?')">
-                        <xsl:value-of select="//labels/label[key='delete']/value"/> Plan</a>
+                        <xsl:value-of select="//labels/label[key='delete_plan']/value"/></a>
                     </td>
                 </tr>
                 </tbody>

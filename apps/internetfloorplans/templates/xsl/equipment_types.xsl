@@ -27,8 +27,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table class="simple-table">
     <thead>
     <tr>
-        <th>Equipment Type Name</th>
-        <th>Description</th>
+        <th><xsl:value-of select="//labels/label[key='equipment_type_name']/value"/></th>
+        <th><xsl:value-of select="//labels/label[key='description']/value"/></th>
         <th><xsl:value-of select="//labels/label[key='edit']/value"/></th>
         <th><xsl:value-of select="//labels/label[key='delete']/value"/></th>
     </tr>
@@ -45,7 +45,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:value-of select="description"/>
         </td>
         <td>
-            <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">Edit</a></td>
+            <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}"><xsl:value-of select="//labels/label[key='edit']/value"/></a></td>
         <td>
             <a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}"
             onclick="return confirm('Are you sure you want to delete this equipment type?')"><xsl:value-of select="//labels/label[key='delete']/value"/></a></td>
@@ -53,6 +53,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </xsl:for-each>
     </tbody>
 </table>
-<a href="{//link_prefix}ifp-equipment-type-edit">New Equipment Type</a>
+<a href="{//link_prefix}ifp-equipment-type-edit"><xsl:value-of select="//labels/label[key='new_equipment_type']/value"/></a>
 </xsl:template>
 </xsl:stylesheet>
