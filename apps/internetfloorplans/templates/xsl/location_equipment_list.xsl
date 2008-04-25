@@ -34,19 +34,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <thead>
 		<tr>
 			<th>
-				ID</th>
+				<xsl:value-of select="//labels/label[key='id']/value"/></th>
 			<th>
-				Equipment Type</th>
+				<xsl:value-of select="//labels/label[key='equipment_type']/value"/></th>
 			<th>
-				Container</th>
+				<xsl:value-of select="//labels/label[key='container']/value"/></th>
 			<th>
-				Business</th>
+				<xsl:value-of select="//labels/label[key='business']/value"/></th>
 			<th>
-				Options</th>
+				<xsl:value-of select="//labels/label[key='options']/value"/></th>
 			<th>
-				Edit</th>
+				<xsl:value-of select="//labels/label[key='edit']/value"/></th>
 			<th>
-				Delete</th>
+				<xsl:value-of select="//labels/label[key='delete']/value"/></th>
 		</tr>
         </thead>
         <tbody>
@@ -61,19 +61,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<td>
 				<xsl:value-of select="container_name"/></td>
 			<td>
-				<xsl:value-of select="lob_name"/></td>
+				<xsl:value-of select="//lob_name"/></td>
 			<td>
 				<xsl:value-of select="priority_name"/></td>
 			<td>
-				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}">Edit</a></td>
+				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}"><xsl:value-of select="//labels/label[key='edit']/value"/></a></td>
 			<td>
 				<a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}" 
-                onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a></td>
+                onclick="return confirm('Are you sure you want to delete this asset?')"><xsl:value-of select="//labels/label[key='delete']/value"/></a></td>
 		</tr>
 		</xsl:for-each>
         </tbody>
 	</table>
 	</form>
-    <a href="{//link_prefix}ifp-equipment-edit&amp;location_id={//_get/location_id}">Add New Equipment</a>
+    <a href="{//link_prefix}ifp-equipment-edit&amp;location_id={//_get/location_id}"><xsl:value-of select="//labels/label[key='add_new_equiment']/value"/></a>
 </xsl:template>
 </xsl:stylesheet>

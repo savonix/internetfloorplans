@@ -29,8 +29,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <tr>
         <th>Equipment Type Name</th>
         <th>Description</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <th><xsl:value-of select="//labels/label[key='edit']/value"/></th>
+        <th><xsl:value-of select="//labels/label[key='delete']/value"/></th>
     </tr>
     </thead>
     <tbody>
@@ -48,7 +48,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">Edit</a></td>
         <td>
             <a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}"
-            onclick="return confirm('Are you sure you want to delete this equipment type?')">Delete</a></td>
+            onclick="return confirm('Are you sure you want to delete this equipment type?')"><xsl:value-of select="//labels/label[key='delete']/value"/></a></td>
     </tr>
     </xsl:for-each>
     </tbody>

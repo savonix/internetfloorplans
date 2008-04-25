@@ -88,7 +88,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:call-template name="pager">
     <xsl:with-param name="my-table">myregions</xsl:with-param>
 </xsl:call-template>
-<input type="submit" value="Delete" name="submit" 
+<input type="submit" value="<xsl:value-of select="//labels/label[key='delete']/value"/>" name="submit" 
     onclick="return confirm('Are you sure you want to delete these regions?')" />
 </xsl:template>
 </xsl:stylesheet>

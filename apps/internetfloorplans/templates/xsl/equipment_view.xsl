@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <table>
             <tr>
                 <td>
-                    Images
+                    <xsl:value-of select="//labels/label[key='images']/value"/>
                 </td>
             </tr>
             <xsl:for-each select="//equipment_type_images_get_all" >
@@ -50,13 +50,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <table>
             <tr>
                 <td>
-                    Options
+                    <xsl:value-of select="//labels/label[key='options']/value"/>
                 </td>
             </tr>
             <xsl:if test="not(//get_asset_type_images)">
             <tr>
                 <td>
-                    <a href="#">Add New Image</a>
+                    <a href="#"><xsl:value-of select="//labels/label[key='add_new_image']/value"/></a>
                 </td>
             </tr>
             </xsl:if>
@@ -64,7 +64,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <td>
                     <a href="#"
                     onclick="return confirm('Are you sure you want to delete this equipment type image?')">
-                    Delete This Image</a>
+                    <xsl:value-of select="//labels/label[key='delete_this_image']/value"/></a>
                 </td>
             </tr>
         </table>

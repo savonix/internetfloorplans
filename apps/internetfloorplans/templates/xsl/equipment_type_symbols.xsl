@@ -31,7 +31,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table>
 <tr>
     <td>
-        Symbols
+        <xsl:value-of select="//labels/label[key='symbols']/value"/>
     </td>
 </tr>
 <xsl:for-each select="//get_equipment_type_symbols" >
@@ -43,12 +43,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </xsl:for-each>
 </table>
 
-Options
+<xsl:value-of select="//labels/label[key='options']/value"/>
 <xsl:if test="not(//get_equipment_type_symbols)">
-        <a>Add New Symbol</a>
+        <a><xsl:value-of select="//labels/label[key='add_new_symbol']/value"/></a>
 </xsl:if>
         <a onclick="return confirm('Are you sure you want to delete this equipment type symbol?')">
-        Delete This Symbol</a>
+        <xsl:value-of select="//labels/label[key='delete_this_symbol']/value"/></a>
 
 
 <table>
@@ -73,7 +73,7 @@ Options
 </tr>
 <tr>
     <td>
-        Comments:
+        <xsl:value-of select="//labels/label[key='comments']/value"/>:
         
     </td>
 </tr>

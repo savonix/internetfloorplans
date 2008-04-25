@@ -25,10 +25,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="equipment_type_menu" match="//get_location_summary">
 <table>
     <tr>
-        <td>Images</td>
-        <td>Icons</td>
-        <td>Containers</td>
-        <td>Container Coding</td>
+        <td><xsl:value-of select="//labels/label[key='images']/value"/></td>
+        <td><xsl:value-of select="//labels/label[key='icons']/value"/></td>
+        <td><xsl:value-of select="//labels/label[key='containers']/value"/></td>
+        <td><xsl:value-of select="//labels/label[key='container_coding']/value"/></td>
     </tr>
 </table>
 </xsl:template>

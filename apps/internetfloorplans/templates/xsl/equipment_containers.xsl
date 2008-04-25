@@ -35,14 +35,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <table>
             <tr>
                 <td>
-                    <xsl:value-of select="labels/label[key='add_containers']/value"/>
+                    <xsl:value-of select="//labels/label[key='add_containers']/value"/>
                 </td>
             </tr>
             <form action="{self}add/" method="post">
             <input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
             <tr>
                 <td>
-                <xsl:value-of select="labels/label[key='name']/value"/>:<input type="text" size="12" name="name"/><br/>
+                <xsl:value-of select="//labels/label[key='name']/value"/>:<input type="text" size="12" name="name"/><br/>
                 <select name="container_id">
                     <xsl:for-each select="//get_container_types" >
                         <option value="{container_id}"><xsl:value-of select="name"/></option>
@@ -59,7 +59,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
             <tr>
                 <td>
-                    <xsl:value-of select="labels/label[key='delete_container']/value"/>
+                    <xsl:value-of select="//labels/label[key='delete_container']/value"/>
                 </td>
             </tr>
             <tr>
@@ -142,7 +142,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </tr>
             <tr>
                 <td>
-                    <xsl:value-of select="labels/label[key='comments']/value"/>:
+                    <xsl:value-of select="//labels/label[key='comments']/value"/>:
                 </td>
             </tr>
             <tr>

@@ -66,7 +66,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<tr>
 				<td>
 					<a onclick="return confirm('Are you sure you want to delete this location image?')">
-                    Delete This Image</a>
+                    <xsl:value-of select="//labels/label[key='delete']/value"/> This Image</a>
 				</td>
 			</tr>
 		</table>

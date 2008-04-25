@@ -28,18 +28,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table class="simpletable">
     <tr>
         <th>
-            <xsl:value-of select="labels/label[key='equip_name']/value"/>
+            <xsl:value-of select="//labels/label[key='equip_name']/value"/>
         </th>
         <th>
-            <xsl:value-of select="labels/label[key='description']/value"/>
+            <xsl:value-of select="//labels/label[key='description']/value"/>
 
         </th>
         <th>
-            <xsl:value-of select="labels/label[key='edit']/value"/>
+            <xsl:value-of select="//labels/label[key='edit']/value"/>
 
         </th>
         <th>
-            <xsl:value-of select="labels/label[key='delete']/value"/>
+            <xsl:value-of select="//labels/label[key='delete']/value"/>
         </th>
     </tr>
     <xsl:for-each select="//container_types_get_all">

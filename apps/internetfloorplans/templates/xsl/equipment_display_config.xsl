@@ -26,7 +26,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 <xsl:if test="//equipment_type_image_id">
 	<xsl:if test="//user_roles='uplink_regional_manager'">
-	[ <a href="/acc/link/assets/edit/&amp;equipment_id={//equipment_id}&amp;location_address_id={//location_address_id}" target="_parent">Edit</a> ] [<a target="_parent" href="/acc/link/loc/view/sp/&amp;location_address_id={//location_address_id}&amp;equipment_id={//equipment_id}&amp;delete=true" onclick="return confirm('Are you sure you want to delete this asset?')">Delete</a> ]
+	[ <a href="/acc/link/assets/edit/&amp;equipment_id={//equipment_id}&amp;location_address_id={//location_address_id}" target="_parent"><xsl:value-of select="//labels/label[key='edit']/value"/></a> ] [<a target="_parent" href="/acc/link/loc/view/sp/&amp;location_address_id={//location_address_id}&amp;equipment_id={//equipment_id}&amp;delete=true" onclick="return confirm('Are you sure you want to delete this asset?')"><xsl:value-of select="//labels/label[key='delete']/value"/></a> ]
 
 	
 	
@@ -55,7 +55,7 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 <tr><td><xsl:value-of select="//equipment_type_name"/></td></tr>
 	<xsl:if test="//get_lob">
 	 <tr>
-			<td><xsl:value-of select="labels/label[key='line_of_business']/value"/>:
+			<td><xsl:value-of select="//labels/label[key='line_of_business']/value"/>:
 			<br/>
 			<select name="lob_id">
 			<xsl:for-each select="//get_lob">
@@ -71,7 +71,7 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 	</xsl:if>
 	<xsl:if test="//get_priorities">
 		<tr>
-			<td><xsl:value-of select="labels/label[key='priority_rating']/value"/>:
+			<td><xsl:value-of select="//labels/label[key='priority_rating']/value"/>:
 			<br/>
 			<select name="priority_id">
 			<xsl:for-each select="//get_priorities">

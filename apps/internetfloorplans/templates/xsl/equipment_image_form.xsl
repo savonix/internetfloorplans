@@ -34,18 +34,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <table>
         <tr>	
             <td colspan="2">
-                <xsl:value-of select="labels/label[key='upload_image_jpeg_format']/value"/>. </td>
+                <xsl:value-of select="//labels/label[key='upload_image_jpeg_format']/value"/>. </td>
         </tr>
         <tr>	
-            <td><xsl:value-of select="labels/label[key='image_name']/value"/>:</td>
+            <td><xsl:value-of select="//labels/label[key='image_name']/value"/>:</td>
             <td><input type='text' name='name' size="25" ><xsl:attribute name="value"><xsl:value-of select="//_post/name"/></xsl:attribute></input></td>
         </tr>
         <tr>	
-            <td><xsl:value-of select="labels/label[key='image_file']/value"/>:</td>
+            <td><xsl:value-of select="//labels/label[key='image_file']/value"/>:</td>
             <td><input type='file' name='file' size="25" /></td>
         </tr>
         <tr>
-            <td><xsl:value-of select="labels/label[key='comments']/value"/>:</td>
+            <td><xsl:value-of select="//labels/label[key='comments']/value"/>:</td>
             <td><textarea cols="35" rows="5" name="comments"><xsl:value-of select="//_post/comments"/></textarea></td>
         </tr>
         <!--<tr>

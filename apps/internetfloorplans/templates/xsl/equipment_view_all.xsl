@@ -30,16 +30,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <thead>
 		<tr>
 			<th>
-				Equipment Type
+				<xsl:value-of select="//labels/label[key='equipment_type']/value"/>
             </th>
 			<th>
-				Location
+				<xsl:value-of select="//labels/label[key='location']/value"/>
             </th>
 			<th>
-				Edit
+				<xsl:value-of select="//labels/label[key='edit']/value"/>
             </th>
 			<th>
-				Delete
+				<xsl:value-of select="//labels/label[key='delete']/value"/>
             </th>
 		</tr>
         </thead>
@@ -50,18 +50,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:value-of select="name"/></td>
 			<td>
 				<a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}">
-                    <xsl:value-of select="location_address_name"/>
+                    <xsl:value-of select="//location_address_name"/>
                 </a>
             </td>
 			<td>
 				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}">
-                    Edit
+                    <xsl:value-of select="//labels/label[key='edit']/value"/>
                 </a>
             </td>
 			<td>
 				<a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}" 
                     onclick="return false;">
-                    Delete
+                    <xsl:value-of select="//labels/label[key='delete']/value"/>
                 </a>
             </td>
 		</tr>

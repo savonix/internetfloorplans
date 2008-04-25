@@ -33,8 +33,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <table class="simple-table">
         <thead>
         <tr>
-            <th>Equipment Type</th>
-            <th>Quantity</th>
+            <th><xsl:value-of select="//labels/label[key='equipment_type']/value"/></th>
+            <th><xsl:value-of select="//labels/label[key='quantity']/value"/></th>
         </tr>
         </thead>
         <tbody>

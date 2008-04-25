@@ -139,6 +139,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<key>fixture_is_not_there</key>
 		<value>The fixture is not there</value>
 	</label>
+	<label>
+		<key>please_select_responce</key>
+		<value>Please select the appropriate response based upon the results of these campaign instructions</value>
 <!-- equipment display config -->
 	<label>
 		<key>line_of_business</key>
@@ -203,6 +206,102 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<label>
 		<key>description</key>
 		<value>Description</value>
+	</label>
+	<!-- equipment type menu -->
+	<label>
+		<key>images</key>
+		<value>Images</value>
+	</label>
+	<label>
+		<key>icons</key>
+		<value>Icons</value>
+	</label>
+	<label>
+		<key>containers</key>
+		<value>Containers</value>
+	</label>
+	<label>
+		<key>container_coding</key>
+		<value>Container Coding</value>
+	</label>
+	<!-- equipment view all -->
+	<label>
+		<key>equipment_type</key>
+		<value>Equipment Type</value>
+	</label>
+	<!-- equipment view -->
+	<label>
+		<key>add_new_image</key>
+		<value>Add New Image</value>
+	</label>
+	<label>
+		<key>delete_this_image</key>
+		<value>Delete This Image</value>
+	</label>
+	<!--equipment type summary-->
+	<label>
+		<key>edit_this_equipment_type</key>
+		<value>Edit This Equipment Type</value>
+	</label>
+	<label>
+		<key>delete_this_equipment_type</key>
+		<value>Delete This Equipment Type</value>
+	</label>
+	<label>
+		<key>not_valid_data</key>
+		<value>The data you have submitted is not valid, the field titles with an asterisk are required. The form 
+	has been reverted to its original data</value>
+	</label>
+	<!-- location form -->
+	<label>
+		<key>address_line</key>
+		<value>Address Line</value>
+	</label>
+	<label>
+		<key>city</key>
+		<value>City</value>
+	</label>
+	<label>
+		<key>state</key>
+		<value>State</value>
+	</label>
+	<label>
+		<key>zip</key>
+		<value>Zip</value>
+	</label>
+	<label>
+		<key>phone</key>
+		<value>Phone</value>
+	</label>
+	<label>
+		<key>fax</key>
+		<value>Fax</value>
+	</label>
+	<label>
+		<key>regions</key>
+		<value>Regions</value>
+	</label>
+	<!-- location equipment -->
+	<label>
+		<key>add_new_equipment</key>
+		<value>Add New Equipment</value>
+	</label>
+	<label>
+		<key>equipment_type</key>
+		<value>Equiment Type</value>
+	</label>
+	<label>
+		<key>id</key>
+		<value>ID</value>
+	</label>
+	<!-- equipment_type_symbols -->
+	<label>
+		<key>add_new_symbol</key>
+		<value>Add New Symbol</value>
+	</label>
+	<label>
+		<key>delete_this_symbol</key>
+		<value>Delete This Symbol</value>
 	</label>
 </labels>
 </i18n>

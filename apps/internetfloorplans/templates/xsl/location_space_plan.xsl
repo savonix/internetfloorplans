@@ -57,7 +57,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <tr>
                     <td>
                         <a onclick="return confirm('Are you sure you want to delete this location image?')">
-                        Delete Plan</a>
+                        <xsl:value-of select="//labels/label[key='delete']/value"/> Plan</a>
                     </td>
                 </tr>
                 </tbody>
@@ -66,7 +66,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <br/>
             [ PDF Not Available ] / [ PDF ]
             
-            [ <a onclick="return confirm('Are you sure you want to delete this location space plan?')">>Delete This Plan</a> ]
+            [ <a onclick="return confirm('Are you sure you want to delete this location space plan?')">><xsl:value-of select="//labels/label[key='delete']/value"/> This Plan</a> ]
             
             <xsl:if test="//_get/key='no'">
             
