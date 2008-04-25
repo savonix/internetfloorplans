@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table>
     <tr>
         <td>
-	<xsl: value-of select="labels/label[key='please_select_responce']/value"/>
+	<xsl:value-of select="labels/label[key='please_select_responce']/value"/>
         Please select the appropriate response based upon the results of these campaign instructions: 
         <br/><br/>
         <table>
@@ -38,25 +38,25 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <td>
                     <input type="radio" name="response" value="success" checked="checked"/>
                 </td>
-                <td><xsl: value-of select="labels/label[key='materials_successfully_installed']/value"/>.</td>
+                <td><xsl:value-of select="labels/label[key='materials_successfully_installed']/value"/>.</td>
             </tr>
             <tr>
                 <td>
                     <input type="radio" name="response" value="never"/>
                 </td>
-                <td><xsl: value-of select="labels/label[key='never_received_materials']/value"/>.</td>
+                <td><xsl:value-of select="labels/label[key='never_received_materials']/value"/>.</td>
             </tr>
             <tr>
                 <td>
                     <input type="radio" name="response" value="replace"/>
                 </td>
-                <td><xsl: value-of select="labels/label[key='received_materials_need_replacements']/value"/>.</td>
+                <td><xsl:value-of select="labels/label[key='received_materials_need_replacements']/value"/>.</td>
             </tr>
             <tr>
                 <td>
                     <input type="radio" name="response" value="impossible"/>
                 </td>
-                <td><xsl: value-of select="labels/label[key='fixture_is_not_there']/value"/>.</td>
+                <td><xsl:value-of select="labels/label[key='fixture_is_not_there']/value"/>.</td>
             </tr>
         </table>
             

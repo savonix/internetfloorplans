@@ -31,10 +31,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<table class="simple-table">
 		<tr>
 			<td>
-				<xsl: value-of select="labels/label[key='equipment_type']/value"/>
+				<xsl:value-of select="labels/label[key='equipment_type']/value"/>
             </td>
 			<td>
-				<xsl: value-of select="labels/label[key='quantity']/value"/>
+				<xsl:value-of select="labels/label[key='quantity']/value"/>
             </td>
 		</tr>
 		<xsl:for-each select="//equipment_types_get_all">
