@@ -74,6 +74,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </tbody>
 	</table>
 	</form>
-    <a href="{//link_prefix}ifp-equipment-edit&amp;location_id={//_get/location_id}"><xsl:value-of select="//labels/label[key='add_new_equiment']/value"/></a>
+    <a href="{//link_prefix}ifp-equipment-edit&amp;location_id={//_get/location_id}"><xsl:value-of select="//labels/label[key='add_new_equipment']/value"/></a>
 </xsl:template>
 </xsl:stylesheet>
