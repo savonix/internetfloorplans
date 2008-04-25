@@ -26,8 +26,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:for-each select="//get_location_summary">
 	<tr>
 		<td>
-		Location Options
-		[ <a target="_top" href="/acc/link/loc/edit/&amp;location_address_id={location_address_id}">Edit</a> ]
+		<xsl:value-of select="//labels/label[key='location_options']/value"/>
+		[ <a target="_top" href="/acc/link/loc/edit/&amp;location_address_id={location_address_id}"><xsl:value-of select="//labels/label[key='edit']/value"/></a> ]
 		[ <a target="_top" href="/acc/link/loc/del/&amp;location_address_id={location_address_id}" onclick="return confirm('Are you sure you want to delete this location?')"><xsl:value-of select="//labels/label[key='delete']/value"/></a> ]
 		</td>
 		<td>

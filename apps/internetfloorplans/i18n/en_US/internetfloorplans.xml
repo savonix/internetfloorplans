@@ -347,5 +347,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<key>space_plan_options</key>
 		<value>Space Plan Options</value>
 	</label>
+	<!-- location summary -->
+	<label>
+		<key>location_options</key>
+		<value>Location Options</value>
+	</label>
 </labels>
 </i18n>

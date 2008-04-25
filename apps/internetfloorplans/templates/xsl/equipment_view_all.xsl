@@ -24,9 +24,25 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
 <xsl:import href="equipment_menu.xsl"/>
+<xsl:include href="pager.xsl"/>
 <xsl:template name="content">
-	<form method="post">
-	<table class="simple-table">
+<xsl:call-template name="jquery-setup">
+    <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
+    <xsl:with-param name="my-table-div">my-equipment-view-all-div</xsl:with-param>
+    <xsl:with-param name="no-sort-column">,
+        headers: { 
+            2: {sorter: false},
+            3: {sorter: false}
+
+        }
+    </xsl:with-param>
+</xsl:call-template>
+<div id="my-equipment-view-all-div">
+<script type="text/javascript">
+//    document.getElementById('my-equipment-view-all-div').style.visibility = 'hidden';
+</script>
+<form method="post">
+<table width="100%" class="tablesorter" id="my-equipment-view-all">
         <thead>
 		<tr>
 			<th>
@@ -68,6 +84,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</xsl:for-each>
         </tbody>
 	</table>
-	</form>
+	</form></div>
+<xsl:call-template name="pager">
+    <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
+</xsl:call-template>
 </xsl:template>
 </xsl:stylesheet>
