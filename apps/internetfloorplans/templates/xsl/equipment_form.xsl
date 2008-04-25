@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</xsl:if>
 	<table>
 		<tr>
-			<td><xsl: value-of select="labels/label[key='asset_id']/value"/>:</td>
+			<td><xsl:value-of select="//labels/label[key='asset_id']/value"/>:</td>
 			<xsl:if test="//_get/equipment_id">
 			<td><xsl:value-of select="//get_asset_by_id/asset_id"/></td>
 			</xsl:if>
@@ -54,7 +54,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</td>
 		</tr>
 		<tr>
-			<td><xsl: value-of select="labels/label[key='asset_type']/value"/>:</td>
+			<td><xsl:value-of select="//labels/label[key='asset_type']/value"/>:</td>
 			<xsl:if test="//_get/equipment_id">
 			<td>
 				<xsl:for-each select="//equipment_types_get_all">
@@ -74,7 +74,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</xsl:if>
 		</tr>
 		<tr>
-			<td><xsl: value-of select="labels/label[key='location']/value"/>:</td>
+			<td><xsl:value-of select="//labels/label[key='location']/value"/>:</td>
 			
 			<xsl:if test="//_get/equipment_id">
 			<td>
@@ -96,12 +96,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</tr>
 		<xsl:for-each select="//get_container_by_type_id">
 		<tr>
-			<td><xsl: value-of select="labels/label[key='container']/value"/>:</td>
+			<td><xsl:value-of select="//labels/label[key='container']/value"/>:</td>
 			<td><xsl:value-of select="name"/></td>
 		</tr>
 		</xsl:for-each>
 		<tr>
-			<td><xsl: value-of select="labels/label[key='priority_rating']/value"/>:</td>
+			<td><xsl:value-of select="//labels/label[key='priority_rating']/value"/>:</td>
 			<td>
 			<select name="priority_id">
 			<xsl:for-each select="//get_priorities">
@@ -116,7 +116,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 		</tr>
 		<tr>
-			<td><xsl: value-of select="labels/label[key='line_of_business']/value"/>:</td>
+			<td><xsl:value-of select="//labels/label[key='line_of_business']/value"/>:</td>
 			<td>
 			<select name="lob_id">
 			<xsl:for-each select="//get_lob">
