@@ -23,14 +23,31 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
+<xsl:import href="equipment_menu.xsl"/>
 <xsl:import href="location_summary.xsl"/>
 <xsl:import href="location_menu.xsl"/>
+<xsl:include href="pager.xsl"/>
 <xsl:template name="content">
+<xsl:call-template name="jquery-setup">
+    <xsl:with-param name="my-table">my-location-equipment-list</xsl:with-param>
+    <xsl:with-param name="my-table-div">my-location-equipment-list-div</xsl:with-param>
+    <xsl:with-param name="no-sort-column">,
+        headers: { 
+            5: {sorter: false},
+            6: {sorter: false}
+
+        }
+    </xsl:with-param>
+</xsl:call-template>
+<div id="my-location-equipment-list-div">
+<script type="text/javascript">
+//    document.getElementById('my-location-equipment-list-div').style.visibility = 'hidden';
+</script>
+<form method="post">
+<table width="100%" class="tablesorter" id="my-location-equipment-list">
 	<form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
 	<input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
-    <xsl:call-template name="location_menu" />
-	<xsl:call-template name="location_summary" />
-    <table class="simple-table">
+  
         <thead>
 		<tr>
 			<th>
@@ -71,9 +88,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 onclick="return confirm('Are you sure you want to delete this asset?')"><xsl:value-of select="//labels/label[key='delete']/value"/></a></td>
 		</tr>
 		</xsl:for-each>
-        </tbody>
-	</table>
-	</form>
-    <a href="{//link_prefix}ifp-equipment-edit&amp;location_id={//_get/location_id}"><xsl:value-of select="//labels/label[key='add_new_equipment']/value"/></a>
+		</tbody>
+		</form>
+		</table>
+		
+<a href="{//link_prefix}ifp-equipment-edit&amp;location_id={//_get/location_id}"><xsl:value-of select="//labels/label[key='add_new_equipment']/value"/></a>
+
+</form></div><xsl:call-template name="pager">
+   <xsl:with-param name="my-table">my-location-equipment-list</xsl:with-param>
+</xsl:call-template>
 </xsl:template>
 </xsl:stylesheet>

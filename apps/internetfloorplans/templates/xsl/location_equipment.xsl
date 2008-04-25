@@ -25,12 +25,24 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="main.xsl"/>
 <xsl:import href="location_summary.xsl"/>
 <xsl:import href="location_menu.xsl"/>
+<xsl:include href="pager.xsl"/>
 <xsl:template name="content">
+<xsl:call-template name="jquery-setup">
+    <xsl:with-param name="my-table">my-location-equipment-list</xsl:with-param>
+    <xsl:with-param name="my-table-div">my-location-equipment-list-div</xsl:with-param>
+    <xsl:with-param name="no-sort-column">,
+        headers: { 
+        }
+    </xsl:with-param>
+</xsl:call-template>
+<div id="my-location-equipment-list-div">
+<script type="text/javascript">
+//    document.getElementById('my-location-equipment-list-div').style.visibility = 'hidden';
+</script>
+<form method="post">
+<table width="100%" class="tablesorter" id="my-location-equipment-list">
 	<form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
 	<input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
-    <xsl:call-template name="location_menu" />
-	<xsl:call-template name="location_summary" />
-    <table class="simple-table">
         <thead>
         <tr>
             <th><xsl:value-of select="//labels/label[key='equipment_type']/value"/></th>
@@ -46,8 +58,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <td><xsl:value-of select="count(//get_all_assets[equipment_type_id=$my_equipment_type_id])"/></td>
         </tr>
         </xsl:for-each>
-        </tbody>
+	</tbody>
+	</form>
 	</table>
 	</form>
+	</div>
+<xsl:call-template name="pager">
+    <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
+</xsl:call-template>
 </xsl:template>
 </xsl:stylesheet>
