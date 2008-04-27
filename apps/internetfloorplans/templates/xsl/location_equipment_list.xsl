@@ -70,7 +70,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<xsl:for-each select="//location_get_equipment">
 		<tr class="row{position() mod 2}">
 			<td>
-				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}&amp;location_address_id={//_get/location_address_id}"><xsl:value-of select="equipment_id"/></a>
+				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}&amp;location_id={//_get/location_id}"><xsl:value-of select="equipment_id"/></a>
 			</td>
 			<td>
 				<xsl:value-of select="name"/>

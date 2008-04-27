@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_symbol_pointer.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,8 +22,8 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="get_symbol_pointer_by_id">
-    <connection>&ifp_connection;</connection>
+<query name="equipment_symbol_pointer">
+    <connection>&ifp_connection_read;</connection>
     <params>
         <param name="_get/equipment_type_symbol_id" type="text"/>
         <param name="runtime/utdate" type="text"/>

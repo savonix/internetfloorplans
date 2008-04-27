@@ -23,19 +23,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="location_get_equipment">
-    <connection>&ifp_connection;</connection>
+    <connection>&ifp_connection_read;</connection>
     <params>
 		<param name="_get/location_id" type="text" />
 	</params>
 	<sql>
-        SELECT *
+        SELECT &ifp_equipment_types;.name, &ifp_equipment;.*, &ifp_location_equipment;.*
 		
-		FROM &ifp_equipment;, &ifp_location_equipment;
+		FROM &ifp_equipment;, &ifp_location_equipment;, &ifp_equipment_types;
 
 		WHERE 
-        &ifp_location_equipment;.equipment_id=&ifp_equipment;.equipment_id
-
-		AND &ifp_location_equipment;.location_id=?
-
+        &ifp_location_equipment;.equipment_id = &ifp_equipment;.equipment_id
+		AND &ifp_location_equipment;.location_id = ?
+        AND &ifp_equipment;.equipment_type_id = &ifp_equipment_types;.equipment_type_id
     </sql>
 </query>

@@ -23,10 +23,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="get_image_pointer_by_id">
-    <connection>&ifp_connection;</connection>
+    <connection>&ifp_connection_read;</connection>
     <params>
         <param name="//equipment_type_image_id" type="text"/>
-				<param name="runtime/utdate" type="text"/>
+        <param name="runtime/utdate" type="text"/>
 	</params>
     <sql>
         SELECT image_pointer, thumb_pointer, mime_type FROM &ifp_equipment_type_images; WHERE equipment_type_image_id = ?
