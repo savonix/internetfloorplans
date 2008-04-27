@@ -11,6 +11,7 @@
 <!ATTLIST param default CDATA #IMPLIED>
 <!ELEMENT sql      (#PCDATA)>
 <!ENTITY ifp_connection "ifp">
+<!ENTITY ifp_connection_read "ifp_read">
 <!ENTITY ifp_write_connection "&ifp_connection;">
 <!ENTITY prefix "ifp_">
 <!ENTITY ifp_locations "&prefix;locations">

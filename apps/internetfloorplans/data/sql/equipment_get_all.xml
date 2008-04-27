@@ -23,7 +23,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="equipment_get_all">
-    <connection>&ifp_connection;</connection>
+    <connection>&ifp_connection_read;</connection>
     <params>
 	</params>
     <sql>

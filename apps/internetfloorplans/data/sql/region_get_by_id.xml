@@ -23,7 +23,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="region_get_by_id">
-    <connection>&ifp_connection;</connection>
+    <connection>&ifp_connection_read;</connection>
     <params>
         <param name="_get/region_id" type="text"/>
     </params>
