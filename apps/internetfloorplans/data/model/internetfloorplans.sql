@@ -36,8 +36,6 @@ CREATE TABLE IF NOT EXISTS `ifp_equipment_category` (
 
 CREATE TABLE IF NOT EXISTS `ifp_equipment_container` (
   `equipment_id` int(11) NOT NULL auto_increment,
-  `business_line_id` int(11) NOT NULL default '0',
-  `priority_id` int(11) NOT NULL default '0',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   `equipment_type_container_id` int(11) NOT NULL default '0',
@@ -79,8 +77,6 @@ CREATE TABLE IF NOT EXISTS `ifp_equipment_type_container` (
   `x_origin` int(11) NOT NULL default '0',
   `y_origin` int(11) NOT NULL default '0',
   `equipment_type_container_id` int(11) default NULL,
-  `default_priority_id` int(11) NOT NULL default '0',
-  `default_business_line_id` int(11) NOT NULL default '0',
   UNIQUE KEY `equipment_container_index` (`equipment_type_container_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

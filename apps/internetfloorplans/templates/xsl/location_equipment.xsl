@@ -37,7 +37,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </xsl:call-template>
 <div id="my-location-equipment-list-div">
 <script type="text/javascript">
-//    document.getElementById('my-location-equipment-list-div').style.visibility = 'hidden';
+    document.getElementById('my-location-equipment-list-div').style.visibility = 'hidden';
 </script>
 <form method="post">
 <table width="100%" class="tablesorter" id="my-location-equipment-list">
