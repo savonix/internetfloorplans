@@ -55,7 +55,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <tr class="row{position() mod 2}">
             <td>
                 <xsl:value-of select="name"/></td>
-                <td><xsl:value-of select="count(//get_all_assets[equipment_type_id=$my_equipment_type_id])"/></td>
+                <td><xsl:value-of select="count(//location_get_equipment[equipment_type_id=$my_equipment_type_id])"/></td>
         </tr>
         </xsl:for-each>
 	</tbody>

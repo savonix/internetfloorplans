@@ -19,8 +19,6 @@ CREATE TABLE IF NOT EXISTS `ifp_equipment` (
   `status_id` int(11) NOT NULL default '0',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  `business_line_id` int(11) NOT NULL default '0',
-  `priority_id` int(11) NOT NULL default '0',
   UNIQUE KEY `equipment_id` (`equipment_id`,`creation_datetime`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
