@@ -21,8 +21,23 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<es_options>
+<ifp_options>
     <option active="1">
-        <option_key>image_upload_directory</option_key>
+        <option_key>file_upload_directory</option_key>
     </option>
-</es_options>
+    <option active="1">
+        <option_key>allow_file_deletion</option_key>
+    </option>
+    <option active="1">
+        <option_key>number_of_records</option_key>
+    </option>
+    <option active="1">
+        <option_key>thumbnail_width</option_key>
+    </option>
+    <option active="1">
+        <option_key>thumbnail_height</option_key>
+    </option>
+    <option active="1">
+        <option_key>thumbnail_prefix</option_key>
+    </option>
+</ifp_options>

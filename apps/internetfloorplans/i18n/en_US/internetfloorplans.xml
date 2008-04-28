@@ -79,6 +79,34 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <key>file_to_upload</key>
         <value>File to upload</value>
     </label>
+
+    <!-- OPTIONS -->
+    <label>
+        <key>allow_file_deletion</key>
+        <value>Allow File Deletion</value>
+    </label>
+    <label>
+        <key>file_upload_directory</key>
+        <value>File Upload Directory</value>
+    </label>
+    <label>
+        <key>number_of_records</key>
+        <value>Number of Records</value>
+    </label>
+    <label>
+        <key>thumbnail_width</key>
+        <value>Thumbnail Width</value>
+    </label>
+    <label>
+        <key>thumbnail_height</key>
+        <value>Thumbnail Height</value>
+    </label>
+    <label>
+        <key>thumbnail_prefix</key>
+        <value>Thumbnail Prefix</value>
+    </label>
+    
+    
     <!-- container_types -->
     <label>
     		<key>equip_name</key>
