@@ -29,7 +29,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 	
 	<form enctype="multipart/form-data" method="post">
-	<input type="hidden" name="location_address_id" value="{//_get/location_address_id}"/>
+    <input type="hidden" name="dest" value="/tmp/"/>
+	<input type="hidden" name="location_id" value="{//_get/location_id}"/>
 	<xsl:call-template name="location_summary" />
 	<table>
     	<xsl:call-template name="upload_form" />

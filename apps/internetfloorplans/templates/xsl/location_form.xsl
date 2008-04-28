@@ -25,7 +25,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
 	<form method="post">
-	<input type="hidden" name="location_id" value="{//_get/location_is}"/>
+	<input type="hidden" name="location_id" value="{//_get/location_id}"/>
+    
 		<xsl:call-template name="form"/>
 	</form>
 	<xsl:if test="//_get/location_id">

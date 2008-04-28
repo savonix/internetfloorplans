@@ -134,22 +134,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	<!-- Add new image -->
 	<map:gate name="ifp-location-image-edit" role="client">
 		<map:if name="//_post">
-            <map:action type="upload" params="file,//_post/dest"/>
-            <map:switch name="//_files/file/type">
-                <map:case value="image/gif">
-                    <map:query src="data/sql/add_location_gif_image.xml"/>
-                </map:case>
-                <map:case value="video/quicktime">
-                    <map:query src="data/sql/add_location_gif_image.xml"/>
-                </map:case>
-                <map:default>
-                    <map:action type="thumbnail" params="//_files/file/new_name,256,256,thumb_"/>
-                    <map:query src="data/sql/add_location_image.xml"/>
-                </map:default>
-            </map:switch>
-            <map:query src="data/sql/location_get_summary.xml" />
-            <map:query src="data/sql/get_location_images.xml" />
-            <map:xsl src="templates/xsl/view_location.xsl" />
+            <map:true>
+                <map:action type="upload" params="file,//_post/dest"/>
+                <map:query src="data/sql/location_image_create.xml"/>
+                <map:query src="data/sql/location_get_summary.xml" />
+                <map:query src="data/sql/location_get_images.xml" />
+            </map:true>
+            <map:false>
+            </map:false>
         </map:if>
 		<map:query src="data/sql/location_get_summary.xml" />
 		<map:xsl src="templates/xsl/location_image_form.xsl" />
@@ -318,17 +310,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>
 
 
-<!-- *************************************************  
-
-########  #######  ##     ## #### ########  ##     ## ######## ##    ## ######## 
-##       ##     ## ##     ##  ##  ##     ## ###   ### ##       ###   ##    ##   
-##       ##     ## ##     ##  ##  ##     ## #### #### ##       ####  ##    ##   
-######   ##     ## ##     ##  ##  ########  ## ### ## ######   ## ## ##    ##   
-##       ##  ## ## ##     ##  ##  ##        ##     ## ##       ##  ####    ##   
-##       ##    ##  ##     ##  ##  ##        ##     ## ##       ##   ###    ##   
-########  ##### ##  #######  #### ##        ##     ## ######## ##    ##    ##   
-
- *************************************************  -->
 	<!-- View all equipment -->
 	<map:gate name="ifp-equipment" role="client">
 		<map:query src="data/sql/equipment_get_all.xml"/>
