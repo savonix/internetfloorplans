@@ -36,32 +36,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
         }
     </xsl:with-param>
 </xsl:call-template>
-<table class="simple-table">
-    <tr>
-        <form method="post" name="form0">
-        <td align="left">
-            Region:
-            <select name="my_region_id" onChange="document.form0.submit();">
-                <option value="all">All</option>
-                <xsl:for-each select="//get_all_regions">
-                    <option value="{region_id}"><xsl:if test="//my_region_id=region_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if><xsl:value-of select="region_name"/></option>
-                </xsl:for-each>
-            </select>
-            <input type="checkbox" name="x_view" value="all" onclick="document.form0.submit();"><xsl:if test="//x_view"><xsl:attribute name="checked"></xsl:attribute></xsl:if></input> Hide compliant offices
-        </td>
-        </form>
-        <form method="post" name="search">
-        <td>
-        Search: <input type="text" name="q"/> <input type="submit" value="Go"/>
-        </td>
-        </form>
-
-        <td>
-            Results <xsl:value-of select="//start + 1"/> - <xsl:if test="//x_view"><xsl:value-of select="//start + count(//get_all_locations[status_id='0'])"/></xsl:if><xsl:if test="not(//x_view)"><xsl:value-of select="//start + count(//get_all_locations)"/></xsl:if> of a total of <xsl:if test="//x_view"><xsl:value-of select="count(//get_gt_locations[status_id='0'])"/></xsl:if><xsl:if test="not(//x_view)"><xsl:value-of select="count(//get_gt_locations)"/></xsl:if>.
-        </td>
-    </tr>
-</table>
-<form method="post" name="myform">
 <div id="my-locations-div">
 <script type="text/javascript">
     document.getElementById('my-locations-div').style.visibility = 'hidden';
@@ -78,10 +52,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
         City</th>
         <th>
         Phone</th>
-        <th width="5">
-        <input type="checkbox" value="all" title="Select All"><xsl:attribute name="onClick"><xsl:text>if(this.checked){ this.title='Deselect All'; checkAll(document.myform.locations);} else {uncheckAll(document.myform.locations); this.title='Select All';}</xsl:text>
-        </xsl:attribute></input>
-        </th>
     </tr>
     </thead>
     <tbody>
@@ -93,13 +63,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:call-template name="location_row"/>
         </xsl:if>
     </xsl:for-each>
-    <xsl:if test="(count(//get_all_locations) = //incr) or (//_get/start!=0)">
-    </xsl:if>
     </tbody>
 </table>
-
 </div>
-</form>
 <div style="float: right;" class="generic-button">
     <a href="{//link_prefix}ifp-location-edit">Add Location</a>
 </div>
@@ -119,13 +85,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<td><!--<xsl:value-of select="status_id"/> - <xsl:value-of select="equipment_id"/> -->
 <a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}"><xsl:value-of select="name"/></a>
 			</td>
-			
 			<td><xsl:value-of select="address_line_1"/></td>
 			<td><xsl:value-of select="city"/></td>
 			<td><xsl:value-of select="phone"/></td>
-			<!--<td>
-			<a><xsl:attribute name="href">mailto:<xsl:value-of select="email"/></xsl:attribute><xsl:value-of select="first_name"/>&#160;<xsl:value-of select="//last_name"/></a></td>-->
-			<td width="5"><input type="checkbox" id="locations" name="location_address_id[]" onclick=""/></td>
-		</tr>	
+		</tr>
 </xsl:template>
 </xsl:stylesheet>
