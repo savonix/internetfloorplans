@@ -17,7 +17,7 @@
 <!ENTITY ifp_locations "&prefix;locations">
 <!ENTITY ifp_options "&prefix;options">
 <!ENTITY ifp_location_images "&prefix;location_images">
-<!ENTITY ifp_location_space_plans "&prefix;location_space_plans">
+<!ENTITY ifp_location_space_plans "&prefix;location_space_plan">
 <!ENTITY ifp_location_equipment "&prefix;location_equipment">
 <!ENTITY ifp_location_equipment_position "&prefix;location_equipment_position">
 <!ENTITY ifp_location_region "&prefix;location_region">

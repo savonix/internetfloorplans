@@ -237,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `ifp_location_region` (
 
 
 CREATE TABLE IF NOT EXISTS `ifp_location_space_plan` (
-  `location_space_plan_id` int(11) NOT NULL default '0',
+  `location_space_plan_id` int(11) NOT NULL default '0' autoincrement,
   `location_id` int(11) NOT NULL default '0',
   `default_space_plan` int(11) NOT NULL default '0',
   `name` varchar(100) NOT NULL default '-',
@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `ifp_location_space_plan` (
   `key_y_position` int(11) NOT NULL default '0',
   `space_plan_locked` varchar(100) default 'false',
   UNIQUE KEY `location_space_plan_id` (`location_space_plan_id`,`creation_datetime`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 
