@@ -27,10 +27,20 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table class="simple-table">
     <tr>
         <td><xsl:value-of select="//location_get_summary/name" /></td>
-        <td><a href="{//link_prefix}ifp-location-space-plans&amp;location_id={//_get/location_id}">Space Plans</a></td>
-        <td><a href="{//link_prefix}ifp-location-view&amp;location_id={//_get/location_id}">Virtual Tours</a></td>
-        <td><a href="{//link_prefix}ifp-location-equipment-quantities&amp;location_id={//_get/location_id}">Equipment Quantities</a></td>
-        <td><a href="{//link_prefix}ifp-location-equipment-list&amp;location_id={//_get/location_id}">Equipment List</a></td>
+        <td>
+            <a href="{//link_prefix}ifp-location-space-plans&amp;location_id={//_get/location_id}">
+            Space Plans
+            </a>
+        </td>
+        <td>
+            <a href="{//link_prefix}ifp-location-view&amp;location_id={//_get/location_id}">Virtual Tours</a>
+        </td>
+        <td>
+            <a href="{//link_prefix}ifp-location-equipment-quantities&amp;location_id={//_get/location_id}">Equipment Quantities</a>
+        </td>
+        <td>
+            <a href="{//link_prefix}ifp-location-equipment-list&amp;location_id={//_get/location_id}">Equipment List</a>
+        </td>
     </tr>
 </table>
 </xsl:template>

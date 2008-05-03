@@ -42,7 +42,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <tbody>
                 <tr>
                     <td>
-                        <a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
+                        <a href="{//link_prefix}ifp-location-space-plan-edit&amp;location_id={//_get/location_id}">
                            <xsl:value-of select="//labels/label[key='add_new_plan']/value"/>
                         </a>
                     </td>
