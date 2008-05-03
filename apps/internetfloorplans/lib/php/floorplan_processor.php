@@ -22,13 +22,13 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 */
-$filename = Path::get("_files/file/name","flow");
+$filename = Nexista_Path::get("_files/file/name","flow");
 
 $path = $_SERVER['SCRIPT_FILENAME'];
 $path = dirname(dirname($path));
 $account_id = $_SESSION['NX_AUTH']['account_id'];
-$a_path = $path."/usr/"; 
-$a_path .= $account_id; 
+$a_path = $path."/usr/";
+$a_path .= $account_id;
 
 $b_path = $a_path."/spaceplans/";
 $file = $b_path.$filename;
@@ -43,19 +43,20 @@ $bitmap_file = $file.$ext;
 
 $bitmap_filename = $filename.$ext;
 //Flow::add("bitmap_filename",$bitmap_filename);
-Flow::add("bitmap_filename",$filename);
+Nexista_Flow::add("bitmap_filename",$filename);
 
 function fork($shellCmd) {
    exec("$shellCmd > /dev/null 2>&1 &");
 }
 
+/* This requires pdftoppm */
 
 $my_commands = "pdftoppm $file -r 288 $c_root && \
 convert $c_ppm -resize 25% -quality 75% -interlace none $bitmap_file && \
 rm $c_ppm";
 
 
-fork($my_commands);
+//fork($my_commands);
 
 
 
