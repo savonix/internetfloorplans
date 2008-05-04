@@ -28,6 +28,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 <xsl:call-template name="location_menu" />
 <xsl:call-template name="location_summary" />
+<!--
+return confirm('Are you sure you want to delete this location image?')
+-->
 <table>
     <tr>
         <td colspan="2">
@@ -56,7 +59,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 </tr>
                 <tr>
                     <td>
-                        <a onclick="return confirm('Are you sure you want to delete this location image?')">
+                        <a href="{//link_prefix}" onclick="space_plan_delete(); return false;">
                         <xsl:value-of select="//labels/label[key='delete_plan']/value"/></a>
                     </td>
                 </tr>
@@ -84,7 +87,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </tr>
     <tr>
         <td colspan="2">
-<script type="text/javascript" src="/resources/js/swfobject.js"></script>
+<script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.swf.js"></script>
 <div id="space_plan">
 <!-- Show static jpg here when the visitor does not have the flash plugin. -->
     <img src="{//path_prefix}/s/{//space_plan_pointer}"/>
