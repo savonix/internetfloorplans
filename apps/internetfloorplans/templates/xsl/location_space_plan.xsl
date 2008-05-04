@@ -87,7 +87,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <script type="text/javascript" src="/resources/js/swfobject.js"></script>
 <div id="space_plan">
 <!-- Show static jpg here when the visitor does not have the flash plugin. -->
-
+    <img src="{//path_prefix}/s/{//space_plan_pointer}"/>
 </div>
         
 <script type="text/javascript" defer="defer">
