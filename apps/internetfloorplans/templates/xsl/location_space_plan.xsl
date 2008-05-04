@@ -31,6 +31,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <!--
 return confirm('Are you sure you want to delete this location image?')
 -->
+<script type="text/javascript">
+    var question = '<xsl:value-of select="/__ROOT__/i18n/labels/label[key='delete_account']/value"/>?';
+    function location_space_plan_delete(location_space_plan_id) {
+        if(confirm(location_space_plan_id)) {
+            $.post("<xsl:value-of select="//link_prefix"/>ifp-location-space-plan-delete&amp;location_space_plan_id="+location_space_plan_id, 
+                {'location_space_plan_id': location_space_plan_id},
+            function (data){
+            });
+        }
+    }
+</script>
 <table>
     <tr>
         <td colspan="2">
@@ -59,7 +70,9 @@ return confirm('Are you sure you want to delete this location image?')
                 </tr>
                 <tr>
                     <td>
-                        <a href="{//link_prefix}" onclick="space_plan_delete(); return false;">
+                        <a 
+                    href="{//link_prefix}location_space_plan-delete&amp;location_space_plan_id={//get_location_space_plans/location_space_plan_id}" 
+                        onclick="location_space_plan_delete({//get_location_space_plans/location_space_plan_id}); return false;">
                         <xsl:value-of select="//labels/label[key='delete_plan']/value"/></a>
                     </td>
                 </tr>
@@ -85,8 +98,7 @@ return confirm('Are you sure you want to delete this location image?')
             
         </td>
     </tr>
-    <tr>
-        <td colspan="2">
+    </table>
 <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.swf.js"></script>
 <div id="space_plan">
 <!-- Show static jpg here when the visitor does not have the flash plugin. -->
@@ -99,13 +111,6 @@ var mymoviestring = "ifp-location-space-plan-server&amp;location_space_plan_id=<
 var so = new SWFObject(mymoviestring, "mymovie", "825", "825", "8","#FFFFFF");
 so.write("space_plan");
 </script>
-        
-        </td>
-    </tr>
-
-
-
-</table>
 
 </xsl:template>
 </xsl:stylesheet>
