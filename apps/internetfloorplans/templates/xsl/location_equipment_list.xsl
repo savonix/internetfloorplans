@@ -39,14 +39,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
         }
     </xsl:with-param>
 </xsl:call-template>
+<xsl:call-template name="location_menu" />
+
+<xsl:call-template name="location_summary" />
 <div id="my-location-equipment-list-div">
 <script type="text/javascript">
 //    document.getElementById('my-location-equipment-list-div').style.visibility = 'hidden';
 </script>
 <form method="post">
 <table width="100%" class="tablesorter" id="my-location-equipment-list">
-	<form method="post"><xsl:attribute name="action">/<xsl:value-of select="//self"/></xsl:attribute>
-	<input type="hidden" name="location_address_id"><xsl:attribute name="value"><xsl:value-of select="//_get/location_address_id"/></xsl:attribute></input>
+	<form method="post">
+	<input type="hidden" name="location_id" value="{//_get/location_id}"/>
   
         <thead>
 		<tr>

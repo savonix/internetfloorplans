@@ -35,6 +35,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	    }
     </xsl:with-param>
 </xsl:call-template>
+<!-- Confirm equipment deletion -->
+<script type="text/javascript">
+    var question = 'Are you sure you want to delete this equipment type?';
+    function equipment_type_delete(equipment_type_id,row) {
+        if(confirm(question)) {
+            $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-delete", {'equipment_type_id': equipment_type_id}, 
+            function (data){
+                myTable = document.getElementById("myequipmenttypes");
+                myTable.deleteRow(row);
+            });
+        }
+    }
+</script>
 <div id="my-equipment-types-div">
 <script type="text/javascript">
     document.getElementById('my-equipment-types-div').style.visibility = 'hidden';
@@ -63,7 +76,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}"><xsl:value-of select="//labels/label[key='edit']/value"/></a></td>
         <td>
             <a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}"
-            onclick="return confirm('Are you sure you want to delete this equipment type?')"><xsl:value-of select="//labels/label[key='delete']/value"/></a></td>
+            onclick="equipment_type_delete({equipment_type_id},this.parentNode.parentNode.rowIndex); return false;">
+            <xsl:value-of select="//labels/label[key='delete']/value"/>
+            </a>
+        </td>
     </tr>
     </xsl:for-each>
     </tbody>

@@ -25,10 +25,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="delete_equipment_type">
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="//_get/equipment_type_id" type="text"/>
+        <param name="//_post/equipment_type_id" type="integer"/>
 	</params>
     <sql>
-        DELETE FROM &ifp_equipment_type; 
+        DELETE FROM &ifp_equipment_types;
 		WHERE equipment_type_id=?
     </sql>
 </query>

@@ -465,8 +465,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 	<!-- Delete equipment Types -->
 	<map:gate name="ifp-equipment-type-delete" role="client" >
-		<map:query src="data/sql/delete_equipment_type.xml" />
-		<map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
+		<map:query src="data/sql/equipment_type_delete.xml" />
 	</map:gate>
 
 	<!-- CONFIGURE EQUIPMENT CONTAINERS -->
