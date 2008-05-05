@@ -103,8 +103,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="location_row">
     <tr>
         <td align="middle">
-            <xsl:if test="(status_id=0)"><img src="/resources/img/style-1.1/images/icon_error_sml.gif" alt="Non-compliant"/></xsl:if>
-            <xsl:if test="(status_id=1) or (not(status_id))"><img src="/resources/img/style-1.1/images/icon_success_sml.gif" alt="Compliant"/></xsl:if>
+            <xsl:if test="(status_id=0)"><img src="{//path_prefix}icon_error_sml.gif" alt="Non-compliant"/></xsl:if>
+            <xsl:if test="(status_id=1) or (not(status_id))"><img src="{//path_prefix}icon_success_sml.gif" alt="Compliant"/></xsl:if>
         </td>
         <td><!--<xsl:value-of select="status_id"/> - <xsl:value-of select="equipment_id"/> -->
             <a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}">

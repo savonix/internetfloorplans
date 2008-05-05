@@ -36,6 +36,21 @@ Fifth Floor, Boston, MA 02110-1301 USA
         }
     </xsl:with-param>
 </xsl:call-template>
+
+<!-- Confirm equipment deletion -->
+<script type="text/javascript">
+    var question = 'Are you sure you want to delete this equipment?';
+    function equipment_delete(equipment_id,row) {
+        if(confirm(question)) {
+            $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-delete", {'equipment_id': equipment_id}, 
+            function (data){
+                myTable = document.getElementById("my-equipment-view-all");
+                myTable.deleteRow(row);
+            });
+        }
+    }
+</script>
+
 <div id="my-equipment-view-all-div">
 <script type="text/javascript">
 //    document.getElementById('my-equipment-view-all-div').style.visibility = 'hidden';
@@ -74,8 +89,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 </a>
             </td>
 			<td>
-				<a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}" 
-                    onclick="return false;">
+				<a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}"
+                    onclick="equipment_delete({equipment_id},this.parentNode.parentNode.rowIndex); return false;">
                     <xsl:value-of select="//labels/label[key='delete']/value"/>
                 </a>
             </td>
