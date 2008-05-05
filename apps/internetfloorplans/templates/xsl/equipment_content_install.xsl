@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table>
     <tr>
         <td>
-	<xsl:value-of select="//labels/label[key='please_select_responce']/value"/>: 
+	<xsl:value-of select="//labels/label[key='please_select_responce']/value"/>:
         <br/><br/>
         <table>
             <tr>
@@ -58,18 +58,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <td><xsl:value-of select="//labels/label[key='fixture_is_not_there']/value"/>.</td>
             </tr>
         </table>
-            
         </td>
         <td>
             <iframe name="config" id="config" height="525">
-            
             &#160;
             </iframe>
         </td>
 
     </tr>
 
-    
     <tr>
         <td colspan="2" align="center">
         <input type="submit" value="Submit" name="submit" />

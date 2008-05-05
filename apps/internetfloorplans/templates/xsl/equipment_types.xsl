@@ -32,7 +32,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
         headers: { 
             2: {sorter: false},
             3: {sorter: false}
-
 	    }
     </xsl:with-param>
 </xsl:call-template>

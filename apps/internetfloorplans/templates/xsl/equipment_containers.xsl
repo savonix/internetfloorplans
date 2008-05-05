@@ -38,11 +38,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     <xsl:value-of select="//labels/label[key='add_containers']/value"/>
                 </td>
             </tr>
-            <form action="{self}add/" method="post">
+            <form method="post">
             <input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
             <tr>
                 <td>
-                <xsl:value-of select="//labels/label[key='name']/value"/>:<input type="text" size="12" name="name"/><br/>
+                <xsl:value-of select="//labels/label[key='name']/value"/>:
+                <input type="text" size="12" name="name"/><br/>
                 <select name="container_id">
                     <xsl:for-each select="//get_container_types" >
                         <option value="{container_id}"><xsl:value-of select="name"/></option>
@@ -55,7 +56,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </table>
         <br/>
         <table>
-            <form action="{self}delete/" method="post">
+            <form action="{//link_prefix}ifp-equipment-container-delete" method="post">
             <input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
             <tr>
                 <td>
@@ -80,14 +81,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <table>
             <tr>
                 <td>
-                    
                     <xsl:for-each select="//get_asset_type_images">
                         <xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id
                         or (not(//_get/equipment_type_image_id) and default_image=1)">
                             <xsl:value-of select="name"/>
                         </xsl:if>
                     </xsl:for-each>
-                    
                 </td>
             </tr>
             <tr>
@@ -133,7 +132,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                                      <PARAM NAME="bgcolor" VALUE="#FFFFFF" />
                                     </object>
                                         </xsl:otherwise>
-                                    </xsl:choose>										
+                                    </xsl:choose>
                                 </xsl:if>
                             </xsl:for-each>
                         </xsl:otherwise>

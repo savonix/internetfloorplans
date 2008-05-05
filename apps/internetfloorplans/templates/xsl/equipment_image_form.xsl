@@ -32,15 +32,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:call-template name="equipment_type_menu" />
 	<xsl:call-template name="asset_type_summary" />
     <table>
-        <tr>	
+        <tr>
             <td colspan="2">
                 <xsl:value-of select="//labels/label[key='upload_image_jpeg_format']/value"/>. </td>
         </tr>
-        <tr>	
+        <tr>
             <td><xsl:value-of select="//labels/label[key='image_name']/value"/>:</td>
             <td><input type='text' name='name' size="25" ><xsl:attribute name="value"><xsl:value-of select="//_post/name"/></xsl:attribute></input></td>
         </tr>
-        <tr>	
+        <tr>
             <td><xsl:value-of select="//labels/label[key='image_file']/value"/>:</td>
             <td><input type='file' name='file' size="25" /></td>
         </tr>

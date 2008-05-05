@@ -46,7 +46,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<xsl:if test="not(//_get/equipment_id)">
 			<td><input type="text" name="asset_id"><xsl:attribute name="value"><xsl:value-of select="//equipment_get_by_id/asset_id"/></xsl:attribute></input></td>
 			</xsl:if>
-		
+
 			<td rowspan="6">
 				<xsl:if test="//_get/equipment_id">
 				<img ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//equipment_get_by_id/image_pointer"/>&amp;mime_type=<xsl:value-of select="//equipment_get_by_id/image_pointer"/>&amp;type=merchandising</xsl:attribute></img>
@@ -74,8 +74,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</xsl:if>
 		</tr>
 		<tr>
-			<td><xsl:value-of select="//labels/label[key='location']/value"/>:</td>
-			
+			<td>
+                <xsl:value-of select="//labels/label[key='location']/value"/>:
+            </td>
 			<xsl:if test="//_get/equipment_id">
 			<td>
 				<xsl:for-each select="//locations_get_all">
@@ -110,10 +111,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</option>
 			</xsl:for-each>
 			</select>
-			
-			
 			</td>
-
 		</tr>
 		<tr>
 			<td><xsl:value-of select="//labels/label[key='line_of_business']/value"/>:</td>
@@ -125,22 +123,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				</option>
 			</xsl:for-each>
 			</select>
-			
-			</td>
-
-		</tr>
-		
-		<tr>
-			<td colspan="2" align="center"><br />
-				<table>
-					<tr>
-						<td><input type="submit" value="Submit" name="submit" /></td>
-						<td><input type="button" value="Cancel" onclick="window.location.href={//link_prefix}ifp-equipment'"/></td>
-					</tr>
-				</table>
 			</td>
 		</tr>
 	</table>
+    <div>
+        <input type="submit" value="Submit" name="submit"/>
+        <input type="button" value="Cancel"
+            onclick="window.location.href={//link_prefix}ifp-equipment'"/>
+    </div>
 	</form>
 </xsl:template>
 </xsl:stylesheet>
