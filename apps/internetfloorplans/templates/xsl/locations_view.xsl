@@ -58,6 +58,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <th>
             Phone
         </th>
+        <th>
+            Edit
+        </th>
     </tr>
     </thead>
     <tbody>
@@ -95,6 +98,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <td><xsl:value-of select="address_line_1"/></td>
         <td><xsl:value-of select="city"/></td>
         <td><xsl:value-of select="phone"/></td>
+        <td><a href="{//link_prefix}ifp-location-edit&amp;location_id={location_id}">Edit</a></td>
     </tr>
 </xsl:template>
 </xsl:stylesheet>
