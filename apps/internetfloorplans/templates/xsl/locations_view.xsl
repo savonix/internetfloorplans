@@ -121,7 +121,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </td>
         <td>
             <a href="{//link_prefix}ifp-location-delete&amp;location_id={location_id}"
-                onclick="location_delete({location_id}); return false;">
+                onclick="location_delete({location_id},this.parentNode.parentNode.rowIndex); return false;">
                 Delete
             </a>
         </td>
