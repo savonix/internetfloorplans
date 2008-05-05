@@ -28,33 +28,31 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
     <table>
     <tr>
-        <td align="left" colspan="2">
+        <td colspan="2">
             Email Locations
         </td>
     </tr>
     <tr>
-        <td align="left">
-            Subject: 
+        <td>
+            Subject:
         </td>
-        
-        <td align="left">
+        <td>
             <input type="text" name="subject"/>
         </td>
     </tr>
     <tr>
-        <td align="left">
+        <td>
             Body:
         </td>
-        
-        <td align="left">
+        <td>
             <textarea name="body" rows="8" cols="40">Enter your message here.</textarea>
         </td>
     </tr>
-    <tr>
-        <td colspan="2" align="center"><input type="submit" name="submit" value="Submit"/>
-        <input type="button" value="Cancel" onclick="window.location.href='{//link_prefix}ifp-locations'"/>
-        </td>
-    </tr>
     </table>
+    <div style="text-align: center;">
+    <input type="submit" name="submit" value="Submit"/>
+    <input type="button" value="Cancel"
+        onclick="window.location.href='{//link_prefix}ifp-locations'"/>
+    </div>
 </xsl:template>
 </xsl:stylesheet>

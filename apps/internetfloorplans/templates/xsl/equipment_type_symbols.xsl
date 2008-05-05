@@ -34,7 +34,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:value-of select="//labels/label[key='symbols']/value"/>
     </td>
 </tr>
-<xsl:for-each select="//get_equipment_type_symbols" >
+<xsl:for-each select="//get_equipment_type_symbols">
 <tr>
     <td>
         <a><xsl:value-of select="name"/></a>
@@ -66,9 +66,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </tr>
 <tr>
     <td valign="midlle" align="center" height="240">
-    
-<img><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:if test="contains(//get_equipment_type_symbols/symbol_pointer,'.pdf')"><xsl:value-of select="substring-before(//get_equipment_type_symbols/symbol_pointer,'.pdf')"/>.pdf.jpg</xsl:if><xsl:if test="contains(//get_equipment_type_symbols/symbol_pointer,'.ai')"><xsl:value-of select="substring-before(//get_equipment_type_symbols/symbol_pointer,'.ai')"/>.ai.jpg</xsl:if>&amp;mime_type=image/jpeg&amp;type=merchandising</xsl:attribute></img>
-                        
+<!-- FIXME - This is broken -->
+<img src="{//path_prefix}{//get_equipment_type_symbols/symbol_pointer}"/>
+
     </td>
 </tr>
 <tr>

@@ -25,14 +25,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
 <form method="post">
-<input type="hidden" name="region_id"><xsl:attribute name="value"><xsl:value-of select="//_get/region_id"/></xsl:attribute></input>
+<input type="hidden" name="region_id" value="{//_get/region_id}"/>
     <table>
-    <tr>	
+    <tr>
     <td>Region Name:</td>
-    <td><input type='text' name='name'><xsl:attribute name="value"> <xsl:value-of select="//get_region_name_g/region_name" /></xsl:attribute></input></td>
+    <td>
+        <input type="text" name="name" value="{//get_region_name_g/region_name}"/>
+    </td>
     </tr>
-    <tr>	
-    <td>Locations:</td>
+    <tr>
+    <td>
+        Locations:
+    </td>
     <td>
 <table>
 <xsl:for-each select="//locations_get_all" >
@@ -50,12 +54,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </table>
 </td>
         </tr>
-        <tr>
-            <td colspan="2" align="center">
-            <input type="submit" value="Update" name="submit"/>
-            </td>
-        </tr>
     </table>
+<input type="submit" value="Update" name="submit"/>
 </form>
 </xsl:template>
 </xsl:stylesheet>

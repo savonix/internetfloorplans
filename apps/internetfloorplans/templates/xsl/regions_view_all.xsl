@@ -29,7 +29,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:with-param name="my-table">myregions</xsl:with-param>
     <xsl:with-param name="my-table-div">my-regions-div</xsl:with-param>
     <xsl:with-param name="no-sort-column">,
-        headers: { 
+        headers: {
             0: {sorter: false}
         }
     </xsl:with-param>
@@ -64,12 +64,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 </input>
             </td>
             <td>
-                <a href="{//link_prefix}ifp-region-edit&amp;region_id={region_id}" 
+                <a href="{//link_prefix}ifp-region-edit&amp;region_id={region_id}"
                 class="basic-table-cell">
                 <xsl:value-of select="region_name"/></a>
             </td>
             <td>
-            Geographic</td>
+            Geographic
+            </td>
             <td>
                 <xsl:for-each select="//get_all_region_data">
                     <xsl:if test="$current_region_id=region_id">
@@ -88,7 +89,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:call-template name="pager">
     <xsl:with-param name="my-table">myregions</xsl:with-param>
 </xsl:call-template>
-<input type="submit" value="{//labels/label[key='delete']/value}" name="submit" 
+<input type="submit" value="{//labels/label[key='delete']/value}" name="submit"
     onclick="return confirm('Are you sure you want to delete these regions?')" />
 </xsl:template>
 </xsl:stylesheet>

@@ -29,7 +29,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:with-param name="my-table">mylocations</xsl:with-param>
     <xsl:with-param name="my-table-div">my-locations-div</xsl:with-param>
     <xsl:with-param name="no-sort-column">,
-        headers: { 
+        headers: {
             4: {sorter: false},
             5: {sorter: false},
             6: {sorter: false}
@@ -43,15 +43,21 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table width="100%" class="tablesorter" id="mylocations">
     <thead>
     <tr>
-        <th>Status</th>
         <th>
-        Branch Name</th>
+            Status
+        </th>
         <th>
-        Address</th>
+            Branch Name
+        </th>
         <th>
-        City</th>
+            Address
+        </th>
         <th>
-        Phone</th>
+            City
+        </th>
+        <th>
+            Phone
+        </th>
     </tr>
     </thead>
     <tbody>
@@ -76,18 +82,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
 <xsl:template name="location_row">
-
-		<tr>
-			<td align="middle">
-				<xsl:if test="(status_id=0)"><img src="/resources/img/style-1.1/images/icon_error_sml.gif" alt="Non-compliant"/></xsl:if>
-				<xsl:if test="(status_id=1) or (not(status_id))"><img src="/resources/img/style-1.1/images/icon_success_sml.gif" alt="Compliant"/></xsl:if>
-			</td>
-			<td><!--<xsl:value-of select="status_id"/> - <xsl:value-of select="equipment_id"/> -->
-<a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}"><xsl:value-of select="name"/></a>
-			</td>
-			<td><xsl:value-of select="address_line_1"/></td>
-			<td><xsl:value-of select="city"/></td>
-			<td><xsl:value-of select="phone"/></td>
-		</tr>
+    <tr>
+        <td align="middle">
+            <xsl:if test="(status_id=0)"><img src="/resources/img/style-1.1/images/icon_error_sml.gif" alt="Non-compliant"/></xsl:if>
+            <xsl:if test="(status_id=1) or (not(status_id))"><img src="/resources/img/style-1.1/images/icon_success_sml.gif" alt="Compliant"/></xsl:if>
+        </td>
+        <td><!--<xsl:value-of select="status_id"/> - <xsl:value-of select="equipment_id"/> -->
+            <a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}">
+                <xsl:value-of select="name"/>
+            </a>
+        </td>
+        <td><xsl:value-of select="address_line_1"/></td>
+        <td><xsl:value-of select="city"/></td>
+        <td><xsl:value-of select="phone"/></td>
+    </tr>
 </xsl:template>
 </xsl:stylesheet>

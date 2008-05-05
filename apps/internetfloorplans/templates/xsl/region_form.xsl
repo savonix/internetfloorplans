@@ -31,28 +31,35 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table>
     <tr>
         <td>Region Name:</td>
-        <td><input type="text" name="name" value="{//region_get_by_id/region_name}"/></td>
+        <td>
+            <input type="text" name="name"
+                value="{//region_get_by_id/region_name}"/>
+        </td>
     </tr>
     <tr>
         <td>Locations:</td>
         <td>
             <table>
-            <xsl:for-each select="//locations_get_all" >
+            <xsl:for-each select="//locations_get_all">
             <tr>
-	    	<td><input type="checkbox" name="location_address_id[]" value="{location_address_id}" /></td>
-		<td><xsl:value-of select="name"/></td>
-	    </tr>
+                <td>
+                    <input type="checkbox" name="location_address_id[]"
+                        value="{location_address_id}"/>
+                </td>
+                <td>
+                    <xsl:value-of select="name"/>
+                </td>
+            </tr>
             </xsl:for-each>
             </table>
         </td>
     </tr>
-    <tr>
-        <td colspan="2" align="center">
-            <input type="submit" value="Create" name="submit" />
-            <input type="button" value="Cancel" onclick="window.location.href='{//link_prefix}ifp-regions'"/>
-        </td>
-    </tr>
 </table>
+<div style="text-align: center;">
+    <input type="submit" value="Create" name="submit" />
+    <input type="button" value="Cancel" 
+        onclick="window.location.href='{//link_prefix}ifp-regions'"/>
+</div>
 </form>
 </xsl:template>
 </xsl:stylesheet>
