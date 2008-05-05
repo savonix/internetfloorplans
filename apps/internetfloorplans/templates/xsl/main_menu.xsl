@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: main.xsl
+Component: main_menu.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,28 +22,18 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:include href="html_shell.xsl"/>
-<xsl:include href="main_menu.xsl"/>
-<xsl:template name="main">
-
-<div id="page">
-    <div id="banner">
-    <h1><xsl:value-of select="//labels/label[key='welcome']/value"/></h1>
-    <a href="{//link_prefix}">
-        <img src="{//path_prefix}s/img/antenna3.jpg"/>
-    </a>
+<xsl:template name="main-menu">
+    <div id="top-main-menu">
+    <xsl:for-each select="//menu/item[not(@active=0)]">
+    <xsl:call-template name="button">
+    <xsl:with-param name="key"><xsl:value-of select="key"/></xsl:with-param>
+    </xsl:call-template>
+    </xsl:for-each>
     </div>
-    <br/>
-    <br/>
-    <xsl:call-template name="main-menu"/>
-
-    <div id="content">
-        <xsl:call-template name="content"/>
-    </div>
-</div>
-
-<div id="footer">
-<a href="http://www.internetfloorplans.com/blog/"><xsl:value-of select="//labels/label[key='open_source_internet_software']/value"/></a>. <xsl:value-of select="//labels/label[key='copyright']/value"/>. <xsl:value-of select="//labels/label[key='license']/value"/>.
-</div>
 </xsl:template>
+
+<xsl:template name="button">
+    <xsl:param name="key"/>&#160;
+        <a class="main-menu" href="{/__ROOT__/runtime/link_prefix}{//menu/item[key=$key]/url}" id="{$key}"><xsl:if test="//show_tool_tips='yes'"><xsl:attribute name="title"><xsl:value-of select="//labels/label[key=$key]/description" /></xsl:attribute></xsl:if><xsl:value-of select="//labels/label[key=$key]/value"/></a>
+ </xsl:template>
 </xsl:stylesheet>
