@@ -82,7 +82,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </tbody>
 </table>
 </div>
-</form>
 <div style="float: right;" class="generic-button">
     <a href="{//link_prefix}ifp-region-edit">Add Region</a>
 </div>
@@ -91,5 +90,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </xsl:call-template>
 <input type="submit" value="{//labels/label[key='delete']/value}" name="submit"
     onclick="return confirm('Are you sure you want to delete these regions?')" />
+</form>
 </xsl:template>
 </xsl:stylesheet>

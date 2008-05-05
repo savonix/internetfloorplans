@@ -245,16 +245,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>
 
 	<map:gate name="ifp-regions">
-		<map:switch name="_post/submit">
-			<map:case value="Delete">
-				<map:query src="data/sql/regions_delete.xml" />
-                <map:action type="redirect" params="{//link_prefix}ifp-regions"/>
-			</map:case>
-			<map:default>
-			</map:default>
-		</map:switch>
-		<map:if name="_post/submit">
+		<map:if name="//_post">
 			<map:true>
+                <map:query src="data/sql/regions_delete.xml" />
+                <map:action type="redirect" params="{//link_prefix}ifp-regions"/>
 			</map:true>
 			<map:false>
 				<map:query src="data/sql/regions_get_all.xml" />
