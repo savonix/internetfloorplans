@@ -36,6 +36,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
         }
     </xsl:with-param>
 </xsl:call-template>
+<!-- Confirm location deletion -->
+<script type="text/javascript">
+    var question = 'Are you sure you want to delete this location?';
+    function location_delete(location_id,row) {
+        if(confirm(question)) { 
+            $.post("<xsl:value-of select="//link_prefix"/>ifp-location-delete", {'location_id': location_id}, 
+            function (data){
+                myTable = document.getElementById("mylocations");
+                myTable.deleteRow(row);
+            });
+        }
+    }
+</script>
 <div id="my-locations-div">
 <script type="text/javascript">
     document.getElementById('my-locations-div').style.visibility = 'hidden';
@@ -60,6 +73,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </th>
         <th>
             Edit
+        </th>
+        <th>
+            Delete
         </th>
     </tr>
     </thead>
@@ -98,7 +114,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <td><xsl:value-of select="address_line_1"/></td>
         <td><xsl:value-of select="city"/></td>
         <td><xsl:value-of select="phone"/></td>
-        <td><a href="{//link_prefix}ifp-location-edit&amp;location_id={location_id}">Edit</a></td>
+        <td>
+            <a href="{//link_prefix}ifp-location-edit&amp;location_id={location_id}">
+                Edit
+            </a>
+        </td>
+        <td>
+            <a href="{//link_prefix}ifp-location-delete&amp;location_id={location_id}"
+                onclick="location_delete({location_id}); return false;">
+                Delete
+            </a>
+        </td>
     </tr>
 </xsl:template>
 </xsl:stylesheet>
