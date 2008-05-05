@@ -24,7 +24,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:import href="main.xsl"/>
 <xsl:template name="content">
-	<form method="post">
+	<form method="post" action="{//link_prefix}ifp-location-edit-submit">
 	<input type="hidden" name="location_id" value="{//_get/location_id}"/>
     
 		<xsl:call-template name="form"/>

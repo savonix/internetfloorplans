@@ -74,28 +74,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>
 
 
-	<map:gate name="ifp-location-new-submit" role="client">
-		<map:if name="_post/submit">
-			<map:true>
-				<map:switch name="_post/submit">
-					<map:case value="Submit">
-                        <map:query src="data/sql/new_location.xml" />
-                        <map:query src="data/sql/get_last_location_address_id.xml" />
-                        <map:query src="data/sql/new_location_regions.xml" />
-                        <map:action type="redirect" params="/ifp-loc/" />
-					</map:case>
-					<map:default>
-						<map:query src="data/sql/get_all_regions.xml" />
-						<map:xsl src="templates/xsl/edit_location_form.xsl" />
-					</map:default>
-				</map:switch>
-			</map:true>
-			<map:false>
-				<map:query src="data/sql/get_all_regions.xml" />
-				<map:xsl src="templates/xsl/edit_location_form.xsl" />
-			</map:false>
-		</map:if>
-	</map:gate>
 
 	<!-- Delete location -->
     <map:gate name="ifp-location-delete" role="client">
@@ -110,19 +88,31 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		</map:if>
     </map:gate>
 
-<!-- Edit Location -->
-<map:gate name="ifp-location-edit" role="client">
-	<map:if name="_post/submit">
-		<map:true>
-            <map:query src="data/sql/location_create.xml" />
-            <map:action type="redirect" params="{//link_prefix}ifp-locations" />
-		</map:true>
-		<map:false>
-			<map:query src="data/sql/regions_get_all.xml" />
-			<map:xsl src="templates/xsl/location_form.xsl" />
-		</map:false>
-	</map:if>
-</map:gate>
+    <!-- Edit Location -->
+    <map:gate name="ifp-location-edit" role="client">
+        <map:query src="data/sql/regions_get_all.xml" />
+        <map:xsl src="templates/xsl/location_form.xsl" />
+    </map:gate>
+	<map:gate name="ifp-location-edit-submit" role="client">
+		<map:if name="_post/submit">
+			<map:true>
+                <map:if name="//_post/location_id">
+                    <map:true>
+                    </map:true>
+                    <map:false>
+                        <map:query src="data/sql/location_create.xml" />
+                        <map:query src="data/sql/get_last_location_address_id.xml" />
+                        <map:query src="data/sql/location_regions_create.xml" />
+					</map:false>
+                </map:if>
+                <map:action type="redirect" params="{//link_prefix}ifp-locations" />
+			</map:true>
+			<map:false>
+                <map:query src="data/sql/regions_get_all.xml" />
+                <map:xsl src="templates/xsl/location_form.xsl" />
+			</map:false>
+		</map:if>
+	</map:gate>
 
 	<!-- ############################### -->
 	<!-- View location image library -->
