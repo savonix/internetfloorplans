@@ -23,17 +23,38 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template name="main-menu">
-    <div id="top-main-menu">
+
+<script type="text/javascript">
+$(document).ready(function()
+{
+    $('#top-main-menu-ul').clickMenu();
+});
+</script>
+    <ul id="top-main-menu-ul">
     <xsl:for-each select="//menu/item[not(@active=0)]">
-    <xsl:call-template name="button">
-    <xsl:with-param name="key"><xsl:value-of select="key"/></xsl:with-param>
-    </xsl:call-template>
+    <li>
+        <xsl:call-template name="button">
+            <xsl:with-param name="key">
+                <xsl:value-of select="key"/>
+            </xsl:with-param>
+        </xsl:call-template>
+    </li>
     </xsl:for-each>
-    </div>
+    </ul>
 </xsl:template>
 
 <xsl:template name="button">
-    <xsl:param name="key"/>&#160;
-        <a class="main-menu" href="{/__ROOT__/runtime/link_prefix}{//menu/item[key=$key]/url}" id="{$key}"><xsl:if test="//show_tool_tips='yes'"><xsl:attribute name="title"><xsl:value-of select="//labels/label[key=$key]/description" /></xsl:attribute></xsl:if><xsl:value-of select="//labels/label[key=$key]/value"/></a>
+    <xsl:param name="key"/>
+        <xsl:value-of select="//labels/label[key=$key]/value"/>
+        <ul>
+        <li>
+        <a class="main-menu" href="{/__ROOT__/runtime/link_prefix}{//menu/item[key=$key]/url}" id="{$key}">
+            <xsl:if test="//show_tool_tips='yes'">
+                <xsl:attribute name="title"><xsl:value-of select="//labels/label[key=$key]/description" /></xsl:attribute>
+            </xsl:if>
+        <xsl:value-of select="//labels/label[key=$key]/value"/>
+        </a>
+        </li>
+        </ul>
  </xsl:template>
 </xsl:stylesheet>

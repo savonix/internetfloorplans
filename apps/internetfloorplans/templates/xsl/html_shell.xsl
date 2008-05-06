@@ -30,6 +30,7 @@ doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
 <head>
 	<title>Internet Floor Plans</title>
     <link rel="stylesheet" type="text/css" href="{//link_prefix}ifp-themed-css" ></link>
+    <link rel="stylesheet" type="text/css" href="{//path_prefix}/s/css/clickmenu.css" />
     <script type="text/javascript" src="{//path_prefix}/s/js/jquery/jquery.js"></script>
     <script type="text/javascript" src="{//path_prefix}s/js/jquery/plugins/jquery.cookiejar.js"></script>
     <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.tablesorter.min.js"></script>
@@ -39,6 +40,7 @@ doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
     <script type="text/javascript" src="{//path_prefix}s/js/jquery/plugins/jquery.cookie.js"></script>
     <script type="text/javascript" src="{//path_prefix}s/js/jquery/plugins/jquery.json.js"></script>
     <script type="text/javascript" src="{//path_prefix}s/js/jquery/plugins/jquery.tablesorter.cookie.js"></script>
+    <script type="text/javascript" src="{//path_prefix}s/js/jquery/plugins/jquery.clickmenu.js"></script>
     <script type="text/javascript" src="{__ROOT__/runtime/path_prefix}/s/js/jsval.js"></script>
 <xsl:for-each select="//in_head">
     <xsl:sort select="priority"/>
