@@ -33,8 +33,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:with-param name="my-table-div">my-location-equipment-list-div</xsl:with-param>
     <xsl:with-param name="no-sort-column">,
         headers: { 
-            5: {sorter: false},
-            6: {sorter: false}
+            3: {sorter: false},
+            4: {sorter: false}
         }
     </xsl:with-param>
 </xsl:call-template>
@@ -71,10 +71,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<th>
 				<xsl:value-of select="//labels/label[key='container']/value"/></th>
 			<th>
-				<xsl:value-of select="//labels/label[key='business']/value"/></th>
-			<th>
-				<xsl:value-of select="//labels/label[key='options']/value"/></th>
-			<th>
 				<xsl:value-of select="//labels/label[key='edit']/value"/></th>
 			<th>
 				<xsl:value-of select="//labels/label[key='delete']/value"/></th>
@@ -91,10 +87,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </td>
 			<td>
 				<xsl:value-of select="container_name"/></td>
-			<td>
-				<xsl:value-of select="//lob_name"/></td>
-			<td>
-				<xsl:value-of select="priority_name"/></td>
 			<td>
 				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}">
                     <xsl:value-of select="//labels/label[key='edit']/value"/>

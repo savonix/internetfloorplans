@@ -30,15 +30,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:call-template name="jquery-setup">
     <xsl:with-param name="my-table">my-location-equipment-list</xsl:with-param>
     <xsl:with-param name="my-table-div">my-location-equipment-list-div</xsl:with-param>
-    <xsl:with-param name="no-sort-column">,
-        headers: { 
-        }
-    </xsl:with-param>
 </xsl:call-template>
 <div id="my-location-equipment-list-div">
-<script type="text/javascript">
-    document.getElementById('my-location-equipment-list-div').style.visibility = 'hidden';
-</script>
+
 <xsl:call-template name="location_menu" />
 
 <xsl:call-template name="location_summary" />
