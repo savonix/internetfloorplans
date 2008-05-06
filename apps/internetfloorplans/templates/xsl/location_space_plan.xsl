@@ -54,6 +54,7 @@ return confirm('Are you sure you want to delete this location image?')
                 </tr>
                 </thead>
                 <tbody>
+                <xsl:if test="not(//get_location_space_plans/location_space_plan_id)">
                 <tr>
                     <td>
                         <a href="{//link_prefix}ifp-location-space-plan-edit&amp;location_id={//_get/location_id}">
@@ -61,6 +62,8 @@ return confirm('Are you sure you want to delete this location image?')
                         </a>
                     </td>
                 </tr>
+                </xsl:if>
+                <xsl:if test="//get_location_space_plans/location_space_plan_id">
                 <tr>
                     <td>
                         <a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
@@ -76,6 +79,7 @@ return confirm('Are you sure you want to delete this location image?')
                         <xsl:value-of select="//labels/label[key='delete_plan']/value"/></a>
                     </td>
                 </tr>
+                </xsl:if>
                 </tbody>
             </table>
             <!--
