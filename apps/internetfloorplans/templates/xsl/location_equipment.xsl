@@ -51,8 +51,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:variable name="my_equipment_type_id"><xsl:value-of select="equipment_type_id"/></xsl:variable>
         <tr class="row{position() mod 2}">
             <td>
-                <xsl:value-of select="name"/></td>
-                <td><xsl:value-of select="count(//location_get_equipment[equipment_type_id=$my_equipment_type_id])"/></td>
+                <xsl:value-of select="name"/>
+            </td>
+            <td>
+                <xsl:value-of select="count(//location_get_equipment[equipment_type_id=$my_equipment_type_id])"/>
+            </td>
         </tr>
         </xsl:for-each>
 	</tbody>
