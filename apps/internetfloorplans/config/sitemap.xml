@@ -239,7 +239,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</map:gate>
 
 	<!-- Edit location equipment -->
-	<map:gate name="ifp-loc/view/eqp/edit_loc/" role="client">
+	<map:gate name="ifp-location-equipment-position-edit" role="client">
 		<!--<map:query src="data/sql/delete_location_equipment_position.xml" />-->
 		<map:query src="data/sql/edit_location_equipment_position.xml"/>
 	</map:gate>
@@ -312,9 +312,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 						<map:query src="data/sql/edit_equipment_container.xml"/>
 					</map:case>	
 					<map:default>
-						<map:query src="data/sql/equipment_create.xml"/>
 					</map:default>
 				</map:switch>
+                <map:action type="redirect" params="{//link_prefix}ifp-location-equipment-list&amp;location_id={//_post/location_id}"/>
 			</map:true>
 		</map:if>
 		<map:query src="data/sql/location_get_summary.xml"/>
@@ -351,7 +351,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 				</map:case>
 				<map:case value="edit">
 					<map:query src="data/sql/equipment_container_update.xml"/>
-				</map:case>	
+				</map:case>
 				<map:default>
 				</map:default>
 			</map:switch>

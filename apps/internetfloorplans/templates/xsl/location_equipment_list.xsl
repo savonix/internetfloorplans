@@ -35,13 +35,24 @@ Fifth Floor, Boston, MA 02110-1301 USA
         headers: { 
             5: {sorter: false},
             6: {sorter: false}
-
         }
     </xsl:with-param>
 </xsl:call-template>
-<xsl:call-template name="location_menu" />
+<script type="text/javascript">
+    var question = 'Are you sure you want to delete this equipment?';
+    function equipment_delete(equipment_id,row) {
+        if(confirm(question)) {
+            $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-delete", {'equipment_id': equipment_id}, 
+            function (data){
+                myTable = document.getElementById("my-location-equipment-list");
+                myTable.deleteRow(row);
+            });
+        }
+    }
+</script>
+<xsl:call-template name="location_menu"/>
+<xsl:call-template name="location_summary"/>
 
-<xsl:call-template name="location_summary" />
 <div id="my-location-equipment-list-div">
 <script type="text/javascript">
 //    document.getElementById('my-location-equipment-list-div').style.visibility = 'hidden';
@@ -85,10 +96,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<td>
 				<xsl:value-of select="priority_name"/></td>
 			<td>
-				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}"><xsl:value-of select="//labels/label[key='edit']/value"/></a></td>
+				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}">
+                    <xsl:value-of select="//labels/label[key='edit']/value"/>
+                </a>
+            </td>
 			<td>
-				<a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}" 
-                onclick="return confirm('Are you sure you want to delete this asset?')"><xsl:value-of select="//labels/label[key='delete']/value"/></a></td>
+				<a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}"
+                onclick="equipment_delete({equipment_id},this.parentNode.parentNode.rowIndex); return false;">
+                    <xsl:value-of select="//labels/label[key='delete']/value"/>
+                </a>
+            </td>
 		</tr>
 		</xsl:for-each>
 		</tbody>
