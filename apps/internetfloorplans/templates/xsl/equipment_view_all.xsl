@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <!-- Confirm equipment deletion -->
 <script type="text/javascript">
-    var question = 'Are you sure you want to delete this equipment?';
+    var question = '<xsl:value-of select="//labels/label[key='are_you_sure_delete']/value"/>?';
     function equipment_delete(equipment_id,row) {
         if(confirm(question)) {
             $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-delete", {'equipment_id': equipment_id}, 

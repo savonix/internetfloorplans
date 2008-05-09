@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<table class="simple-table">
 			<tr>
 				<td>
-					Virtual Tours
+					<xsl:value-of select="//labels/label[key='virtual_tours']/value"/>Virtual Tours
 				</td>
 			</tr>
 			<xsl:for-each select="//get_location_images" >
@@ -53,20 +53,20 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<table class="simple-table">
 			<tr>
 				<td>
-					Tour options
+					<xsl:value-of select="//labels/label[key='tour_options']/value"/>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
-                        Add New Image
+                        <xsl:value-of select="//labels/label[key='add_new_image']/value"/>
                     </a>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<a onclick="return confirm('Are you sure you want to delete this location image?')">
-                    <xsl:value-of select="//labels/label[key='delete']/value"/> This Image</a>
+                    <xsl:value-of select="//labels/label[key='delete']/value"/> <xsl:value-of select="//labels/label[key='this_image']/value"/></a>
 				</td>
 			</tr>
 		</table>

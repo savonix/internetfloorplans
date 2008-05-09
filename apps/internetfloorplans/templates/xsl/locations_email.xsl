@@ -29,12 +29,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <table>
     <tr>
         <td colspan="2">
-            Email Locations
+            <xsl:value-of select="//labels/label[key='email_locations']/value"/>
         </td>
     </tr>
     <tr>
         <td>
-            Subject:
+            <xsl:value-of select="//labels/label[key='subject']/value"/>:
         </td>
         <td>
             <input type="text" name="subject"/>
@@ -42,10 +42,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </tr>
     <tr>
         <td>
-            Body:
+            <xsl:value-of select="//labels/label[key='body']/value"/>:
         </td>
         <td>
-            <textarea name="body" rows="8" cols="40">Enter your message here.</textarea>
+            <textarea name="body" rows="8" cols="40"><xsl:value-of select="//labels/label[key='enter_message_here']/value"/>.</textarea>
         </td>
     </tr>
     </table>
