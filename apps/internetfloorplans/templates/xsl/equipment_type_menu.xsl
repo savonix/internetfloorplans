@@ -22,13 +22,29 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:template name="equipment_type_menu" match="//get_location_summary">
-<table>
+<xsl:template name="equipment-type-menu">
+<table class="simple-table">
     <tr>
-        <td><xsl:value-of select="//labels/label[key='images']/value"/></td>
-        <td><xsl:value-of select="//labels/label[key='icons']/value"/></td>
-        <td><xsl:value-of select="//labels/label[key='containers']/value"/></td>
-        <td><xsl:value-of select="//labels/label[key='container_coding']/value"/></td>
+        <td>
+            <a href="#">
+                <xsl:value-of select="//labels/label[key='images']/value"/>
+            </a>
+        </td>
+        <td>
+            <a href="#">
+            <xsl:value-of select="//labels/label[key='icons']/value"/>
+            </a>
+        </td>
+        <td>
+            <a href="#">
+            <xsl:value-of select="//labels/label[key='containers']/value"/>
+            </a>
+        </td>
+        <td>
+            <a href="#">
+            <xsl:value-of select="//labels/label[key='container_coding']/value"/>
+            </a>
+        </td>
     </tr>
 </table>
 </xsl:template>

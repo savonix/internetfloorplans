@@ -22,9 +22,10 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:import href="main.xsl"/>
-
+<xsl:include href="main.xsl"/>
+<xsl:include href="equipment_type_menu.xsl"/>
 <xsl:template name="content">
+<xsl:call-template name="equipment-type-menu"/>
 <form method="post">
 	<xsl:if test="//_get/equipment_type_id">
 		<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
