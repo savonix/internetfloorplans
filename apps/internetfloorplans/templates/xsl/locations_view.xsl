@@ -57,25 +57,25 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <thead>
     <tr>
         <th>
-            Status
+            <xsl:value-of select="//labels/label[key='status']/value"/>
         </th>
         <th>
-            Branch Name
+            <xsl:value-of select="//labels/label[key='branch_name']/value"/>
         </th>
         <th>
-            Address
+            <xsl:value-of select="//labels/label[key='address']/value"/>
         </th>
         <th>
-            City
+            <xsl:value-of select="//labels/label[key='city']/value"/>
         </th>
         <th>
-            Phone
+            <xsl:value-of select="//labels/label[key='phone']/value"/>
         </th>
         <th>
-            Edit
+            <xsl:value-of select="//labels/label[key='edit']/value"/>
         </th>
         <th>
-            Delete
+            <xsl:value-of select="//labels/label[key='delete']/value"/>
         </th>
     </tr>
     </thead>
@@ -92,7 +92,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </table>
 </div>
 <div style="float: right;" class="generic-button">
-    <a href="{//link_prefix}ifp-location-edit">Add Location</a>
+    <a href="{//link_prefix}ifp-location-edit"><xsl:value-of select="//labels/label[key='add_location']/value"/></a>
 </div>
 <xsl:call-template name="pager">
     <xsl:with-param name="my-table">mylocations</xsl:with-param>
@@ -116,13 +116,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <td><xsl:value-of select="phone"/></td>
         <td>
             <a href="{//link_prefix}ifp-location-edit&amp;location_id={location_id}">
-                Edit
+                <xsl:value-of select="//labels/label[key='edit']/value"/>
             </a>
         </td>
         <td>
             <a href="{//link_prefix}ifp-location-delete&amp;location_id={location_id}"
                 onclick="location_delete({location_id},this.parentNode.parentNode.rowIndex); return false;">
-                Delete
+                <xsl:value-of select="//labels/label[key='delete']/value"/>
             </a>
         </td>
     </tr>

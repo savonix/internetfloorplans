@@ -300,6 +300,10 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<value>Address Line</value>
 	</label>
 	<label>
+		<key>address</key>
+		<value>Address</value>
+	</label>
+	<label>
 		<key>city</key>
 		<value>City</value>
 	</label>
@@ -428,6 +432,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <key>enter_message_here</key>
         <value>Enter your message here</value>
     </label>
-    
+    <!-- locations view -->
+    <label>
+        <key>branch_name</key>
+        <value>Branch Name</value>
+    </label>
+    <label>
+        <key>status</key>
+        <value>Status</value>
+    </label>
+    <label>
+        <key>add_location</key>
+        <value>Add Location</value>
+    </label>
 </labels>
 </i18n>
