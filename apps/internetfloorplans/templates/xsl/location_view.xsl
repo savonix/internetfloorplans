@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<table class="simple-table">
 			<tr>
 				<td>
-					<xsl:value-of select="//labels/label[key='virtual_tours']/value"/>Virtual Tours
+					<xsl:value-of select="//labels/label[key='virtual_tours']/value"/>
 				</td>
 			</tr>
 			<xsl:for-each select="//get_location_images" >
