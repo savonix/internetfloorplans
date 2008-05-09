@@ -51,11 +51,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</xsl:for-each>
 		</table>
 		<table class="simple-table">
-			<tr>
-				<td>
+			<thead>
+            <tr>
+				<th>
 					<xsl:value-of select="//labels/label[key='tour_options']/value"/>
-				</td>
+				</th>
 			</tr>
+            </thead>
+            <xsl:if test="not(//location_image_id)">
 			<tr>
 				<td>
 					<a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
@@ -63,12 +66,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     </a>
 				</td>
 			</tr>
+            </xsl:if>
+            <xsl:if test="//location_image_id">
 			<tr>
 				<td>
-					<a onclick="return confirm('Are you sure you want to delete this location image?')">
+					<a href="#" onclick="return confirm('Are you sure you want to delete this location image?')">
                     <xsl:value-of select="//labels/label[key='delete']/value"/> <xsl:value-of select="//labels/label[key='this_image']/value"/></a>
 				</td>
 			</tr>
+            </xsl:if>
 		</table>
 	</td>
 	
