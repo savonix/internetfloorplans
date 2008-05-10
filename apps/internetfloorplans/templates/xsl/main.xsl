@@ -41,7 +41,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </div>
 
 <div id="footer">
-<a href="http://www.internetfloorplans.com/blog/"><xsl:value-of select="//labels/label[key='open_source_internet_software']/value"/></a>. <xsl:value-of select="//labels/label[key='copyright']/value"/>. <xsl:value-of select="//labels/label[key='license']/value"/>.
+<a href="http://www.internetfloorplans.com/blog/">
+    <xsl:value-of select="//labels/label[key='open_source_internet_software']/value"/>
+</a>.
+<a href="http://www.internetfloorplans.com/trac/browser/?rev={//svn_revision}">Revision <xsl:value-of select="//svn_revision"/></a>
+<xsl:value-of select="//labels/label[key='copyright']/value"/>.
+<xsl:value-of select="//labels/label[key='license']/value"/>.
 </div>
 </xsl:template>
 </xsl:stylesheet>
