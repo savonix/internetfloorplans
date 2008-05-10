@@ -28,5 +28,9 @@ a {
     color: <xsl:value-of select="//link_color"/>
 }
 
+h1 { 
+    font-size: 1.5em;
+}
+
 </xsl:template>
 </xsl:stylesheet>

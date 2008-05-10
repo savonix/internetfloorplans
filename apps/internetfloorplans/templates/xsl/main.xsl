@@ -33,8 +33,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <img src="{//path_prefix}s/img/antenna3.jpg"/>
     </a>
     </div>
-    <br/>
-    <br/>
     <xsl:call-template name="main-menu"/>
 
     <div id="content">
