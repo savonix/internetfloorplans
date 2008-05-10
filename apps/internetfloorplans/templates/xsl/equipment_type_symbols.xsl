@@ -49,12 +49,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </xsl:if>
         <a onclick="return confirm('Are you sure you want to delete this equipment type symbol?')">
         <xsl:value-of select="//labels/label[key='delete_this_symbol']/value"/></a>
-
-
 <table>
 <tr>
     <td>
-        
         <xsl:for-each select="//get_equipment_type_symbols">
             <xsl:if test="equipment_type_symbol_id=//_get/equipment_type_symbol_id
             or (not(//_get/equipment_type_symbol_id) and default_symbol=1)">
@@ -74,7 +71,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <tr>
     <td>
         <xsl:value-of select="//labels/label[key='comments']/value"/>:
-        
     </td>
 </tr>
 <tr>

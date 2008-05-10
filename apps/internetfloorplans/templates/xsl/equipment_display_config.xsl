@@ -28,8 +28,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<xsl:if test="//user_roles='uplink_regional_manager'">
 	[ <a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={//equipment_id}&amp;location_address_id={//location_address_id}" target="_parent"><xsl:value-of select="//labels/label[key='edit']/value"/></a> ] [<a target="_parent" href="/acc/link/loc/view/sp/&amp;location_address_id={//location_address_id}&amp;equipment_id={//equipment_id}&amp;delete=true" onclick="return confirm('Are you sure you want to delete this asset?')"><xsl:value-of select="//labels/label[key='delete']/value"/></a> ]
 	
-	<!--
-	
 	<table>
 	<tr><td>
 Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
@@ -37,9 +35,9 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 <tr><td>Equipment ID: <xsl:value-of select="//equipment_id"/></td></tr>
 <tr><td>Asset ID: <xsl:value-of select="//asset_id"/></td></tr>
 <tr><td>Location Equipment ID: <xsl:value-of select="//location_equipment_id"/></td></tr>
-<tr><td><a href="https://dev.savonix.com/acc/link/assets/delete2/&amp;equipment_id={//equipment_id}">Delete this fixture?</a></td></tr></table>
+<tr><td><a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={//equipment_id}">Delete this fixture?</a></td></tr></table>
 
-<br/>-->
+<br/>
 
 <table>
 	<form method="post">
@@ -51,42 +49,9 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 	</xsl:if>
 	
 <tr><td><xsl:value-of select="//equipment_type_name"/></td></tr>
-	<xsl:if test="//get_lob">
-	 <tr>
-			<td><xsl:value-of select="//labels/label[key='line_of_business']/value"/>:
-			<br/>
-			<select name="lob_id">
-			<xsl:for-each select="//get_lob">
-				<option value="{line_of_business_id}"><xsl:if test="line_of_business_id=//get_asset_by_id/business_line_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
-					<xsl:value-of select="name"/>
-				</option>
-			</xsl:for-each>
-			</select>
-			
-			</td>
-
-		</tr>
-	</xsl:if>
-	<xsl:if test="//get_priorities">
-		<tr>
-			<td><xsl:value-of select="//labels/label[key='priority_rating']/value"/>:
-			<br/>
-			<select name="priority_id">
-			<xsl:for-each select="//get_priorities">
-				<option value="{priority_id}"><xsl:if test="priority_id=//get_asset_by_id/priority_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
-					<xsl:value-of select="name"/>
-				</option>
-			</xsl:for-each>
-			</select>
-			<input type="submit" name="submit" value="Submit"/>
-			
-			</td>
-
-		</tr>
-		</xsl:if>
-		</form>
-		</table>
-		</xsl:if>
+</form>
+</table>
+</xsl:if>
 
 
 <!-- FLASH -->
@@ -99,7 +64,7 @@ Equipment Type Image ID: <xsl:value-of select="//equipment_type_image_id"/></td>
 <script type="text/javascript">
 	var mywidth = 260;
 	var myheight = 450;
- var mymoviestringb = "/acc/link/content/position_server/&amp;equipment_type_image_id=<xsl:value-of select='//equipment_type_image_id'/>&amp;equipment_type_id=<xsl:value-of select='//equipment_type_id'/>&amp;equipment_id=<xsl:value-of select='//equipment_id'/>&amp;w=260&amp;h=450";
+ var mymoviestringb = "{//link_prefix}ifp-equipment-type-image-server&amp;equipment_type_image_id=<xsl:value-of select='//equipment_type_image_id'/>&amp;equipment_type_id=<xsl:value-of select='//equipment_type_id'/>&amp;equipment_id=<xsl:value-of select='//equipment_id'/>&amp;w=260&amp;h=450";
  var so = new SWFObject(mymoviestringb, "mymovieb", 260, 450, "8", "#FFFFFF");
  so.write("equipment_config");
 </script>
