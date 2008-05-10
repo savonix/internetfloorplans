@@ -29,7 +29,7 @@ $path = dirname($path)."/".basename($_SERVER['SCRIPT_NAME']);
 $path_prefix = dirname($path)."/";
 $link_prefix = $path."?nid=";
 $utcdate = gmdate('Y-m-d H:i:s');
-$revision = "$Rev$";
+$svn_revision = "$Rev$";
 $runtime = array(
                 'SERVER_NAME' => $_SERVER['SERVER_NAME'],
                 'REQUEST_URI' => $_SERVER['REQUEST_URI'],
@@ -37,7 +37,7 @@ $runtime = array(
                 'link_prefix' => $link_prefix,
                 'utcdate' => $utcdate,
                 'user_id' => $current_user_id,
-                'debug' => $debug);
+                'svn_revision' => $svn_revision);
 
 Nexista_Flow::add("runtime",$runtime,false);
 ?>
