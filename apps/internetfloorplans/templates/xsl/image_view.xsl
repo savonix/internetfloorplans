@@ -30,10 +30,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <html>
 <head>
 <title>Image Viewer</title>
-    <style>
-    .dragme{position:relative;}
-    </style>
-    <script type="text/javascript" src="/s/js/dragme.js"/>
 </head>
 <body>
 
