@@ -62,7 +62,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </xsl:if>
             <tr>
                 <td>
-                    <a href="#"
+                    <a href="{//link_prefix}ifp-equipment-delete"
                     onclick="return confirm('Are you sure you want to delete this equipment type image?')">
                     <xsl:value-of select="//labels/label[key='delete_this_image']/value"/></a>
                 </td>
