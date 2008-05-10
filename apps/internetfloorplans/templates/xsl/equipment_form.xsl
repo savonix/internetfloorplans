@@ -101,30 +101,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<td><xsl:value-of select="name"/></td>
 		</tr>
 		</xsl:for-each>
-		<tr>
-			<td><xsl:value-of select="//labels/label[key='priority_rating']/value"/>:</td>
-			<td>
-			<select name="priority_id">
-			<xsl:for-each select="//get_priorities">
-				<option value="{priority_id}"><xsl:if test="priority_id=//equipment_get_by_id/priority_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
-					<xsl:value-of select="name"/>
-				</option>
-			</xsl:for-each>
-			</select>
-			</td>
-		</tr>
-		<tr>
-			<td><xsl:value-of select="//labels/label[key='line_of_business']/value"/>:</td>
-			<td>
-			<select name="lob_id">
-			<xsl:for-each select="//get_lob">
-				<option value="{line_of_business_id}"><xsl:if test="line_of_business_id=//equipment_get_by_id/business_line_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
-					<xsl:value-of select="name"/>
-				</option>
-			</xsl:for-each>
-			</select>
-			</td>
-		</tr>
 	</table>
     <div>
         <input type="submit" value="Submit" name="submit"/>
