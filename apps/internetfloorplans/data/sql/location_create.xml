@@ -22,22 +22,16 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="new_location">
+<query name="location_create">
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="_post/location_name" type="text"/>
-        <param name="_post/address_line_1" type="text"/>
-        <param name="_post/address_line_2" type="text"/>
-        <param name="_post/city" type="text"/>
-        <param name="_post/state" type="text" default="0"/>
-        <param name="_post/zip" type="text"/>
-        <param name="_post/phone" type="text"/>
-        <param name="_post/fax" type="text"/>
-        <param name="//right_now" type="text"/>
+        <param name="//_post/location_name" type="text" default="Untitled location"/>
+        <param name="//utcdate" type="text"/>
     </params>
     <sql>
-        INSERT INTO &ifp_locations; 
-		(name, address_line_1, address_line_2, city, state, zip,phone,fax,creation_datetime) 
-		VALUES (?,?,?,?,?,?,?,?,?)
+        INSERT INTO &ifp_locations;
+		    (name,creation_datetime)
+		VALUES
+            (?,?)
     </sql>
 </query>

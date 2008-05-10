@@ -92,7 +92,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </table>
 </div>
 <div style="float: right;" class="generic-button">
-    <a href="{//link_prefix}ifp-location-edit"><xsl:value-of select="//labels/label[key='add_location']/value"/></a>
+    <a href="{//link_prefix}ifp-location-create"><xsl:value-of select="//labels/label[key='add_location']/value"/></a>
 </div>
 <xsl:call-template name="pager">
     <xsl:with-param name="my-table">mylocations</xsl:with-param>

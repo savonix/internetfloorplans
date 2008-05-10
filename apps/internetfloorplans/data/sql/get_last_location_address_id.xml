@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: location_get_id.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,11 +22,15 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="get_last_location_id">
+<query name="location_get_id">
     <connection>&ifp_connection;</connection>
     <params>
+        <param name="//utcdate" type="text"/>
     </params>
     <sql>
-        SELECT MAX(location_id) as location_id FROM &ifp_locations;
+        SELECT MAX(location_id) as location_id
+        FROM &ifp_locations;
+        WHERE
+        creation_datetime = ?
     </sql>
 </query>
