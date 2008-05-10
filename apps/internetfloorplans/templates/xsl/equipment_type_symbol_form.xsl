@@ -26,12 +26,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="equipment_type_summary.xsl"/>
 <xsl:import href="equipment_type_menu.xsl"/>
 <xsl:template name="content">
-	<form enctype="multipart/form-data" action="/acc/link/types/view/sp/add/submit/" method="post">
+	<form enctype="multipart/form-data" method="post">
 	<input type="hidden" name="dest"/>
 	<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
-    <xsl:call-template name="equipment_type_menu" />
-	<xsl:call-template name="equipment_type_summary" />
-    <xsl:call-template name="upload_form" />
+    <xsl:call-template name="equipment_type_menu"/>
+	<xsl:call-template name="equipment_type_summary"/>
+    <xsl:call-template name="upload_form"/>
 	</form>
 </xsl:template>
 </xsl:stylesheet>

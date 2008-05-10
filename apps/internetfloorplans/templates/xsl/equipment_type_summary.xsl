@@ -25,13 +25,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="asset_type_summary" match="//get_location_summary">
 <xsl:for-each select="//get_asset_type_by_id">
 	<tr>
-		<xsl:if test="//_registry/user/roles='uplink_regional_manager'">
 		<td>
 		<xsl:value-of select="//labels/label[key='options']/value"/>:<br />
-		[ <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}"><xsl:value-of select="//labels/label[key='edit_this_equipment_type']/value"/></a> ] <br/>
-		[ <a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}" onclick="return confirm('Are you sure you want to delete this equipment type?')"><xsl:value-of select="//labels/label[key='delete_this_equipment_type']/value"/></a> ]
+		<a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}"><xsl:value-of select="//labels/label[key='edit_this_equipment_type']/value"/></a>
+        <br/>
+		<a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}" onclick="return confirm('Are you sure you want to delete this equipment type?')"><xsl:value-of select="//labels/label[key='delete_this_equipment_type']/value"/></a>
 		</td>
-		</xsl:if>
 		<td>
 		<xsl:value-of select="//labels/label[key='name']/value"/>:<br/>
 		<xsl:value-of select="//get_asset_type_by_id/name" />
