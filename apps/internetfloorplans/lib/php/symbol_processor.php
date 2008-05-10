@@ -22,7 +22,7 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 */
-$filename = Path::get("_files/file/name","flow");
+$filename = Nexista_Path::get("_files/file/name","flow");
 
 $path = $_SERVER['SCRIPT_FILENAME'];
 $path = dirname(dirname($path));
@@ -42,7 +42,7 @@ $bitmap_file = $file.$ext;
 
 
 $bitmap_filename = $filename.$ext;
-Flow::add("bitmap_filename",$filename);
+Nexista_Flow::add("bitmap_filename",$filename);
 
 function fork($shellCmd) {
    exec("$shellCmd > /dev/null 2>&1 &");

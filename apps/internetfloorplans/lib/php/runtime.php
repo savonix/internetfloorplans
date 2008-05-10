@@ -1,6 +1,6 @@
 <?php
 /*
-Program: Infonomix
+Program: Internet Floor Plans
 Component: runtime.php
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
@@ -29,7 +29,16 @@ $path = dirname($path)."/".basename($_SERVER['SCRIPT_NAME']);
 $path_prefix = dirname($path)."/";
 $link_prefix = $path."?nid=";
 $utcdate = gmdate('Y-m-d H:i:s');
-$svn_revision = "$Rev$";
+/*
+    TODO / FIXME:
+    This should be in a separate file, accessed and referenced a plugin
+    so it can easily be turned off.
+*/
+$svn_revision = '$Rev$';
+$svn_revision = str_replace('$Rev:','',$svn_revision);
+$svn_revision = str_replace('$','',$svn_revision);
+/* end TODO */
+
 $runtime = array(
                 'SERVER_NAME' => $_SERVER['SERVER_NAME'],
                 'REQUEST_URI' => $_SERVER['REQUEST_URI'],
