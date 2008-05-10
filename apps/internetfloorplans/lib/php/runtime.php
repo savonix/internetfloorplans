@@ -30,7 +30,7 @@ $path = dirname($path)."/".basename($_SERVER['SCRIPT_NAME']);
 $path_prefix = dirname($path)."/";
 $link_prefix = $path."?nid=";
 $utcdate = gmdate('Y-m-d H:i:s');
-
+$revision = $REV;
 $runtime = array('host_name' => $_SERVER['SERVER_NAME'],
                 'path_prefix' => $path_prefix,
                 'link_prefix' => $link_prefix,
