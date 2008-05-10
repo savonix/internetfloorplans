@@ -63,7 +63,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </thead>
     <tbody>
     <xsl:for-each select="//equipment_types_get_all">
-    <tr class="row{position() mod 2}">
+    <tr>
         <td>
             <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
                 <xsl:value-of select="name"/>

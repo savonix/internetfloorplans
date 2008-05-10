@@ -75,7 +75,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </thead>
         <tbody>
 		<xsl:for-each select="//equipment_get_all">
-		<tr class="row{position() mod 2}">
+		<tr>
 			<td>
 				<xsl:value-of select="name"/></td>
 			<td>
@@ -98,7 +98,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</xsl:for-each>
         </tbody>
 	</table>
-	</form></div>
+	</form>
+</div>
 <xsl:call-template name="pager">
     <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
 </xsl:call-template>

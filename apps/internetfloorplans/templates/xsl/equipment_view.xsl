@@ -71,18 +71,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </td>
 
     <td align="left">
-        <table>
-            <tr>
-                <td>
-                    <xsl:for-each select="//get_asset_type_images">
-                        <xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id
-                        or (not(//_get/equipment_type_image_id) and default_image=1)">
-                            <xsl:value-of select="name"/>
-                        </xsl:if>
-                    </xsl:for-each>
-                </td>
-            </tr>
-        </table>
+        <xsl:for-each select="//get_asset_type_images">
+            <xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id
+            or (not(//_get/equipment_type_image_id) and default_image=1)">
+                <xsl:value-of select="name"/>
+            </xsl:if>
+        </xsl:for-each>
     </td>
 </tr>
 </table>
