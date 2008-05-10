@@ -28,14 +28,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<table>
 		<tr>
 			<td>
-				Welcome to UpLink!<br/><br/>
-				<img src="{//link_prefix}/s/img/map.gif" />
-				<br/><br />
-				With UpLink you can access in-depth information about all of your locations. 
-<br/><br/>
-Need to know the branch manager's name and contact information for your Webster Street branch? Are there new brochure holders in the Eastern Region that you need to keep track of?
-<br/><br/>
-UpLink provides users with these answers and many other features that improve branch management efficiency. Browse through all of UpLink's features by selecting an option in the menu on the left side of the screen.
+				Welcome to Internet Floor Plans!<br/><br/>
+				With Internet Floor Plans you can access in-depth information about all of your locations.
+                Browse through all of the Internet Floor Plan features by selecting an option from the menu.
 				<br/>
 			</td>
 		</tr>
