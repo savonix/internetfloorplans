@@ -1,7 +1,6 @@
-<?php
-/*
-Program: Infonomix
-Component: runtime.php
+<!--
+Program: Internet Floor Plans
+Component: default.css.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -21,22 +20,13 @@ You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
-*/
+-->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:output method="text" encoding="UTF-8" omit-xml-declaration="yes"/>
+<xsl:template match="/">
+a {
+    color: <xsl:value-of select="//link_color"/>
+}
 
-# This wacky path builder is required due to mod_rewrite situations
-$path = $_SERVER['REQUEST_URI'];
-Nexista_Flow::add("request_uri",$path);
-$path = dirname($path)."/".basename($_SERVER['SCRIPT_NAME']);
-$path_prefix = dirname($path)."/";
-$link_prefix = $path."?nid=";
-$utcdate = gmdate('Y-m-d H:i:s');
-
-$runtime = array('host_name' => $_SERVER['SERVER_NAME'],
-                'path_prefix' => $path_prefix,
-                'link_prefix' => $link_prefix,
-                'utcdate' => $utcdate,
-                'user_id' => $current_user_id,
-                'debug' => $debug);
-
-Nexista_Flow::add("runtime",$runtime,false);
-?>
+</xsl:template>
+</xsl:stylesheet>
