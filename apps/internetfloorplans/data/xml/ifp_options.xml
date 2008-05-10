@@ -40,4 +40,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <option active="1">
         <option_key>thumbnail_prefix</option_key>
     </option>
+    <option active="1">
+        <option_key>link_color</option_key>
+    </option>
 </ifp_options>

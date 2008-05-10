@@ -252,6 +252,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 			</map:true>
 			<map:false>
 				<map:query src="data/sql/regions_get_all.xml" />
+				<map:query src="data/sql/locations_get_by_region_id.xml" />
 				<map:xsl src="templates/xsl/regions_view_all.xsl" />
 			</map:false>
 		</map:if>
