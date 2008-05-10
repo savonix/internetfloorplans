@@ -186,12 +186,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</label>
 <!-- equipment_form -->
     <label>
-    		<key>asset-type</key>
-		<value>Asset Type</value>
+        <key>asset_type</key>
+		<value>Equipment Type</value>
 	</label>
 	<label>
 		<key>asset_id</key>
-		<value>Asset ID</value>
+		<value>Equipment Number</value>
 	</label>
 	<label>
 		<key>location</key>
