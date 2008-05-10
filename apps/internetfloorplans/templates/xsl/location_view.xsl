@@ -95,7 +95,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</tr>
 			<tr>
 				<td>
-                <!-- IMAGE OR MOVIE GOES HERE - REDO THIS -->
+                <!-- FIXME: IMAGE OR MOVIE GOES HERE - REDO THIS -->
 				</td>
 
 			</tr>

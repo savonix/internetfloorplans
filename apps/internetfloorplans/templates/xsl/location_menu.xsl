@@ -26,20 +26,28 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<!-- Regional Manager -->
 <table class="simple-table">
     <tr>
-        <td><xsl:value-of select="//location_get_summary/name" /></td>
+        <td>
+            <xsl:value-of select="//location_get_summary/name"/>
+        </td>
         <td>
             <a href="{//link_prefix}ifp-location-space-plans&amp;location_id={//_get/location_id}">
             <xsl:value-of select="//labels/label[key='space_plans']/value"/>
             </a>
         </td>
         <td>
-            <a href="{//link_prefix}ifp-location-view&amp;location_id={//_get/location_id}"><xsl:value-of select="//labels/label[key='virtual_tours']/value"/></a>
+            <a href="{//link_prefix}ifp-location-view&amp;location_id={//_get/location_id}">
+                <xsl:value-of select="//labels/label[key='virtual_tours']/value"/>
+            </a>
         </td>
         <td>
-            <a href="{//link_prefix}ifp-location-equipment-quantities&amp;location_id={//_get/location_id}"><xsl:value-of select="//labels/label[key='equip_quantities']/value"/></a>
+            <a href="{//link_prefix}ifp-location-equipment-quantities&amp;location_id={//_get/location_id}">
+                <xsl:value-of select="//labels/label[key='equip_quantities']/value"/>
+            </a>
         </td>
         <td>
-            <a href="{//link_prefix}ifp-location-equipment-list&amp;location_id={//_get/location_id}"><xsl:value-of select="//labels/label[key='equip_list']/value"/></a>
+            <a href="{//link_prefix}ifp-location-equipment-list&amp;location_id={//_get/location_id}">
+                <xsl:value-of select="//labels/label[key='equip_list']/value"/>
+            </a>
         </td>
     </tr>
 </table>

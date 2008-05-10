@@ -26,18 +26,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:for-each select="//get_location_summary">
 	<tr>
 		<td>
-		<xsl:value-of select="//labels/label[key='location_options']/value"/>
-		[ <a target="_top" href="/acc/link/loc/edit/&amp;location_address_id={location_address_id}"><xsl:value-of select="//labels/label[key='edit']/value"/></a> ]
-		[ <a target="_top" href="/acc/link/loc/del/&amp;location_address_id={location_address_id}" onclick="return confirm('Are you sure you want to delete this location?')"><xsl:value-of select="//labels/label[key='delete']/value"/></a> ]
+            <xsl:value-of select="//labels/label[key='location_options']/value"/>
+            <a href="{//link_prefix}ifp-location-edit&amp;location_address_id={location_address_id}">
+                <xsl:value-of select="//labels/label[key='edit']/value"/>
+            </a>
+            <a href="{//link_prefix}ifp-location-delete&amp;location_address_id={location_address_id}" 
+                onclick="return confirm('Are you sure you want to delete this location?')">
+                <xsl:value-of select="//labels/label[key='delete']/value"/>
+            </a>
 		</td>
 		<td>
-		<xsl:value-of select="//get_location_summary/address_line_1" /><br />
-		<xsl:value-of select="//get_location_summary/city" />&#160; <xsl:value-of select="//get_location_summary/state" />, 
-		<xsl:value-of select="//get_location_summary/zip" />
+		<xsl:value-of select="//get_location_summary/address_line_1"/><br/>
+		<xsl:value-of select="//get_location_summary/city"/>&#160; <xsl:value-of select="//get_location_summary/state" />, 
+		<xsl:value-of select="//get_location_summary/zip"/>
 		</td>
 		<td>
-		Tel: <xsl:value-of select="//get_location_summary/phone" /><br />
-		Fax: <xsl:value-of select="//get_location_summary/fax" />
+		Tel: <xsl:value-of select="//get_location_summary/phone"/><br/>
+		Fax: <xsl:value-of select="//get_location_summary/fax"/>
 		</td>
 		<td>
 		</td>

@@ -28,6 +28,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:import href="image_form.xsl"/>
 <xsl:template name="content">
 	<form enctype="multipart/form-data" method="post">
+    <!-- FIXME: get user configurable destination -->
     <input type="hidden" name="dest" value="/tmp/"/>
 	<input type="hidden" name="location_id" value="{//location_id}"/>
     <xsl:call-template name="location_menu" />

@@ -49,7 +49,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <tbody>
         <xsl:for-each select="//equipment_types_get_all">
         <xsl:variable name="my_equipment_type_id"><xsl:value-of select="equipment_type_id"/></xsl:variable>
-        <tr class="row{position() mod 2}">
+        <tr>
             <td>
                 <xsl:value-of select="name"/>
             </td>

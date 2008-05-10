@@ -102,18 +102,22 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <xsl:template name="location_row">
     <tr>
-        <td align="middle">
-            <xsl:if test="(status_id=0)"><img src="{//path_prefix}icon_error_sml.gif" alt="Non-compliant"/></xsl:if>
-            <xsl:if test="(status_id=1) or (not(status_id))"><img src="{//path_prefix}icon_success_sml.gif" alt="Compliant"/></xsl:if>
+        <td>
         </td>
-        <td><!--<xsl:value-of select="status_id"/> - <xsl:value-of select="equipment_id"/> -->
+        <td>
             <a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}">
                 <xsl:value-of select="name"/>
             </a>
         </td>
-        <td><xsl:value-of select="address_line_1"/></td>
-        <td><xsl:value-of select="city"/></td>
-        <td><xsl:value-of select="phone"/></td>
+        <td>
+            <xsl:value-of select="address_line_1"/>
+        </td>
+        <td>
+            <xsl:value-of select="city"/>
+        </td>
+        <td>
+            <xsl:value-of select="phone"/>
+        </td>
         <td>
             <a href="{//link_prefix}ifp-location-edit&amp;location_id={location_id}">
                 <xsl:value-of select="//labels/label[key='edit']/value"/>
