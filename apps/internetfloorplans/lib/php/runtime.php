@@ -40,13 +40,12 @@ $svn_revision = str_replace('$','',$svn_revision);
 /* end TODO */
 
 $runtime = array(
-                'SERVER_NAME' => $_SERVER['SERVER_NAME'],
-                'REQUEST_URI' => $_SERVER['REQUEST_URI'],
                 'path_prefix' => $path_prefix,
                 'link_prefix' => $link_prefix,
                 'utcdate' => $utcdate,
                 'user_id' => $current_user_id,
-                'svn_revision' => $svn_revision);
+                'svn_revision' => $svn_revision
+                );
 
 Nexista_Flow::add("runtime",$runtime,false);
 ?>
