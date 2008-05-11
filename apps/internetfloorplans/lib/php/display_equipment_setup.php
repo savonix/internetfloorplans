@@ -131,7 +131,6 @@ for($i=0; $i<count($c_array['width']);$i++) {
 
 
 
-header('Content-type: application/x-shockwave-flash');
 $c_pos->output();
 
 

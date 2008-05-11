@@ -434,11 +434,6 @@ $m->writeExports();
 
 ob_start();
 
-$gm_date = gmdate("D, d M Y H:i:s");
-header("Expires: " . $gm_date . " GMT");
-////header("Cache-Control: private, must-revalidate");
-////header("Cache-control: no-store");
-header("Content-type: application/x-shockwave-flash");
 
 //file_put_contents(NX_PATH_CACHE."main_actionscript.as",$all_actionscript);
 $file_target = NX_PATH_CACHE."bah.swf";
