@@ -100,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `ifp_equipment_type_images` (
 
 
 
-CREATE TABLE IF NOT EXISTS `ifp_equipment_type_symbol` (
+CREATE TABLE IF NOT EXISTS `ifp_equipment_type_icon` (
   `equipment_type_symbol_id` int(11) NOT NULL auto_increment,
   `equipment_type_id` int(11) NOT NULL default '0',
   `default_symbol` int(11) NOT NULL default '0',
