@@ -27,8 +27,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:include href="equipment_type_summary.xsl"/>
 <xsl:template name="content">
 <form method="post">
-<xsl:call-template name="equipment_type_menu" />
-<xsl:call-template name="equipment_type_summary" />
+<xsl:call-template name="equipment-type-menu" />
+<xsl:call-template name="equipment-type-summary"/>
 <table class="simple-table">
 <tr>
     <td align="left">

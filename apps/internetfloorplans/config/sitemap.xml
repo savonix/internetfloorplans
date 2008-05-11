@@ -304,15 +304,14 @@ Fifth Floor, Boston, MA 02110-1301  U
 		<map:xsl src="templates/xsl/equipment_types.xsl"/>
 	</map:gate>
 	<!-- View equipment type images -->
-	<map:gate name="ifp-equipment-type" role="client">
+	<map:gate name="ifp-equipment-type-images" role="client">
 		<map:block name="type_images">
 		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
 		<map:query src="data/sql/equipment_type_get_images.xml"/>
-		<map:xsl src="templates/xsl/equipment_type.xsl"/>
+		<map:xsl src="templates/xsl/equipment_type_images.xsl"/>
 		</map:block>
 	</map:gate>
 
-	<!-- ############################### -->
 	<!-- Add new equipment image -->
 	<map:gate name="ifp-equipment-type-edit" role="client">
 		<map:if name="_post/submit">
@@ -351,12 +350,12 @@ Fifth Floor, Boston, MA 02110-1301  U
 	</map:gate>
 
 	<!-- Add new plan symbol -->
-	<map:gate name="ifp-equipment-type-symbol-edit" role="client">
+	<map:gate name="ifp-equipment-type-icon-edit" role="client">
 		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
 		<map:xsl src="templates/xsl/new_equipment_type_symbol.xsl"/>
 	</map:gate>
 
-	<map:gate name="ifp-equipment-type-symbol-edit-submit" role="client">
+	<map:gate name="ifp-equipment-type-icon-edit-submit" role="client">
 		<map:if name="_post/submit">
 			<map:true>
                 <map:action type="upload" params="file,//_post/dest"/>
@@ -370,13 +369,13 @@ Fifth Floor, Boston, MA 02110-1301  U
 		</map:if>
 	</map:gate>
 	<!-- Delete symbol -->
-	<map:gate name="ifp-equipment-type-symbol-edit-delete" role="client">
+	<map:gate name="ifp-equipment-type-icon-edit-delete" role="client">
 		<map:query src="data/sql/equipment_type_symbol_delete.xml"/>
 		<map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
 	</map:gate>
 
 	<!-- View equipment type symbols -->
-	<map:gate name="ifp-equipment-type-symbols" role="client">
+	<map:gate name="ifp-equipment-type-icons" role="client">
 		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
 		<map:query src="data/sql/equipment_type_get_symbols.xml"/>
 		<map:xsl src="templates/xsl/equipment_type_symbols.xsl"/>

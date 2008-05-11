@@ -26,8 +26,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:include href="equipment_type_menu.xsl"/>
 <xsl:include href="equipment_type_summary.xsl"/>
 <xsl:template name="content">
-<xsl:call-template name="equipment_type_menu" />
-<xsl:call-template name="equipment_type_summary" />
+<xsl:call-template name="equipment-type-menu" />
+<xsl:call-template name="equipment-type-summary" />
 
 <table>
 <tr>
@@ -81,7 +81,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <table>
             <tr>
                 <td>
-                    <xsl:for-each select="//get_asset_type_images">
+                    <xsl:for-each select="//get_equipment_type_images">
                         <xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id
                         or (not(//_get/equipment_type_image_id) and default_image=1)">
                             <xsl:value-of select="name"/>
@@ -91,52 +91,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </tr>
             <tr>
                 <td>
-                    <xsl:choose>
-                        <xsl:when test="//_get/equipment_type_image_id">
-                            <xsl:for-each select="//get_asset_type_images">
-                                <xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id">
-                                    <xsl:choose>
-                                        <xsl:when test="contains(image_pointer,'.mov')"> 
-                                            <EMBED type="video/quicktime" cache='true' autoplay='true' controller='false' height='480' width='640'>
-                                                <xsl:attribute name="src">/acc/link/types/image_server/&amp;equipment_type_image_id=<xsl:value-of select="equipment_type_image_id"/></xsl:attribute>
-                                            </EMBED>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            <img><xsl:attribute name="src">/acc/link/types/image_server/&amp;equipment_type_image_id=<xsl:value-of select="equipment_type_image_id"/></xsl:attribute></img>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </xsl:if>
-                            </xsl:for-each>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:for-each select="//get_asset_type_images">
-                                <xsl:if test="(default_image=1) or (count(//get_asset_type_images)=1)">
-                                    <xsl:choose>
-                                        <xsl:when test="contains(image_pointer,'.mov')"> 
-                                            <EMBED type="video/quicktime" cache='true' autoplay='true' controller='false' height='480' width='640'>
-                                                <xsl:attribute name="src">/acc/link/types/image_server/&amp;equipment_type_image_id=<xsl:value-of select="equipment_type_image_id"/></xsl:attribute>
-                                            </EMBED>
-                                        </xsl:when>
-                                        <xsl:otherwise>
-                                            
-                                            
-                                            
-                                            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-                                     codebase="https://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
-                                     WIDTH="730" HEIGHT="500">
-                                    <embed quality="high" bgcolor="#ffffff" height="500" name="main2" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="https://www.macromedia.com/go/getflashplayer">
-                                    <xsl:attribute name="src">/acc/link/types/containers/position_server/&amp;equipment_type_image_id=<xsl:value-of select="equipment_type_image_id"/>&amp;equipment_type_id=<xsl:value-of select="//_get/equipment_type_id"/></xsl:attribute>
-                                    </embed>
-                                    <PARAM NAME="movie"><xsl:attribute name="VALUE">/acc/link/types/containers/position_server/&amp;equipment_type_image_id=<xsl:value-of select="equipment_type_image_id"/>&amp;equipment_type_id=<xsl:value-of select="//_get/equipment_type_id"/></xsl:attribute></PARAM>
-                                     <PARAM NAME="quality" VALUE="high" /> 
-                                     <PARAM NAME="bgcolor" VALUE="#FFFFFF" />
-                                    </object>
-                                        </xsl:otherwise>
-                                    </xsl:choose>
-                                </xsl:if>
-                            </xsl:for-each>
-                        </xsl:otherwise>
-                    </xsl:choose>
                 </td>
             </tr>
             <tr>
@@ -146,7 +100,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </tr>
             <tr>
                 <td>
-                    <xsl:for-each select="//get_asset_type_images">
+                    <xsl:for-each select="//get_equipment_type_images">
                         <xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id
                         or (not(//_get/equipment_type_image_id) and default_image=1)">
                             <xsl:value-of select="comments"/>
