@@ -31,7 +31,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<input type="hidden" name="dest"><xsl:attribute name="value">../usr/<xsl:value-of select="//user_account_id"/>/merchandising/</xsl:attribute></input>
 	<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
     <xsl:call-template name="equipment_type_menu" />
-	<xsl:call-template name="asset_type_summary" />
+	<xsl:call-template name="equipment_type_summary" />
     <xsl:call-template name="upload_form" />
 	</form>
 </xsl:template>
