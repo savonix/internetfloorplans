@@ -22,8 +22,8 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:template name="asset_type_summary" match="//get_location_summary">
-<xsl:for-each select="//get_asset_type_by_id">
+<xsl:template name="equipment_type_summary">
+<xsl:for-each select="//get_equipment_type_by_id">
 	<tr>
 		<td>
 		<xsl:value-of select="//labels/label[key='options']/value"/>:<br />
@@ -37,7 +37,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</td>
 		<td colspan="2">
 		<xsl:value-of select="//labels/label[key='description']/value"/>: <br/>
-		<xsl:value-of select="//get_asset_type_by_id/description" />
+		<xsl:value-of select="//get_equipment_type_by_id/description" />
 		</td>
 	</tr>
 </xsl:for-each>
