@@ -22,12 +22,12 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:import href="main.xsl"/>
-<xsl:import href="equipment_type_summary.xsl"/>
-<xsl:import href="equipment_type_menu.xsl"/>
-<xsl:import href="image_form.xsl"/>
+<xsl:include href="main.xsl"/>
+<xsl:include href="equipment_type_summary.xsl"/>
+<xsl:include href="equipment_type_menu.xsl"/>
+<xsl:include href="image_form.xsl"/>
 <xsl:template name="content">
-	<form enctype="multipart/form-data" action="/acc/link/types/view/add/submit/&amp;equipment_type_id={//_get/equipment_type_id}" method="post">
+	<form enctype="multipart/form-data" action="{//link_prefix}ifp-equipment-type-image-submit&amp;equipment_type_id={//_get/equipment_type_id}" method="post">
 	<input type="hidden" name="dest"><xsl:attribute name="value">../usr/<xsl:value-of select="//user_account_id"/>/merchandising/</xsl:attribute></input>
 	<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
     <xsl:call-template name="equipment_type_menu" />

@@ -22,10 +22,10 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:import href="main.xsl"/>
-<xsl:import href="equipment_menu.xsl"/>
-<xsl:import href="location_summary.xsl"/>
-<xsl:import href="location_menu.xsl"/>
+<xsl:include href="main.xsl"/>
+<xsl:include href="equipment_menu.xsl"/>
+<xsl:include href="location_summary.xsl"/>
+<xsl:include href="location_menu.xsl"/>
 <xsl:include href="pager.xsl"/>
 <xsl:template name="content">
 <xsl:call-template name="jquery-setup">
