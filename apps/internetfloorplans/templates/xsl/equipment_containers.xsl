@@ -29,10 +29,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:call-template name="equipment-type-menu" />
 <xsl:call-template name="equipment-type-summary" />
 
-<table>
+<table class="simple-table">
 <tr>
     <td align="left">
-        <table>
+        <table class="simple-table">
             <tr>
                 <td>
                     <xsl:value-of select="//labels/label[key='add_containers']/value"/>
@@ -55,7 +55,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </form>
         </table>
         <br/>
-        <table>
+        <table class="simple-table">
             <form action="{//link_prefix}ifp-equipment-container-delete" method="post">
             <input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
             <tr>
