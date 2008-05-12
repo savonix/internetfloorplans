@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: image_form.xsl
+Component: upload_form.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -29,6 +29,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <td> <xsl:value-of select="//labels/label[key='file_title']/value"/>:</td>
         <td><input type="text" name="name" size="25" value="{//_post/name}"/></td>
     </tr>
+    <xsl:if test="count(//file_types) &gt; 0">
     <tr>
         <td> <xsl:value-of select="//labels/label[key='file_type']/value"/>:</td>
         <td>
@@ -44,6 +45,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
             </select>
         </td>
     </tr>
+    </xsl:if>
     <tr>
         <td> <xsl:value-of select="//labels/label[key='file_to_upload']/value"/>: * </td>
         <td><input type='file' name='file' size="25" class="box" /></td>
