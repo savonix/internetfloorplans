@@ -27,5 +27,5 @@
 <!ENTITY ifp_location_images "&prefix;location_images">
 <!ENTITY ifp_location_space_plans "&prefix;location_space_plan">
 <!ENTITY ifp_equipment_type_images "&prefix;equipment_type_images">
-<!ENTITY ifp_equipment_type_icons "&prefix;equipment_type_symbol">
+<!ENTITY ifp_equipment_type_icons "&prefix;equipment_type_icon">
 <!ENTITY ifp_options "&prefix;options">

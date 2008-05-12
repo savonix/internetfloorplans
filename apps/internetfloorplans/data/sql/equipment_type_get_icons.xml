@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: equipment_type_get_symbols.xml
+Component: equipment_type_get_icons.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -23,7 +23,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="equipment_type_get_symbols">
+<query name="equipment_type_get_icons">
 
     <connection>&ifp_connection;</connection>
     <params>
