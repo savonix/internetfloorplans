@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <table>
     <tr>
         <td> <xsl:value-of select="//labels/label[key='file_title']/value"/>:</td>
-        <td><input type='text' name='name' size="25" ><xsl:attribute name="value"><xsl:value-of select="//_post/name"/></xsl:attribute></input></td>
+        <td><input type="text" name="name" size="25" value="{//_post/name}"/></td>
     </tr>
     <tr>
         <td> <xsl:value-of select="//labels/label[key='file_type']/value"/>:</td>
@@ -53,11 +53,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <td><textarea cols="35" rows="5" name="comments"><xsl:value-of select="//_post/comments"/></textarea></td>
     </tr>
     <tr>
-        <td colspan="2" align="center"><br />
+        <td colspan="2" align="center"><br/>
             <table cellpadding="5">
                 <tr>
-                    <td><input type="submit" value="Upload" name="submit" /></td>
-                    <td><input type="button" value="Cancel"  onclick="javascript:history.go(-1)"/></td>
+                    <td><input type="submit" value="Upload" name="submit"/></td>
+                    <td><input type="button" value="Cancel" onclick="javascript:history.go(-1)"/></td>
                 </tr>
             </table>
         </td>

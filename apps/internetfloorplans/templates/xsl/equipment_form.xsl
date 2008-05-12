@@ -29,7 +29,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<input type="hidden" value="1" name="quantity"/>
 	<xsl:if test="//_get/equipment_id">
 		<input type="hidden" name="location_id" value="{//_get/location_id}"/>
-		<input type="hidden" name="asset_type_id" value="{//equipment_get_by_id/equipment_type_id}"/>
+		<input type="hidden" name="equipment_type_id" value="{//equipment_get_by_id/equipment_type_id}"/>
 		<input type="hidden" name="asset_id" value="{//equipment_get_by_id/asset_id}"/>
 		<input type="hidden" name="equipment_id" value="{//_get/equipment_id}"/>
 		<input type="hidden" name="type" value="edit"/>
@@ -44,12 +44,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<td><xsl:value-of select="//equipment_get_by_id/asset_id"/></td>
 			</xsl:if>
 			<xsl:if test="not(//_get/equipment_id)">
-			<td><input type="text" name="asset_id"><xsl:attribute name="value"><xsl:value-of select="//equipment_get_by_id/asset_id"/></xsl:attribute></input></td>
+			<td><input type="text" name="asset_id" value="{//equipment_get_by_id/asset_id}"/></td>
 			</xsl:if>
 
 			<td rowspan="6">
 				<xsl:if test="//_get/equipment_id">
-				<img ><xsl:attribute name="src">/file_server/&amp;pointer=<xsl:value-of select="//equipment_get_by_id/image_pointer"/>&amp;mime_type=<xsl:value-of select="//equipment_get_by_id/image_pointer"/>&amp;type=merchandising</xsl:attribute></img>
+				<img src="{//equipment_get_by_id/image_pointer}"/>
 				</xsl:if>
 			</td>
 		</tr>
