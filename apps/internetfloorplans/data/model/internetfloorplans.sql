@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `ifp_container` (
   `height` int(11) NOT NULL default '0',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `container_index` (`container_id`,`creation_datetime`)
+  UNIQUE KEY `container_index` (`container_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
@@ -19,19 +19,8 @@ CREATE TABLE IF NOT EXISTS `ifp_equipment` (
   `status_id` int(11) NOT NULL default '0',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `equipment_id` (`equipment_id`,`creation_datetime`)
+  UNIQUE KEY `equipment_id` (`equipment_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
-
-CREATE TABLE IF NOT EXISTS `ifp_equipment_category` (
-  `equipment_category_id` int(11) NOT NULL default '0',
-  `name` char(100) NOT NULL default '0',
-  `description` char(255) default NULL,
-  `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
-  `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `equipment_category_id` (`equipment_category_id`,`creation_datetime`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 
 CREATE TABLE IF NOT EXISTS `ifp_equipment_container` (
@@ -51,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `ifp_equipment_content` (
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   `installed_id` int(11) NOT NULL default '0',
   `equipment_type_container_id` int(11) NOT NULL default '0',
-  UNIQUE KEY `equipment_content_index` (`equipment_id`,`content_id`,`equipment_type_container_id`,`creation_datetime`)
+  UNIQUE KEY `equipment_content_index` (`equipment_id`,`content_id`,`equipment_type_container_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -95,22 +84,21 @@ CREATE TABLE IF NOT EXISTS `ifp_equipment_type_images` (
   `width` int(11) NOT NULL default '0',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `equipment_type_image_id` (`equipment_type_image_id`,`creation_datetime`)
+  UNIQUE KEY `equipment_type_image_id` (`equipment_type_image_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 
 CREATE TABLE IF NOT EXISTS `ifp_equipment_type_icon` (
-  `equipment_type_symbol_id` int(11) NOT NULL auto_increment,
+  `equipment_type_icon_id` int(11) NOT NULL auto_increment,
   `equipment_type_id` int(11) NOT NULL default '0',
-  `default_symbol` int(11) NOT NULL default '0',
-  `symbol_pointer` char(255) NOT NULL default '0',
+  `default_icon` int(11) NOT NULL default '0',
+  `file_pointer` char(255) NOT NULL default '0',
   `comments` char(255) default '-',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   `name` char(100) NOT NULL default '-',
-  `mime_type` char(50) NOT NULL default 'application/x-shockwave-flash',
-  UNIQUE KEY `equipment_type_symbol_id` (`equipment_type_symbol_id`,`creation_datetime`)
+  UNIQUE KEY `equipment_type_icon_id` (`equipment_type_icon_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
@@ -130,30 +118,8 @@ CREATE TABLE IF NOT EXISTS `ifp_locations` (
   `fax` char(20) default NULL,
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `location_id` (`location_id`,`creation_datetime`)
+  UNIQUE KEY `location_id` (`location_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
-
-CREATE TABLE IF NOT EXISTS `ifp_location_categories` (
-  `location_category_id` int(11) NOT NULL default '0',
-  `location_id` int(11) NOT NULL default '0',
-  `category_id` int(11) NOT NULL default '0',
-  `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
-  `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `location_category_id` (`location_category_id`,`creation_datetime`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-CREATE TABLE IF NOT EXISTS `ifp_location_category_types` (
-  `location_category_type_id` int(11) NOT NULL default '0',
-  `location_category_type_group_id` int(11) NOT NULL default '0',
-  `name` char(100) default NULL,
-  `description` char(255) default NULL,
-  `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
-  `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `location_category_type_id` (`location_category_type_id`,`creation_datetime`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE IF NOT EXISTS `ifp_location_equipment` (
@@ -162,7 +128,7 @@ CREATE TABLE IF NOT EXISTS `ifp_location_equipment` (
   `equipment_id` int(11) NOT NULL default '0',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `location_equipment_id` (`location_equipment_id`,`creation_datetime`)
+  UNIQUE KEY `location_equipment_id` (`location_equipment_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 
@@ -178,19 +144,8 @@ CREATE TABLE IF NOT EXISTS `ifp_location_equipment_position` (
   `alpha_transparency` int(11) NOT NULL default '100',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `location_equipment_position_id` (`location_equipment_position_id`,`creation_datetime`)
+  UNIQUE KEY `location_equipment_position_id` (`location_equipment_position_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-
-
-CREATE TABLE IF NOT EXISTS `ifp_location_equipment_status` (
-  `location_equipment_status_id` int(11) NOT NULL default '0',
-  `location_equipment_id` int(11) NOT NULL default '0',
-  `status_id` int(11) NOT NULL default '0',
-  `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
-  `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `location_equipment_status_id` (`location_equipment_status_id`,`creation_datetime`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 CREATE TABLE IF NOT EXISTS `ifp_location_hours` (
@@ -237,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `ifp_location_region` (
 
 
 CREATE TABLE IF NOT EXISTS `ifp_location_space_plan` (
-  `location_space_plan_id` int(11) NOT NULL default '0' autoincrement,
+  `location_space_plan_id` int(11) NOT NULL auto_increment,
   `location_id` int(11) NOT NULL default '0',
   `default_space_plan` int(11) NOT NULL default '0',
   `name` varchar(100) NOT NULL default '-',
@@ -255,19 +210,10 @@ CREATE TABLE IF NOT EXISTS `ifp_location_space_plan` (
   `key_x_position` int(11) NOT NULL default '0',
   `key_y_position` int(11) NOT NULL default '0',
   `space_plan_locked` varchar(100) default 'false',
-  UNIQUE KEY `location_space_plan_id` (`location_space_plan_id`,`creation_datetime`)
+  UNIQUE KEY `location_space_plan_id` (`location_space_plan_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
-
-CREATE TABLE IF NOT EXISTS `ifp_location_status` (
-  `location_status_id` int(11) NOT NULL default '0',
-  `location_id` int(11) NOT NULL default '0',
-  `status_id` int(11) NOT NULL default '0',
-  `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
-  `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `location_status_id` (`location_status_id`,`creation_datetime`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -276,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `ifp_region` (
   `region_name` text,
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
-  UNIQUE KEY `region_id` (`region_id`,`creation_datetime`)
+  UNIQUE KEY `region_id` (`region_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 

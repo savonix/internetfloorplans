@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: equipment_type_symbol_delete.xml
+Component: equipment_type_icon_delete.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,14 +22,14 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="delete_equipment_type_symbol">
+<query name="equipment_type_icon_delete">
     <connection>&ifp_connection;</connection>
     <params>
         <param name="runtime/utdate" type="text"/>
-        <param name="_get/equipment_type_symbol_id" type="text"/>
+        <param name="_get/equipment_type_icon_id" type="text"/>
     </params>
     <sql>
-        UPDATE &ifp_equipment_type_symbol;
-		SET deletion_datetime=? WHERE equipment_type_symbol_id=?
+        DELETE FROM &ifp_equipment_type_icon;
+		WHERE equipment_type_icon_id=?
     </sql>
 </query>
