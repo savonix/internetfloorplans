@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:include href="main.xsl"/>
 <xsl:include href="equipment_type_summary.xsl"/>
 <xsl:include href="equipment_type_menu.xsl"/>
-<xsl:include href="image_form.xsl"/>
+<xsl:include href="upload_form.xsl"/>
 <xsl:template name="content">
 	<form enctype="multipart/form-data" action="{//link_prefix}ifp-equipment-type-image-submit&amp;equipment_type_id={//_get/equipment_type_id}" method="post">
 	<input type="hidden" name="dest"><xsl:attribute name="value">../usr/<xsl:value-of select="//user_account_id"/>/merchandising/</xsl:attribute></input>
