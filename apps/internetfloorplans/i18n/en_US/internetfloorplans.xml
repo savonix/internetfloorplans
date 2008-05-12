@@ -344,14 +344,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<key>id</key>
 		<value>ID</value>
 	</label>
-	<!-- equipment_type_symbols -->
+	<!-- equipment_type_icons -->
 	<label>
-		<key>add_new_symbol</key>
-		<value>Add New Symbol</value>
+		<key>add_new_icon</key>
+		<value>Add New Icon</value>
 	</label>
 	<label>
-		<key>delete_this_symbol</key>
-		<value>Delete This Symbol</value>
+		<key>delete_this_icon</key>
+		<value>Delete This Icon</value>
 	</label>
 	<!-- main -->
 	<label>

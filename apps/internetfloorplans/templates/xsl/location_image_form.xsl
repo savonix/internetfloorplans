@@ -27,7 +27,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:include href="location_menu.xsl"/>
 <xsl:include href="image_form.xsl"/>
 <xsl:template name="content">
-	
 	<form enctype="multipart/form-data" method="post">
     <input type="hidden" name="dest" value="/tmp/"/>
 	<input type="hidden" name="location_id" value="{//_get/location_id}"/>
