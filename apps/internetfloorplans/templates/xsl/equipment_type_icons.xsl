@@ -28,7 +28,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 <xsl:call-template name="equipment-type-menu" />
 <xsl:call-template name="equipment-type-summary"/>
-<table>
+<table><tr><td>
+<table class="simple-table">
 <tr>
     <td>
         <xsl:value-of select="//labels/label[key='symbols']/value"/>
@@ -41,15 +42,27 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </td>
 </tr>
 </xsl:for-each>
-</table>
-
+<tr>
+    <td>
 <xsl:value-of select="//labels/label[key='options']/value"/>
+    </td>
+</tr>
 <xsl:if test="not(//get_equipment_type_symbols)">
+<tr>
+    <td>
         <a><xsl:value-of select="//labels/label[key='add_new_symbol']/value"/></a>
+    </td>
+</tr>
 </xsl:if>
-        <a onclick="return confirm('Are you sure you want to delete this equipment type symbol?')">
+<tr>
+    <td>
+    <a onclick="return confirm('Are you sure you want to delete this equipment type symbol?')">
         <xsl:value-of select="//labels/label[key='delete_this_symbol']/value"/></a>
-<table>
+    </td>
+</tr>
+</table>
+</td><td>
+<table class="simple-table">
 <tr>
     <td>
         <xsl:for-each select="//get_equipment_type_symbols">
@@ -58,11 +71,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <xsl:value-of select="name"/>
             </xsl:if>
         </xsl:for-each>
-        
+
     </td>
 </tr>
 <tr>
-    <td valign="midlle" align="center" height="240">
+    <td>
 <!-- FIXME - This is broken -->
 <img src="{//path_prefix}{//get_equipment_type_symbols/symbol_pointer}"/>
 
@@ -75,7 +88,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </tr>
 <tr>
     <td>
-        
         <xsl:for-each select="//get_equipment_type_symbols">
             <xsl:if test="equipment_type_symbol_id=//_get/equipment_type_symbol_id
             or (not(//_get/equipment_type_symbol_id) and default_symbol=1)">
@@ -86,5 +98,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </td>
 </tr>
 </table>
+</td></tr></table>
 </xsl:template>
 </xsl:stylesheet>
