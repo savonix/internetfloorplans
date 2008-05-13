@@ -67,7 +67,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<xsl:if test="not(//_get/equipment_id)">
 			<td><select name="equipment_type_id">
 				<xsl:for-each select="//equipment_types_get_all">
-					<option value="{equipment_type_id}"><xsl:if test="equipment_type_id=//equipment_get_by_id/equipment_type_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
+					<option value="{equipment_type_id}">
+                        <xsl:if test="equipment_type_id=//equipment_get_by_id/equipment_type_id">
+                            <xsl:attribute name="selected">selected</xsl:attribute>
+                            </xsl:if>
 						<xsl:value-of select="name"/></option>
 				</xsl:for-each>
 			</select></td>
@@ -85,14 +88,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					</xsl:if>
 				</xsl:for-each>
 			</td>
-			</xsl:if>			
+			</xsl:if>
 			<xsl:if test="not(//_get/equipment_id)">
-			<td><select name="location_id">
+			<td>
+            <select name="location_id">
 				<xsl:for-each select="//locations_get_all">
 					<option value="{location_id}"><xsl:if test="location_address_id=//equipment_get_by_id/location_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
-						<xsl:value-of select="name"/></option>
+						<xsl:value-of select="name"/>
+                    </option>
 				</xsl:for-each>
-			</select></td>
+			</select>
+            </td>
 			</xsl:if>
 		</tr>
 		<xsl:for-each select="//get_container_by_type_id">
