@@ -32,11 +32,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </th>
         <th>
             <xsl:value-of select="//labels/label[key='description']/value"/>
-
         </th>
         <th>
             <xsl:value-of select="//labels/label[key='edit']/value"/>
-
         </th>
         <th>
             <xsl:value-of select="//labels/label[key='delete']/value"/>
@@ -54,20 +52,20 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </td>
         <td>
             <a href="{//link_prefix}edit&amp;container_id={container_id}">
-                Edit
+                <xsl:value-of select="//labels/label[key='edit']/value"/>
             </a>
         </td>
         <td>
             <a href="{//link_prefix}delete&amp;container_id={container_id}" 
                 onclick="return confirm('Are you sure you want to delete this container type?')">
-                Delete
+                <xsl:value-of select="//labels/label[key='edit']/value"/>
             </a>
         </td>
     </tr>
     </xsl:for-each>
     <tr>
         <td align="left" colspan="4">
-            <input type="button" value="New" onclick="document.location.href='edit'"/>
+            <input type="button" value="{//labels/label[key='edit']/value}" onclick="document.location.href='edit'"/>
         </td>
     </tr>
 </table>
