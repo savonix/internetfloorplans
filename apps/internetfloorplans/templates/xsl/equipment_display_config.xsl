@@ -26,8 +26,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 <xsl:if test="//equipment_type_image_id">
 	<xsl:if test="//user_roles='uplink_regional_manager'">
-	<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={//equipment_id}&amp;location_address_id={//location_address_id}" target="_parent"><xsl:value-of select="//labels/label[key='edit']/value"/></a> ] [<a target="_parent" href="/acc/link/loc/view/sp/&amp;location_address_id={//location_address_id}&amp;equipment_id={//equipment_id}&amp;delete=true" 
-    onclick="return confirm('Are you sure you want to delete this asset?')">
+	<a target="_parent"
+        href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={//equipment_id}">
+        <xsl:value-of select="//labels/label[key='edit']/value"/>
+    </a>
+    <a target="_parent"
+        href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={//equipment_id}"
+        onclick="return confirm('{//labels/label[key='confirm_delete']/value}')">
         <xsl:value-of select="//labels/label[key='delete']/value"/>
     </a>
 
@@ -67,11 +72,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<form method="post">
 	<xsl:if test="//_post/equipment_id">
 		<input type="hidden" name="equipment_id" value="{//equipment_id}"/>
-		<input type="hidden" name="asset_type_id" value="{//equipment_type_id}"/>
+		<input type="hidden" name="equipment_type_id" value="{//equipment_type_id}"/>
 		<input type="hidden" name="equipment_number" value="{//equipment_number}"/>
 		<input type="hidden" name="type" value="edit"/>
 	</xsl:if>
-	
     <tr>
         <td>
             <xsl:value-of select="//equipment_type_name"/>
