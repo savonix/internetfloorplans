@@ -38,7 +38,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </params>
     <sql>
         INSERT INTO &ifp_location_images;
-		(name,location_id,default_image, image_pointer,thumb_pointer,mime_type,comments, creation_datetime,width,height) 
+		(name,location_id,default_image, image_pointer,thumb_pointer,mime_type,comments, modification_datetime,width,height) 
 		VALUES (?,?,?,?,?,?,?,?,?,?)
     </sql>
 </query>

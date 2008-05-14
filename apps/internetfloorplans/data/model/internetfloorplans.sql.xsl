@@ -23,19 +23,27 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
+
 <xsl:template match="/">
 
-
+<xsl:variable name="engine_default_timestamp">
+    <xsl:if test="//engine='mysqli'">
+        <xsl:text>CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP</xsl:text>
+    </xsl:if>
+    <xsl:if test="//engine='sqlite'">
+        <xsl:text>NULL</xsl:text>
+    </xsl:if>
+</xsl:variable>
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment` (
   `equipment_id` int(11) NOT NULL auto_increment,
   `equipment_number` varchar(100) NULL,
   `equipment_type_id` int(11) NOT NULL default '0',
   `status_id` int(11) NOT NULL default '0',
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   UNIQUE KEY `equipment_id` (`equipment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_type` (
@@ -43,8 +51,8 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_typ
   `equipment_category_id` int(11) NOT NULL default '0',
   `name` varchar(100) NOT NULL default '0',
   `description` varchar(255) default NULL,
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   PRIMARY KEY  (`equipment_type_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
@@ -60,8 +68,8 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_typ
   `comments` char(255) default '-',
   `height` int(11) NOT NULL default '0',
   `width` int(11) NOT NULL default '0',
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   UNIQUE KEY `equipment_type_image_id` (`equipment_type_image_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -73,8 +81,8 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_typ
   `default_icon` int(11) NOT NULL default '0',
   `file_pointer` char(255) NOT NULL default '0',
   `comments` char(255) default '-',
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   `name` char(100) NOT NULL default '-',
   UNIQUE KEY `equipment_type_icon_id` (`equipment_type_icon_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -94,8 +102,8 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>locations` (
   `country_id` int(11) default '0',
   `phone` char(20) default NULL,
   `fax` char(20) default NULL,
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   UNIQUE KEY `location_id` (`location_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -104,8 +112,8 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_equi
   `location_equipment_id` int(11) NOT NULL auto_increment,
   `location_id` int(11) NOT NULL default '0',
   `equipment_id` int(11) NOT NULL default '0',
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   UNIQUE KEY `location_equipment_id` (`location_equipment_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -120,8 +128,8 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_equi
   `y_scale` int(11) NOT NULL default '100',
   `rotation_angle` int(11) NOT NULL default '0',
   `alpha_transparency` int(11) NOT NULL default '100',
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   UNIQUE KEY `location_equipment_position_id` (`location_equipment_position_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -135,8 +143,8 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_imag
   `image_pointer` char(255) NOT NULL default '0',
   `thumb_pointer` char(255) default NULL,
   `mime_type` char(50) NOT NULL default '0',
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   `comments` char(255) default '-',
   `height` int(11) NOT NULL default '0',
   `width` int(11) NOT NULL default '0',
@@ -149,9 +157,9 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_imag
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_region` (
   `region_id` int(11) NOT NULL default '0',
   `location_id` int(11) NOT NULL default '0',
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
-  UNIQUE KEY `location_region_index` (`region_id`,`location_id`,`creation_datetime`)
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
+  UNIQUE KEY `location_region_index` (`region_id`,`location_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -167,8 +175,8 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_spac
   `y_scale` int(11) NOT NULL default '100',
   `rotation_angle` int(11) NOT NULL default '0',
   `alpha_transparency` int(11) NOT NULL default '100',
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   `comments` longblob,
   `space_plan_pointer` varchar(255) NOT NULL default '0',
   `display_eqp_icons` varchar(15) NOT NULL default 'checked',
@@ -185,8 +193,8 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_spac
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>region` (
   `region_id` int(11) NOT NULL auto_increment,
   `region_name` text,
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   UNIQUE KEY `region_id` (`region_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -198,8 +206,8 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>static_files`
   `type` varchar(100) NULL,
   `basename` varchar(100) NULL,
   `file_system_path` varchar(100) NULL,
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   PRIMARY KEY `static_file_index` (`static_file_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -219,8 +227,8 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>options` (
   `option_id` int(11) NOT NULL auto_increment,
   `option_key` char(100) NULL,
   `option_value` char(100) NULL,
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
+  `creation_timestamp` timestamp DEFAULT NULL,
+  `modification_timestamp` datetime DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   PRIMARY KEY `option_index` (`option_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 

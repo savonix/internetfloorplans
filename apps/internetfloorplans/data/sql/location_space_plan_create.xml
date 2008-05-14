@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <sql>
         INSERT INTO &ifp_location_space_plans;
 		(name,location_id,default_space_plan,space_plan_pointer,
-		comments,creation_datetime,display_eqp_icons)
+		comments,modification_datetime,display_eqp_icons)
 		VALUES (?,?,?,?,?,?,'checked')
     </sql>
 </query>
