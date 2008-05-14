@@ -32,17 +32,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </a>
         <br/>
 		<a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}"
-            onclick="return confirm('Are you sure you want to delete this equipment type?')">
+            onclick="return confirm('{//labels/label[key='confirm_delete']/value}')">
             <xsl:value-of select="//labels/label[key='delete_this_equipment_type']/value"/>
         </a>
 		</td>
 		<td>
 		<xsl:value-of select="//labels/label[key='name']/value"/>:<br/>
-		<xsl:value-of select="//get_asset_type_by_id/name" />
+		<xsl:value-of select="//equipment_type_get_by_id/name" />
 		</td>
 		<td colspan="2">
 		<xsl:value-of select="//labels/label[key='description']/value"/>: <br/>
-		<xsl:value-of select="//get_equipment_type_by_id/description" />
+		<xsl:value-of select="//equipment_type_get_by_id/description" />
 		</td>
 	</tr>
 </xsl:for-each>
