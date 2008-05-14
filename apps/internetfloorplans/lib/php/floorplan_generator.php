@@ -405,7 +405,7 @@ if($number_of_symbols>0) {
 			$my_y = $equipment['y_pos'][$j];
 			$my_rotation_angle = $equipment['rotation_angle'][$j];
 			$equipment_status=$equipment['status_id'][$j];
-			$my_equipment_number = $equipment['asset_id'][$j];
+			$my_equipment_number = $equipment['equipment_number'][$j];
 			$my_leid = $equipment['location_equipment_id'][$j];
 			$my_eid = $equipment['equipment_id'][$j];
 			$my_equipment_type_image_id = $equipment['equipment_type_image_id'][$j]; 
