@@ -24,7 +24,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:include href="main.xsl"/>
 <xsl:include href="equipment_type_menu.xsl"/>
+<xsl:include href="equipment_type_summary.xsl"/>
+<xsl:include href="upload_form.xsl"/>
 <xsl:template name="content">
-<xsl:call-template name="equipment-type-menu"/>
+	<form enctype="multipart/form-data" method="post">
+	<input type="hidden" name="dest" value="{//upload_dest}"/>
+	<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
+    <xsl:call-template name="equipment-type-menu"/>
+	<xsl:call-template name="equipment-type-summary"/>
+    <xsl:call-template name="upload_form"/>
+	</form>
 </xsl:template>
 </xsl:stylesheet>
