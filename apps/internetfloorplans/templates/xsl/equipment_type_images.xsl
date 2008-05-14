@@ -59,7 +59,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:if test="not(//equipment_type_get_images)">
             <tr>
                 <td>
-                    <a href="{//link_prefix}ifp-equipment-type-image-edit&amp;equipment_image_id={//_get/equipment_image_id}">
+                    <a href="{//link_prefix}ifp-equipment-type-image-edit&amp;equipment_type_id={//_get/equipment_type_id}">
                         <xsl:value-of select="//labels/label[key='add_new_image']/value"/>
                     </a>
                 </td>
