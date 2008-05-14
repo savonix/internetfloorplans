@@ -227,6 +227,29 @@ CREATE TABLE IF NOT EXISTS `ifp_region` (
 
 
 
+CREATE TABLE IF NOT EXISTS `ifp_static_files` (
+  `static_file_id` int(11) NOT NULL auto_increment,
+  `static_file_title` varchar(100) NULL,
+  `static_file_type` varchar(100) NULL,
+  `basename` varchar(100) NULL,
+  `file_system_path` varchar(100) NULL,
+  `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',
+  `modification_datetime` datetime NULL,
+  PRIMARY KEY `static_file_index` (`static_file_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE IF NOT EXISTS `ifp_static_file_metadata` (
+  `static_file_id` int(11) NOT NULL auto_increment,
+  `meta_key` varchar(100) NULL,
+  `meta_value` varchar(100) NULL,
+  PRIMARY KEY `static_file_index` (`static_file_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+
+
+
 CREATE TABLE IF NOT EXISTS `ifp_options` (
   `option_id` int(11) NOT NULL auto_increment,
   `option_key` char(100) NULL,
@@ -235,6 +258,7 @@ CREATE TABLE IF NOT EXISTS `ifp_options` (
   `deletion_datetime` datetime NOT NULL default '9999-01-01 01:01:01',
   PRIMARY KEY `option_index` (`option_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 
 
 -- 
