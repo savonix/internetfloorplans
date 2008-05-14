@@ -24,6 +24,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="location_summary">
 <xsl:for-each select="//get_location_summary">
+<table>
 	<tr>
 		<td>
             <xsl:value-of select="//labels/label[key='location_options']/value"/>
@@ -47,6 +48,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<td>
 		</td>
 	</tr>
+</table>
 </xsl:for-each>
 </xsl:template>
 </xsl:stylesheet>

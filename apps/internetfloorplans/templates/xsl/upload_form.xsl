@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <table>
     <tr>
         <td> <xsl:value-of select="//labels/label[key='file_title']/value"/>:</td>
-        <td><input type="text" name="name" size="25" value="{//_post/name}"/></td>
+        <td><input type="text" name="name" value="{//_post/name}"/></td>
     </tr>
     <xsl:if test="count(//static_file_types) &gt; 0">
     <tr>
@@ -44,7 +44,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     </xsl:if>
     <tr>
         <td> <xsl:value-of select="//labels/label[key='file_to_upload']/value"/>: * </td>
-        <td><input type='file' name='file' size="25" class="box" /></td>
+        <td><input type="file" name="file"/></td>
     </tr>
     <tr>
         <td><xsl:value-of select="//labels/label[key='comments']/value"/>:</td>

@@ -27,7 +27,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <xsl:template name="content">
 <xsl:call-template name="equipment_menu" />
-<form method="post">
 <table class="simple-table">
     <tr>
         <td>
@@ -49,6 +48,5 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </tr>
     </xsl:for-each>
 </table>
-</form>
 </xsl:template>
 </xsl:stylesheet>

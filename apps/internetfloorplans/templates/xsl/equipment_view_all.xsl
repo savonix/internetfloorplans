@@ -55,7 +55,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <script type="text/javascript">
 //    document.getElementById('my-equipment-view-all-div').style.visibility = 'hidden';
 </script>
-<form method="post">
 <table width="100%" class="tablesorter" id="my-equipment-view-all">
         <thead>
 		<tr>
@@ -98,7 +97,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</xsl:for-each>
         </tbody>
 	</table>
-	</form>
 </div>
 <xsl:call-template name="pager">
     <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>

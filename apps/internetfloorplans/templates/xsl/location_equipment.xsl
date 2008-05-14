@@ -36,10 +36,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:call-template name="location_menu" />
 
 <xsl:call-template name="location_summary" />
-<form method="post">
 <table width="100%" class="tablesorter" id="my-location-equipment-list">
-	<form method="post">
-	<input type="hidden" name="location_id" value="{//_get/location_address_id}"/>
         <thead>
         <tr>
             <th><xsl:value-of select="//labels/label[key='equipment_type']/value"/></th>
@@ -59,10 +56,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </tr>
         </xsl:for-each>
 	</tbody>
-	</form>
-	</table>
-	</form>
-	</div>
+</table>
+</div>
 <xsl:call-template name="pager">
     <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
 </xsl:call-template>

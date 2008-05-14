@@ -57,10 +57,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <script type="text/javascript">
 //    document.getElementById('my-location-equipment-list-div').style.visibility = 'hidden';
 </script>
-<form method="post">
 <table width="100%" class="tablesorter" id="my-location-equipment-list">
-	<form method="post">
-	<input type="hidden" name="location_id" value="{//_get/location_id}"/>
         <thead>
 		<tr>
 			<th>
@@ -108,14 +105,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</tr>
 		</xsl:for-each>
 		</tbody>
-    </form>
 </table>
 
 <a href="{//link_prefix}ifp-equipment-edit&amp;location_id={//_get/location_id}">
     <xsl:value-of select="//labels/label[key='add_new_equipment']/value"/>
 </a>
-
-</form></div><xsl:call-template name="pager">
+</div>
+<xsl:call-template name="pager">
    <xsl:with-param name="my-table">my-location-equipment-list</xsl:with-param>
 </xsl:call-template>
 </xsl:template>
