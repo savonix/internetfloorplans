@@ -104,12 +104,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </td>
 			</xsl:if>
 		</tr>
-		<xsl:for-each select="//get_container_by_type_id">
-		<tr>
-			<td><xsl:value-of select="//labels/label[key='container']/value"/>:</td>
-			<td><xsl:value-of select="name"/></td>
-		</tr>
-		</xsl:for-each>
 	</table>
     <div>
         <input type="submit" value="Submit" name="submit"/>
