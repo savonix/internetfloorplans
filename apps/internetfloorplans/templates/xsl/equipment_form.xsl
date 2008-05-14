@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<xsl:if test="//_get/equipment_id">
 		<input type="hidden" name="location_id" value="{//_get/location_id}"/>
 		<input type="hidden" name="equipment_type_id" value="{//equipment_get_by_id/equipment_type_id}"/>
-		<input type="hidden" name="asset_id" value="{//equipment_get_by_id/asset_id}"/>
+		<input type="hidden" name="equipment_number" value="{//equipment_get_by_id/equipment_number}"/>
 		<input type="hidden" name="equipment_id" value="{//_get/equipment_id}"/>
 		<input type="hidden" name="type" value="edit"/>
 	</xsl:if>
@@ -39,12 +39,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</xsl:if>
 	<table>
 		<tr>
-			<td><xsl:value-of select="//labels/label[key='asset_id']/value"/>:</td>
+			<td><xsl:value-of select="//labels/label[key='equipment_number']/value"/>:</td>
 			<xsl:if test="//_get/equipment_id">
-			<td><xsl:value-of select="//equipment_get_by_id/asset_id"/></td>
+			<td><xsl:value-of select="//equipment_get_by_id/equipment_number"/></td>
 			</xsl:if>
 			<xsl:if test="not(//_get/equipment_id)">
-			<td><input type="text" name="asset_id" value="{//equipment_get_by_id/asset_id}"/></td>
+			<td><input type="text" name="equipment_number" value="{//equipment_get_by_id/asset_id}"/></td>
 			</xsl:if>
 
 			<td rowspan="6">
@@ -54,7 +54,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</td>
 		</tr>
 		<tr>
-			<td><xsl:value-of select="//labels/label[key='asset_type']/value"/>:</td>
+			<td><xsl:value-of select="//labels/label[key='equipment_type']/value"/>:</td>
 			<xsl:if test="//_get/equipment_id">
 			<td>
 				<xsl:for-each select="//equipment_types_get_all">
@@ -93,7 +93,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<td>
             <select name="location_id">
 				<xsl:for-each select="//locations_get_all">
-					<option value="{location_id}"><xsl:if test="location_address_id=//equipment_get_by_id/location_id"><xsl:attribute name="selected">selected</xsl:attribute></xsl:if>
+					<option value="{location_id}">
+                        <xsl:if test="location_id=//equipment_get_by_id/location_id">
+                            <xsl:attribute name="selected">selected</xsl:attribute>
+                        </xsl:if>
 						<xsl:value-of select="name"/>
                     </option>
 				</xsl:for-each>
