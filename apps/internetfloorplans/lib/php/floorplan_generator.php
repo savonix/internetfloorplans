@@ -143,7 +143,6 @@ if($display_eqp_icons=="checked") {
 	}
 
 	$empty_sprite = new SWFSprite();
-	$m->addExport($empty_sprite,'container');
                        
 
 $main_actionscript = "
@@ -175,11 +174,6 @@ function argbtohex(a, r, g, b)
 // ICON CLASS
 function createIcon() { 
 	var equipment_type_symbol = this.equipment_type_symbol;
-	Object.registerClass('container', createNewFixture);
-	handle = attachMovie('container',equipment_type_symbol, getNextHighestDepth());
-
-	key_icon = entire_key.attachMovie('container',equipment_type_symbol,getNextHighestDepth(),
-		{_x:0,_y:this._y,equipment_type_id:this.equipment_type_id,equipment_type_image_id:this.equipment_type_image_id});
 	key_icon.my_bitmap = new flash.display.BitmapData(this._width,this._height,true,0x00000000);
 	key_icon.attachBitmap(key_icon.my_bitmap, 1);
 	key_icon.my_bitmap.draw(this);
@@ -331,10 +325,6 @@ if($number_of_symbols>0) {
 			}
 			$icon_id = "icon_".$id;
 			$my_y_pos = 25+(22*$i);
-			$container = new SWFSprite();
-			$container->add($source_file);
-			$container->nextFrame();
-			$m->addExport($container,$icon_id);
 
 
 			$icon_as .="Object.registerClass('$icon_id', createIcon);
@@ -351,7 +341,6 @@ if($number_of_symbols>0) {
 			$kt2->moveto(37,11+$my_y_pos);
 
 
-			unset($container);
 		}
 	}
 }
@@ -388,8 +377,6 @@ if($equipment['x_pos']!=NULL) {
 	$equipment['equipment_number'] = (array)Nexista_Path::get("//equipment_get_all/equipment_number","flow");
 	$equipment['equipment_type_image_id'] =(array) Nexista_Path::get("//equipment_get_all/equipment_type_image_id","flow");
 	$equipment['status_id'] = (array)Nexista_Path::get("//equipment_get_all/status_id","flow");
-	$equipment['container'] = Nexista_Path::get("//equipment_get_all","flow");
-	// should container be an array - no, see below??
 
 	$num_icons = count($equipment['y_pos']);
 }
@@ -398,7 +385,6 @@ if($equipment['x_pos']!=NULL) {
 if($number_of_symbols>0) { 
 	if(is_array($equipment['x_pos'])) { 
 		// Now loop through the actual equipment lists at that location?
-		$inventory_as = "Object.registerClass('container',positionFixture);";
 		for($j=0; $j<$num_icons; $j++) { 
 			$e_id = $equipment['equipment_type_id'][$j];
 			$my_x = $equipment['x_pos'][$j];
@@ -411,13 +397,6 @@ if($number_of_symbols>0) {
 			$my_equipment_type_image_id = $equipment['equipment_type_image_id'][$j]; 
 
 			$my_icon_type_id = "icon_".$e_id;
-			$inventory_as .= "
-			var this_bmp = entire_key.equipment_type_$my_icon_type_id.my_bitmap;
-			attachMovie('container','$my_eid',getNextHighestDepth(),
-				{_x:$my_x,_y:$my_y,my_eid:$my_eid,symbol_rotation:$my_rotation_angle,my_icon_type_id:'$my_icon_type_id',bitmap:this_bmp,my_leid:'$my_leid',equipment_type_image_id:'$my_equipment_type_image_id'});
-
-			";
-
 		} 
 	}
 	unset($j);
