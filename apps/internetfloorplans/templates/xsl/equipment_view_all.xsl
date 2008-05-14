@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
     <xsl:with-param name="my-table-div">my-equipment-view-all-div</xsl:with-param>
     <xsl:with-param name="no-sort-column">,
-        headers: { 
+        headers: {
             2: {sorter: false},
             3: {sorter: false}
         }
@@ -42,7 +42,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     var question = '<xsl:value-of select="//labels/label[key='are_you_sure_delete']/value"/>?';
     function equipment_delete(equipment_id,row) {
         if(confirm(question)) {
-            $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-delete", {'equipment_id': equipment_id}, 
+            $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-delete", {'equipment_id': equipment_id},
             function (data){
                 myTable = document.getElementById("my-equipment-view-all");
                 myTable.deleteRow(row);

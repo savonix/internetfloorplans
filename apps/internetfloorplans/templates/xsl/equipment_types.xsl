@@ -21,7 +21,7 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:include href="main.xsl"/>
 <xsl:include href="pager.xsl"/>
 <xsl:template name="content">
@@ -37,16 +37,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </xsl:call-template>
 <!-- Confirm equipment deletion -->
 <script type="text/javascript">
-    var question = 'Are you sure you want to delete this equipment type?';
-    function equipment_type_delete(equipment_type_id,row) {
-        if(confirm(question)) {
-            $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-delete", {'equipment_type_id': equipment_type_id}, 
-            function (data){
-                myTable = document.getElementById("myequipmenttypes");
-                myTable.deleteRow(row);
-            });
-        }
+var question = '<xsl:value-of select="//labels/label[key='confirm_equipment_type_delete']/value"/>';
+function equipment_type_delete(equipment_type_id,row) {
+    if(confirm(question)) {
+        $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-delete", {'equipment_type_id': equipment_type_id}, 
+        function (data){
+            myTable = document.getElementById("myequipmenttypes");
+            myTable.deleteRow(row);
+        });
     }
+}
 </script>
 <div id="my-equipment-types-div">
 <script type="text/javascript">
@@ -88,7 +88,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </tbody>
 </table>
 </div>
-<a href="{//link_prefix}ifp-equipment-type-edit"><xsl:value-of select="//labels/label[key='new_equipment_type']/value"/></a>
+<a href="{//link_prefix}ifp-equipment-type-edit">
+    <xsl:value-of select="//labels/label[key='new_equipment_type']/value"/>
+</a>
 <xsl:call-template name="pager">
     <xsl:with-param name="my-table">myequipmenttypes</xsl:with-param>
 </xsl:call-template>

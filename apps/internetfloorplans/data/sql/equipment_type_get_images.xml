@@ -23,18 +23,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 -->
 
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="get_asset_type_images">
-
+<query name="equipment_type_get_images">
     <connection>&ifp_connection;</connection>
     <params>
         <param name="_get/equipment_type_id" type="text"/>
-        <param name="runtime/utdate" type="text"/>
 	</params>
-	
     <sql>
-        SELECT * FROM &ifp_equipment_type_images; 
+        SELECT * FROM &ifp_equipment_type_images;
         WHERE equipment_type_id = ?
-        AND deletion_datetime &gt; ?
     </sql>
-    
 </query>

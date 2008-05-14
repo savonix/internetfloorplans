@@ -38,7 +38,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     <xsl:value-of select="//labels/label[key='images']/value"/>
                 </td>
             </tr>
-            <xsl:for-each select="//equipment_type_images_get_all" >
+            <xsl:for-each select="//equipment_type_get_images" >
             <tr>
                 <td>
                     <a><xsl:value-of select="name"/></a>
@@ -53,7 +53,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     <xsl:value-of select="//labels/label[key='options']/value"/>
                 </td>
             </tr>
-            <xsl:if test="not(//get_asset_type_images)">
+            <xsl:if test="not(//equipment_type_get_images)">
             <tr>
                 <td>
                     <a href="#"><xsl:value-of select="//labels/label[key='add_new_image']/value"/></a>
@@ -63,7 +63,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <tr>
                 <td>
                     <a href="{//link_prefix}ifp-equipment-delete"
-                    onclick="return confirm('Are you sure you want to delete this equipment type image?')">
+                    onclick="return confirm('{//labels/label[key='confirm_delete']/value}')">
                     <xsl:value-of select="//labels/label[key='delete_this_image']/value"/></a>
                 </td>
             </tr>
@@ -71,7 +71,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </td>
 
     <td align="left">
-        <xsl:for-each select="//get_asset_type_images">
+        <xsl:for-each select="//equipment_type_get_images">
             <xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id
             or (not(//_get/equipment_type_image_id) and default_image=1)">
                 <xsl:value-of select="name"/>
