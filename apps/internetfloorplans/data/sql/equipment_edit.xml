@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</params>
     <sql>
         INSERT INTO &ifp_equipment;
-        (equipment_id,equipment_number,equipment_type_id,modification_datetime)
+        (equipment_id,equipment_number,equipment_type_id,creation_datetime)
 		VALUES (?,?,?,?)
     </sql>
 </query>
