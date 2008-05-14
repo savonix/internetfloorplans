@@ -51,13 +51,6 @@ $merch_disp = $c_pos->add($merch_img);
 $merch_disp->moveTo(0,0);
 
 
-// c = container
-$c_array['width'] = Nexista_Path::get("//get_container_by_type_id/width","flow");
-$c_array['height'] = Nexista_Path::get("//get_container_by_type_id/height","flow");
-$c_array['x_origin'] = Nexista_Path::get("//get_container_by_type_id/x_origin","flow");
-$c_array['y_origin'] = Nexista_Path::get("//get_container_by_type_id/y_origin","flow");
-$c_array['e_c_id'] = Nexista_Path::get("//get_container_by_type_id/equipment_type_container_id","flow");
-
 $c_array['width'] = (array)$c_array['width'];
 $c_array['height'] = (array)$c_array['height'];
 $c_array['x_origin'] = (array)$c_array['x_origin'];
@@ -67,10 +60,8 @@ $c_array['e_c_id'] = (array)$c_array['e_c_id'];
 // cn = content
 $cn_array['image_pointer'] = Nexista_Path::get("//get_image_pointers_by_id/image_pointer","flow");
 $cn_array['thumb_pointer'] = Nexista_Path::get("//get_image_pointers_by_id/thumb_pointer","flow");
-$cn_array['equipment_type_container_id'] = Nexista_Path::get("//get_image_pointers_by_id/equipment_type_container_id","flow");
 $cn_array['image_pointer'] = (array)$cn_array['image_pointer'];
 $cn_array['thumb_pointer'] = (array)$cn_array['thumb_pointer'];
-$cn_array['equipment_type_container_id'] = (array)$cn_array['equipment_type_container_id'];
 
 $array_num = 0;
 for($i=0; $i<count($c_array['width']);$i++) {
@@ -90,21 +81,12 @@ for($i=0; $i<count($c_array['width']);$i++) {
 
 		for($cn_num=0;$cn_num<count($cn_array['image_pointer']); $cn_num++) {
 			$my_image=$cn_array['image_pointer'][$cn_num];
-			$my_container=$cn_array['equipment_type_container_id'][$cn_num];
-			if($e_c_id==$my_container) {
-				if($my_image!='') {
-					$content_img = new SWFBitmap(fopen("$path/content/$my_image","rb"));
-					$content_disp = $c_pos->add($content_img);
-					$content_disp->moveTo($x_origin, $y_origin);
-				}
-			}
 		}
 
 /*
 	if($array_num==1 || count($c_array['width'])==1) {
 		for($cn_num=0;$cn_num<count($cn_array['image_pointer']); $cn_num++) {
 			$my_image=$cn_array['image_pointer'][$cn_num];
-			$my_container=$cn_array['equipment_type_container_id'][$cn_num];
 			if($my_image!='') {
 				$content_img = new SWFBitmap(fopen("$path/content/$my_image","rb"));
 				$content_disp = $c_pos->add($content_img);
@@ -114,14 +96,6 @@ for($i=0; $i<count($c_array['width']);$i++) {
 	} else {
 		for($cn_num=0;$cn_num<count($cn_array['image_pointer']); $cn_num++) {
 			$this_image=$cn_array['image_pointer'][$cn_num];
-			$my_container=$cn_array['equipment_type_container_id'][$cn_num];
-			if($e_c_id==$my_container) {
-				if($my_image!='') {
-					$content_img = new SWFBitmap(fopen("$path/content/$my_image","rb"));
-					$content_disp = $c_pos->add($content_img);
-					$content_disp->moveTo($x_origin, $y_origin);
-				}
-			}
 		}
 	}
 	*/
