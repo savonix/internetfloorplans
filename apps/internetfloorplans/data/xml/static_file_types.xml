@@ -34,4 +34,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <key>equipment_icon</key>
         <label>Equipment Icon</label>
     </type>
+    <type active="1">
+        <key>other</key>
+        <label>Other</label>
+    </type>
 </static_file_types>

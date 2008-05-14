@@ -95,6 +95,7 @@ Fifth Floor, Boston, MA 02110-1301  U
             <map:false>
             </map:false>
         </map:if>
+        <map:xml src="data/xml/static_file_types.xml"/>
 		<map:query src="data/sql/location_get_summary.xml"/>
 		<map:xsl src="templates/xsl/location_image_form.xsl"/>
 	</map:gate>

@@ -29,19 +29,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <td> <xsl:value-of select="//labels/label[key='file_title']/value"/>:</td>
         <td><input type="text" name="name" size="25" value="{//_post/name}"/></td>
     </tr>
-    <xsl:if test="count(//file_types) &gt; 0">
+    <xsl:if test="count(//static_file_types) &gt; 0">
     <tr>
         <td> <xsl:value-of select="//labels/label[key='file_type']/value"/>:</td>
         <td>
-            <select name="file_type">
+            <select name="static_file_type">
                 <option><xsl:value-of select="//labels/label[key='select_one']/value"/></option>
-            <xsl:for-each select="//file_types">
-                <option><xsl:value-of select="//labels/label[key='select_one']/value"/></option>
-                <xsl:for-each select="//file_types">
-                <option value="{id}"><xsl:value-of select="name"/></option>
+                <xsl:for-each select="//static_file_types/type">
+                    <option value="{key}"><xsl:value-of select="label"/></option>
                 </xsl:for-each>
-            </xsl:for-each>
-                <option><xsl:value-of select="//labels/label[key='other']/value"/></option>
             </select>
         </td>
     </tr>
