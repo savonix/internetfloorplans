@@ -24,50 +24,18 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template match="/">
-CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>container` (
-  `container_id` int(11) NOT NULL auto_increment,
-  `name` char(100) NOT NULL default '0',
-  `comments` char(255) default NULL,
-  `width` int(11) NOT NULL default '0',
-  `height` int(11) NOT NULL default '0',
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
-  UNIQUE KEY `container_index` (`container_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment` (
   `equipment_id` int(11) NOT NULL auto_increment,
-  `equipment_number` char(100) default '-',
+  `equipment_number` varchar(100) NULL,
   `equipment_type_id` int(11) NOT NULL default '0',
   `status_id` int(11) NOT NULL default '0',
   `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
   `modification_datetime` datetime NULL,
   UNIQUE KEY `equipment_id` (`equipment_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
-
-CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_container` (
-  `equipment_id` int(11) NOT NULL auto_increment,
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
-  `equipment_type_container_id` int(11) NOT NULL default '0',
-  PRIMARY KEY  (`equipment_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-
-
-CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_content` (
-  `equipment_id` int(11) NOT NULL default '0',
-  `content_id` int(11) NOT NULL default '0',
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
-  `installed_id` int(11) NOT NULL default '0',
-  `equipment_type_container_id` int(11) NOT NULL default '0',
-  UNIQUE KEY `equipment_content_index` (`equipment_id`,`content_id`,`equipment_type_container_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_type` (
@@ -79,21 +47,6 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_typ
   `modification_datetime` datetime NULL,
   PRIMARY KEY  (`equipment_type_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
-
-CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_type_container` (
-  `name` char(100) NOT NULL default '0',
-  `equipment_type_id` int(11) NOT NULL default '0',
-  `comments` char(255) default NULL,
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
-  `container_id` int(11) NOT NULL default '0',
-  `x_origin` int(11) NOT NULL default '0',
-  `y_origin` int(11) NOT NULL default '0',
-  `equipment_type_container_id` int(11) default NULL,
-  UNIQUE KEY `equipment_container_index` (`equipment_type_container_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_type_images` (
@@ -144,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>locations` (
   `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
   `modification_datetime` datetime NULL,
   UNIQUE KEY `location_id` (`location_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_equipment` (
@@ -154,7 +107,7 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_equi
   `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
   `modification_datetime` datetime NULL,
   UNIQUE KEY `location_equipment_id` (`location_equipment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 
@@ -170,19 +123,6 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_equi
   `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
   `modification_datetime` datetime NULL,
   UNIQUE KEY `location_equipment_position_id` (`location_equipment_position_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-
-CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_hours` (
-  `location_hours_id` int(11) NOT NULL auto_increment,
-  `location_id` int(11) NOT NULL default '0',
-  `day_id` int(11) NOT NULL default '0',
-  `open_time` time NOT NULL default '00:00:00',
-  `close_time` time NOT NULL default '23:59:59',
-  `creation_timestamp` timestamp DEFAULT CURRENT_TIMESTAMP,
-  `modification_datetime` datetime NULL,
-  PRIMARY KEY  (`location_hours_id`),
-  KEY `location_id` (`location_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
@@ -286,17 +226,7 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>options` (
 
 
 
--- 
--- Constraints for dumped tables
--- 
 
--- 
--- Constraints for table `ifp_equipment_container`
--- 
-ALTER TABLE `ifp_equipment_container`
-  ADD CONSTRAINT `ifp_equipment_container_ibfk_1` FOREIGN KEY (`equipment_id`) REFERENCES `ifp_equipment` (`equipment_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
-
--- 
 -- Constraints for table `ifp_location_images`
 -- 
 ALTER TABLE `ifp_location_images`
