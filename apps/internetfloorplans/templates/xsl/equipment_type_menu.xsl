@@ -40,11 +40,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:value-of select="//labels/label[key='icons']/value"/>
             </a>
         </td>
-        <td>
-            <a href="{//link_prefix}ifp-equipment-type-containers&amp;equipment_type_id={//_get/equipment_type_id}">
-            <xsl:value-of select="//labels/label[key='containers']/value"/>
-            </a>
-        </td>
     </tr>
 </table>
 </xsl:template>
