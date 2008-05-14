@@ -229,8 +229,8 @@ CREATE TABLE IF NOT EXISTS `ifp_region` (
 
 CREATE TABLE IF NOT EXISTS `ifp_static_files` (
   `static_file_id` int(11) NOT NULL auto_increment,
-  `static_file_title` varchar(100) NULL,
-  `static_file_type` varchar(100) NULL,
+  `title` varchar(100) NULL,
+  `type` varchar(100) NULL,
   `basename` varchar(100) NULL,
   `file_system_path` varchar(100) NULL,
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',

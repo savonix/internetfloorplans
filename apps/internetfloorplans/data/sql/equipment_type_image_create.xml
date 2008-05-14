@@ -25,18 +25,14 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="equipment_type_image_create">
     <connection>&ifp_connection;</connection>
     <params>
-		<param name="_post/name" type="text" default="Untitled"/>
-        <param name="_post/equipment_type_id" type="text"/>
-		<param name="_post/default" type="text"/>
+		<param name="_post/title" type="text" default="Untitled"/>
+        <param name="_post/type" type="text"/>
+		<param name="_post_dest" type="text"/>
 		<param name="_files/file/name" type="text"/>
-		<param name="_files/file/name" type="text"/>
-		<param name="_files/file/type" type="text"/>
-		<param name="_post/comments" type="text"/>
-        <param name="runtime/utdate" type="text"/>
     </params>
     <sql>
-        INSERT INTO &ifp_equipment_type_images;
-		(name,equipment_type_id,default_image, image_pointer,thumb_pointer,mime_type,comments, creation_datetime) 
-		VALUES (?,?,?,?,?,?,?,?)
+        INSERT INTO &ifp_static_files;
+		(title,type,file_system_path,basename) 
+		VALUES (?,?,?,?)
     </sql>
 </query>
