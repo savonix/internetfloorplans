@@ -397,7 +397,7 @@ if($equipment['x_pos']!=NULL) {
 
 if($number_of_symbols>0) { 
 	if(is_array($equipment['x_pos'])) { 
-		// Now loop through the actual asset lists at that location?
+		// Now loop through the actual equipment lists at that location?
 		$inventory_as = "Object.registerClass('container',positionFixture);";
 		for($j=0; $j<$num_icons; $j++) { 
 			$e_id = $equipment['equipment_type_id'][$j];
