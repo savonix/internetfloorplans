@@ -186,11 +186,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</label>
 <!-- equipment_form -->
     <label>
-        <key>asset_type</key>
+        <key>equipment_type</key>
 		<value>Equipment Type</value>
 	</label>
 	<label>
-		<key>asset_id</key>
+		<key>equipment_number</key>
 		<value>Equipment Number</value>
 	</label>
 	<label>
@@ -233,8 +233,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 	</label>
 	<!-- equipment type form -->
 	<label>
-		<key>asset_type_name</key>
-		<value>Asset Type Name</value>
+		<key>equipment_type_name</key>
+		<value>Equipment Type Name</value>
 	</label>
 	<label>
 		<key>description</key>

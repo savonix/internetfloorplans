@@ -33,7 +33,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <table>
         <tr>
             <td>
-                <xsl:value-of select="//labels/label[key='asset_type_name']/value"/>:
+                <xsl:value-of select="//labels/label[key='equipment_type_name']/value"/>:
             </td>
             <td>
                 <input type="text" name="name" value="{//equipment_type_get_by_id/name}"/>
