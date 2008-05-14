@@ -26,15 +26,15 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 
 $x_shift=0;
-// This is 3/4 the size of an 11x11 page. 
-$movie_width=825;
-$movie_height=825;
+// This is 3/4 the size of an 11x11 page.
+$movie_width = 825;
+$movie_height = 825;
 
 
 $status_symbols = "no";
-$my_rotation_angle=0;
-$equipment_status=0;
-$my_aid="";
+$my_rotation_angle = 0;
+$equipment_status = 0;
+$my_equipment_number = "";
 $num_icons = 0;
 $account_id = $_SESSION['NX_AUTH']['account_id'];
 $this_url=$_SERVER['REQUEST_URI'];
@@ -377,38 +377,38 @@ unset($i);
 
 
 /* NOW BEGINS THE FIXTURE ICONS THAT ARE IN INVENTORY!!! */
-$assets['x_pos'] = Nexista_Path::get("//get_all_assets/x_position","flow");
-if($assets['x_pos']!=NULL) {
+$equipment['x_pos'] = Nexista_Path::get("//equipment_get_all/x_position","flow");
+if($equipment['x_pos']!=NULL) {
 
-	$assets['y_pos'] = (array)Nexista_Path::get("//get_all_assets/y_position","flow");
-	$assets['rotation_angle'] = (array)Nexista_Path::get("//get_all_assets/rotation_angle","flow");
-	$assets['equipment_type_id'] = (array)Nexista_Path::get("//get_all_assets/equipment_type_id","flow");
-	$assets['location_equipment_id'] = (array)Nexista_Path::get("//get_all_assets/location_equipment_id","flow");
-	$assets['equipment_id'] = (array)Nexista_Path::get("//get_all_assets/equipment_id","flow");
-	$assets['asset_id'] = (array)Nexista_Path::get("//get_all_assets/asset_id","flow");
-	$assets['equipment_type_image_id'] =(array) Nexista_Path::get("//get_all_assets/equipment_type_image_id","flow");
-	$assets['status_id'] = (array)Nexista_Path::get("//get_all_assets/status_id","flow");
-	$assets['container'] = Nexista_Path::get("//get_all_assets","flow");
+	$equipment['y_pos'] = (array)Nexista_Path::get("//equipment_get_all/y_position","flow");
+	$equipment['rotation_angle'] = (array)Nexista_Path::get("//equipment_get_all/rotation_angle","flow");
+	$equipment['equipment_type_id'] = (array)Nexista_Path::get("//equipment_get_all/equipment_type_id","flow");
+	$equipment['location_equipment_id'] = (array)Nexista_Path::get("//equipment_get_all/location_equipment_id","flow");
+	$equipment['equipment_id'] = (array)Nexista_Path::get("//equipment_get_all/equipment_id","flow");
+	$equipment['asset_id'] = (array)Nexista_Path::get("//equipment_get_all/asset_id","flow");
+	$equipment['equipment_type_image_id'] =(array) Nexista_Path::get("//equipment_get_all/equipment_type_image_id","flow");
+	$equipment['status_id'] = (array)Nexista_Path::get("//equipment_get_all/status_id","flow");
+	$equipment['container'] = Nexista_Path::get("//equipment_get_all","flow");
 	// should container be an array - no, see below??
 
-	$num_icons = count($assets['y_pos']);
+	$num_icons = count($equipment['y_pos']);
 }
 
 
 if($number_of_symbols>0) { 
-	if(is_array($assets['x_pos'])) { 
+	if(is_array($equipment['x_pos'])) { 
 		// Now loop through the actual asset lists at that location?
 		$inventory_as = "Object.registerClass('container',positionFixture);";
 		for($j=0; $j<$num_icons; $j++) { 
-			$e_id = $assets['equipment_type_id'][$j];
-			$my_x = $assets['x_pos'][$j];
-			$my_y = $assets['y_pos'][$j];
-			$my_rotation_angle = $assets['rotation_angle'][$j];
-			$equipment_status=$assets['status_id'][$j];
-			$my_aid = $assets['asset_id'][$j];
-			$my_leid = $assets['location_equipment_id'][$j];
-			$my_eid = $assets['equipment_id'][$j];
-			$my_equipment_type_image_id = $assets['equipment_type_image_id'][$j]; 
+			$e_id = $equipment['equipment_type_id'][$j];
+			$my_x = $equipment['x_pos'][$j];
+			$my_y = $equipment['y_pos'][$j];
+			$my_rotation_angle = $equipment['rotation_angle'][$j];
+			$equipment_status=$equipment['status_id'][$j];
+			$my_equipment_number = $equipment['asset_id'][$j];
+			$my_leid = $equipment['location_equipment_id'][$j];
+			$my_eid = $equipment['equipment_id'][$j];
+			$my_equipment_type_image_id = $equipment['equipment_type_image_id'][$j]; 
 
 			$my_icon_type_id = "icon_".$e_id;
 			$inventory_as .= "
