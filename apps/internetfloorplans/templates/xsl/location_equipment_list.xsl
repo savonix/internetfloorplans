@@ -67,9 +67,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:value-of select="//labels/label[key='equipment_type']/value"/>
             </th>
 			<th>
-				<xsl:value-of select="//labels/label[key='container']/value"/>
-            </th>
-			<th>
 				<xsl:value-of select="//labels/label[key='edit']/value"/>
             </th>
 			<th>
@@ -87,9 +84,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</td>
 			<td>
 				<xsl:value-of select="name"/>
-            </td>
-			<td>
-				<xsl:value-of select="container_name"/>
             </td>
 			<td>
 				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}">

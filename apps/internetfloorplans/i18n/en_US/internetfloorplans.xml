@@ -109,51 +109,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <key>link_color</key>
         <value>Link Color</value>
     </label>
-    
-    
-    <!-- container_types -->
     <label>
-    		<key>equip_name</key>
+        <key>equip_name</key>
 		<value>Equipment Type Name</value>
 	</label>
 	<label>
 		<key>description</key>
 		<value>Description</value>
 	</label>
-    <!-- equipment_container_codes -->
     <label>
-    		<key>equip_type</key>
+        <key>equip_type</key>
 		<value>Equipment Type</value>
 	</label>
-	<label>
-		<key>container</key>
-		<value>Container</value>
-	</label>
-	<label>
-		<key>business</key>
-		<value>Business</value>
-	</label>
-	<label>
-		<key>options</key>
-		<value>Options</value>
-	</label>
-<!-- equipment_containers -->
-	<label>
-		<key>add_containers</key>
-		<value>Add Containers</value>
-	</label>
-	<label>
-		<key>name</key>
-		<value>Name</value>
-	</label>
-	<label>
-		<key>delete_container</key>
-		<value>Delete Container</value>
-	</label>
-	<label>
-		<key>comments</key>
-		<value>Comments</value>
-	</label>
+    
 <!-- equipment_content_install -->
 	<label>
 		<key>materials_successfully_installed</key>
@@ -258,14 +226,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<key>icons</key>
 		<value>Icons</value>
 	</label>
-	<label>
-		<key>containers</key>
-		<value>Containers</value>
-	</label>
-	<label>
-		<key>container_coding</key>
-		<value>Container Coding</value>
-	</label>
+    
 	<!-- equipment view all -->
 	<label>
 		<key>equipment_type</key>
