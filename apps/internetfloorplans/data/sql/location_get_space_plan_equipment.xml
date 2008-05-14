@@ -29,15 +29,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		<param name="_get/location_id" type="text" />
 	</params>
 	<sql>
-        SELECT  
-		uplink_location_space_plan.location_id, 
-		&ifp_equipment;.*, 
-		&ifp_equipment_types;.name, 
+        SELECT
+		&ifp_location_space_plans;.location_id,
+		&ifp_equipment;.*,
+		&ifp_equipment_types;.name,
 		&ifp_equipment_type_images;.equipment_type_image_id,
-		&ifp_location_equipment;_position.*, 
-		&ifp_location_equipment;.location_id, 
-		(uplink_locations.name) as location_address_name,
- 		&ifp_equipment_type_container;.equipment_type_container_id
+		&ifp_location_equipment;_position.*,
+		(&ifp_locations;.name) as location_address_name
 		
 		
 		FROM 
@@ -48,9 +46,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		&ifp_location_equipment;_position,
 		uplink_locations,
 		&ifp_equipment_type_images;)
-		
-		LEFT JOIN &ifp_equipment_type_container;
-		ON (&ifp_equipment_type_container;.equipment_type_id = &ifp_equipment_types;.equipment_type_id)
 		
 		WHERE 
         &ifp_equipment;.equipment_type_id = &ifp_equipment_types;.equipment_type_id
