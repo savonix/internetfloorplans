@@ -24,19 +24,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
 
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="delete_location_equipment_position">
-
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="runtime/utdate" type="text"/>
 		<param name="//_get/location_equipment_id" type="text"/>
-        <param name="runtime/utdate" type="timestamp"/>
 	</params>
     <sql>
-        UPDATE &ifp_location_equipment_position;
-		SET deletion_datetime=? 
+        DELETE FROM &ifp_location_equipment_position;
 		WHERE 
 		location_equipment_id=?
-		AND deletion_datetime &gt; ?
     </sql>
-
 </query>
