@@ -26,10 +26,8 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="equipment_type_get_images">
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="_get/equipment_type_id" type="text"/>
 	</params>
     <sql>
-        SELECT * FROM &ifp_equipment_type_images;
-        WHERE equipment_type_id = ?
+        SELECT * FROM &ifp_static_files;
     </sql>
 </query>

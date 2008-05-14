@@ -54,25 +54,7 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_typ
   `modification_timestamp` timestamp DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   `creation_datetime` datetime DEFAULT NULL,
   PRIMARY KEY  (`equipment_type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
-
-
-CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_type_images` (
-  `equipment_type_image_id` int(11) NOT NULL auto_increment,
-  `equipment_type_id` int(11) NOT NULL default '0',
-  `default_image` int(11) default NULL,
-  `name` char(100) NOT NULL default '-',
-  `image_pointer` char(255) NOT NULL default '0',
-  `thumb_pointer` char(255) default NULL,
-  `mime_type` char(50) NOT NULL default '0',
-  `comments` char(255) default '-',
-  `height` int(11) NOT NULL default '0',
-  `width` int(11) NOT NULL default '0',
-  `modification_timestamp` timestamp DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
-  `creation_datetime` datetime DEFAULT NULL,
-  UNIQUE KEY `equipment_type_image_id` (`equipment_type_image_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_type_icon` (
@@ -86,7 +68,6 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_typ
   `name` char(100) NOT NULL default '-',
   UNIQUE KEY `equipment_type_icon_id` (`equipment_type_icon_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>locations` (
