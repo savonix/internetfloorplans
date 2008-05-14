@@ -44,7 +44,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<td><xsl:value-of select="//equipment_get_by_id/equipment_number"/></td>
 			</xsl:if>
 			<xsl:if test="not(//_get/equipment_id)">
-			<td><input type="text" name="equipment_number" value="{//equipment_get_by_id/asset_id}"/></td>
+			<td><input type="text" name="equipment_number" value="{//equipment_get_by_id/equipment_number}"/></td>
 			</xsl:if>
 
 			<td rowspan="6">
