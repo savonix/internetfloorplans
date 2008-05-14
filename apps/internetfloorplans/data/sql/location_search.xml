@@ -25,7 +25,6 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <query name="get_all_locations">
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="last_database_update" type="text"/>
 		<param name="//_post/q" type="text"/>
 		<param name="//_post/q" type="text"/>
 		<param name="//_post/q" type="text"/>
@@ -38,8 +37,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 		
 		FROM &ifp_locations;
 		
-		WHERE &ifp_locations;.deletion_datetime &gt; ?  
-		AND (&ifp_locations;.name LIKE ? OR &ifp_locations;.address_line_1 LIKE ? OR &ifp_locations;.city LIKE ?)  
+		WHERE (&ifp_locations;.name LIKE ? OR &ifp_locations;.address_line_1 LIKE ? OR &ifp_locations;.city LIKE ?)  
 		GROUP BY &ifp_locations;.name
 		
 		ORDER BY &ifp_locations;.name ASC
