@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <params>
 		<param name="_post/name" type="text" default="Untitled"/>
         <param name="_post/type" type="text"/>
-		<param name="_post_dest" type="text"/>
+		<param name="_post/dest" type="text"/>
 		<param name="_files/file/name" type="text"/>
         <param name="//runtime/utcdate" type="text"/>
     </params>
