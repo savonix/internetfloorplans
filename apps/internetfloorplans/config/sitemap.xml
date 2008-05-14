@@ -242,7 +242,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 						<map:query src="data/sql/location_equipment_create.xml"/>
 					</map:case>
 					<map:case value="edit">
-						<map:query src="data/sql/edit_equipment_container.xml"/>
 					</map:case>
 					<map:default>
 					</map:default>
@@ -258,7 +257,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			<!-- EDIT FORM-->
 			<map:true>
 				<map:query src="data/sql/equipment_get_by_id.xml"/>
-				<map:query src="data/sql/equipment_containers_get_by_id.xml"/>
 				<map:xsl src="templates/xsl/equipment_form.xsl"/>
 			</map:true>
 			<map:false>
@@ -278,13 +276,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<map:query src="data/sql/get_last_location_equipment_id.xml"/>
 					<map:query src="data/sql/add_equipment_location_position.xml"/>
                     -->
-					<!-- get equipment_type containers-->
-					<map:query src="data/sql/get_eqp_containers_by_type_id.xml"/>
-					<!-- for each container, set default priorities and campaigns-->
-					<map:query src="data/sql/equipment_containers_create.xml"/>
 				</map:case>
 				<map:case value="edit">
-					<map:query src="data/sql/equipment_container_update.xml"/>
 				</map:case>
 				<map:default>
 				</map:default>
@@ -404,60 +397,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<map:query src="data/sql/equipment_type_delete.xml"/>
 	</map:gate>
 
-	<!-- CONFIGURE EQUIPMENT CONTAINERS -->
-	<map:gate name="ifp-equipment-type-containers">
-		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
-		<map:xsl src="templates/xsl/equipment_containers.xsl"/>
-	</map:gate>
-	<!-- ADD EQUIPMENT CONTAINERS -->
-	<map:gate name="ifp-equipment-type-container-edit">
-		<map:query src="data/sql/equipment_containers_create.xml"/>
-		<map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
-	</map:gate>
-	<!-- DELETE EQUIPMENT CONTAINERS -->
-	<map:gate name="ifp-equipment-type-container-delete">
-		<map:query src="data/sql/equipment_containers_delete.xml"/>
-		<map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
-	</map:gate>
 
-	<!-- LIST CONTAINERS -->
-	<map:gate name="ifp-containers" >
-		<map:query src="data/sql/container_types_get_all.xml"/>
-		<map:xsl src="templates/xsl/view_container_types.xsl"/>
-	</map:gate>
-
-	<!-- ADD CONTAINER -->
-    <map:gate name="ifp-containers-edit" role="client">
-        <map:query src="data/sql/container_type_get_by_id.xml"/>
-        <map:xsl src="templates/xsl/container_type_form.xsl"/>
-    </map:gate>
-
-<map:gate name="ifp-containers-edit-submit" role="client">
-	<map:switch name="_post/type">
-		<map:case value="new">
-			<map:query src="data/sql/new_container_type.xml"/>
-		</map:case>
-		<map:case value="edit">
-			<map:query src="data/sql/del_container_type.xml"/>
-			<map:query src="data/sql/edit_container_type.xml"/>
-		</map:case>
-		<map:default>
-			<map:query src="data/sql/new_container_type.xml"/>
-		</map:default>
-	</map:switch>
-		<map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
-</map:gate>
-
-<!-- DELETE CONTAINER TYPE-->
-<map:gate name="ifp-containers-delete" role="client">
-	<map:query src="data/sql/del_container_type.xml"/>
-    <map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
-</map:gate>
-
-<!-- Symbol and Image servers -->
+    <!-- Symbol and Image servers -->
 	<map:gate name="ifp-types-display" role="client">
 		<map:query src="data/sql/equipment_get_by_id_p.xml"/>
-		<map:query src="data/sql/post_eqp_containers_by_type_id.xml"/>
 		<map:xsl src="templates/xsl/display_equipment_config.xsl"/>
 	</map:gate>
 
@@ -467,22 +410,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<map:script src="lib/php/show_symbol.php" />
 	</map:gate>
 
-	<!-- FLASH SERVER!!!! -->
-	<map:gate name="ifp-types-containers-position-server">
-        <map:action type="header" params="Content-Type,application/x-shockwave-flash"/>
-		<map:query src="data/sql/get_eqp_containers_by_type_id.xml"/>
-		<map:query src="data/sql/get_image_pointer_by_id.xml"/>
-		<map:script src="lib/php/display_position_containers.php" />
-	</map:gate>
-	<!-- CONTAINER POSITIONER -->
-	<map:gate name="ifp-container-position" role="client">
-		<map:query src="data/sql/pos_equipment_container.xml"/>
-	</map:gate>
+
 
 	<!-- CONTENT DISPLAYER ON MERCHANDISING -->
 	<map:gate name="ifp-content-position-server" role="client">
         <map:action type="header" params="Content-Type,application/x-shockwave-flash"/>
-		<map:query src="data/sql/get_eqp_containers_by_type_id.xml"/>
 		<map:query src="data/sql/get_image_pointer_by_id.xml"/>
 		<map:query src="data/sql/get_equipment_content.xml"/>
 		<map:query src="data/sql/get_image_pointers_by_id.xml"/>
