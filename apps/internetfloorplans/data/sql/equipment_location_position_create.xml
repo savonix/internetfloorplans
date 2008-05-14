@@ -22,7 +22,7 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="new_asset_location">
+<query name="equipment_location_position_create">
     <connection>&ifp_connection;</connection>
     <params>
 		<param name="//get_last_location_equipment_id/location_equipment_id" type="integer"/>

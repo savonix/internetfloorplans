@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `ifp_container` (
 
 CREATE TABLE IF NOT EXISTS `ifp_equipment` (
   `equipment_id` int(11) NOT NULL auto_increment,
-  `asset_id` char(100) default '-',
+  `equipment_number` char(100) default '-',
   `equipment_type_id` int(11) NOT NULL default '0',
   `status_id` int(11) NOT NULL default '0',
   `creation_datetime` datetime NOT NULL default '1000-01-01 01:01:01',

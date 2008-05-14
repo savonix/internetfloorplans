@@ -49,7 +49,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </tr>
     <tr>
         <td>
-            Asset ID: <xsl:value-of select="//asset_id"/>
+            Equipment Number: <xsl:value-of select="//equipment_number"/>
         </td>
     </tr>
     <tr>
