@@ -44,6 +44,7 @@ $runtime = array(
                 'link_prefix' => $link_prefix,
                 'utcdate' => $utcdate,
                 'user_id' => $current_user_id,
+                'upload_dest' => $upload_dest,
                 'svn_revision' => $svn_revision
                 );
 

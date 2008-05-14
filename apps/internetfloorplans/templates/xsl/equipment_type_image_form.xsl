@@ -28,7 +28,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:include href="upload_form.xsl"/>
 <xsl:template name="content">
 	<form enctype="multipart/form-data" method="post">
-	<input type="hidden" name="dest" value="{//upload_dest}"/>
+	<input type="hidden" name="dest" value="/tmp/"/>
 	<input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
     <xsl:call-template name="equipment-type-menu"/>
 	<xsl:call-template name="equipment-type-summary"/>

@@ -305,20 +305,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<map:query src="data/sql/equipment_types_get_all.xml"/>
 		<map:xsl src="templates/xsl/equipment_types.xsl"/>
 	</map:gate>
-	<!-- View equipment type images -->
-	<map:gate name="ifp-equipment-type-images" role="client">
-		<map:block name="type_images">
-		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
-		<map:query src="data/sql/equipment_type_get_images.xml"/>
-		<map:xsl src="templates/xsl/equipment_type_images.xsl"/>
-		</map:block>
-	</map:gate>
-	<!-- View equipment type images -->
-	<map:gate name="ifp-equipment-type-image-edit" role="client">
-		<map:xsl src="templates/xsl/equipment_type_image_form.xsl"/>
-	</map:gate>
 
-	<!-- Add new equipment image -->
+	<!-- Add new equipment type -->
 	<map:gate name="ifp-equipment-type-edit" role="client">
 		<map:if name="_post/submit">
             <map:true>
@@ -355,7 +343,30 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
 	</map:gate>
 
-	<!-- Add new plan symbol -->
+	<!-- View equipment type images -->
+	<map:gate name="ifp-equipment-type-images" role="client">
+		<map:block name="type_images">
+		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
+		<map:query src="data/sql/equipment_type_get_images.xml"/>
+		<map:xsl src="templates/xsl/equipment_type_images.xsl"/>
+		</map:block>
+	</map:gate>
+	<!-- Create equipment type images -->
+	<map:gate name="ifp-equipment-type-image-edit" role="client">
+    		<map:if name="_post/submit">
+			<map:true>
+                <map:action type="upload" params="file,//_post/dest"/>
+                <map:query src="data/sql/equipment_type_image_create.xml"/>
+                <map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
+			</map:true>
+			<map:false>
+                <map:xsl src="templates/xsl/equipment_type_image_form.xsl"/>
+			</map:false>
+		</map:if>
+	</map:gate>
+    
+    
+	<!-- Add new equipment type  symbol -->
 	<map:gate name="ifp-equipment-type-icon-edit" role="client">
 		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
 		<map:xsl src="templates/xsl/equipment_type_icon_form.xsl"/>
