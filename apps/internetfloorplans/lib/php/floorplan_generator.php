@@ -287,10 +287,10 @@ entire_key.cacheAsBitmap = true;
 
 
 
-$icon_pointers['filename'] = Nexista_Path::get("//get_account_icon_pointers/icon_pointer","flow");
-$icon_pointers['name'] = Nexista_Path::get("//get_account_icon_pointers/name","flow");
-$icon_pointers['equipment_type_image_id'] = Nexista_Path::get("//get_account_icon_pointers/equipment_type_image_id","flow");
-$icon_pointers['equipment_type_id'] = Nexista_Path::get("//get_account_icon_pointers/equipment_type_id","flow");
+$icon_pointers['filename'] = Nexista_Path::get("//equipment_type_get_icons/icon_pointer","flow");
+$icon_pointers['name'] = Nexista_Path::get("//equipment_type_get_icons/name","flow");
+$icon_pointers['equipment_type_image_id'] = Nexista_Path::get("//equipment_type_get_icons/equipment_type_image_id","flow");
+$icon_pointers['equipment_type_id'] = Nexista_Path::get("//equipment_type_get_icons/equipment_type_id","flow");
 
 $number_of_icons = count($icon_pointers['filename']);
 
