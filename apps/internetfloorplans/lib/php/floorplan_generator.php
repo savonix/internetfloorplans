@@ -22,8 +22,6 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 */
-// Copyright Savonix Corporation 2003-2006
-
 
 $x_shift=0;
 // This is 3/4 the size of an 11x11 page.
