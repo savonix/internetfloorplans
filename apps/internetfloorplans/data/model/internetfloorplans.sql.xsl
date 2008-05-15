@@ -57,19 +57,6 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_typ
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
-CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment_type_icon` (
-  `equipment_type_icon_id` int(11) NOT NULL auto_increment,
-  `equipment_type_id` int(11) NOT NULL default '0',
-  `default_icon` int(11) NOT NULL default '0',
-  `file_pointer` char(255) NOT NULL default '0',
-  `comments` char(255) default '-',
-  `modification_timestamp` timestamp DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
-  `creation_datetime` datetime DEFAULT NULL,
-  `name` char(100) NOT NULL default '-',
-  UNIQUE KEY `equipment_type_icon_id` (`equipment_type_icon_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>locations` (
   `location_id` int(11) NOT NULL auto_increment,
   `name` char(100) NOT NULL default '0',
@@ -192,6 +179,8 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>static_files`
   PRIMARY KEY `static_file_index` (`static_file_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>static_file_metadata` (
   `static_file_id` int(11) NOT NULL auto_increment,
   `meta_key` varchar(100) NULL,
@@ -215,10 +204,9 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>options` (
 
 
 
-
--- Constraints for table `ifp_location_images`
--- 
+<!--
 ALTER TABLE `ifp_location_images`
   ADD CONSTRAINT `ifp_location_images_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `ifp_locations` (`location_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+-->
 </xsl:template>
 </xsl:stylesheet>
