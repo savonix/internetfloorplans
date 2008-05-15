@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: ifp_iframe_viewer.xsl
+Component: ming_test.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -26,17 +26,21 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:template name="content">
 
 <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.swf.js"></script>
-<div id="space_plan">
-    <img src="{//path_prefix}/s/{//space_plan_pointer}"/>
-</div>
+<link rel="stylesheet" type="text/css" href="{//path_prefix}/s/css/jquery.swf.css" />
 
 <script type="text/javascript">
-$('#space_plan').flash({
-    src: "<xsl:value-of select="//link_prefix"/>ming-test",
-    width: 240,
-    height: 120
+$(document).ready(function(){
+    $('#space_plan').flash({
+        src: "<xsl:value-of select="//path_prefix"/>/s/swf/ming_test.swf",
+        width: 240,
+        height: 120
+    });
 });
 </script>
+
+<div id="space_plan">
+    hello,
+</div>
 
 
 </xsl:template>

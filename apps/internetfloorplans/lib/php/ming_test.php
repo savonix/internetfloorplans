@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 ming_useswfversion(7);
 
 $m = new SWFMovie();
-$m->setDimension(120,120);
+$m->setDimension(240,120);
 $my_key_label_header = new SWFShape();
 $my_key_label_header->setLine(1,0,0,0);
 $my_key_label_header->setRightFill(240,240,240);
@@ -35,6 +35,8 @@ $my_key_label_header->drawLine(0,25);
 $my_key_label_header->drawLine(-150,0);
 $my_key_label_header->drawLine(0,-25);
 $m->add($my_key_label_header);
+//$m->save('/tmp/ming_test.swf');
+
 $m->output();
 
 
