@@ -1,7 +1,7 @@
 <?php
 /*
 Program: Internet Floor Plans
-Component: symbol_processor.php
+Component: icon_processor.php
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
