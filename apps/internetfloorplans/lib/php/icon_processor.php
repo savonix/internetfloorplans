@@ -25,13 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 $filename = Nexista_Path::get("_files/file/name","flow");
 
 $path = $_SERVER['SCRIPT_FILENAME'];
-$path = dirname(dirname($path));
-$account_id = $_SESSION['NX_AUTH']['account_id'];
-$a_path = $path."/usr/"; 
-$a_path .= $account_id; 
-
-$b_path = $a_path."/merchandising/";
-$file = $b_path.$filename;
+$file = ""; /* FIXME */
 
 $c_root = $b_path."$filename";
 $c_ppm = $c_root."-000001.ppm";
