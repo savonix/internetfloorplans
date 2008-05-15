@@ -44,8 +44,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <key>equipment_types</key>
         <value>Equipment Types</value>
     </label>
+    <!-- this is used for the menu -->
     <label>
         <key>ifp_options</key>
+        <value>Options</value>
+    </label>
+    <label>
+        <key>options</key>
         <value>Options</value>
     </label>
 

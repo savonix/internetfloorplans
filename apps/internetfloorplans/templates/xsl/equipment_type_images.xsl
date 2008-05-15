@@ -32,15 +32,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <tr>
     <td align="left">
         <table class="simple-table">
+            <thead>
             <tr>
-                <td>
+                <th>
                     <xsl:value-of select="//labels/label[key='images']/value"/>
-                </td>
+                </th>
             </tr>
+            </thead>
             <xsl:for-each select="//equipment_type_get_images">
             <tr>
                 <td>
-                    <a><xsl:value-of select="name"/></a>
+                    <b><xsl:value-of select="title"/></b>
                 </td>
             </tr>
             </xsl:for-each>
