@@ -32,10 +32,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table class="simple-table">
 <tr>
     <td>
-        <xsl:value-of select="//labels/label[key='symbols']/value"/>
+        <xsl:value-of select="//labels/label[key='icons']/value"/>
     </td>
 </tr>
-<xsl:for-each select="//get_equipment_type_symbols">
+<xsl:for-each select="//get_equipment_type_icons">
 <tr>
     <td>
         <a><xsl:value-of select="name"/></a>
@@ -47,7 +47,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:value-of select="//labels/label[key='options']/value"/>
     </td>
 </tr>
-<xsl:if test="not(//get_equipment_type_symbols)">
+<xsl:if test="not(//get_equipment_type_icons)">
 <tr>
     <td>
         <a href="{//link_prefix}ifp-equipment-type-icon-edit&amp;equipment_type_id={//_get/equipment_type_id}">
@@ -58,7 +58,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </xsl:if>
 <tr>
     <td>
-        <a onclick="return confirm('Are you sure you want to delete this equipment type symbol?')">
+        <a onclick="return confirm('Are you sure you want to delete this equipment type icon?')">
             <xsl:value-of select="//labels/label[key='delete_this_icon']/value"/>
         </a>
     </td>
@@ -76,7 +76,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <tr>
     <td>
 <!-- FIXME - This is broken -->
-<img src="{//path_prefix}{//get_equipment_type_symbols/symbol_pointer}"/>
+<img src="{//path_prefix}{//get_equipment_type_icons/icon_pointer}"/>
 
     </td>
 </tr>
@@ -88,12 +88,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <tr>
     <td>
         <xsl:for-each select="//get_equipment_type_symbols">
-            <xsl:if test="equipment_type_symbol_id=//_get/equipment_type_symbol_id
-            or (not(//_get/equipment_type_symbol_id) and default_symbol=1)">
+            <xsl:if test="equipment_type_icon_id=//_get/equipment_type_icon_id
+            or (not(//_get/equipment_type_icon_id) and default_symbol=1)">
                 <xsl:value-of select="comments"/>
             </xsl:if>
         </xsl:for-each>
-        
     </td>
 </tr>
 </table>
