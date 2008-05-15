@@ -1,0 +1,8 @@
+.flash-replaced .alt {
+    display: block;
+    height: 0;
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+}
+
