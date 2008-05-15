@@ -34,7 +34,7 @@ $utcdate = gmdate('Y-m-d H:i:s');
     This should be in a separate file, accessed and referenced a plugin
     so it can easily be turned off.
 */
-$svn_revision = '$Rev$'; 
+$svn_revision = '$Rev: 369 $'; 
 $svn_revision = str_replace('$Rev:','',$svn_revision);
 $svn_revision = str_replace('$','',$svn_revision);
 /* end TODO */
