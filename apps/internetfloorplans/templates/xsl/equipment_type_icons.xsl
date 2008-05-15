@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:value-of select="//labels/label[key='icons']/value"/>
     </td>
 </tr>
-<xsl:for-each select="//get_equipment_type_icons">
+<xsl:for-each select="//equipment_type_get_icons">
 <tr>
     <td>
         <a><xsl:value-of select="name"/></a>
@@ -47,7 +47,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:value-of select="//labels/label[key='options']/value"/>
     </td>
 </tr>
-<xsl:if test="not(//get_equipment_type_icons)">
+<xsl:if test="not(//equipment_type_get_icons)">
 <tr>
     <td>
         <a href="{//link_prefix}ifp-equipment-type-icon-edit&amp;equipment_type_id={//_get/equipment_type_id}">
@@ -68,7 +68,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table class="simple-table">
 <tr>
     <td>
-        <xsl:for-each select="//get_equipment_type_icons">
+        <xsl:for-each select="//equipment_type_get_icons">
             <xsl:value-of select="name"/>
         </xsl:for-each>
     </td>
@@ -76,7 +76,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <tr>
     <td>
 <!-- FIXME - This is broken -->
-<img src="{//path_prefix}{//get_equipment_type_icons/icon_pointer}"/>
+<img src="{//path_prefix}{//equipment_type_get_icons/icon_pointer}"/>
 
     </td>
 </tr>
@@ -87,7 +87,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </tr>
 <tr>
     <td>
-        <xsl:for-each select="//get_equipment_type_symbols">
+        <xsl:for-each select="//equipment_type_get_icons">
             <xsl:if test="equipment_type_icon_id=//_get/equipment_type_icon_id
             or (not(//_get/equipment_type_icon_id) and default_symbol=1)">
                 <xsl:value-of select="comments"/>
