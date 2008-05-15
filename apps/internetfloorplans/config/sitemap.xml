@@ -125,7 +125,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<map:query src="data/sql/equipment_get_all_types.xml"/>
 		<map:query src="data/sql/location_get_space_plan_by_id.xml"/>
 		<map:query src="data/sql/location_get_space_plan_equipment.xml"/>
-		<map:query src="data/sql/equipment_get_symbol_pointers.xml"/>
 		<map:script src="lib/php/floorplan_pdf.php"/>
 	</map:gate>
 
@@ -357,9 +356,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</map:false>
 		</map:if>
 	</map:gate>
-    
-    
-	<!-- Add new equipment type  symbol -->
+
+
+	<!-- Add new equipment type icon -->
 	<map:gate name="ifp-equipment-type-icon-edit" role="client">
 		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
 		<map:xsl src="templates/xsl/equipment_type_icon_form.xsl"/>
@@ -369,7 +368,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<map:if name="_post/submit">
 			<map:true>
                 <map:action type="upload" params="file,//_post/dest"/>
-                <map:script src="lib/php/symbol_processor.php"/>
+                <map:script src="lib/php/icon_processor.php"/>
                 <map:query src="data/sql/equipment_type_icon_create.xml"/>
                 <map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
 			</map:true>
@@ -378,14 +377,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</map:false>
 		</map:if>
 	</map:gate>
-    
-	<!-- Delete symbol -->
+
+	<!-- Delete icon -->
 	<map:gate name="ifp-equipment-type-icon-edit-delete" role="client">
 		<map:query src="data/sql/equipment_type_icon_delete.xml"/>
 		<map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
 	</map:gate>
 
-	<!-- View equipment type symbols -->
+	<!-- View equipment type icons -->
 	<map:gate name="ifp-equipment-type-icons" role="client">
 		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
 		<map:query src="data/sql/equipment_type_get_icons.xml"/>
@@ -405,10 +404,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</map:gate>
 
 
-	<map:gate name="ifp-equipment-types-symbol-server" role="client">
-		<map:query src="data/sql/get_symbol_pointer_by_id.xml"/>
-		<map:script src="lib/php/show_symbol.php" />
-	</map:gate>
 
 
 
@@ -426,7 +421,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <map:action type="header" params="Content-Type,application/x-shockwave-flash"/>
 		<map:query src="data/sql/location_get_space_plan_by_id.xml"/>
 		<map:query src="data/sql/location_get_space_plan_equipment.xml"/>
-		<map:query src="data/sql/equipment_get_symbol_pointers.xml"/>
 		<map:script src="lib/php/floorplan_generator.php" />
 	</map:gate>
 
