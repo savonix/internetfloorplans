@@ -33,6 +33,8 @@ $utcdate = gmdate('Y-m-d H:i:s');
 
 if(is_file('../revision')) { 
     $svn_revision = file_get_contents('../revision');
+} else {
+
 }
 
 $runtime = array(
