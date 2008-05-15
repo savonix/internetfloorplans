@@ -141,7 +141,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     params="{//link_prefix}ifp-location-space-plans&amp;location_id={//_post/location_id}"/>
 			</map:true>
 			<map:false>
-				<!-- have to get user's account for destination variable of form - BAD! -->
 				<map:query src="data/sql/location_get_summary.xml"/>
 				<map:xsl src="templates/xsl/location_space_plan_form.xsl"/>
 			</map:false>
