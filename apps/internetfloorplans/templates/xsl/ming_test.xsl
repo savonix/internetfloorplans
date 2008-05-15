@@ -31,7 +31,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <script type="text/javascript">
 $(document).ready(function(){
     $('#space_plan').flash({
-        src: "<xsl:value-of select="//path_prefix"/>/s/swf/ming_test.swf",
+        src: "<xsl:value-of select="//link_prefix"/>ming-test",
         width: 240,
         height: 120
     });
