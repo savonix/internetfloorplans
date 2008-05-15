@@ -24,14 +24,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
 */
 $filename = Nexista_Path::get("_files/file/name","flow");
 
-$path = $_SERVER['SCRIPT_FILENAME'];
-$path = dirname(dirname($path));
-$account_id = $_SESSION['NX_AUTH']['account_id'];
-$a_path = $path."/usr/";
-$a_path .= $account_id;
 
-$b_path = $a_path."/spaceplans/";
-$file = $b_path.$filename;
+/* FIXME */
+$file = ""; 
 
 $c_root = $b_path."$filename";
 $c_ppm = $c_root."-000001.ppm";
@@ -42,7 +37,6 @@ $bitmap_file = $file.$ext;
 
 
 $bitmap_filename = $filename.$ext;
-//Flow::add("bitmap_filename",$bitmap_filename);
 Nexista_Flow::add("bitmap_filename",$filename);
 
 function fork($shellCmd) {

@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: equipment_type_symbol_form.xsl
+Component: equipment_type_icon_form.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3

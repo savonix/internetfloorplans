@@ -28,16 +28,13 @@ require('/path/to/fpdf153/fpdf.php');
 require('/path/to/fpdi1.1/fpdi.php');
 
 ini_set('include_path','/path/to/fpdf153/font/');
-$filename = Path::get("//get_sp_pointer_by_id/space_plan_pointer","flow"); 
+$filename = Nexista_Path::get("//get_sp_pointer_by_id/space_plan_pointer","flow"); 
 
 $path = $_SERVER['SCRIPT_FILENAME'];
 $path = dirname(dirname($path));
-$account_id = $_SESSION['NX_AUTH']['account_id'];
-$a_path = $path."/usr/"; 
-$a_path .= $account_id; 
 
-$b_path = $a_path."/spaceplans/";
-$file = $b_path.$filename;
+/* 
+$file = "";
 
 
 $pdf= new fpdi("L");
@@ -70,10 +67,6 @@ $pdf->addPage();
 $pdf->useTemplate($tplidx,10,10,200);
 //$pdf->useTemplate($tplidx2,-40,-80,0,0);
 
-
-$ind_path = $path."/htdocs/resources/img/style-1.1/images/";
-$icon_warning_path = $ind_path."icon_warning_sml.jpg";
-$pdf->Image($icon_warning_path,150,200);
 
 
 // Location Information:

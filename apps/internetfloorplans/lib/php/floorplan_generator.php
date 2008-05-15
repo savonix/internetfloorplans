@@ -29,7 +29,6 @@ $movie_width = 825;
 $movie_height = 825;
 
 
-$status_symbols = "no";
 $my_rotation_angle = 0;
 $equipment_status = 0;
 $my_equipment_number = "";
@@ -162,7 +161,7 @@ function argbtohex(a, r, g, b)
 
 // ICON CLASS
 function createIcon() {
-	var equipment_type_symbol = this.equipment_type_symbol;
+	var equipment_type_icon = this.equipment_type_icon;
 	key_icon.my_bitmap = new flash.display.BitmapData(this._width,this._height,true,0x00000000);
 	key_icon.attachBitmap(key_icon.my_bitmap, 1);
 	key_icon.my_bitmap.draw(this);
@@ -204,13 +203,13 @@ createNewFixture.prototype.onRollOver=function() {
 
 // INVENTORY CLASS
 function positionFixture() {
-	this.createEmptyMovieClip('symbol', this.getNextHighestDepth());
-	this.symbol.cacheAsBitmap = false;
-	this.symbol.createEmptyMovieClip('bitmap', this.getNextHighestDepth());
-	this.symbol.bitmap.attachBitmap(this.bitmap,2,auto,true);
-	this.symbol.bitmap._x=-this.symbol.bitmap._width/2;
-	this.symbol.bitmap._y=-this.symbol.bitmap._height/2;
-	this.symbol._rotation=this.symbol_rotation;
+	this.createEmptyMovieClip('icon', this.getNextHighestDepth());
+	this.icon.cacheAsBitmap = false;
+	this.icon.createEmptyMovieClip('bitmap', this.getNextHighestDepth());
+	this.icon.bitmap.attachBitmap(this.bitmap,2,auto,true);
+	this.icon.bitmap._x=-this.icon.bitmap._width/2;
+	this.icon.bitmap._y=-this.icon.bitmap._height/2;
+	this.icon._rotation=this.icon_rotation;
 	this.onPress=function() {
 		// If clicked by not selected, select.
 		if(this.selected!=true) {
@@ -233,21 +232,21 @@ function positionFixture() {
 				if (this._xmouse < 0){
 					corrFactor = 180;
 				}
-				this.symbol._rotation = 15*int(degreeAngle/15)+corrFactor+this.symbol_rotation;
+				this.icon._rotation = 15*int(degreeAngle/15)+corrFactor+this.icon_rotation;
 			};
 		}
 	};
 	this.onRelease=this.onReleaseOutside=function() {
 		this.onMouseMove = null;
-		if(x_position!=this._x || y_position!=this._y || my_rotation!=this.symbol._rotation) {
+		if(x_position!=this._x || y_position!=this._y || my_rotation!=this.icon._rotation) {
 			var update_position = new LoadVars();
 			update_position.location_equipment_id=this.my_leid;
 			update_position.x_position = this._x - $x_shift;
 			update_position.y_position = this._y;
-			update_position.rotation_angle = this.symbol._rotation;
+			update_position.rotation_angle = this.icon._rotation;
 			update_position.sendAndLoad('$FIXME',update_position,'POST');
 			update_position = null;
-			this.symbol_rotation=this.symbol._rotation;
+			this.icon_rotation=this.icon._rotation;
 		}
 
 			// display_config
@@ -288,22 +287,22 @@ entire_key.cacheAsBitmap = true;
 
 
 
-$symbol_pointers['filename'] = Nexista_Path::get("//get_account_symbol_pointers/symbol_pointer","flow");
-$symbol_pointers['name'] = Nexista_Path::get("//get_account_symbol_pointers/name","flow");
-$symbol_pointers['equipment_type_image_id'] = Nexista_Path::get("//get_account_symbol_pointers/equipment_type_image_id","flow");
-$symbol_pointers['equipment_type_id'] = Nexista_Path::get("//get_account_symbol_pointers/equipment_type_id","flow");
+$icon_pointers['filename'] = Nexista_Path::get("//get_account_icon_pointers/icon_pointer","flow");
+$icon_pointers['name'] = Nexista_Path::get("//get_account_icon_pointers/name","flow");
+$icon_pointers['equipment_type_image_id'] = Nexista_Path::get("//get_account_icon_pointers/equipment_type_image_id","flow");
+$icon_pointers['equipment_type_id'] = Nexista_Path::get("//get_account_icon_pointers/equipment_type_id","flow");
 
-$number_of_symbols = count($symbol_pointers['filename']);
+$number_of_icons = count($icon_pointers['filename']);
 
-if($number_of_symbols>0) {
+if($number_of_icons>0) {
 
-	for($i=0; $i < $number_of_symbols; $i++) {
+	for($i=0; $i < $number_of_icons; $i++) {
 
-		$filename = $symbol_pointers['filename'][$i];
+		$filename = $icon_pointers['filename'][$i];
 		if(!empty($filename)){
-			$name = $symbol_pointers['name'][$i];
-			$id = $symbol_pointers['equipment_type_id'][$i];
-			$equipment_type_image_id = $symbol_pointers['equipment_type_image_id'][$i];
+			$name = $icon_pointers['name'][$i];
+			$id = $icon_pointers['equipment_type_id'][$i];
+			$equipment_type_image_id = $icon_pointers['equipment_type_image_id'][$i];
             /* FIXME */
 			$mfile = $fixme_path . $filename;
 
@@ -319,7 +318,7 @@ if($number_of_symbols>0) {
 
 			$icon_as .="Object.registerClass('$icon_id', createIcon);
 			attachMovie('$icon_id','bitmap_$icon_id',1,
-				{_y:$my_y_pos,equipment_type_symbol:'equipment_type_$icon_id',equipment_type_id:$id,equipment_type_image_id:'$equipment_type_image_id'});
+				{_y:$my_y_pos,equipment_type_icon:'equipment_type_$icon_id',equipment_type_id:$id,equipment_type_image_id:'$equipment_type_image_id'});
 			";
 
 			$kt = new SWFTextField();
@@ -337,7 +336,7 @@ if($number_of_symbols>0) {
 unset($kt);
 unset($kt2);
 unset($name);
-unset($symbol_pointers);
+unset($icon_pointers);
 
 
 
@@ -372,7 +371,7 @@ if($equipment['x_pos']!=NULL) {
 }
 
 
-if($number_of_symbols>0) {
+if($number_of_icons>0) {
 	if(is_array($equipment['x_pos'])) {
 		// Now loop through the actual equipment lists at that location?
 		for($j=0; $j<$num_icons; $j++) {
