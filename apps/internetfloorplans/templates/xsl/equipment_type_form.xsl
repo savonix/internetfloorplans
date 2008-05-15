@@ -42,8 +42,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
         <tr>
             <td><xsl:value-of select="//labels/label[key='description']/value"/>:</td>
-            <td><textarea name="description" cols="25" rows="5"><xsl:value-of select="//equipment_type_get_by_id/description"/>
-            </textarea>
+            <td>
+                <textarea name="description" cols="25" rows="5">
+                <xsl:text><xsl:value-of select="//equipment_type_get_by_id/description"/></xsl:text>
+                </textarea>
             </td>
         </tr>
     </table>

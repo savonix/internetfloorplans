@@ -31,14 +31,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <a href="{//link_prefix}ifp-location-edit&amp;location_address_id={location_address_id}">
                 <xsl:value-of select="//labels/label[key='edit']/value"/>
             </a>
-            <a href="{//link_prefix}ifp-location-delete&amp;location_address_id={location_address_id}" 
-                onclick="return confirm('Are you sure you want to delete this location?')">
+            <a href="{//link_prefix}ifp-location-delete&amp;location_address_id={location_address_id}"
+                onclick="return confirm('{//labels/label[key='confirm_delete']/value}')">
                 <xsl:value-of select="//labels/label[key='delete']/value"/>
             </a>
 		</td>
 		<td>
 		<xsl:value-of select="//get_location_summary/address_line_1"/><br/>
-		<xsl:value-of select="//get_location_summary/city"/>&#160; <xsl:value-of select="//get_location_summary/state" />, 
+		<xsl:value-of select="//get_location_summary/city"/>&#160;
+        <xsl:value-of select="//get_location_summary/state" />,
 		<xsl:value-of select="//get_location_summary/zip"/>
 		</td>
 		<td>

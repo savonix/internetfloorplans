@@ -70,7 +70,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:if test="//location_image_id">
 			<tr>
 				<td>
-					<a href="#" onclick="return confirm('Are you sure you want to delete this location image?')">
+					<a href="#" onclick="return confirm('{//labels/label[key='confirm_delete']/value}?')">
                     <xsl:value-of select="//labels/label[key='delete']/value"/> <xsl:value-of select="//labels/label[key='this_image']/value"/></a>
 				</td>
 			</tr>
