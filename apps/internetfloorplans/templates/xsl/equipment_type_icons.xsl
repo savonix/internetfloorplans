@@ -89,7 +89,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <td>
         <xsl:for-each select="//equipment_type_get_icons">
             <xsl:if test="equipment_type_icon_id=//_get/equipment_type_icon_id
-            or (not(//_get/equipment_type_icon_id) and default_symbol=1)">
+            or (not(//_get/equipment_type_icon_id) and default_icon=1)">
                 <xsl:value-of select="comments"/>
             </xsl:if>
         </xsl:for-each>
