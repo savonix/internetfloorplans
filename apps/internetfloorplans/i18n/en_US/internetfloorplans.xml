@@ -358,6 +358,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</label>
 	<!-- location summary -->
 	<label>
+		<key>location_name</key>
+		<value>Location Name</value>
+	</label>
+	<label>
 		<key>location_options</key>
 		<value>Location Options</value>
 	</label>

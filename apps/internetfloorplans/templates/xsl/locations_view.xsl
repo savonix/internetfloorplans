@@ -30,9 +30,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:with-param name="my-table-div">my-locations-div</xsl:with-param>
     <xsl:with-param name="no-sort-column">,
         headers: {
+            3: {sorter: false},
             4: {sorter: false},
-            5: {sorter: false},
-            6: {sorter: false}
+            5: {sorter: false}
         }
     </xsl:with-param>
 </xsl:call-template>
@@ -56,9 +56,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table width="100%" class="tablesorter" id="mylocations">
     <thead>
     <tr>
-        <th>
-            <xsl:value-of select="//labels/label[key='status']/value"/>
-        </th>
         <th>
             <xsl:value-of select="//labels/label[key='branch_name']/value"/>
         </th>
@@ -102,8 +99,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <xsl:template name="location_row">
     <tr>
-        <td>
-        </td>
         <td>
             <a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}">
                 <xsl:value-of select="name"/>

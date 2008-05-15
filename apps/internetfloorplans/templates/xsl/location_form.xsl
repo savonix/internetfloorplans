@@ -43,7 +43,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </tr>
 </xsl:if>
 <tr>	
-	<td><xsl:value-of select="//labels/label[key='name']/value"/>:*</td>
+	<td><xsl:value-of select="//labels/label[key='location_name']/value"/>:*</td>
 	<td><input type="text" name="location_name" value="{//location_get_summary/name|//_post/location_name}" /></td>
 </tr>
 <tr>
