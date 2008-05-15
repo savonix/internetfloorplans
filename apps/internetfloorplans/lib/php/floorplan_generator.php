@@ -34,13 +34,12 @@ $my_rotation_angle = 0;
 $equipment_status = 0;
 $my_equipment_number = "";
 $num_icons = 0;
-$account_id = $_SESSION['NX_AUTH']['account_id'];
 $this_url=$_SERVER['REQUEST_URI'];
 
 $space_plan_locked = Nexista_Path::get("//get_sp_pointer_by_id/space_plan_locked","flow");
-if($space_plan_locked=="false") { 
+if($space_plan_locked=="false") {
 	$space_plan_locked=false;
-} elseif($space_plan_locked=="true") { 
+} elseif($space_plan_locked=="true") {
 	$space_plan_locked=true;
 }
 
@@ -60,17 +59,17 @@ $f = new SWFFont("_sans");
 
 
 $roles = Nexista_Path::get("//user_roles","flow");
-$file_path = Nexista_Path::get("//get_sp_pointer_by_id/space_plan_pointer","flow"); 
-$x_position = Nexista_Path::get("//get_sp_pointer_by_id/x_position","flow"); 
-$y_shift = Nexista_Path::get("//get_sp_pointer_by_id/y_position","flow"); 
-$key_x_position = Nexista_Path::get("//get_sp_pointer_by_id/key_x_position","flow"); 
-$key_y_position = Nexista_Path::get("//get_sp_pointer_by_id/key_y_position","flow"); 
+$file_path = Nexista_Path::get("//get_sp_pointer_by_id/space_plan_pointer","flow");
+$x_position = Nexista_Path::get("//get_sp_pointer_by_id/x_position","flow");
+$y_shift = Nexista_Path::get("//get_sp_pointer_by_id/y_position","flow");
+$key_x_position = Nexista_Path::get("//get_sp_pointer_by_id/key_x_position","flow");
+$key_y_position = Nexista_Path::get("//get_sp_pointer_by_id/key_y_position","flow");
 
-if($key_x_position > 775 || $key_x_position < 25) { 
+if($key_x_position > 775 || $key_x_position < 25) {
 	$key_x_position = 25;
 }
 
-if($key_y_position > 775 || $key_y_position < 25) { 
+if($key_y_position > 775 || $key_y_position < 25) {
 	$key_y_position = 25;
 }
 
@@ -80,18 +79,15 @@ if(empty($key_x_position)) { $key_x_position=0;}
 if(empty($key_y_position)) { $key_y_position=0;}
 
 $x_shift=$x_shift+$x_position;
-$display_eqp_icons=Nexista_Path::get("//get_sp_pointer_by_id/display_eqp_icons","flow"); 
+$display_eqp_icons=Nexista_Path::get("//get_sp_pointer_by_id/display_eqp_icons","flow");
 
-$my_address_id = Nexista_Path::get("//_get/location_address_id","flow"); 
-$a_path = $path."/usr/".$account_id; 
+$my_address_id = Nexista_Path::get("//_get/location_address_id","flow");
 
-$file = $a_path . "/spaceplans/" . $file_path;
-
-if(strpos($file_path,".swf")) { 
-	$sp_clip = new SWFPrebuiltClip(fopen($file, "r")); 
-} else { 
+if(strpos($file_path,".swf")) {
+	$sp_clip = new SWFPrebuiltClip(fopen($file, "r"));
+} else {
 	$jpg_file = $file.".jpg";
-	$sp_clip = new SWFBitmap(fopen($jpg_file, "r")); 
+	$sp_clip = new SWFBitmap(fopen($jpg_file, "r"));
 }
 
 $fpbk = new SWFSprite();
@@ -107,7 +103,7 @@ $key_label = new SWFTextField(SWFTEXTFIELD_NOSELECT);
 $key_label->setBounds(150,25);
 $key_label->setFont($f);
 $key_label->setHeight(14);
-if($space_plan_locked===false) { 
+if($space_plan_locked===false) {
 	$key_label->setColor(0,0,0);
 	$key_label_text = "Merchandising Key";
 } else  {
@@ -118,11 +114,11 @@ $key_label->addString($key_label_text);
 $my_key_label_header = new SWFShape();
 $my_key_label_header->setLine(1,0,0,0);
 $my_key_label_header->setRightFill(240,240,240);
-$my_key_label_header->movePenTo(0,5); 
-$my_key_label_header->drawLine(150,0);  
-$my_key_label_header->drawLine(0,25); 
-$my_key_label_header->drawLine(-150,0); 
-$my_key_label_header->drawLine(0,-25); 
+$my_key_label_header->movePenTo(0,5);
+$my_key_label_header->drawLine(150,0); 
+$my_key_label_header->drawLine(0,25);
+$my_key_label_header->drawLine(-150,0);
+$my_key_label_header->drawLine(0,-25);
 $my_key_label = new SWFSprite();
 $my_key_label->add($my_key_label_header);
 $key_spr = $my_key_label->add($key_label);
@@ -132,16 +128,11 @@ $my_key_label_sprite = $entire_key->add($my_key_label);
 $my_key_label_sprite->setName("my_key_label");
 
 
-if($display_eqp_icons=="checked") { 
-	$ind_path = $path."/htdocs/resources/img/style-1.1/images/";
-	if($status_symbol=="yes") { 
-		$ex_clip = new SWFBitmap(fopen($ind_path."icon_warning_sml.jpg","r"));
-		$check_clip = new SWFBitmap(fopen($ind_path."icon_warning_sml.jpg","r"));
-		$equals_clip = new SWFBitmap(fopen($ind_path."icon_warning_sml.jpg","r"));
-	}
+if($display_eqp_icons=="checked") {
+    /* FIXME */
 
 	$empty_sprite = new SWFSprite();
-                       
+
 
 $main_actionscript = "
 
@@ -157,7 +148,7 @@ background.onPress=function(){
 	selection.filters=null;
 	selection=null;
 };
-onMouseDown=function() { 
+onMouseDown=function() {
 	getUrl('about:blank','config', 'GET');
 };
 onMouseUp=function() {
@@ -170,13 +161,13 @@ function argbtohex(a, r, g, b)
 }
 
 // ICON CLASS
-function createIcon() { 
+function createIcon() {
 	var equipment_type_symbol = this.equipment_type_symbol;
 	key_icon.my_bitmap = new flash.display.BitmapData(this._width,this._height,true,0x00000000);
 	key_icon.attachBitmap(key_icon.my_bitmap, 1);
 	key_icon.my_bitmap.draw(this);
 
-	for(i=_root.j;i>=0;--i) { 
+	for(i=_root.j;i>=0;--i) {
 		var rgb = _root.greyscale-i;
 		var my_color = _root.argbtohex(255,rgb,rgb,rgb);
 		key_icon.my_bitmap.threshold(key_icon.my_bitmap,key_icon.my_bitmap.rectangle,key_icon.my_bitmap.rectangle.topLeft,'>=',my_color,0x00000000,my_color,true);
@@ -188,25 +179,25 @@ createIcon.prototype = new MovieClip();
 function createNewFixture() {};
 createNewFixture.prototype = new MovieClip();
 
-createNewFixture.prototype.onPress=function() { 
+createNewFixture.prototype.onPress=function() {
 	this.createEmptyMovieClip('newone', getNextHighestDepth());
 	this.newone.attachBitmap(this.my_bitmap,2,auto,false);
 	this.newone.startDrag(lock);
 };
-createNewFixture.prototype.onRelease=createNewFixture.prototype.onReleaseOutside=function() { 
+createNewFixture.prototype.onRelease=createNewFixture.prototype.onReleaseOutside=function() {
 	location_address_id=$my_address_id;
 	equipment_type_id=this.equipment_type_id;
 	submit='Submit';
 	x_position = _root._xmouse;
 	y_position = _root._ymouse;
-	getURL('/acc/link/loc/view/sp/&location_address_id=$my_address_id', '', 'POST');
+	getURL('$FIXME&location_address_id=$my_address_id', '', 'POST');
 };
-createNewFixture.prototype.onRollOver=function() { 
+createNewFixture.prototype.onRollOver=function() {
 	var dconf = new LoadVars();
 	dconf.location_equipment_id=100;
 	dconf.equipment_type_id=this.equipment_type_id;
 	dconf.equipment_type_image_id=this.equipment_type_image_id;
-	dconf.send('/acc/link/types/display_config/&body=true','config', 'POST');
+	dconf.send('$FIXME&body=true','config', 'POST');
 	dconf = null;
 };
 
@@ -220,9 +211,9 @@ function positionFixture() {
 	this.symbol.bitmap._x=-this.symbol.bitmap._width/2;
 	this.symbol.bitmap._y=-this.symbol.bitmap._height/2;
 	this.symbol._rotation=this.symbol_rotation;
-	this.onPress=function() { 
+	this.onPress=function() {
 		// If clicked by not selected, select.
-		if(this.selected!=true) { 
+		if(this.selected!=true) {
 			this.startDrag(lock);
 			selection.selected = null;
 			selection.filters = [];
@@ -230,13 +221,13 @@ function positionFixture() {
 			this.selected=true;
 			selection=this;
 
-		} else { 
+		} else {
 			var my_corrFactor = 0;
 			if (this._xmouse < 0){
 				my_corrFactor = 180;
 			}
 			var counterbalance = (57.29578*(Math.atan(this._ymouse/this._xmouse)))+my_corrFactor;
-			this.onMouseMove=function() { 
+			this.onMouseMove=function() {
 				degreeAngle = (57.29578*(Math.atan(this._ymouse/this._xmouse)))-counterbalance;
 				corrFactor = 0;
 				if (this._xmouse < 0){
@@ -246,7 +237,7 @@ function positionFixture() {
 			};
 		}
 	};
-	this.onRelease=this.onReleaseOutside=function() { 
+	this.onRelease=this.onReleaseOutside=function() {
 		this.onMouseMove = null;
 		if(x_position!=this._x || y_position!=this._y || my_rotation!=this.symbol._rotation) {
 			var update_position = new LoadVars();
@@ -254,10 +245,10 @@ function positionFixture() {
 			update_position.x_position = this._x - $x_shift;
 			update_position.y_position = this._y;
 			update_position.rotation_angle = this.symbol._rotation;
-			update_position.sendAndLoad('/acc/link/loc/view/eqp/edit_loc/&is_server=yes',update_position,'POST');
+			update_position.sendAndLoad('$FIXME',update_position,'POST');
 			update_position = null;
 			this.symbol_rotation=this.symbol._rotation;
-		} 
+		}
 
 			// display_config
 			var my_dconf = new LoadVars();
@@ -266,7 +257,7 @@ function positionFixture() {
 			my_dconf.location_address_id=$my_address_id;
 			my_dconf.equipment_type_id=this.equipment_type_id;
 			my_dconf.equipment_type_image_id=this.equipment_type_image_id;
-			my_dconf.send('/acc/link/types/display_config/&body=true','config', 'POST'); 
+			my_dconf.send('$FIXME&body=true','config', 'POST');
 			my_dconf = null;
 	};
 };
@@ -277,16 +268,16 @@ positionFixture.prototype = new MovieClip();
 
 
 
-entire_key.my_key_label.onPress=function(){ 
+entire_key.my_key_label.onPress=function(){
 	_root.entire_key.startDrag(lock);
-}; 
-entire_key.my_key_label.onRelease=entire_key.my_key_label.onReleaseOutside=function(){ 
+};
+entire_key.my_key_label.onRelease=entire_key.my_key_label.onReleaseOutside=function(){
 	var update_key = new LoadVars();
 	update_key.key_x_position = _root.entire_key._x;
 	update_key.key_y_position = _root.entire_key._y;
 	update_key.location_space_plan_id = '$location_space_plan_id';
 	update_key.location_address_id = '$my_address_id';
-	update_key.sendAndLoad('/acc/link/loc/view/set-key-position/&is_server=yes',update_key,'POST');
+	update_key.sendAndLoad('$FIXME',update_key,'POST');
 };
 entire_key.cacheAsBitmap = true;
 ";
@@ -304,20 +295,21 @@ $symbol_pointers['equipment_type_id'] = Nexista_Path::get("//get_account_symbol_
 
 $number_of_symbols = count($symbol_pointers['filename']);
 
-if($number_of_symbols>0) { 
+if($number_of_symbols>0) {
 
-	for($i=0; $i < $number_of_symbols; $i++) { 
+	for($i=0; $i < $number_of_symbols; $i++) {
 
 		$filename = $symbol_pointers['filename'][$i];
 		if(!empty($filename)){
 			$name = $symbol_pointers['name'][$i];
 			$id = $symbol_pointers['equipment_type_id'][$i];
 			$equipment_type_image_id = $symbol_pointers['equipment_type_image_id'][$i];
-			$mfile = $path."/usr/".$account_id."/merchandising/" . $filename;
+            /* FIXME */
+			$mfile = $fixme_path . $filename;
 
-			if(strpos($filename,".swf")) { 
+			if(strpos($filename,".swf")) {
 				$source_file = new SWFPrebuiltClip(fopen($mfile,"r"));
-			} elseif(strpos($filename,".pdf") || strpos($filename,".ai")) { 
+			} elseif(strpos($filename,".pdf") || strpos($filename,".ai")) {
 				$jpg_mfile = $mfile.".jpg";
 				$source_file = new SWFBitmap(fopen($mfile.".jpg","r"));
 			}
@@ -349,9 +341,9 @@ unset($symbol_pointers);
 
 
 
-if($_GET['key']=="yes" || $_GET['key']=="") { 
+if($_GET['key']=="yes" || $_GET['key']=="") {
 	$entire_key->nextFrame();
-	$i = $m->add($entire_key); 
+	$i = $m->add($entire_key);
 	$i->setName("entire_key");
 	$i->moveTo($key_x_position, $key_y_position);
 }
@@ -380,10 +372,10 @@ if($equipment['x_pos']!=NULL) {
 }
 
 
-if($number_of_symbols>0) { 
-	if(is_array($equipment['x_pos'])) { 
+if($number_of_symbols>0) {
+	if(is_array($equipment['x_pos'])) {
 		// Now loop through the actual equipment lists at that location?
-		for($j=0; $j<$num_icons; $j++) { 
+		for($j=0; $j<$num_icons; $j++) {
 			$e_id = $equipment['equipment_type_id'][$j];
 			$my_x = $equipment['x_pos'][$j];
 			$my_y = $equipment['y_pos'][$j];
@@ -392,10 +384,10 @@ if($number_of_symbols>0) {
 			$my_equipment_number = $equipment['equipment_number'][$j];
 			$my_leid = $equipment['location_equipment_id'][$j];
 			$my_eid = $equipment['equipment_id'][$j];
-			$my_equipment_type_image_id = $equipment['equipment_type_image_id'][$j]; 
+			$my_equipment_type_image_id = $equipment['equipment_type_image_id'][$j];
 
 			$my_icon_type_id = "icon_".$e_id;
-		} 
+		}
 	}
 	unset($j);
 
