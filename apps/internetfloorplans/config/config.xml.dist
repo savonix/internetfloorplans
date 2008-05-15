@@ -1,4 +1,7 @@
 <config>
+    <defaults>
+        <use_interactive_space_plans>false</use_interactive_space_plans>
+    </defaults>
     <plugins>
         <dev_buffer>
             <placement>prepend</placement>
