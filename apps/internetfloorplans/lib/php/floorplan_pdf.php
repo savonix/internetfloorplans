@@ -57,7 +57,6 @@ $location_zip = Path::get("//get_location_summary/zip","flow");
 Need three secions: 
 1. Floorplan
 2. Icon key
-3. Fixture layout of icons with status symbol.
 */
 
 
