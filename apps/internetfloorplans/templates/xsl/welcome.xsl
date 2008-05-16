@@ -28,9 +28,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<table>
 		<tr>
 			<td>
-				Welcome to Internet Floor Plans!<br/><br/>
-				With Internet Floor Plans you can access in-depth information about all of your locations.
-                Browse through all of the Internet Floor Plan features by selecting an option from the menu.
+				<xsl:value-of select="//labels/label[key='welcome_to_ifp']/value"/>!<br/><br/>
+				<xsl:value-of select="//labels/label[key='with_ifp_you_can']/value"/>.
 				<br/>
 			</td>
 		</tr>

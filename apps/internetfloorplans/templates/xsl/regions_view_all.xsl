@@ -44,10 +44,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <tr>
         <th></th>
         <th>
-            Region Name</th>
+            <xsl:value-of select="//labels/label[key='region_name']/value"/></th>
         <th>
-            Type</th>
-        <th>Locations</th>
+            <xsl:value-of select="//labels/label[key='type']/value"/></th>
+        <th><xsl:value-of select="//labels/label[key='locations']/value"/></th>
     </tr>
     </thead>
     <tbody>
@@ -69,7 +69,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <xsl:value-of select="region_name"/></a>
             </td>
             <td>
-            Geographic
+            <xsl:value-of select="//labels/label[key='Geographic']/value"/>
             </td>
             <td>
                 <xsl:for-each select="//get_all_region_data">
@@ -83,7 +83,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </table>
 </div>
 <div style="float: right;" class="generic-button">
-    <a href="{//link_prefix}ifp-region-edit">Add Region</a>
+    <a href="{//link_prefix}ifp-region-edit"><xsl:value-of select="//labels/label[key='add_region']/value"/></a>
 </div>
 <xsl:call-template name="pager">
     <xsl:with-param name="my-table">myregions</xsl:with-param>
