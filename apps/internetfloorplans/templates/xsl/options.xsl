@@ -24,7 +24,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
-<form method="post" action="{//request_uri}&amp;view_flow=true">
+<form method="post" action="{//link_prefix}ifp-options&amp;view_flow=true">
 <table>
 <xsl:for-each select="//ifp_options/option">
     <xsl:variable name="my_option"><xsl:value-of select="option_key"/></xsl:variable>

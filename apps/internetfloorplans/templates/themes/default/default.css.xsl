@@ -25,7 +25,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:output method="text" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template match="/">
 a {
-    color: <xsl:value-of select="//link_color"/>
+    color: <xsl:value-of select="//option_get[option_key='link_color']/option_value"/>
 }
 
 h1 { 
