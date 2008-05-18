@@ -64,13 +64,15 @@ return confirm('Are you sure you want to delete this location image?')
                 </tr>
                 </xsl:if>
                 <xsl:if test="//get_location_space_plans/location_space_plan_id">
+                <!-- TODO - FIXME
                 <tr>
                     <td>
                         <a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
                             <xsl:value-of select="//labels/label[key='lock_plan']/value"/>
                         </a>
                     </td>
-                </tr>
+                </tr> 
+                -->
                 <tr>
                     <td>
                         <a 

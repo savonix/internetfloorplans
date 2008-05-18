@@ -28,6 +28,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:template name="content">
 <xsl:call-template name="equipment-type-menu" />
 <xsl:call-template name="equipment-type-summary"/>
+<!-- Confirm equipment type image deletion -->
+<script type="text/javascript">
+var question = '<xsl:value-of select="//labels/label[key='confirm_delete']/value"/>';
+function equipment_type_image_delete(equipment_type_image_id) {
+    if(confirm(question)) {
+        $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-image-delete",
+        {'equipment_type_image_id': equipment_type_image_id},
+        function (data){
+        });
+    }
+}
+</script>
 <table class="simple-table">
 <tr>
     <td align="left">
@@ -68,9 +80,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </xsl:if>
             <tr>
                 <td>
-                    <a href="{//link_prefix}ifp-equipment-delete"
-                    onclick="return confirm('{//labels/label[key='confirm_delete']/value}')">
-                    <xsl:value-of select="//labels/label[key='delete_this_image']/value"/></a>
+                    <a href="{//link_prefix}ifp-equipment-type-image-delete&amp;equipment_type_image_id={//equipment_type_get_images/static_file_id}"
+                    onclick="equipment_type_image_delete({//equipment_type_get_images/static_file_id}); return false;">
+                    <xsl:value-of select="//labels/label[key='delete']/value"/></a>
                 </td>
             </tr>
             </tbody>
@@ -84,6 +96,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <xsl:value-of select="name"/>
             </xsl:if>
         </xsl:for-each>
+        <img src="{//path_prefix}/s/{//equipment_type_get_images/basename}"/>
     </td>
 </tr>
 </table>

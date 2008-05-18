@@ -22,14 +22,13 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="delete_equipment_type_image">
+<query name="equipment_type_image_delete">
     <connection>&ifp_connection;</connection>
     <params>
-        <param name="runtime/utdate" type="text"/>
-        <param name="_get/equipment_type_image_id" type="text"/>
+        <param name="_post/equipment_type_image_id" type="integer"/>
     </params>
     <sql>
-        DELETE FROM &ifp_equipment_type_images;
-        WHERE equipment_type_image_id=?
+        DELETE FROM &ifp_static_files;
+        WHERE static_file_id = ?
     </sql>
 </query>
