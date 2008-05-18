@@ -323,7 +323,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<map:if name="_post/submit">
 			<map:true>
                 <map:query src="data/sql/equipment_image_create.xml"/>
-				<map:insert name="type_images"/>
              </map:true>
 			<map:false>
 				<map:xsl src="templates/xsl/equipment_image_form.xsl"/>
@@ -337,11 +336,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 	<!-- View equipment type images -->
 	<map:gate name="ifp-equipment-type-images" role="client">
-		<map:block name="type_images">
+		<map:xml src="data/xml/equipment_type_image_meta.xml"/>
 		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
-		<map:query src="data/sql/equipment_type_get_images.xml"/>
+		<map:query src="data/sql/static_file_get_by_metadata_key.xml"/>
 		<map:xsl src="templates/xsl/equipment_type_images.xsl"/>
-		</map:block>
 	</map:gate>
 	<!-- Create equipment type images -->
 	<map:gate name="ifp-equipment-type-image-edit" role="client">

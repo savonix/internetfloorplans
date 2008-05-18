@@ -51,7 +51,7 @@ function equipment_type_image_delete(static_file_id) {
                 </th>
             </tr>
             </thead>
-            <xsl:for-each select="//equipment_type_get_images">
+            <xsl:for-each select="//static_file_get_by_metadata_key">
             <tr>
                 <td>
                     <b><xsl:value-of select="title"/></b>
@@ -69,7 +69,7 @@ function equipment_type_image_delete(static_file_id) {
             </tr>
             </thead>
             <tbody>
-            <xsl:if test="not(//equipment_type_get_images)">
+            <xsl:if test="not(//static_file_get_by_metadata_key)">
             <tr>
                 <td>
                     <a href="{//link_prefix}ifp-equipment-type-image-edit&amp;equipment_type_id={//_get/equipment_type_id}">
@@ -78,7 +78,7 @@ function equipment_type_image_delete(static_file_id) {
                 </td>
             </tr>
             </xsl:if>
-            <xsl:if test="//equipment_type_get_images">
+            <xsl:if test="//static_file_get_by_metadata_key">
             <tr>
                 <td>
                     <a href="{//link_prefix}ifp-equipment-type-image-delete&amp;equipment_type_image_id={//equipment_type_get_images/static_file_id}"
@@ -98,7 +98,7 @@ function equipment_type_image_delete(static_file_id) {
                 <xsl:value-of select="name"/>
             </xsl:if>
         </xsl:for-each>
-        <img src="{//path_prefix}/s/{//equipment_type_get_images/basename}"/>
+        <img src="{//path_prefix}/s/{//static_file_get_by_metadata_key/basename}"/>
     </td>
 </tr>
 </table>
