@@ -29,13 +29,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:value-of select="//location_get_summary/name"/>
         </td>
         <td>
-            <a href="{//link_prefix}ifp-location-space-plans&amp;location_id={//_get/location_id}">
-            <xsl:value-of select="//labels/label[key='space_plans']/value"/>
+            <a href="{//link_prefix}ifp-location-view&amp;location_id={//_get/location_id}">
+                <xsl:value-of select="//labels/label[key='virtual_tours']/value"/>
             </a>
         </td>
         <td>
-            <a href="{//link_prefix}ifp-location-view&amp;location_id={//_get/location_id}">
-                <xsl:value-of select="//labels/label[key='virtual_tours']/value"/>
+            <a href="{//link_prefix}ifp-location-space-plans&amp;location_id={//_get/location_id}">
+            <xsl:value-of select="//labels/label[key='space_plans']/value"/>
             </a>
         </td>
         <td>

@@ -33,8 +33,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:with-param name="my-table-div">my-location-equipment-list-div</xsl:with-param>
     <xsl:with-param name="no-sort-column">,
         headers: {
-            3: {sorter: false},
-            4: {sorter: false}
+            2: {sorter: false},
+            3: {sorter: false}
         }
     </xsl:with-param>
 </xsl:call-template>

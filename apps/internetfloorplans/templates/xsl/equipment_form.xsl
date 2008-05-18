@@ -108,7 +108,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <div>
         <input type="submit" value="Submit" name="submit"/>
         <input type="button" value="Cancel"
-            onclick="window.location.href={//link_prefix}ifp-equipment'"/>
+            onclick="history.go(-1);"/>
     </div>
 	</form>
 </xsl:template>
