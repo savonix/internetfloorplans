@@ -365,7 +365,6 @@ if($equipment['x_pos']!=NULL) {
 	$equipment['equipment_id'] = (array)Nexista_Path::get("//equipment_get_all/equipment_id","flow");
 	$equipment['equipment_number'] = (array)Nexista_Path::get("//equipment_get_all/equipment_number","flow");
 	$equipment['equipment_type_image_id'] =(array) Nexista_Path::get("//equipment_get_all/equipment_type_image_id","flow");
-	$equipment['status_id'] = (array)Nexista_Path::get("//equipment_get_all/status_id","flow");
 
 	$num_icons = count($equipment['y_pos']);
 }
@@ -379,7 +378,6 @@ if($number_of_icons>0) {
 			$my_x = $equipment['x_pos'][$j];
 			$my_y = $equipment['y_pos'][$j];
 			$my_rotation_angle = $equipment['rotation_angle'][$j];
-			$equipment_status=$equipment['status_id'][$j];
 			$my_equipment_number = $equipment['equipment_number'][$j];
 			$my_leid = $equipment['location_equipment_id'][$j];
 			$my_eid = $equipment['equipment_id'][$j];
@@ -417,4 +415,4 @@ echo substr_replace($flash,chr(8),3,1);
 
 
 
-?>ss
+?>

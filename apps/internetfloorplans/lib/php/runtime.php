@@ -23,7 +23,6 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 */
 
-# This wacky path builder is required due to mod_rewrite situations
 $path = $_SERVER['REQUEST_URI'];
 $path = dirname($path)."/".basename($_SERVER['SCRIPT_NAME']);
 $path_prefix = dirname($path)."/";
