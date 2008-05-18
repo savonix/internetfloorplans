@@ -31,8 +31,12 @@ Fifth Floor, Boston, MA 02110-1301  USA
         <label>Virtual Tour</label>
     </type>
     <type active="1">
-        <key>equipment_icon</key>
-        <label>Equipment Icon</label>
+        <key>equipment_type_icon</key>
+        <label>Equipment Type Icon</label>
+    </type>
+    <type active="1">
+        <key>equipment_type_image</key>
+        <label>Equipment Type Image</label>
     </type>
     <type active="1">
         <key>equipment_image</key>

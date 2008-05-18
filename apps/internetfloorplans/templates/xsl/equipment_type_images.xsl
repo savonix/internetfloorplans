@@ -78,6 +78,7 @@ function equipment_type_image_delete(equipment_type_image_id) {
                 </td>
             </tr>
             </xsl:if>
+            <xsl:if test="//equipment_type_get_images">
             <tr>
                 <td>
                     <a href="{//link_prefix}ifp-equipment-type-image-delete&amp;equipment_type_image_id={//equipment_type_get_images/static_file_id}"
@@ -85,6 +86,7 @@ function equipment_type_image_delete(equipment_type_image_id) {
                     <xsl:value-of select="//labels/label[key='delete']/value"/></a>
                 </td>
             </tr>
+            </xsl:if>
             </tbody>
         </table>
     </td>
