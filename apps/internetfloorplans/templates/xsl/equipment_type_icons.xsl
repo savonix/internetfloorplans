@@ -30,11 +30,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:call-template name="equipment-type-summary"/>
 <table><tr><td>
 <table class="simple-table">
+<thead>
 <tr>
-    <td>
+    <th>
         <xsl:value-of select="//labels/label[key='icons']/value"/>
-    </td>
+    </th>
 </tr>
+</thead>
 <xsl:for-each select="//equipment_type_get_icons">
 <tr>
     <td>
@@ -42,11 +44,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </td>
 </tr>
 </xsl:for-each>
+</table>
+<br/>
+<table class="simple-table">
+<thead>
 <tr>
-    <td>
+    <th>
 <xsl:value-of select="//labels/label[key='options']/value"/>
-    </td>
+    </th>
 </tr>
+</thead>
 <xsl:if test="not(//equipment_type_get_icons)">
 <tr>
     <td>
@@ -56,13 +63,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </td>
 </tr>
 </xsl:if>
+
+
+<xsl:if test="//equipment_type_get_icons">
 <tr>
     <td>
-        <a onclick="return confirm('Are you sure you want to delete this equipment type icon?')">
-            <xsl:value-of select="//labels/label[key='delete_this_icon']/value"/>
+        <a href="{//link_prefix}ifp-static-file-delete&amp;static_file_id={//equipment_type_get_images/static_file_id}"
+        onclick="static_file_delete({//equipment_type_get_images/static_file_id}); return false;">
+        <xsl:value-of select="//labels/label[key='delete']/value"/>
         </a>
     </td>
 </tr>
+</xsl:if>
 </table>
 </td><td>
 <table class="simple-table">
@@ -75,7 +87,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </tr>
 <tr>
     <td>
-<!-- FIXME - This is broken -->
 <img src="{//path_prefix}{//equipment_type_get_icons/icon_pointer}"/>
 
     </td>

@@ -345,7 +345,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</map:gate>
 	<!-- Create equipment type images -->
 	<map:gate name="ifp-equipment-type-image-edit" role="client">
-    		<map:if name="_post/submit">
+        <map:if name="_post/submit">
 			<map:true>
                 <map:action type="upload" params="file,//_post/dest"/>
                 <map:query src="data/sql/static_file_update.xml"/>
@@ -363,13 +363,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</map:gate>
 
 
-	<!-- Add new equipment type icon -->
-	<map:gate name="ifp-equipment-type-icon-edit" role="client">
+	<!-- View equipment type icons -->
+	<map:gate name="ifp-equipment-type-icons" role="client">
 		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
-		<map:xsl src="templates/xsl/equipment_type_icon_form.xsl"/>
+		<map:query src="data/sql/equipment_type_get_icons.xml"/>
+		<map:xsl src="templates/xsl/equipment_type_icons.xsl"/>
 	</map:gate>
 
-	<map:gate name="ifp-equipment-type-icon-edit-submit" role="client">
+	<!-- Add new equipment type icon -->
+	<map:gate name="ifp-equipment-type-icon-edit" role="client">
 		<map:if name="_post/submit">
 			<map:true>
                 <map:action type="upload" params="file,//_post/dest"/>
@@ -378,6 +380,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
 			</map:true>
 			<map:false>
+                <map:query src="data/sql/equipment_type_get_by_id.xml"/>
 				<map:xsl src="templates/xsl/equipment_type_icon_form.xsl"/>
 			</map:false>
 		</map:if>
@@ -386,15 +389,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	<!-- Delete icon -->
 	<map:gate name="ifp-equipment-type-icon-edit-delete" role="client">
 		<map:query src="data/sql/equipment_type_icon_delete.xml"/>
-		<map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
 	</map:gate>
 
-	<!-- View equipment type icons -->
-	<map:gate name="ifp-equipment-type-icons" role="client">
-		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
-		<map:query src="data/sql/equipment_type_get_icons.xml"/>
-		<map:xsl src="templates/xsl/equipment_type_icons.xsl"/>
-	</map:gate>
 
 	<!-- Delete equipment Types -->
 	<map:gate name="ifp-equipment-type-delete" role="client">
