@@ -105,16 +105,17 @@ return confirm('Are you sure you want to delete this location image?')
     </table>
 <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.swf.js"></script>
 <div id="space_plan">
-<!-- Show static jpg here when the visitor does not have the flash plugin. -->
+    <!-- Show static jpg here when the visitor does not have the flash plugin. -->
     <img src="{//path_prefix}/s/{//space_plan_pointer}"/>
 </div>
-        
-<script type="text/javascript" defer="defer">
-<!-- {//_get/location_address_id} -->
-var mymoviestring = "ifp-location-space-plan-server&amp;location_space_plan_id=<xsl:value-of select="//get_location_space_plans/location_space_plan_id"/>&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/>&amp;key=<xsl:value-of select="//_get/key"/>";
+
+<xsl:if test="//defaults/use_interactive_space_plans='true'">
+<script type="text/javascript">
+var mymoviestring = "<xsl:value-of select="//link_prefix"/>ifp-location-space-plan-server&amp;location_space_plan_id=<xsl:value-of select="//get_location_space_plans/location_space_plan_id"/>&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/>&amp;key=<xsl:value-of select="//_get/key"/>";
 var so = new SWFObject(mymoviestring, "mymovie", "825", "825", "8","#FFFFFF");
 so.write("space_plan");
 </script>
+</xsl:if>
 
 </xsl:template>
 </xsl:stylesheet>

@@ -32,9 +32,11 @@ $utcdate = gmdate('Y-m-d H:i:s');
 
 if(is_file('../revision')) { 
     $svn_revision = file_get_contents('../revision');
-} else {
-
 }
+
+
+$defaults = Nexista_Config::getSection('defaults');
+Nexista_Flow::add("defaults",$defaults,false);
 
 $runtime = array(
                 'path_prefix' => $path_prefix,
