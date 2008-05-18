@@ -359,8 +359,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</map:if>
 	</map:gate>
 	<map:gate name="ifp-equipment-type-image-delete" role="client">
-		<map:query src="data/sql/equipment_type_image_delete.xml"/>
-        <map:action type="redirect" params="{//link_prefix}ifp-equipment-types"/>
+		<map:query src="data/sql/static_file_delete.xml"/>
 	</map:gate>
 
 

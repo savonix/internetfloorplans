@@ -31,10 +31,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <!-- Confirm equipment type image deletion -->
 <script type="text/javascript">
 var question = '<xsl:value-of select="//labels/label[key='confirm_delete']/value"/>';
-function equipment_type_image_delete(equipment_type_image_id) {
+function equipment_type_image_delete(static_file_id) {
     if(confirm(question)) {
         $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-image-delete",
-        {'equipment_type_image_id': equipment_type_image_id},
+        {'static_file_id': static_file_id},
         function (data){
         });
     }
