@@ -1,6 +1,7 @@
 <config>
     <defaults>
         <use_interactive_space_plans>false</use_interactive_space_plans>
+        <upload_directory></upload_directory>
     </defaults>
     <plugins>
         <dev_buffer>

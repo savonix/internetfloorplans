@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: ifp_options.xml
+Component: upload_directories.xml
 Copyright Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -21,32 +21,9 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
-<ifp_options>
-    <option active="1">
-        <option_key>file_upload_directory</option_key>
-    </option>
-    <option active="1">
-        <option_key>sort_uploads_by_year_and_month</option_key>
-    </option>
-    <option active="1">
-        <option_key>sort_uploads_by_file_id</option_key>
-    </option>
-    <option active="1">
-        <option_key>allow_file_deletion</option_key>
-    </option>
-    <option active="1">
-        <option_key>number_of_records</option_key>
-    </option>
-    <option active="1">
-        <option_key>thumbnail_width</option_key>
-    </option>
-    <option active="1">
-        <option_key>thumbnail_height</option_key>
-    </option>
-    <option active="1">
-        <option_key>thumbnail_prefix</option_key>
-    </option>
-    <option active="1">
-        <option_key>link_color</option_key>
-    </option>
-</ifp_options>
+<upload_directories>
+    <directory>
+        <file_type>space_plan</file_type>
+        <sub_directory>sp</sub_directory>
+    </directory>
+</upload_directories>
