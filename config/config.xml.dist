@@ -35,7 +35,7 @@ used for a single or several applications. -->
         <cacheLimiter></cacheLimiter>
         <cacheExpires></cacheExpires>
     </session>
-	
+
     <!-- FLOW -->
     <flow name="www">
         <globals>PG</globals>
