@@ -174,6 +174,7 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>static_files`
   `type` varchar(100) NULL,
   `basename` varchar(100) NULL,
   `file_system_path` varchar(100) NULL,
+  `file_status_id` int(11) default NULL,
   `modification_timestamp` timestamp DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
   `creation_datetime` datetime DEFAULT NULL,
   PRIMARY KEY `static_file_index` (`static_file_id`)
