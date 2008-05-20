@@ -3,6 +3,17 @@
         <use_interactive_space_plans>false</use_interactive_space_plans>
         <upload_directory></upload_directory>
     </defaults>
+    <files>
+        <file_locations>
+            <file_location id="1">
+                <name>default</name>
+                <write_location>ftp://wwww.example.com/</write_location>
+                <read_location>http://www.example.com/</read_location>
+            </file_location>
+        </file_locations>
+        <file_paths>
+        </file_paths>
+    </files>
     <plugins>
         <dev_buffer>
             <placement>prepend</placement>

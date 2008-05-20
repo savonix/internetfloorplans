@@ -22,31 +22,25 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <ifp_options>
-    <option active="1">
+    <option active="1" set="options_upload">
         <option_key>file_upload_directory</option_key>
     </option>
-    <option active="1">
-        <option_key>sort_uploads_by_year_and_month</option_key>
-    </option>
-    <option active="1">
-        <option_key>sort_uploads_by_file_id</option_key>
-    </option>
-    <option active="1">
+    <option active="1" set="options_upload">
         <option_key>allow_file_deletion</option_key>
     </option>
-    <option active="1">
+    <option active="1" set="database">
         <option_key>number_of_records</option_key>
     </option>
-    <option active="1">
+    <option active="1" set="image_options">
         <option_key>thumbnail_width</option_key>
     </option>
-    <option active="1">
+    <option active="1" set="image_options">
         <option_key>thumbnail_height</option_key>
     </option>
-    <option active="1">
+    <option active="1" set="image_options">
         <option_key>thumbnail_prefix</option_key>
     </option>
-    <option active="1">
+    <option active="1" set="interface_options">
         <option_key>link_color</option_key>
     </option>
 </ifp_options>
