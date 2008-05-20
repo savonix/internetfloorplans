@@ -191,17 +191,11 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>static_file_m
 
 
 
-
-
-
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>options` (
-  `option_id` int(11) NOT NULL auto_increment,
-  `option_key` char(100) NULL,
-  `option_value` char(100) NULL,
-  `modification_timestamp` timestamp DEFAULT <xsl:value-of select="$engine_default_timestamp"/>,
-  `creation_datetime` datetime DEFAULT NULL,
-  PRIMARY KEY `option_index` (`option_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `option_key` varchar(255) NOT NULL default 'untitled',
+  `option_value` varchar(255) default NULL,
+  UNIQUE KEY (`option_key`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 
