@@ -24,17 +24,19 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:include href="main.xsl"/>
 <xsl:template name="content">
-<form method="post" action="{//link_prefix}ifp-options&amp;view_flow=true">
+<form method="post">
 <table>
 <xsl:for-each select="//ifp_options/option">
     <xsl:variable name="my_option"><xsl:value-of select="option_key"/></xsl:variable>
+    <xsl:if test="@set=//option_set">
     <tr>
         <td><xsl:value-of select="//labels/label[key=$my_option]/value"/>: </td>
-        <td>
-            <input type="text" name="{option_key}" 
-            value="{//option_get[option_key=$my_option]/option_value}"/>
-        </td>
+        <td><input type="text" name="{option_key}" value="{//option_get[option_key=$my_option]/option_value}"/></td>
     </tr>
+    </xsl:if>
+    <xsl:if test="not(@set=//option_set)">
+        <input type="hidden" name="{option_key}" value="{//option_get[option_key=$my_option]/option_value}"/>
+    </xsl:if>
 </xsl:for-each>
 </table>
 <input type="submit"/>

@@ -407,19 +407,46 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	</map:gate>
 
 
-<map:gate name="ifp-options">
+
+
+
+<map:gate name="ifp-upload-options">
+    <map:set name="option_set" value="options_upload"/>
+    <map:block name="ifp-options">
     <map:if name="//_post">
         <map:true>
             <map:query src="data/sql/option_delete.xml"/>
             <map:query src="data/sql/option_update.xml"/>
-            <map:action type="redirect" params="{//link_prefix}ifp-options"/>
+            <map:action type="redirect" params="{//link_prefix}{//_get/nid}"/>
         </map:true>
         <map:false>
         </map:false>
     </map:if>
     <map:query src="data/sql/option_get.xml"/>
     <map:xsl src="templates/xsl/options.xsl"/>
+    </map:block>
 </map:gate>
+<map:gate name="ifp-image-options">
+    <map:set name="option_set" value="options_image"/>
+    <map:insert name="ifp-options"/>
+</map:gate>
+<map:gate name="ifp-database-options">
+    <map:set name="option_set" value="options_database"/>
+    <map:insert name="ifp-options"/>
+</map:gate>
+<map:gate name="ifp-interface-options">
+    <map:set name="option_set" value="options_interface"/>
+    <map:insert name="ifp-options"/>
+</map:gate>
+
+
+
+
+
+
+
+
+
 
     <map:gate name="ifp-iframe-viewer" cache="0">
         <map:xsl src="templates/xsl/ifp_iframe_viewer.xsl"/>

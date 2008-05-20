@@ -87,6 +87,22 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
     <!-- OPTIONS -->
     <label>
+        <key>ifp_upload_options</key>
+        <value>Upload Options</value>
+    </label>
+    <label>
+        <key>ifp_image_options</key>
+        <value>Image Options</value>
+    </label>
+    <label>
+        <key>ifp_interface_options</key>
+        <value>Interface Options</value>
+    </label>
+    <label>
+        <key>ifp_database_options</key>
+        <value>Database Options</value>
+    </label>
+    <label>
         <key>allow_file_deletion</key>
         <value>Allow File Deletion</value>
     </label>

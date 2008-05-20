@@ -24,26 +24,50 @@ Fifth Floor, Boston, MA 02110-1301  USA
 <menu>
 	<item>
         <key>index</key>
-        <url>ifp-index</url>
+        <item>
+            <key>index</key>
+            <url>ifp-index</url>
+        </item>
     </item>
 	<item>
         <key>locations</key>
-        <url>ifp-locations</url>
-    </item>
-	<item>
-        <key>regions</key>
-        <url>ifp-regions</url>
+        <item>
+            <key>locations</key>
+            <url>ifp-locations</url>
+        </item>
+        <item>
+            <key>regions</key>
+            <url>ifp-regions</url>
+        </item>
     </item>
 	<item>
         <key>equipment</key>
-        <url>ifp-equipment</url>
-    </item>
-	<item>
-        <key>equipment_types</key>
-        <url>ifp-equipment-types</url>
+        <item>
+            <key>equipment</key>
+            <url>ifp-equipment</url>
+        </item>
+        <item>
+            <key>equipment_types</key>
+            <url>ifp-equipment-types</url>
+        </item>
     </item>
 	<item>
         <key>ifp_options</key>
-        <url>ifp-options</url>
+        <item>
+            <key>ifp_upload_options</key>
+            <url>ifp-upload-options</url>
+        </item>
+        <item>
+            <key>ifp_image_options</key>
+            <url>ifp-image-options</url>
+        </item>
+        <item>
+            <key>ifp_database_options</key>
+            <url>ifp-database-options</url>
+        </item>
+        <item>
+            <key>ifp_interface_options</key>
+            <url>ifp-interface-options</url>
+        </item>
     </item>
 </menu>
