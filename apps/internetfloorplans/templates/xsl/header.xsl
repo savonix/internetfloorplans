@@ -26,12 +26,12 @@
 <xsl:call-template name="source_spacer">
     <xsl:with-param name="section_start">header</xsl:with-param>
 </xsl:call-template>
-    <div id="header">
+<div id="header">
     <h1><xsl:value-of select="//labels/label[key='welcome']/value"/></h1>
     <a href="{//link_prefix}index">
-        <img src="{//path_prefix}s/img/antenna3.jpg"/>
+        <img src="{//path_prefix}/s/img/antenna3.jpg" />
     </a>
-    </div>
+</div>
 <xsl:call-template name="source_spacer">
     <xsl:with-param name="section_end">header</xsl:with-param>
 </xsl:call-template>

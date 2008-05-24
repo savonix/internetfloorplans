@@ -25,7 +25,6 @@
 <xsl:template name="head">
 <head>
 	<title>Internet Floor Plans</title>
-    <link rel="stylesheet" type="text/css" href="{//link_prefix}ifp-themed-css" ></link>
     <link rel="stylesheet" type="text/css" href="{//link_prefix}dynamic-css" ></link>
     <link rel="stylesheet" type="text/css" href="{//path_prefix}/s/css/clickmenu.css" />
     <script type="text/javascript" src="{//path_prefix}/s/js/jquery/jquery.js"></script>

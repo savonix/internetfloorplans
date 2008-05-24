@@ -35,25 +35,12 @@
 <xsl:call-template name="colors"/>
 
 
-html, body {
-	line-height: 120%;
+body {
 	background: #CCC;
-	font-weight: normal;
-	font-style: normal;
-	text-decoration: none;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1em;
 }
 
 a {
     color: fuchsia;
-}
-
-img {
-    border: 0;
 }
 
 h1 {
