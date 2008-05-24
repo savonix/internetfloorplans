@@ -24,6 +24,11 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="text" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template name="layout">
-
+#main {
+    width: 980px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
 </xsl:template>
 </xsl:stylesheet>

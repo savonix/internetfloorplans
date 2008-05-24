@@ -29,15 +29,16 @@
 <xsl:include href="footer.xsl"/>
 <xsl:include href="source_spacer.xsl"/>
 <xsl:template name="main">
-<div id="page">
-    <xsl:call-template name="header"/>
-    <xsl:call-template name="main-menu"/>
-
-    <div id="content">
-        <xsl:call-template name="content"/>
+<div id="main">
+    <div id="page">
+        <xsl:call-template name="header"/>
+        <xsl:call-template name="main-menu"/>
+    
+        <div id="content">
+            <xsl:call-template name="content"/>
+        </div>
     </div>
 </div>
-
 <xsl:call-template name="footer"/>
 </xsl:template>
 </xsl:stylesheet>

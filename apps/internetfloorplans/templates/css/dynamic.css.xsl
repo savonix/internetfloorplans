@@ -23,7 +23,100 @@
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="text" encoding="UTF-8" omit-xml-declaration="yes"/>
+<xsl:include href="base.css.xsl"/>
+<xsl:include href="colors.css.xsl"/>
+<xsl:include href="layout.css.xsl"/>
+<xsl:include href="typography.css.xsl"/>
 <xsl:template match="/">
+
+<xsl:call-template name="base"/>
+<xsl:call-template name="typography"/>
+<xsl:call-template name="layout"/>
+<xsl:call-template name="colors"/>
+
+
+html, body {
+	line-height: 120%;
+	background: #CCC;
+	font-weight: normal;
+	font-style: normal;
+	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+}
+
+a {
+    color: fuchsia;
+}
+
+img {
+    border: 0;
+}
+
+h1 {
+    display: inline;
+    float: right;
+}
+
+#page {
+    width: 60em;
+    padding: .5em;
+    margin-left: auto;
+    margin-right: auto;
+	background: #FFF;
+}
+#content {
+    margin: .5em;
+    min-height: 12em;
+}
+#header {
+    padding: .5em;
+}
+
+#footer {
+    text-align: center;
+}
+
+.simple-table {
+    border-spacing: 1px;
+    background-color: #CCC;
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.simple-table td {
+    background-color: #FFF; padding: .5em;
+}
+
+.simple-table thead th {
+    background-color: #EEE; padding: .5em;
+}
+
+.generic-button {
+    text-align: center;
+    margin-left: .5em;
+}
+
+.generic-button a {
+    padding: .3em .5em .3em .5em;
+    border: 2px; border-style: solid;
+    border-color: #BBB;
+    text-align: center;
+}
+
+.generic-button img {
+    margin-bottom: -4px; margin-right: 6px;
+}
+
+a.generic-button {
+    padding: .3em .5em .3em .5em; border: 2px; border-style: solid; border-color: #BBB;
+    text-align: center;
+}
+
+
 a {
     color: <xsl:value-of select="//option_get[option_key='link_color']/option_value"/>
 }
