@@ -22,12 +22,15 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 --><xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template name="main-menu">
-<script type="text/javascript">
-$(document).ready(function()
-{
-    $('#top-main-menu').clickMenu();
-});
-</script>
+<xsl:call-template name="source_spacer">
+    <xsl:with-param name="section_start">main-menu</xsl:with-param>
+</xsl:call-template>
+    <script type="text/javascript">
+    $(document).ready(function()
+    {
+        $('#top-main-menu').clickMenu();
+    });
+    </script>
 	<ul id="top-main-menu">
     <xsl:for-each select="//menu/item[not(@active=0)]">
     <xsl:call-template name="button">
@@ -35,6 +38,10 @@ $(document).ready(function()
     </xsl:call-template>
     </xsl:for-each>
     </ul>
+    
+<xsl:call-template name="source_spacer">
+    <xsl:with-param name="section_end">main-menu</xsl:with-param>
+</xsl:call-template>
 </xsl:template>
 
 <xsl:template name="button">
