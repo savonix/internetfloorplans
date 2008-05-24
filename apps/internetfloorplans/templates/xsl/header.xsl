@@ -1,6 +1,6 @@
 <!--
     Program: Internet Floor Plans
-    Component: footer.xsl
+    Component: header.xsl
     Copyright: Savonix Corporation
     Author: Albert L. Lash, IV
     License: Gnu Affero Public License version 3
@@ -22,25 +22,18 @@
     Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:template name="footer">
+<xsl:template name="header">
 <xsl:call-template name="source_spacer">
-    <xsl:with-param name="section_start">footer</xsl:with-param>
+    <xsl:with-param name="section_start">header</xsl:with-param>
 </xsl:call-template>
-    <div id="footer">
-    <footer>
-    <a href="http://www.internetfloorplans.com/blog/">
-        <xsl:value-of select="//labels/label[key='open_source_internet_software']/value"/>
-    </a>.
-    <a href="http://www.internetfloorplans.com/trac/browser/?rev={//svn_revision}">Revision ~ <xsl:value-of select="//svn_revision"/></a>
-    <xsl:value-of select="//labels/label[key='copyright']/value"/>.
-    
-    <a href="{//link_prefix}ifp-iframe-viewer&amp;url=license">
-        <xsl:value-of select="//labels/label[key='license']/value"/>
-    </a>.
-    </footer>
+    <div id="banner">
+    <h1><xsl:value-of select="//labels/label[key='welcome']/value"/></h1>
+    <a href="{//link_prefix}index">
+        <img src="{//path_prefix}s/img/antenna3.jpg"/>
+    </a>
     </div>
 <xsl:call-template name="source_spacer">
-    <xsl:with-param name="section_end">footer</xsl:with-param>
+    <xsl:with-param name="section_end">header</xsl:with-param>
 </xsl:call-template>
 </xsl:template>
 </xsl:stylesheet>

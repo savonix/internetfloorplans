@@ -1,6 +1,6 @@
 <!--
     Program: Internet Floor Plans
-    Component: footer.xsl
+    Component: source_spacer.xsl
     Copyright: Savonix Corporation
     Author: Albert L. Lash, IV
     License: Gnu Affero Public License version 3
@@ -21,26 +21,22 @@
     or write to the Free Software Foundation,Inc., 51 Franklin Street,
     Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:template name="footer">
-<xsl:call-template name="source_spacer">
-    <xsl:with-param name="section_start">footer</xsl:with-param>
-</xsl:call-template>
-    <div id="footer">
-    <footer>
-    <a href="http://www.internetfloorplans.com/blog/">
-        <xsl:value-of select="//labels/label[key='open_source_internet_software']/value"/>
-    </a>.
-    <a href="http://www.internetfloorplans.com/trac/browser/?rev={//svn_revision}">Revision ~ <xsl:value-of select="//svn_revision"/></a>
-    <xsl:value-of select="//labels/label[key='copyright']/value"/>.
-    
-    <a href="{//link_prefix}ifp-iframe-viewer&amp;url=license">
-        <xsl:value-of select="//labels/label[key='license']/value"/>
-    </a>.
-    </footer>
-    </div>
-<xsl:call-template name="source_spacer">
-    <xsl:with-param name="section_end">footer</xsl:with-param>
-</xsl:call-template>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template name="source_spacer">
+<xsl:param name="section_start"></xsl:param>
+<xsl:param name="section_end"></xsl:param>
+<xsl:text>
+</xsl:text>
+<xsl:if test="not($section_end='')">
+<xsl:comment><xsl:value-of select="$section_end"/> end</xsl:comment>
+</xsl:if>
+<xsl:text>
+
+</xsl:text>
+<xsl:if test="not($section_start='')">
+<xsl:comment><xsl:value-of select="$section_start"/> start</xsl:comment>
+</xsl:if>
+<xsl:text>
+</xsl:text>
 </xsl:template>
 </xsl:stylesheet>
