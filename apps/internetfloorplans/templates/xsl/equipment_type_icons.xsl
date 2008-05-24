@@ -25,10 +25,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:include href="main.xsl"/>
 <xsl:include href="equipment_type_menu.xsl"/>
 <xsl:include href="equipment_type_summary.xsl"/>
+
 <xsl:template name="content">
 <xsl:call-template name="equipment-type-menu" />
 <xsl:call-template name="equipment-type-summary"/>
-<table><tr><td>
 <table class="simple-table">
 <thead>
 <tr>
@@ -58,7 +58,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <tr>
     <td>
         <a href="{//link_prefix}ifp-equipment-type-icon-edit&amp;equipment_type_id={//_get/equipment_type_id}">
-        <xsl:value-of select="//labels/label[key='add_new_icon']/value"/>
+            <xsl:value-of
+                select="//labels/label[key='add_new_icon']/value"
+                />
         </a>
     </td>
 </tr>
@@ -70,13 +72,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <td>
         <a href="{//link_prefix}ifp-static-file-delete&amp;static_file_id={//equipment_type_get_images/static_file_id}"
         onclick="static_file_delete({//equipment_type_get_images/static_file_id}); return false;">
-        <xsl:value-of select="//labels/label[key='delete']/value"/>
+            <xsl:value-of select="//labels/label[key='delete']/value"/>
         </a>
     </td>
 </tr>
 </xsl:if>
 </table>
-</td><td>
+
 <table class="simple-table">
 <tr>
     <td>
@@ -87,8 +89,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </tr>
 <tr>
     <td>
-<img src="{//path_prefix}{//equipment_type_get_icons/icon_pointer}"/>
-
+        <img
+            src="{//path_prefix}{//equipment_type_get_icons/icon_pointer}"/>
     </td>
 </tr>
 <tr>
@@ -107,6 +109,5 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </td>
 </tr>
 </table>
-</td></tr></table>
 </xsl:template>
 </xsl:stylesheet>

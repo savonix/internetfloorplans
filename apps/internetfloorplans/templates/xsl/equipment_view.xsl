@@ -34,13 +34,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <table>
             <tr>
                 <td>
-                    <xsl:value-of select="//labels/label[key='images']/value"/>
+                    <xsl:value-of
+                        select="//labels/label[key='images']/value"
+                        />
                 </td>
             </tr>
             <xsl:for-each select="//equipment_type_get_images" >
             <tr>
                 <td>
-                    <a><xsl:value-of select="name"/></a>
+                    <xsl:value-of select="name"/>
                 </td>
             </tr>
             </xsl:for-each>
@@ -55,15 +57,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:if test="not(//equipment_type_get_images)">
             <tr>
                 <td>
-                    <a href="#"><xsl:value-of select="//labels/label[key='add_new_image']/value"/></a>
+                    <a href="#">
+                        <xsl:value-of
+                            select="//labels/label[key='add_new_image']/value"
+                            />
+                    </a>
                 </td>
             </tr>
             </xsl:if>
             <tr>
                 <td>
-                    <a href="{//link_prefix}ifp-equipment-delete"
-                    onclick="return confirm('{//labels/label[key='confirm_delete']/value}')">
-                    <xsl:value-of select="//labels/label[key='delete_this_image']/value"/></a>
+                    <a
+                        href="{//link_prefix}ifp-equipment-delete"
+                        onclick="return confirm('{//labels/label[key='confirm_delete']/value}')
+                        ">
+                        <xsl:value-of
+                            select="//labels/label[key='delete_this_image']/value"/>
+                    </a>
                 </td>
             </tr>
         </table>

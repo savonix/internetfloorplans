@@ -55,10 +55,26 @@ function equipment_type_delete(equipment_type_id,row) {
 <table width="100%" class="tablesorter" id="myequipmenttypes">
     <thead>
     <tr>
-        <th><xsl:value-of select="//labels/label[key='equipment_type_name']/value"/></th>
-        <th><xsl:value-of select="//labels/label[key='description']/value"/></th>
-        <th><xsl:value-of select="//labels/label[key='edit']/value"/></th>
-        <th><xsl:value-of select="//labels/label[key='delete']/value"/></th>
+        <th>
+            <xsl:value-of
+                select="//labels/label[key='equipment_type_name']/value"
+                />
+        </th>
+        <th>
+            <xsl:value-of
+                select="//labels/label[key='description']/value"
+                />
+        </th>
+        <th>
+            <xsl:value-of
+                select="//labels/label[key='edit']/value"
+                />
+        </th>
+        <th>
+            <xsl:value-of
+                select="//labels/label[key='delete']/value"
+                />
+        </th>
     </tr>
     </thead>
     <tbody>

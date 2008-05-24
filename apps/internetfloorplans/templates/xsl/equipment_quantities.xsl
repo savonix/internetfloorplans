@@ -30,20 +30,33 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table class="simple-table">
     <tr>
         <td>
-            <xsl:value-of select="//labels/label[key='equipment_type']/value"/>
+            <xsl:value-of
+                select="//labels/label[key='equipment_type']/value"
+                />
         </td>
         <td>
-            <xsl:value-of select="//labels/label[key='quantity']/value"/>
+            <xsl:value-of
+                select="//labels/label[key='quantity']/value"
+                />
         </td>
     </tr>
     <xsl:for-each select="//equipment_types_get_all">
-        <xsl:variable name="my_equipment_type_id"><xsl:value-of select="equipment_type_id"/></xsl:variable>
-        <tr class="row{position() mod 2}">
+        <xsl:variable name="my_equipment_type_id">
+            <xsl:value-of select="equipment_type_id"/>
+        </xsl:variable>
+        <tr>
             <td>
                 <xsl:value-of select="name"/>
             </td>
             <td>
-                <xsl:value-of select="count(//equipment_get_all[equipment_type_id=$my_equipment_type_id])"/>
+                <xsl:value-of
+                    select="
+                        count(
+                            //equipment_get_all[
+                                equipment_type_id=$my_equipment_type_id
+                                ]
+                            )"
+                    />
             </td>
         </tr>
     </xsl:for-each>
