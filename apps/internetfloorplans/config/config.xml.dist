@@ -14,16 +14,16 @@
         <file_paths>
         </file_paths>
     </files>
-    <plugins>
+    <extensions>
         <dev_buffer>
             <placement>prepend</placement>
-            <source>&includepath;plugins/dev_buffer/dev_buffer.php</source>
+            <source>&includepath;extensions/dev_buffer/dev_buffer.php</source>
             <excludes>ifp-themed-css,dynamic-css,dynamic-database-model,xml-sitemap,license,readme</excludes>
         </dev_buffer>
         <nx_auth>
             <placement>prepend</placement>
-            <source>&includepath;plugins/nx_auth.php</source>
+            <source>&includepath;extensions/nx_auth.php</source>
             <login>auth.php?nid=login</login>
         </nx_auth>
-    </plugins>
+    </extensions>
 </config>
