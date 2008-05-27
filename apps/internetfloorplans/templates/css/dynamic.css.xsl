@@ -48,6 +48,8 @@
     background-color: #CCC;
     width: 100%;
     margin-bottom: 1em;
+    border-spacing: 1;
+    border-collapse: separate;
 }
 
 .simple-table td {
