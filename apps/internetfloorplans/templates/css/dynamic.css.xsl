@@ -43,22 +43,7 @@
 
 
 
-.simple-table {
-    border-spacing: 1px;
-    background-color: #CCC;
-    width: 100%;
-    margin-bottom: 1em;
-    border-spacing: 1;
-    border-collapse: separate;
-}
 
-.simple-table td {
-    background-color: #FFF; padding: .5em;
-}
-
-.simple-table thead th {
-    background-color: #EEE; padding: .5em;
-}
 
 .generic-button {
     text-align: center;

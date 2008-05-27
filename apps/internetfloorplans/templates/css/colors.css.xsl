@@ -36,5 +36,18 @@ a {
     color: fuchsia;
 }
 
+
+.simple-table {
+    background-color: #CCC;
+}
+
+.simple-table td {
+    background-color: #FFF;
+}
+
+.simple-table thead th {
+    background-color: #EEE;
+}
+
 </xsl:template>
 </xsl:stylesheet>

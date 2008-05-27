@@ -49,5 +49,21 @@
     text-align: center;
 }
 
+.simple-table {
+    border-spacing: 1px;
+    width: 100%;
+    margin-bottom: 1em;
+    border-spacing: 1;
+    border-collapse: separate;
+}
+
+.simple-table td {
+    padding: .5em;
+}
+
+.simple-table thead th {
+    padding: .5em;
+}
+
 </xsl:template>
 </xsl:stylesheet>
