@@ -35,37 +35,13 @@
 <xsl:call-template name="colors"/>
 
 
-body {
-	background: #CCC;
-}
 
-a {
-    color: fuchsia;
-}
 
-h1 {
-    display: inline;
-    float: right;
-}
 
-#page {
-    width: 60em;
-    padding: .5em;
-    margin-left: auto;
-    margin-right: auto;
-	background: #FFF;
-}
-#content {
-    margin: .5em;
-    min-height: 12em;
-}
-#header {
-    padding: .5em;
-}
 
-#footer {
-    text-align: center;
-}
+
+
+
 
 .simple-table {
     border-spacing: 1px;

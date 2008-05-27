@@ -30,5 +30,24 @@
     margin-left: auto;
     margin-right: auto;
 }
+#page {
+    width: 60em;
+    padding: .5em;
+    margin-left: auto;
+    margin-right: auto;
+	background: #FFF;
+}
+#content {
+    margin: .5em;
+    min-height: 12em;
+}
+#header {
+    padding: .5em;
+}
+
+#footer {
+    text-align: center;
+}
+
 </xsl:template>
 </xsl:stylesheet>

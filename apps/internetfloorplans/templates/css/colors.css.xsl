@@ -25,5 +25,16 @@
 <xsl:output method="text" encoding="UTF-8" omit-xml-declaration="yes"/>
 <xsl:template name="colors">
 
+body {
+	background: #CCC;
+}
+
+#page {
+	background: #FFF;
+}
+a {
+    color: fuchsia;
+}
+
 </xsl:template>
 </xsl:stylesheet>
