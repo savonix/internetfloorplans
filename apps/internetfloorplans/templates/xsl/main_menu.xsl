@@ -38,7 +38,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </xsl:call-template>
     </xsl:for-each>
     </ul>
-    
+
 <xsl:call-template name="source_spacer">
     <xsl:with-param name="section_end">main-menu</xsl:with-param>
 </xsl:call-template>
