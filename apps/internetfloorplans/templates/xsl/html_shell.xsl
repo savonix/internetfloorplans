@@ -31,10 +31,30 @@ Fifth Floor, Boston, MA 02110-1301 USA
     doctype-system="http://www.w3.org/TR/html4/loose.dtd"
     />
 <xsl:template match="/">
+
+<!-- Variables to use as parameters throughout the templates -->
+<xsl:variable name="link_prefix">
+    <xsl:value-of select="/_R_/runtime/link_prefix"/>
+</xsl:variable>
+
+<xsl:variable name="path_prefix">
+    <xsl:value-of select="/_R_/runtime/path_prefix"/>
+</xsl:variable>
+<!-- End initial variables -->
+
 <html>
-<xsl:call-template name="head"/>
+
+<xsl:call-template name="head">
+    <xsl:with-param name="link_prefix">
+        <xsl:value-of select="$link_prefix"/>
+        </xsl:with-param>
+    <xsl:with-param name="path_prefix">
+        <xsl:value-of select="$path_prefix"/>
+        </xsl:with-param>
+</xsl:call-template>
+
 <body>
-<xsl:for-each select="//pre_body_content">
+<xsl:for-each select="/_R_/pre_body_content">
     <xsl:sort select="priority"/>
     <xsl:value-of select="string" disable-output-escaping="yes"/>
 </xsl:for-each>
@@ -44,7 +64,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
 
-<xsl:for-each select="//footer">
+<xsl:for-each select="/_R_/footer">
     <xsl:sort select="priority"/>
     <xsl:value-of select="string" disable-output-escaping="yes"/>
 </xsl:for-each>
