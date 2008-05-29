@@ -24,13 +24,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:template name="equipment_menu">
 <a href="{//link_prefix}ifp-equipment-list">
-    <xsl:value-of select="//labels/label[key='equipment_list']/value"/>
+    <xsl:value-of select="/_R_/i18n/label[key='equipment_list']/value"/>
 </a>
 <a href="
     {//link_prefix}
     ifp-equipment-quantities
     ">
-    <xsl:value-of select="//labels/label[key='equipment_quantities']/value"/>
+    <xsl:value-of select="/_R_/i18n/label[key='equipment_quantities']/value"/>
 </a>
 </xsl:template>
 </xsl:stylesheet>

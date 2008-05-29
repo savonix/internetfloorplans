@@ -27,13 +27,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table>
 	<tr>
 		<td>
-            <xsl:value-of select="//labels/label[key='location_options']/value"/>
+            <xsl:value-of select="/_R_/i18n/label[key='location_options']/value"/>
             <a href="{//link_prefix}ifp-location-edit&amp;location_address_id={location_address_id}">
-                <xsl:value-of select="//labels/label[key='edit']/value"/>
+                <xsl:value-of select="/_R_/i18n/label[key='edit']/value"/>
             </a>
             <a href="{//link_prefix}ifp-location-delete&amp;location_address_id={location_address_id}"
-                onclick="return confirm('{//labels/label[key='confirm_delete']/value}')">
-                <xsl:value-of select="//labels/label[key='delete']/value"/>
+                onclick="return confirm('{/_R_/i18n/label[key='confirm_delete']/value}')">
+                <xsl:value-of select="/_R_/i18n/label[key='delete']/value"/>
             </a>
 		</td>
 		<td>

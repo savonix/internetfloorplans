@@ -27,7 +27,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:with-param name="section_start">header</xsl:with-param>
 </xsl:call-template>
 <div id="header">
-    <h1><xsl:value-of select="//labels/label[key='welcome']/value"/></h1>
+    <h1><xsl:value-of select="/_R_/i18n/label[key='welcome']/value"/></h1>
     <a href="{//link_prefix}index">
         <img src="{//path_prefix}/s/img/antenna3.jpg" />
     </a>

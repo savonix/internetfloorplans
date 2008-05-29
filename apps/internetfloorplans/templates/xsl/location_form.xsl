@@ -37,44 +37,44 @@
 <xsl:if test="//_post/submit">
 <tr>
 	<td colspan="2">
-	  <xsl:value-of select="//labels/label[key='not_valid_data']/value"/>.
+	  <xsl:value-of select="/_R_/i18n/label[key='not_valid_data']/value"/>.
 	</td>
 </tr>
 </xsl:if>
 <tr>
-	<td><xsl:value-of select="//labels/label[key='location_name']/value"/>:*</td>
+	<td><xsl:value-of select="/_R_/i18n/label[key='location_name']/value"/>:*</td>
 	<td><input type="text" name="location_name" value="{//location_get_summary/name|//_post/location_name}" /></td>
 </tr>
 <tr>
-	<td><xsl:value-of select="//labels/label[key='address_line']/value"/> 1:*</td>
+	<td><xsl:value-of select="/_R_/i18n/label[key='address_line']/value"/> 1:*</td>
 	<td><input type="text" name="address_line_1" size="40" value="{//location_get_summary/address_line_1|//_post/address_line_1}" /></td>
 </tr>
 <tr>
-	<td><xsl:value-of select="//labels/label[key='address_line']/value"/> 2:</td>
+	<td><xsl:value-of select="/_R_/i18n/label[key='address_line']/value"/> 2:</td>
 	<td><input type="text" name="address_line_2" size="40" value="{//location_get_summary/address_line_2|//_post/address_line_2}" /></td>
 </tr>
 <tr>
-	<td><xsl:value-of select="//labels/label[key='city']/value"/>:*</td>
+	<td><xsl:value-of select="/_R_/i18n/label[key='city']/value"/>:*</td>
 	<td><input type="text" name="city" size="20" value="{//location_get_summary/city|//_post/city}" /></td>
 </tr>
 <tr>
-	<td><xsl:value-of select="//labels/label[key='state']/value"/>:*</td>
+	<td><xsl:value-of select="/_R_/i18n/label[key='state']/value"/>:*</td>
 	<td><input type="text" name="state" size="5" value="{//location_get_summary/state|//_post/state}" /></td>
 </tr>
 <tr>
-	<td><xsl:value-of select="//labels/label[key='zip']/value"/>:*</td>
+	<td><xsl:value-of select="/_R_/i18n/label[key='zip']/value"/>:*</td>
 	<td><input type="text" name="zip" size="10" value="{//location_get_summary/zip|//_post/zip}" /></td>
 </tr>
 <tr>
-	<td><xsl:value-of select="//labels/label[key='phone']/value"/>:</td>
+	<td><xsl:value-of select="/_R_/i18n/label[key='phone']/value"/>:</td>
 	<td><input type="text" name="phone" value="{//location_get_summary/phone|//_post/phone}" /></td>
 </tr>
 <tr>
-	<td><xsl:value-of select="//labels/label[key='fax']/value"/>:</td>
+	<td><xsl:value-of select="/_R_/i18n/label[key='fax']/value"/>:</td>
 	<td><input type="text" name="fax" value="{//location_get_summary/fax|//_post/fax}" /></td>
 </tr>
 <tr>
-	<td><xsl:value-of select="//labels/label[key='regions']/value"/>:</td>
+	<td><xsl:value-of select="/_R_/i18n/label[key='regions']/value"/>:</td>
 	<td>
 	<xsl:for-each select="//regions_get_all">
 		<input type="checkbox" name="regions[]" value="{region_id}"><xsl:if test="region_id=//get_location_regions/region_id"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if></input>

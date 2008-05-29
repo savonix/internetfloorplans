@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 return confirm('Are you sure you want to delete this location image?')
 -->
 <script type="text/javascript">
-    var question = '<xsl:value-of select="/__ROOT__/i18n/labels/label[key='delete_plan']/value"/>?';
+    var question = '<xsl:value-of select="/_R_/i18n/labels/label[key='delete_plan']/value"/>?';
     function location_space_plan_delete(location_space_plan_id) {
         if(confirm(location_space_plan_id)) {
             $.post("<xsl:value-of select="//link_prefix"/>ifp-location-space-plan-delete&amp;location_space_plan_id="+location_space_plan_id, 
@@ -49,7 +49,7 @@ return confirm('Are you sure you want to delete this location image?')
                 <thead>
                 <tr>
                     <th>
-                        <xsl:value-of select="//labels/label[key='space_plan_options']/value"/>:
+                        <xsl:value-of select="/_R_/i18n/label[key='space_plan_options']/value"/>:
                     </th>
                 </tr>
                 </thead>
@@ -58,7 +58,7 @@ return confirm('Are you sure you want to delete this location image?')
                 <tr>
                     <td>
                         <a href="{//link_prefix}ifp-location-space-plan-edit&amp;location_id={//_get/location_id}">
-                           <xsl:value-of select="//labels/label[key='add_new_plan']/value"/>
+                           <xsl:value-of select="/_R_/i18n/label[key='add_new_plan']/value"/>
                         </a>
                     </td>
                 </tr>
@@ -68,7 +68,7 @@ return confirm('Are you sure you want to delete this location image?')
                 <tr>
                     <td>
                         <a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
-                            <xsl:value-of select="//labels/label[key='lock_plan']/value"/>
+                            <xsl:value-of select="/_R_/i18n/label[key='lock_plan']/value"/>
                         </a>
                     </td>
                 </tr> 
@@ -78,7 +78,7 @@ return confirm('Are you sure you want to delete this location image?')
                         <a 
                     href="{//link_prefix}location_space_plan-delete&amp;location_space_plan_id={//get_location_space_plans/location_space_plan_id}" 
                         onclick="location_space_plan_delete({//get_location_space_plans/location_space_plan_id}); return false;">
-                        <xsl:value-of select="//labels/label[key='delete_plan']/value"/></a>
+                        <xsl:value-of select="/_R_/i18n/label[key='delete_plan']/value"/></a>
                     </td>
                 </tr>
                 </xsl:if>
@@ -88,7 +88,7 @@ return confirm('Are you sure you want to delete this location image?')
             <br/>
             [ PDF Not Available ] / [ PDF ]
             
-            [ <a onclick="return confirm('Are you sure you want to delete this location space plan?')">><xsl:value-of select="//labels/label[key='delete']/value"/> This Plan</a> ]
+            [ <a onclick="return confirm('Are you sure you want to delete this location space plan?')">><xsl:value-of select="/_R_/i18n/label[key='delete']/value"/> This Plan</a> ]
             
             <xsl:if test="//_get/key='no'">
             

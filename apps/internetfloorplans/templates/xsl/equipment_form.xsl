@@ -136,7 +136,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <tr>
             <td>
                 <xsl:value-of
-                    select="//labels/label[key='location']/value"
+                    select="/_R_/i18n/label[key='location']/value"
                     />
             </td>
             <td>

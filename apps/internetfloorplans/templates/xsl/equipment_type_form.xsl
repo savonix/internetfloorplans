@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <tr>
             <td>
                 <xsl:value-of
-                    select="//labels/label[key='equipment_type_name']/value"
+                    select="/_R_/i18n/label[key='equipment_type_name']/value"
                     />
             </td>
             <td>
@@ -53,7 +53,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <tr>
             <td>
                 <xsl:value-of
-                    select="//labels/label[key='description']/value"
+                    select="/_R_/i18n/label[key='description']/value"
                     />
             </td>
             <td>

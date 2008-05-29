@@ -61,16 +61,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <thead>
 		<tr>
 			<th>
-				<xsl:value-of select="//labels/label[key='id']/value"/>
+				<xsl:value-of select="/_R_/i18n/label[key='id']/value"/>
             </th>
 			<th>
-				<xsl:value-of select="//labels/label[key='equipment_type']/value"/>
+				<xsl:value-of select="/_R_/i18n/label[key='equipment_type']/value"/>
             </th>
 			<th>
-				<xsl:value-of select="//labels/label[key='edit']/value"/>
+				<xsl:value-of select="/_R_/i18n/label[key='edit']/value"/>
             </th>
 			<th>
-				<xsl:value-of select="//labels/label[key='delete']/value"/>
+				<xsl:value-of select="/_R_/i18n/label[key='delete']/value"/>
             </th>
 		</tr>
         </thead>
@@ -87,13 +87,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </td>
 			<td>
 				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}">
-                    <xsl:value-of select="//labels/label[key='edit']/value"/>
+                    <xsl:value-of select="/_R_/i18n/label[key='edit']/value"/>
                 </a>
             </td>
 			<td>
 				<a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}"
                 onclick="equipment_delete({equipment_id},this.parentNode.parentNode.rowIndex); return false;">
-                    <xsl:value-of select="//labels/label[key='delete']/value"/>
+                    <xsl:value-of select="/_R_/i18n/label[key='delete']/value"/>
                 </a>
             </td>
 		</tr>
@@ -102,7 +102,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </table>
 
 <a href="{//link_prefix}ifp-equipment-edit&amp;location_id={//_get/location_id}">
-    <xsl:value-of select="//labels/label[key='add_new_equipment']/value"/>
+    <xsl:value-of select="/_R_/i18n/label[key='add_new_equipment']/value"/>
 </a>
 </div>
 <xsl:call-template name="pager">

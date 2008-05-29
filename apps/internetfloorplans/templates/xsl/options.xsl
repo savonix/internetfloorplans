@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <xsl:variable name="my_option"><xsl:value-of select="option_key"/></xsl:variable>
     <xsl:if test="@set=//option_set">
     <tr>
-        <td><xsl:value-of select="//labels/label[key=$my_option]/value"/>: </td>
+        <td><xsl:value-of select="/_R_/i18n/label[key=$my_option]/value"/>: </td>
         <td><input type="text" name="{option_key}" value="{//option_get[option_key=$my_option]/option_value}"/></td>
     </tr>
     </xsl:if>

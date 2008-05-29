@@ -35,7 +35,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <tr>
                 <td>
                     <xsl:value-of
-                        select="//labels/label[key='images']/value"
+                        select="/_R_/i18n/label[key='images']/value"
                         />
                 </td>
             </tr>
@@ -51,7 +51,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <table>
             <tr>
                 <td>
-                    <xsl:value-of select="//labels/label[key='options']/value"/>
+                    <xsl:value-of select="/_R_/i18n/label[key='options']/value"/>
                 </td>
             </tr>
             <xsl:if test="not(//equipment_type_get_images)">
@@ -59,7 +59,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <td>
                     <a href="#">
                         <xsl:value-of
-                            select="//labels/label[key='add_new_image']/value"
+                            select="/_R_/i18n/label[key='add_new_image']/value"
                             />
                     </a>
                 </td>
@@ -69,10 +69,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <td>
                     <a
                         href="{//link_prefix}ifp-equipment-delete"
-                        onclick="return confirm('{//labels/label[key='confirm_delete']/value}')
+                        onclick="return confirm('{/_R_/i18n/label[key='confirm_delete']/value}')
                         ">
                         <xsl:value-of
-                            select="//labels/label[key='delete_this_image']/value"/>
+                            select="/_R_/i18n/label[key='delete_this_image']/value"/>
                     </a>
                 </td>
             </tr>

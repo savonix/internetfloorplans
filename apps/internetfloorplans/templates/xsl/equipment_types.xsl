@@ -37,7 +37,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </xsl:call-template>
 <!-- Confirm equipment deletion -->
 <script type="text/javascript">
-var question = '<xsl:value-of select="//labels/label[key='confirm_equipment_type_delete']/value"/>';
+var question = '<xsl:value-of select="/_R_/i18n/label[key='confirm_equipment_type_delete']/value"/>';
 function equipment_type_delete(equipment_type_id,row) {
     if(confirm(question)) {
         $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-delete", {'equipment_type_id': equipment_type_id}, 
@@ -57,22 +57,22 @@ function equipment_type_delete(equipment_type_id,row) {
     <tr>
         <th>
             <xsl:value-of
-                select="//labels/label[key='equipment_type_name']/value"
+                select="/_R_/i18n/label[key='equipment_type_name']/value"
                 />
         </th>
         <th>
             <xsl:value-of
-                select="//labels/label[key='description']/value"
+                select="/_R_/i18n/label[key='description']/value"
                 />
         </th>
         <th>
             <xsl:value-of
-                select="//labels/label[key='edit']/value"
+                select="/_R_/i18n/label[key='edit']/value"
                 />
         </th>
         <th>
             <xsl:value-of
-                select="//labels/label[key='delete']/value"
+                select="/_R_/i18n/label[key='delete']/value"
                 />
         </th>
     </tr>
@@ -90,13 +90,13 @@ function equipment_type_delete(equipment_type_id,row) {
         </td>
         <td>
             <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
-                <xsl:value-of select="//labels/label[key='edit']/value"/>
+                <xsl:value-of select="/_R_/i18n/label[key='edit']/value"/>
             </a>
         </td>
         <td>
             <a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}"
             onclick="equipment_type_delete({equipment_type_id},this.parentNode.parentNode.rowIndex); return false;">
-            <xsl:value-of select="//labels/label[key='delete']/value"/>
+            <xsl:value-of select="/_R_/i18n/label[key='delete']/value"/>
             </a>
         </td>
     </tr>
@@ -105,7 +105,7 @@ function equipment_type_delete(equipment_type_id,row) {
 </table>
 </div>
 <a href="{//link_prefix}ifp-equipment-type-edit">
-    <xsl:value-of select="//labels/label[key='new_equipment_type']/value"/>
+    <xsl:value-of select="/_R_/i18n/label[key='new_equipment_type']/value"/>
 </a>
 <xsl:call-template name="pager">
     <xsl:with-param name="my-table">myequipmenttypes</xsl:with-param>

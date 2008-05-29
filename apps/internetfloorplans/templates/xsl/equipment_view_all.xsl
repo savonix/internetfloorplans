@@ -39,7 +39,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 <!-- Confirm equipment deletion -->
 <script type="text/javascript">
-    var question = '<xsl:value-of select="//labels/label[key='are_you_sure_delete']/value"/>?';
+    var question = '<xsl:value-of select="/_R_/i18n/label[key='are_you_sure_delete']/value"/>?';
     function equipment_delete(equipment_id,row) {
         if(confirm(question)) {
             $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-delete", {'equipment_id': equipment_id},
@@ -59,16 +59,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <thead>
 		<tr>
 			<th>
-				<xsl:value-of select="//labels/label[key='equipment_type']/value"/>
+				<xsl:value-of select="/_R_/i18n/label[key='equipment_type']/value"/>
             </th>
 			<th>
-				<xsl:value-of select="//labels/label[key='location']/value"/>
+				<xsl:value-of select="/_R_/i18n/label[key='location']/value"/>
             </th>
 			<th>
-				<xsl:value-of select="//labels/label[key='edit']/value"/>
+				<xsl:value-of select="/_R_/i18n/label[key='edit']/value"/>
             </th>
 			<th>
-				<xsl:value-of select="//labels/label[key='delete']/value"/>
+				<xsl:value-of select="/_R_/i18n/label[key='delete']/value"/>
             </th>
 		</tr>
         </thead>
@@ -84,13 +84,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
             </td>
 			<td>
 				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}">
-                    <xsl:value-of select="//labels/label[key='edit']/value"/>
+                    <xsl:value-of select="/_R_/i18n/label[key='edit']/value"/>
                 </a>
             </td>
 			<td>
 				<a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}"
                     onclick="equipment_delete({equipment_id},this.parentNode.parentNode.rowIndex); return false;">
-                    <xsl:value-of select="//labels/label[key='delete']/value"/>
+                    <xsl:value-of select="/_R_/i18n/label[key='delete']/value"/>
                 </a>
             </td>
 		</tr>

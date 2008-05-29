@@ -27,17 +27,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <tr>
         <td>
             <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={//_get/equipment_type_id}">
-                <xsl:value-of select="//labels/label[key='edit']/value"/>
+                <xsl:value-of select="/_R_/i18n/label[key='edit']/value"/>
             </a>
         </td>
         <td>
             <a href="{//link_prefix}ifp-equipment-type-images&amp;equipment_type_id={//_get/equipment_type_id}">
-                <xsl:value-of select="//labels/label[key='images']/value"/>
+                <xsl:value-of select="/_R_/i18n/label[key='images']/value"/>
             </a>
         </td>
         <td>
             <a href="{//link_prefix}ifp-equipment-type-icons&amp;equipment_type_id={//_get/equipment_type_id}">
-            <xsl:value-of select="//labels/label[key='icons']/value"/>
+            <xsl:value-of select="/_R_/i18n/label[key='icons']/value"/>
             </a>
         </td>
     </tr>

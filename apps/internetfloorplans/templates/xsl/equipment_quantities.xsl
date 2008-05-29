@@ -31,12 +31,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <tr>
         <td>
             <xsl:value-of
-                select="//labels/label[key='equipment_type']/value"
+                select="/_R_/i18n/label[key='equipment_type']/value"
                 />
         </td>
         <td>
             <xsl:value-of
-                select="//labels/label[key='quantity']/value"
+                select="/_R_/i18n/label[key='quantity']/value"
                 />
         </td>
     </tr>

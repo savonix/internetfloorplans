@@ -24,16 +24,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <xsl:include href="html_main.xsl"/>
 <xsl:template name="content">
-<html xml:space="preserve" >
-	<table>
-		<tr>
-			<td>
-				<xsl:value-of select="//labels/label[key='welcome_to_ifp']/value"/>!<br/><br/>
-				<xsl:value-of select="//labels/label[key='with_ifp_you_can']/value"/>.
-				<br/>
-			</td>
-		</tr>
-	</table>
-</html>
+<table>
+    <tr>
+        <td>
+            <xsl:value-of select="/_R_/i18n/label[key='welcome_to_ifp']/value"/>!<br/><br/>
+            <xsl:value-of select="/_R_/i18n/label[key='with_ifp_you_can']/value"/>.
+            <br/>
+        </td>
+    </tr>
+</table>
 </xsl:template>
 </xsl:stylesheet>
