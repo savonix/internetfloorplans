@@ -26,7 +26,11 @@ Fifth Floor, Boston, MA 02110-1301  USA
 $path = $_SERVER['REQUEST_URI'];
 $path = dirname($path)."/".basename($_SERVER['SCRIPT_NAME']);
 $path_prefix = dirname($path)."/";
-$link_prefix = $path."?nid=";
+if($_GET['view_flow'] == "true" ) {
+    $link_prefix = $path."?view_flow=true&nid=";
+} else {
+    $link_prefix = $path."?nid=";
+}
 $utcdate = gmdate('Y-m-d H:i:s');
 
 
