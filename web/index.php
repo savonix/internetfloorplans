@@ -1,11 +1,11 @@
 <?php
 
-// Configuration 
-// Where is nexista? This path should be to a folder containing the nexista source 
+// Configuration
+// Where is nexista? This path should be to a folder containing the nexista source
 $nexista_path = "/var/www/dev/nexista/";
 
 // Bad hack
-if(!strpos($_SERVER['REQUEST_URI'],'.php')) { 
+if(!strpos($_SERVER['REQUEST_URI'],'.php')) {
     header("Location: ".$_SERVER['REQUEST_URI']."index.php");
     exit;
 }
@@ -20,15 +20,10 @@ define('APP_NAME','internetfloorplans');
 $server_init = PROJECT_ROOT."/cache/".SERVER_NAME."/".APP_NAME."/".APP_NAME.".php";
 
 
-
-
-
 if(!include($nexista_path.'/extensions/nexista_builder.php')) {
     echo "Error: Unable to load server loader or builder.";
     exit;
 }
-
-
 
 
 // Loader not there or manually getting rebuilt? Build it!
