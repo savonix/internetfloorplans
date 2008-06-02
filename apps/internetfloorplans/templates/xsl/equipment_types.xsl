@@ -78,7 +78,7 @@ function equipment_type_delete(equipment_type_id,row) {
     </tr>
     </thead>
     <tbody>
-    <xsl:for-each select="//equipment_types_get_all">
+    <xsl:for-each select="/_R_/equipment_types_get_all/equipment_types_get_all">
     <tr>
         <td>
             <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
