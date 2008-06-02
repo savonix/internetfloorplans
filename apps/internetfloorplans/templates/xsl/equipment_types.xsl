@@ -40,7 +40,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 var question = '<xsl:value-of select="/_R_/i18n/label[key='confirm_equipment_type_delete']/value"/>';
 function equipment_type_delete(equipment_type_id,row) {
     if(confirm(question)) {
-        $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-delete", {'equipment_type_id': equipment_type_id}, 
+        $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-delete",
+        {'equipment_type_id': equipment_type_id}, 
         function (data){
             myTable = document.getElementById("myequipmenttypes");
             myTable.deleteRow(row);

@@ -77,7 +77,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </tr>
     </thead>
     <tbody>
-    <xsl:for-each select="//locations_get_all">
+    <xsl:for-each select="/_R_/locations_get_all/locations_get_all">
         <xsl:if test="not(//x_view)">
             <xsl:call-template name="location_row"/>
         </xsl:if>
