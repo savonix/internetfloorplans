@@ -75,7 +75,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		</tr>
         </thead>
         <tbody>
-		<xsl:for-each select="//location_get_equipment">
+		<xsl:for-each select="//location_get_equipment/location_get_equipment">
 		<tr>
 			<td>
 				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}&amp;location_id={//_get/location_id}">
