@@ -30,22 +30,22 @@
         </td>
         <td>
             <a href="{//link_prefix}ifp-location-view&amp;location_id={//_get/location_id}">
-                <xsl:value-of select="/_R_/i18n/label[key='virtual_tours']/value"/>
+                <xsl:value-of select="/_R_/i18n/virtual_tours"/>
             </a>
         </td>
         <td>
             <a href="{//link_prefix}ifp-location-space-plans&amp;location_id={//_get/location_id}">
-            <xsl:value-of select="/_R_/i18n/label[key='space_plans']/value"/>
+            <xsl:value-of select="/_R_/i18n/space_plans"/>
             </a>
         </td>
         <td>
             <a href="{//link_prefix}ifp-location-equipment-quantities&amp;location_id={//_get/location_id}">
-                <xsl:value-of select="/_R_/i18n/label[key='equip_quantities']/value"/>
+                <xsl:value-of select="/_R_/i18n/equip_quantities"/>
             </a>
         </td>
         <td>
             <a href="{//link_prefix}ifp-location-equipment-list&amp;location_id={//_get/location_id}">
-                <xsl:value-of select="/_R_/i18n/label[key='equip_list']/value"/>
+                <xsl:value-of select="/_R_/i18n/equip_list"/>
             </a>
         </td>
     </tr>

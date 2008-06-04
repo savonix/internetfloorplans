@@ -26,22 +26,22 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:for-each select="//get_equipment_type_by_id">
 	<tr>
 		<td>
-		<xsl:value-of select="/_R_/i18n/label[key='options']/value"/>:<br />
+		<xsl:value-of select="/_R_/i18n/options"/>:<br />
 		<a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
-            <xsl:value-of select="/_R_/i18n/label[key='edit_this_equipment_type']/value"/>
+            <xsl:value-of select="/_R_/i18n/edit_this_equipment_type"/>
         </a>
         <br/>
 		<a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}"
-            onclick="return confirm('{/_R_/i18n/label[key='confirm_delete']/value}')">
-            <xsl:value-of select="/_R_/i18n/label[key='delete_this_equipment_type']/value"/>
+            onclick="return confirm('{/_R_/i18n/confirm_delete}')">
+            <xsl:value-of select="/_R_/i18n/delete_this_equipment_type"/>
         </a>
 		</td>
 		<td>
-		<xsl:value-of select="/_R_/i18n/label[key='name']/value"/>:<br/>
+		<xsl:value-of select="/_R_/i18n/name"/>:<br/>
 		<xsl:value-of select="//equipment_type_get_by_id/name" />
 		</td>
 		<td colspan="2">
-		<xsl:value-of select="/_R_/i18n/label[key='description']/value"/>: <br/>
+		<xsl:value-of select="/_R_/i18n/description"/>: <br/>
 		<xsl:value-of select="//equipment_type_get_by_id/description" />
 		</td>
 	</tr>

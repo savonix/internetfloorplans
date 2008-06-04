@@ -57,22 +57,22 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <thead>
     <tr>
         <th>
-            <xsl:value-of select="/_R_/i18n/label[key='branch_name']/value"/>
+            <xsl:value-of select="/_R_/i18n/branch_name"/>
         </th>
         <th>
-            <xsl:value-of select="/_R_/i18n/label[key='address']/value"/>
+            <xsl:value-of select="/_R_/i18n/address"/>
         </th>
         <th>
-            <xsl:value-of select="/_R_/i18n/label[key='city']/value"/>
+            <xsl:value-of select="/_R_/i18n/city"/>
         </th>
         <th>
-            <xsl:value-of select="/_R_/i18n/label[key='phone']/value"/>
+            <xsl:value-of select="/_R_/i18n/phone"/>
         </th>
         <th>
-            <xsl:value-of select="/_R_/i18n/label[key='edit']/value"/>
+            <xsl:value-of select="/_R_/i18n/edit"/>
         </th>
         <th>
-            <xsl:value-of select="/_R_/i18n/label[key='delete']/value"/>
+            <xsl:value-of select="/_R_/i18n/delete"/>
         </th>
     </tr>
     </thead>
@@ -89,7 +89,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </table>
 </div>
 <div style="float: right;" class="generic-button">
-    <a href="{//link_prefix}ifp-location-create"><xsl:value-of select="/_R_/i18n/label[key='add_location']/value"/></a>
+    <a href="{//link_prefix}ifp-location-create"><xsl:value-of select="/_R_/i18n/add_location"/></a>
 </div>
 <xsl:call-template name="pager">
     <xsl:with-param name="my-table">mylocations</xsl:with-param>
@@ -115,13 +115,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </td>
         <td>
             <a href="{//link_prefix}ifp-location-edit&amp;location_id={location_id}">
-                <xsl:value-of select="/_R_/i18n/label[key='edit']/value"/>
+                <xsl:value-of select="/_R_/i18n/edit"/>
             </a>
         </td>
         <td>
             <a href="{//link_prefix}ifp-location-delete&amp;location_id={location_id}"
                 onclick="location_delete({location_id},this.parentNode.parentNode.rowIndex); return false;">
-                <xsl:value-of select="/_R_/i18n/label[key='delete']/value"/>
+                <xsl:value-of select="/_R_/i18n/delete"/>
             </a>
         </td>
     </tr>

@@ -50,7 +50,7 @@ used for a single or several applications. -->
 	<modes>
 		<dev/>
 	</modes>
-	
+
 	<domain>
 		<server_name mode="dev">&server_name;</server_name>
 	</domain>
@@ -75,10 +75,11 @@ used for a single or several applications. -->
         <sitemap>&project_root;/apps/&app_name;/sitemap.xml</sitemap>
 
         <!-- default uri - used for login script to send user somewhere -->
-        <default>index.php?nid=index</default>
+        <default>index.php?nid=ifp-locations</default>
 
         <!-- enter a gate name for missing when there is no match -->
         <missing>ifp-locations</missing>
+
         <query>nid</query>
     </build>
 

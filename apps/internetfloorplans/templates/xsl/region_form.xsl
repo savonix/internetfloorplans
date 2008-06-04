@@ -30,17 +30,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </xsl:if>
 <table>
     <tr>
-        <td><xsl:value-of select="/_R_/i18n/label[key='region_name']/value"/>:</td>
+        <td><xsl:value-of select="/_R_/i18n/region_name"/>:</td>
         <td>
             <input type="text" name="name"
                 value="{//region_get_by_id/region_name}"/>
         </td>
     </tr>
     <tr>
-        <td><xsl:value-of select="/_R_/i18n/label[key='locations']/value"/>:</td>
+        <td><xsl:value-of select="/_R_/i18n/locations"/>:</td>
         <td>
             <table>
-            <xsl:for-each select="//locations_get_all">
+            <xsl:for-each select="//locations_get_all/locations_get_all">
             <tr>
                 <td>
                     <input type="checkbox" name="location_address_id[]"

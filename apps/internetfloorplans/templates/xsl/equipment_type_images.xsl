@@ -30,7 +30,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:call-template name="equipment-type-summary"/>
 <!-- Confirm equipment type image deletion -->
 <script type="text/javascript">
-var question = '<xsl:value-of select="/_R_/i18n/label[key='confirm_delete']/value"/>';
+var question = '<xsl:value-of select="/_R_/i18n/confirm_delete"/>';
 function equipment_type_image_delete(static_file_id) {
     if(confirm(question)) {
         $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-image-delete",
@@ -47,7 +47,7 @@ function equipment_type_image_delete(static_file_id) {
             <thead>
             <tr>
                 <th>
-                    <xsl:value-of select="/_R_/i18n/label[key='images']/value"/>
+                    <xsl:value-of select="/_R_/i18n/images"/>
                 </th>
             </tr>
             </thead>
@@ -64,7 +64,7 @@ function equipment_type_image_delete(static_file_id) {
             <thead>
             <tr>
                 <th>
-                    <xsl:value-of select="/_R_/i18n/label[key='options']/value"/>
+                    <xsl:value-of select="/_R_/i18n/options"/>
                 </th>
             </tr>
             </thead>
@@ -73,7 +73,7 @@ function equipment_type_image_delete(static_file_id) {
             <tr>
                 <td>
                     <a href="{//link_prefix}ifp-equipment-type-image-edit&amp;equipment_type_id={//_get/equipment_type_id}">
-                        <xsl:value-of select="/_R_/i18n/label[key='add_new_image']/value"/>
+                        <xsl:value-of select="/_R_/i18n/add_new_image"/>
                     </a>
                 </td>
             </tr>
@@ -83,7 +83,7 @@ function equipment_type_image_delete(static_file_id) {
                 <td>
                     <a href="{//link_prefix}ifp-equipment-type-image-delete&amp;equipment_type_image_id={//equipment_type_get_images/static_file_id}"
                     onclick="equipment_type_image_delete({//equipment_type_get_images/static_file_id}); return false;">
-                    <xsl:value-of select="/_R_/i18n/label[key='delete']/value"/></a>
+                    <xsl:value-of select="/_R_/i18n/delete"/></a>
                 </td>
             </tr>
             </xsl:if>

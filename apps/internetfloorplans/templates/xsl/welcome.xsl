@@ -27,8 +27,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table>
     <tr>
         <td>
-            <xsl:value-of select="/_R_/i18n/label[key='welcome_to_ifp']/value"/>!<br/><br/>
-            <xsl:value-of select="/_R_/i18n/label[key='with_ifp_you_can']/value"/>.
+            <xsl:value-of select="/_R_/i18n/welcome_to_ifp"/>!<br/><br/>
+            <xsl:value-of select="/_R_/i18n/with_ifp_you_can"/>.
             <br/>
         </td>
     </tr>

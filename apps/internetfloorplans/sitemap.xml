@@ -479,4 +479,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <map:gate name="ming-test-view" cache="0">
         <map:xsl src="templates/xsl/ming_test.xsl"/>
     </map:gate>
+    <map:gate name="x--i18n-fixer">
+        <map:action type="header" params="Content-type,text/plain"/>
+        <map:xsl src="templates/xml/i18n_fixer.xml.xsl"/>
+    </map:gate>
 </map:sitemap>

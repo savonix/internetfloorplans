@@ -22,455 +22,110 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <i18n>
-    <!-- Menu -->
-    <label>
-        <key>index</key>
-        <value>Welcome</value>
-    </label>
-    <label>
-        <key>locations</key>
-        <value>Locations</value>
-    </label>
-    <label>
-        <key>regions</key>
-        <value>Regions</value>
-    </label>
-    <label>
-        <key>equipment</key>
-        <value>Equipment</value>
-    </label>
-    <label>
-        <key>equipment_types</key>
-        <value>Equipment Types</value>
-    </label>
-    <!-- this is used for the menu -->
-    <label>
-        <key>ifp_options</key>
-        <value>Options</value>
-    </label>
-    <label>
-        <key>options</key>
-        <value>Options</value>
-    </label>
-
-	<!-- GENERAL -->
-    <label>
-        <key>delete</key>
-        <value>Delete</value>
-    </label>
-    <label>
-        <key>edit</key>
-        <value>Edit</value>
-    </label>
-    <label>
-        <key>done</key>
-        <value>Done</value>
-    </label>
-    <label>
-        <key>comments</key>
-        <value>Comments</value>
-    </label>
-    <!-- upload form -->
-    <label>
-        <key>file_title</key>
-        <value>File Title</value>
-    </label>
-    <label>
-        <key>file_type</key>
-        <value>File Type</value>
-    </label>
-    <label>
-        <key>file_to_upload</key>
-        <value>File to upload</value>
-    </label>
-
-    <!-- OPTIONS -->
-    <label>
-        <key>ifp_upload_options</key>
-        <value>Upload Options</value>
-    </label>
-    <label>
-        <key>ifp_image_options</key>
-        <value>Image Options</value>
-    </label>
-    <label>
-        <key>ifp_interface_options</key>
-        <value>Interface Options</value>
-    </label>
-    <label>
-        <key>ifp_database_options</key>
-        <value>Database Options</value>
-    </label>
-    <label>
-        <key>allow_file_deletion</key>
-        <value>Allow File Deletion</value>
-    </label>
-    <label>
-        <key>file_upload_directory</key>
-        <value>File Upload Directory</value>
-    </label>
-    <label>
-        <key>sort_uploads_by_year_and_month</key>
-        <value>Sort Uploads by Year and Month</value>
-    </label>
-    <label>
-        <key>sort_uploads_by_file_id</key>
-        <value>Sort uploads by file id</value>
-    </label>
-    <label>
-        <key>number_of_records</key>
-        <value>Number of Records</value>
-    </label>
-    <label>
-        <key>thumbnail_width</key>
-        <value>Thumbnail Width</value>
-    </label>
-    <label>
-        <key>thumbnail_height</key>
-        <value>Thumbnail Height</value>
-    </label>
-    <label>
-        <key>thumbnail_prefix</key>
-        <value>Thumbnail Prefix</value>
-    </label>
-    <label>
-        <key>link_color</key>
-        <value>Link Color</value>
-    </label>
-    <label>
-        <key>equip_name</key>
-		<value>Equipment Type Name</value>
-	</label>
-	<label>
-		<key>description</key>
-		<value>Description</value>
-	</label>
-    <label>
-        <key>equip_type</key>
-		<value>Equipment Type</value>
-	</label>
-    
-<!-- equipment_content_install -->
-	<label>
-		<key>materials_successfully_installed</key>
-		<value>The materials have been successfully installed. Please select this option only if you have already installed the materials as prescribed by these instructions</value>
-	</label>
-	<label>
-		<key>never_received_materials</key>
-		<value>Never received the materials</value>
-	</label>
-	<label>
-		<key>received_materials_need_replacements</key>
-		<value>Received materials but need replacements</value>
-	</label>
-	<label>
-		<key>fixture_is_not_there</key>
-		<value>The fixture is not there</value>
-	</label>
-	<label>
-		<key>please_select_responce</key>
-		<value>Please select the appropriate response based upon the results of these campaign instructions</value>
-	</label>
-<!-- equipment display config -->
-	<label>
-		<key>line_of_business</key>
-		<value>Line of Business</value>
-	</label>
-	<label>
-		<key>priority_rating</key>
-		<value>Priority Rating</value>
-	</label>
-<!-- equipment_form -->
-    <label>
-        <key>equipment_type</key>
-		<value>Equipment Type</value>
-	</label>
-	<label>
-		<key>equipment_number</key>
-		<value>Equipment Number</value>
-	</label>
-	<label>
-		<key>location</key>
-		<value>Location</value>
-	</label>
-	<label>
-		<key>upload_image_jpeg_format</key>
-		<value>You can upload an image formatted as a JPEG</value>
-	</label>
-	<label>
-		<key>image_name</key>
-		<value>Image name</value>
-	</label>
-	<label>
-		<key>image_file</key>
-		<value>Image file</value>
-	</label>
-	<label>
-		<key>comments</key>
-		<value>Comments</value>
-	</label>
-	<!-- equipment_menu -->
-	<label>
-		<key>equipment_list</key>
-		<value>Equipment List</value>
-	</label>
-	<label>
-		<key>equipment_quantities</key>
-		<value>Equipment Quantities</value>
-	</label>
-	<!-- equipment quantities -->
-	<label>
-		<key>equipment_type</key>
-		<value>Equipment Type</value>
-	</label>
-	<label>
-		<key>quantity</key>
-		<value>Quanitity</value>
-	</label>
-	<!-- equipment type form -->
-	<label>
-		<key>equipment_type_name</key>
-		<value>Equipment Type Name</value>
-	</label>
-	<label>
-		<key>description</key>
-		<value>Description</value>
-	</label>
-	<!-- equipment type -->
-	<label>
-		<key>equipment_type_name</key>
-		<value>Equipment Type Name</value>
-	</label>
-	<label>
-		<key>new_equipment_type</key>
-		<value>New Equipment Type</value>
-	</label>
-	<!-- equipment type menu -->
-	<label>
-		<key>images</key>
-		<value>Images</value>
-	</label>
-	<label>
-		<key>icons</key>
-		<value>Icons</value>
-	</label>
-    
-	<!-- equipment view all -->
-	<label>
-		<key>equipment_type</key>
-		<value>Equipment Type</value>
-	</label>
-    <label>
-        <key>are_you_sure_delete</key>
-        <value>Are you sure you want to delete this equipment</value>
-    </label>
-    <label>
-        <key>confirm_equipment_type_delete</key>
-        <value>Are you sure you want to delete this equipment type?</value>
-    </label>
-    <label>
-        <key>confirm_delete</key>
-        <value>Are you sure you want to delete this?</value>
-    </label>
-	<!-- equipment view -->
-	<label>
-		<key>add_new_image</key>
-		<value>Add New Image</value>
-	</label>
-	<label>
-		<key>delete_this_image</key>
-		<value>Delete This Image</value>
-	</label>
-	<!--equipment type summary-->
-	<label>
-		<key>edit_this_equipment_type</key>
-		<value>Edit This Equipment Type</value>
-	</label>
-	<label>
-		<key>delete_this_equipment_type</key>
-		<value>Delete This Equipment Type</value>
-	</label>
-	<label>
-		<key>not_valid_data</key>
-		<value>The data you have submitted is not valid, the field titles with an asterisk are required. The form 
-	has been reverted to its original data</value>
-	</label>
-	<!-- location form -->
-	<label>
-		<key>address_line</key>
-		<value>Address Line</value>
-	</label>
-	<label>
-		<key>address</key>
-		<value>Address</value>
-	</label>
-	<label>
-		<key>city</key>
-		<value>City</value>
-	</label>
-	<label>
-		<key>state</key>
-		<value>State</value>
-	</label>
-	<label>
-		<key>zip</key>
-		<value>Zip</value>
-	</label>
-	<label>
-		<key>phone</key>
-		<value>Phone</value>
-	</label>
-	<label>
-		<key>fax</key>
-		<value>Fax</value>
-	</label>
-	<label>
-		<key>regions</key>
-		<value>Regions</value>
-	</label>
-	<!-- location equipment -->
-	<label>
-		<key>add_new_equipment</key>
-		<value>Add New Equipment</value>
-	</label>
-	<label>
-		<key>equipment_type</key>
-		<value>Equiment Type</value>
-	</label>
-	<label>
-		<key>id</key>
-		<value>ID</value>
-	</label>
-	<!-- equipment_type_icons -->
-	<label>
-		<key>add_new_icon</key>
-		<value>Add New Icon</value>
-	</label>
-	<label>
-		<key>delete_this_icon</key>
-		<value>Delete This Icon</value>
-	</label>
-	<!-- main -->
-	<label>
-		<key>welcome</key>
-		<value>Welcome</value>
-	</label>
-	<label>
-		<key>open_source_internet_software</key>
-		<value>Open Source Internet Floor Plan Software</value>
-	</label>
-	<label>
-		<key>copyright</key>
-		<value>Copyright Savonix Corporation</value>
-	</label>
-	<label>
-		<key>license</key>
-		<value>Licensed under the Affero GPL</value>
-	</label>
-	<!-- location_space_plan-->
-	<label>
-		<key>delete_plan</key>
-		<value>Delete Plan</value>
-	</label>
-	<label>
-		<key>lock_plan</key>
-		<value>Lock Plan</value>
-	</label>
-	<label>
-		<key>add_new_plan</key>
-		<value>Add New Plan</value>
-	</label>
-	<label>
-		<key>space_plan_options</key>
-		<value>Space Plan Options</value>
-	</label>
-	<!-- location summary -->
-	<label>
-		<key>location_name</key>
-		<value>Location Name</value>
-	</label>
-	<label>
-		<key>location_options</key>
-		<value>Location Options</value>
-	</label>
-    <!-- location menu -->
-    <label>
-        <key>space_plans</key>
-        <value>Space Plans</value>
-    </label>
-    <label>
-        <key>virtual_tours</key>
-        <value>Virtual Tours</value>
-    </label>
-    <label>
-        <key>equip_quantities</key>
-        <value>Equipment Quantities</value>
-    </label>
-    <label>
-        <key>equip_list</key>
-        <value>Equipment List</value>
-    </label>
-    <label>
-        <key>tour_options</key>
-        <value>Tour Options</value>
-    </label>
-    <label>
-        <key>this_image</key>
-        <value>This Image</value>
-    </label>
-    
-    <!-- locations email -->
-    
-    <label>
-        <key>email_locations</key>
-        <value>Email Locations</value>
-    </label>
-    <label>
-        <key>subject</key>
-        <value>Subject</value>
-    </label>
-    <label>
-        <key>body</key>
-        <value>Body</value>
-    </label>
-    <label>
-        <key>enter_message_here</key>
-        <value>Enter your message here</value>
-    </label>
-    <!-- locations view -->
-    <label>
-        <key>branch_name</key>
-        <value>Branch Name</value>
-    </label>
-    <label>
-        <key>status</key>
-        <value>Status</value>
-    </label>
-    <label>
-        <key>add_location</key>
-        <value>Add Location</value>
-    </label>
-    <!-- region form -->
-    <label>
-        <key>region_name</key>
-        <value>Region Name</value>
-    </label>
-    <label>
-         <key>geographic</key>
-         <value>Geographic</value>
-    </label>
-    <label>
-        <key>add_region</key>
-        <value>Add Region</value>
-    </label>
-    <!-- welcome -->
-    <label>
-        <key>welcome_to_ifp</key>
-        <value>Welcome to Internet Floor Plans</value>
-    </label>
-    <label>
-        <key>with_ifp_you_can</key>
-        <value>With Internet Floor Plans you can access in-depth information about all of your locations.
-                Browse through all of the Internet Floor Plan features by selecting an option from the menu</value>
-    </label>
+  <index>Welcome</index>
+  <locations>Locations</locations>
+  <regions>Regions</regions>
+  <equipment>Equipment</equipment>
+  <equipment_types>Equipment Types</equipment_types>
+  <ifp_options>Options</ifp_options>
+  <options>Options</options>
+  <delete>Delete</delete>
+  <edit>Edit</edit>
+  <done>Done</done>
+  <comments>Comments</comments>
+  <file_title>File Title</file_title>
+  <file_type>File Type</file_type>
+  <file_to_upload>File to upload</file_to_upload>
+  <ifp_upload_options>Upload Options</ifp_upload_options>
+  <ifp_image_options>Image Options</ifp_image_options>
+  <ifp_interface_options>Interface Options</ifp_interface_options>
+  <ifp_database_options>Database Options</ifp_database_options>
+  <allow_file_deletion>Allow File Deletion</allow_file_deletion>
+  <file_upload_directory>File Upload Directory</file_upload_directory>
+  <sort_uploads_by_year_and_month>Sort Uploads by Year and Month</sort_uploads_by_year_and_month>
+  <sort_uploads_by_file_id>Sort uploads by file id</sort_uploads_by_file_id>
+  <number_of_records>Number of Records</number_of_records>
+  <thumbnail_width>Thumbnail Width</thumbnail_width>
+  <thumbnail_height>Thumbnail Height</thumbnail_height>
+  <thumbnail_prefix>Thumbnail Prefix</thumbnail_prefix>
+  <link_color>Link Color</link_color>
+  <equip_name>Equipment Type Name</equip_name>
+  <description>Description</description>
+  <equip_type>Equipment Type</equip_type>
+  <materials_successfully_installed>The materials have been successfully installed. Please select this option only if you have already installed the materials as prescribed by these instructions</materials_successfully_installed>
+  <never_received_materials>Never received the materials</never_received_materials>
+  <received_materials_need_replacements>Received materials but need replacements</received_materials_need_replacements>
+  <fixture_is_not_there>The fixture is not there</fixture_is_not_there>
+  <please_select_responce>Please select the appropriate response based upon the results of these campaign instructions</please_select_responce>
+  <line_of_business>Line of Business</line_of_business>
+  <priority_rating>Priority Rating</priority_rating>
+  <equipment_type>Equipment Type</equipment_type>
+  <equipment_number>Equipment Number</equipment_number>
+  <location>Location</location>
+  <upload_image_jpeg_format>You can upload an image formatted as a JPEG</upload_image_jpeg_format>
+  <image_name>Image name</image_name>
+  <image_file>Image file</image_file>
+  <comments>Comments</comments>
+  <equipment_list>Equipment List</equipment_list>
+  <equipment_quantities>Equipment Quantities</equipment_quantities>
+  <equipment_type>Equipment Type</equipment_type>
+  <quantity>Quanitity</quantity>
+  <equipment_type_name>Equipment Type Name</equipment_type_name>
+  <description>Description</description>
+  <equipment_type_name>Equipment Type Name</equipment_type_name>
+  <new_equipment_type>New Equipment Type</new_equipment_type>
+  <images>Images</images>
+  <icons>Icons</icons>
+  <equipment_type>Equipment Type</equipment_type>
+  <are_you_sure_delete>Are you sure you want to delete this equipment</are_you_sure_delete>
+  <confirm_equipment_type_delete>Are you sure you want to delete this equipment type?</confirm_equipment_type_delete>
+  <confirm_delete>Are you sure you want to delete this?</confirm_delete>
+  <add_new_image>Add New Image</add_new_image>
+  <delete_this_image>Delete This Image</delete_this_image>
+  <edit_this_equipment_type>Edit This Equipment Type</edit_this_equipment_type>
+  <delete_this_equipment_type>Delete This Equipment Type</delete_this_equipment_type>
+  <not_valid_data>The data you have submitted is not valid, the field titles with an asterisk are required. The form 
+	has been reverted to its original data</not_valid_data>
+  <address_line>Address Line</address_line>
+  <address>Address</address>
+  <city>City</city>
+  <state>State</state>
+  <zip>Zip</zip>
+  <phone>Phone</phone>
+  <fax>Fax</fax>
+  <regions>Regions</regions>
+  <add_new_equipment>Add New Equipment</add_new_equipment>
+  <equipment_type>Equiment Type</equipment_type>
+  <id>ID</id>
+  <add_new_icon>Add New Icon</add_new_icon>
+  <delete_this_icon>Delete This Icon</delete_this_icon>
+  <welcome>Welcome</welcome>
+  <open_source_internet_software>Open Source Internet Floor Plan Software</open_source_internet_software>
+  <copyright>Copyright Savonix Corporation</copyright>
+  <license>Licensed under the Affero GPL</license>
+  <delete_plan>Delete Plan</delete_plan>
+  <lock_plan>Lock Plan</lock_plan>
+  <add_new_plan>Add New Plan</add_new_plan>
+  <space_plan_options>Space Plan Options</space_plan_options>
+  <location_name>Location Name</location_name>
+  <location_options>Location Options</location_options>
+  <space_plans>Space Plans</space_plans>
+  <virtual_tours>Virtual Tours</virtual_tours>
+  <equip_quantities>Equipment Quantities</equip_quantities>
+  <equip_list>Equipment List</equip_list>
+  <tour_options>Tour Options</tour_options>
+  <this_image>This Image</this_image>
+  <email_locations>Email Locations</email_locations>
+  <subject>Subject</subject>
+  <body>Body</body>
+  <enter_message_here>Enter your message here</enter_message_here>
+  <branch_name>Branch Name</branch_name>
+  <status>Status</status>
+  <add_location>Add Location</add_location>
+  <region_name>Region Name</region_name>
+  <geographic>Geographic</geographic>
+  <add_region>Add Region</add_region>
+  <welcome_to_ifp>Welcome to Internet Floor Plans</welcome_to_ifp>
+  <with_ifp_you_can>With Internet Floor Plans you can access in-depth information about all of your locations.
+                Browse through all of the Internet Floor Plan features by selecting an option from the menu</with_ifp_you_can>
 </i18n>

@@ -39,8 +39,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <table width="100%" class="tablesorter" id="my-location-equipment-list">
         <thead>
         <tr>
-            <th><xsl:value-of select="/_R_/i18n/label[key='equipment_type']/value"/></th>
-            <th><xsl:value-of select="/_R_/i18n/label[key='quantity']/value"/></th>
+            <th><xsl:value-of select="/_R_/i18n/equipment_type"/></th>
+            <th><xsl:value-of select="/_R_/i18n/quantity"/></th>
         </tr>
         </thead>
         <tbody>

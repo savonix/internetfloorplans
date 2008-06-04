@@ -44,10 +44,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <tr>
         <th></th>
         <th>
-            <xsl:value-of select="/_R_/i18n/label[key='region_name']/value"/></th>
+            <xsl:value-of select="/_R_/i18n/region_name"/></th>
         <th>
-            <xsl:value-of select="/_R_/i18n/label[key='type']/value"/></th>
-        <th><xsl:value-of select="/_R_/i18n/label[key='locations']/value"/></th>
+            <xsl:value-of select="/_R_/i18n/type"/></th>
+        <th><xsl:value-of select="/_R_/i18n/locations"/></th>
     </tr>
     </thead>
     <tbody>
@@ -69,7 +69,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <xsl:value-of select="region_name"/></a>
             </td>
             <td>
-            <xsl:value-of select="/_R_/i18n/label[key='Geographic']/value"/>
+            <xsl:value-of select="/_R_/i18n/Geographic"/>
             </td>
             <td>
                 <xsl:for-each select="//get_all_region_data">
@@ -83,12 +83,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </table>
 </div>
 <div style="float: right;" class="generic-button">
-    <a href="{//link_prefix}ifp-region-edit"><xsl:value-of select="/_R_/i18n/label[key='add_region']/value"/></a>
+    <a href="{//link_prefix}ifp-region-edit"><xsl:value-of select="/_R_/i18n/add_region"/></a>
 </div>
 <xsl:call-template name="pager">
     <xsl:with-param name="my-table">myregions</xsl:with-param>
 </xsl:call-template>
-<input type="submit" value="{/_R_/i18n/label[key='delete']/value}" name="submit"
+<input type="submit" value="{/_R_/i18n/delete}" name="submit"
     onclick="return confirm('Are you sure you want to delete these regions?')" />
 </form>
 </xsl:template>
