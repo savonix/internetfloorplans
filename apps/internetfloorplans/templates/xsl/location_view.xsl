@@ -70,7 +70,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <xsl:if test="//location_image_id">
 			<tr>
 				<td>
-					<a href="#" onclick="return confirm('{/_R_/i18n/confirm_delete?}')">
+					<a href="#" onclick="return confirm('{/_R_/i18n/confirm_delete}')">
                     <xsl:value-of select="/_R_/i18n/delete"/> <xsl:value-of select="/_R_/i18n/this_image"/></a>
 				</td>
 			</tr>
