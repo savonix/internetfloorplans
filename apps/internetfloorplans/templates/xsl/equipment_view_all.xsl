@@ -21,24 +21,24 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="equipment_menu.xsl"/>
-<xsl:include href="pager.xsl"/>
-<xsl:template name="content">
-<xsl:call-template name="jquery-setup">
-    <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
-    <xsl:with-param name="my-table-div">my-equipment-view-all-div</xsl:with-param>
-    <xsl:with-param name="no-sort-column">,
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:include href="html_main.xsl"/>
+  <xsl:include href="equipment_menu.xsl"/>
+  <xsl:include href="pager.xsl"/>
+  <xsl:template name="content">
+    <xsl:call-template name="jquery-setup">
+      <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
+      <xsl:with-param name="my-table-div">my-equipment-view-all-div</xsl:with-param>
+      <xsl:with-param name="no-sort-column">,
         headers: {
             2: {sorter: false},
             3: {sorter: false}
         }
     </xsl:with-param>
-</xsl:call-template>
+    </xsl:call-template>
 
 <!-- Confirm equipment deletion -->
-<script type="text/javascript">
+    <script type="text/javascript">
     var question = '<xsl:value-of select="/_R_/i18n/are_you_sure_delete"/>?';
     function equipment_delete(equipment_id,row) {
         if(confirm(question)) {
@@ -51,55 +51,56 @@ Fifth Floor, Boston, MA 02110-1301 USA
     }
 </script>
 
-<div id="my-equipment-view-all-div">
-<script type="text/javascript">
+    <div id="my-equipment-view-all-div">
+      <script type="text/javascript">
 //    document.getElementById('my-equipment-view-all-div').style.visibility = 'hidden';
 </script>
-<table width="100%" class="tablesorter" id="my-equipment-view-all">
+      <table width="100%" class="tablesorter" id="my-equipment-view-all">
         <thead>
-		<tr>
-			<th>
-				<xsl:value-of select="/_R_/i18n/equipment_type"/>
+          <tr>
+            <th>
+              <xsl:value-of select="/_R_/i18n/equipment_type"/>
             </th>
-			<th>
-				<xsl:value-of select="/_R_/i18n/location"/>
+            <th>
+              <xsl:value-of select="/_R_/i18n/location"/>
             </th>
-			<th>
-				<xsl:value-of select="/_R_/i18n/edit"/>
+            <th>
+              <xsl:value-of select="/_R_/i18n/edit"/>
             </th>
-			<th>
-				<xsl:value-of select="/_R_/i18n/delete"/>
+            <th>
+              <xsl:value-of select="/_R_/i18n/delete"/>
             </th>
-		</tr>
+          </tr>
         </thead>
         <tbody>
-		<xsl:for-each select="//equipment_get_all">
-		<tr>
-			<td>
-				<xsl:value-of select="name"/></td>
-			<td>
-				<a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}">
-                    <xsl:value-of select="//location_address_name"/>
+          <xsl:for-each select="//equipment_get_all">
+            <tr>
+              <td>
+                <xsl:value-of select="name"/>
+              </td>
+              <td>
+                <a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}">
+                  <xsl:value-of select="//location_address_name"/>
                 </a>
-            </td>
-			<td>
-				<a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}">
-                    <xsl:value-of select="/_R_/i18n/edit"/>
+              </td>
+              <td>
+                <a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}">
+                  <xsl:value-of select="/_R_/i18n/edit"/>
                 </a>
-            </td>
-			<td>
-				<a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}"
-                    onclick="equipment_delete({equipment_id},this.parentNode.parentNode.rowIndex); return false;">
-                    <xsl:value-of select="/_R_/i18n/delete"/>
+              </td>
+              <td>
+                <a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}"
+                  onclick="equipment_delete({equipment_id},this.parentNode.parentNode.rowIndex); return false;">
+                  <xsl:value-of select="/_R_/i18n/delete"/>
                 </a>
-            </td>
-		</tr>
-		</xsl:for-each>
+              </td>
+            </tr>
+          </xsl:for-each>
         </tbody>
-	</table>
-</div>
-<xsl:call-template name="pager">
-    <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
-</xsl:call-template>
-</xsl:template>
+      </table>
+    </div>
+    <xsl:call-template name="pager">
+      <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
+    </xsl:call-template>
+  </xsl:template>
 </xsl:stylesheet>

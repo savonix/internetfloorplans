@@ -21,73 +21,66 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="equipment_type_menu.xsl"/>
-<xsl:include href="equipment_type_summary.xsl"/>
-<xsl:template name="content">
-<xsl:call-template name="equipment-type-menu" />
-<xsl:call-template name="equipment-type-summary"/>
-<table class="simple-table">
-<tr>
-    <td align="left">
-        <table>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:include href="html_main.xsl"/>
+  <xsl:include href="equipment_type_menu.xsl"/>
+  <xsl:include href="equipment_type_summary.xsl"/>
+  <xsl:template name="content">
+    <xsl:call-template name="equipment-type-menu" />
+    <xsl:call-template name="equipment-type-summary"/>
+    <table class="simple-table">
+      <tr>
+        <td align="left">
+          <table>
             <tr>
-                <td>
-                    <xsl:value-of
-                        select="/_R_/i18n/images"
-                        />
-                </td>
+              <td>
+                <xsl:value-of select="/_R_/i18n/images" />
+              </td>
             </tr>
-            <xsl:for-each select="//equipment_type_get_images" >
-            <tr>
+            <xsl:for-each select="//equipment_type_get_images">
+              <tr>
                 <td>
-                    <xsl:value-of select="name"/>
+                  <xsl:value-of select="name"/>
                 </td>
-            </tr>
+              </tr>
             </xsl:for-each>
-        </table>
-        <br/>
-        <table>
+          </table>
+          <br/>
+          <table>
             <tr>
-                <td>
-                    <xsl:value-of select="/_R_/i18n/options"/>
-                </td>
+              <td>
+                <xsl:value-of select="/_R_/i18n/options"/>
+              </td>
             </tr>
             <xsl:if test="not(//equipment_type_get_images)">
-            <tr>
+              <tr>
                 <td>
-                    <a href="#">
-                        <xsl:value-of
-                            select="/_R_/i18n/add_new_image"
-                            />
-                    </a>
+                  <a href="#">
+                    <xsl:value-of select="/_R_/i18n/add_new_image" />
+                  </a>
                 </td>
-            </tr>
+              </tr>
             </xsl:if>
             <tr>
-                <td>
-                    <a
-                        href="{//link_prefix}ifp-equipment-delete"
-                        onclick="return confirm('{/_R_/i18n/confirm_delete}')
-                        ">
-                        <xsl:value-of
-                            select="/_R_/i18n/delete_this_image"/>
-                    </a>
-                </td>
+              <td>
+                <a href="{//link_prefix}ifp-equipment-delete"
+                  onclick="return confirm('{/_R_/i18n/confirm_delete}')">
+                  <xsl:value-of select="/_R_/i18n/delete_this_image"/>
+                </a>
+              </td>
             </tr>
-        </table>
-    </td>
+          </table>
+        </td>
 
-    <td align="left">
-        <xsl:for-each select="//equipment_type_get_images">
-            <xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id
-            or (not(//_get/equipment_type_image_id) and default_image=1)">
-                <xsl:value-of select="name"/>
+        <td align="left">
+          <xsl:for-each select="//equipment_type_get_images">
+            <xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id or
+            (not(//_get/equipment_type_image_id) and default_image=1)">
+              <xsl:value-of select="name"/>
             </xsl:if>
-        </xsl:for-each>
-    </td>
-</tr>
-</table>
-</xsl:template>
+          </xsl:for-each>
+        </td>
+      </tr>
+    </table>
+  </xsl:template>
 </xsl:stylesheet>

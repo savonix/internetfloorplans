@@ -21,19 +21,19 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="location_summary.xsl"/>
-<xsl:include href="location_menu.xsl"/>
-<xsl:include href="upload_form.xsl"/>
-<xsl:template name="content">
-	<form enctype="multipart/form-data" method="post">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:include href="html_main.xsl"/>
+  <xsl:include href="location_summary.xsl"/>
+  <xsl:include href="location_menu.xsl"/>
+  <xsl:include href="upload_form.xsl"/>
+  <xsl:template name="content">
+    <form enctype="multipart/form-data" method="post">
     <!-- FIXME: get user configurable destination -->
-    <input type="hidden" name="dest" value="/tmp/"/>
-	<input type="hidden" name="location_id" value="{//location_id}"/>
-    <xsl:call-template name="location_menu" />
-	<xsl:call-template name="location_summary" />
-    <xsl:call-template name="upload_form" />
-	</form>
-</xsl:template>
+      <input type="hidden" name="dest" value="/tmp/"/>
+      <input type="hidden" name="location_id" value="{//location_id}"/>
+      <xsl:call-template name="location_menu" />
+      <xsl:call-template name="location_summary" />
+      <xsl:call-template name="upload_form" />
+    </form>
+  </xsl:template>
 </xsl:stylesheet>
