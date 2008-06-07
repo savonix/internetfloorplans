@@ -21,26 +21,26 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:template name="equipment-type-menu">
-<table class="simple-table">
-    <tr>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template name="equipment-type-menu">
+    <table class="simple-table">
+      <tr>
         <td>
-            <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={//_get/equipment_type_id}">
-                <xsl:value-of select="/_R_/i18n/edit"/>
-            </a>
+          <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={//_get/equipment_type_id}">
+            <xsl:value-of select="/_R_/i18n/edit"/>
+          </a>
         </td>
         <td>
-            <a href="{//link_prefix}ifp-equipment-type-images&amp;equipment_type_id={//_get/equipment_type_id}">
-                <xsl:value-of select="/_R_/i18n/images"/>
-            </a>
+          <a href="{//link_prefix}ifp-equipment-type-images&amp;equipment_type_id={//_get/equipment_type_id}">
+            <xsl:value-of select="/_R_/i18n/images"/>
+          </a>
         </td>
         <td>
-            <a href="{//link_prefix}ifp-equipment-type-icons&amp;equipment_type_id={//_get/equipment_type_id}">
+          <a href="{//link_prefix}ifp-equipment-type-icons&amp;equipment_type_id={//_get/equipment_type_id}">
             <xsl:value-of select="/_R_/i18n/icons"/>
-            </a>
+          </a>
         </td>
-    </tr>
-</table>
-</xsl:template>
+      </tr>
+    </table>
+  </xsl:template>
 </xsl:stylesheet>
