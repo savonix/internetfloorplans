@@ -59,5 +59,36 @@ a.generic-button {
     border-color: #BBB;
 }
 
+
+
+/* Click Menu */
+div.cmDiv
+{
+	border-color: <xsl:value-of select="//option_get[option_key='link_color']/option_value"/>;
+	background-color: <xsl:value-of select="/_R_/css/colors/light-background"/>;
+}
+.clickMenu
+{
+	background-color: <xsl:value-of select="/_R_/css/colors/light-background"/>;
+}
+.clickMenu ul
+{
+	border-color: <xsl:value-of select="//option_get[option_key='link_color']/option_value"/>;
+	background-color: <xsl:value-of select="/_R_/css/colors/light-background"/>;
+}
+.clickMenu ul li
+{
+	background-color: <xsl:value-of select="/_R_/css/colors/light-background"/>;
+}
+.clickMenu li.main
+{
+	background-color: <xsl:value-of select="/_R_/css/colors/light-background"/>;
+}
+.clickMenu li.hover
+{
+	background-color: <xsl:value-of select="/_R_/css/colors/light-background-alt"/>;
+}
+
+/* end click menu */
 </xsl:template>
 </xsl:stylesheet>

@@ -31,8 +31,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 </xsl:call-template>
 <head>
 	<title>Internet Floor Plans</title>
-    <link rel="stylesheet" type="text/css" href="{$link_prefix}dynamic-css" ></link>
     <link rel="stylesheet" type="text/css" href="{$path_prefix}/s/css/clickmenu.css" />
+    <link rel="stylesheet" type="text/css" href="{$link_prefix}dynamic-css"></link>
     <script type="text/javascript" src="{$path_prefix}/s/js/jquery/jquery.js"></script>
     <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.cookiejar.js"></script>
     <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.tablesorter.min.js"></script>

@@ -22,422 +22,414 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <map:sitemap xmlns:map="http://www.nexista.org/sitemap">
- 	<map:prepend>
-        <map:set name="ifp_version" value="0.02"/>
-		<map:script src="lib/php/runtime.php"/>
-        <map:set name="theme" value="default"/>
-        <map:set name="selected_lang" value="en_US"/>
-		<map:xml src="data/xml/main_menu.xml"/>
-		<map:xml src="i18n/{//selected_lang}/internetfloorplans.xml"/>
-        <map:xml src="data/xml/ifp_options.xml"/>
-        <map:query src="data/sql/option_get.xml"/>
-	</map:prepend>
+  <map:prepend>
+    <map:set name="ifp_version" value="0.02"/>
+    <map:script src="lib/php/runtime.php"/>
+    <map:set name="theme" value="default"/>
+    <map:set name="selected_lang" value="en_US"/>
+    <map:xml src="data/xml/main_menu.xml"/>
+    <map:xml src="i18n/{//selected_lang}/internetfloorplans.xml"/>
+    <map:xml src="data/xml/ifp_options.xml"/>
+    <map:query src="data/sql/option_get.xml"/>
+  </map:prepend>
 
 
 
     <!-- LOCATIONS -->
-	<map:gate name="ifp-index" role="client">
-		<map:xsl src="templates/xsl/welcome.xsl"/>
-	</map:gate>
-	<map:gate name="ifp-locations" role="client">
-        <map:query src="data/sql/locations_get_all.xml"/>
-		<map:xsl src="templates/xsl/locations_view.xsl"/>
-	</map:gate>
+  <map:gate name="ifp-index" role="client">
+    <map:xsl src="templates/xsl/welcome.xsl"/>
+  </map:gate>
+  <map:gate name="ifp-locations" role="client">
+    <map:query src="data/sql/locations_get_all.xml"/>
+    <map:xsl src="templates/xsl/locations_view.xsl"/>
+  </map:gate>
     <!-- Create locations -->
-    <map:gate name="ifp-location-create" role="client">
-        <map:query src="data/sql/location_create.xml"/>
-        <map:query src="data/sql/location_get_id.xml"/>
-        <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-location-edit&amp;location_id={//location_id}" />
-    </map:gate>
+  <map:gate name="ifp-location-create" role="client">
+    <map:query src="data/sql/location_create.xml"/>
+    <map:query src="data/sql/location_get_id.xml"/>
+    <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-location-edit&amp;location_id={//location_id}" />
+  </map:gate>
 
     <!-- Edit Location -->
-    <map:gate name="ifp-location-edit" role="client">
-        <map:query src="data/sql/location_get_summary.xml"/>
+  <map:gate name="ifp-location-edit" role="client">
+    <map:query src="data/sql/location_get_summary.xml"/>
+    <map:query src="data/sql/regions_get_all.xml"/>
+    <map:query src="data/sql/locations_get_by_region_id.xml"/>
+    <map:xsl src="templates/xsl/location_form.xsl"/>
+  </map:gate>
+  <map:gate name="ifp-location-edit-submit" role="client">
+    <map:if name="_post/submit">
+      <map:true>
+        <map:query src="data/sql/location_edit.xml"/>
+        <map:query src="data/sql/location_regions_delete.xml"/>
+        <map:query src="data/sql/location_regions_create.xml"/>
+        <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-locations"/>
+      </map:true>
+      <map:false>
         <map:query src="data/sql/regions_get_all.xml"/>
-        <map:query src="data/sql/locations_get_by_region_id.xml"/>
         <map:xsl src="templates/xsl/location_form.xsl"/>
-    </map:gate>
-	<map:gate name="ifp-location-edit-submit" role="client">
-		<map:if name="_post/submit">
-            <map:true>
-                <map:query src="data/sql/location_edit.xml"/>
-                <map:query src="data/sql/location_regions_delete.xml"/>
-                <map:query src="data/sql/location_regions_create.xml"/>
-                <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-locations"/>
-			</map:true>
-			<map:false>
-                <map:query src="data/sql/regions_get_all.xml"/>
-                <map:xsl src="templates/xsl/location_form.xsl"/>
-			</map:false>
-		</map:if>
-	</map:gate>
+      </map:false>
+    </map:if>
+  </map:gate>
 	<!-- Delete location -->
-    <map:gate name="ifp-location-delete" role="client">
-        <map:query src="data/sql/location_delete.xml"/>
-    </map:gate>
+  <map:gate name="ifp-location-delete" role="client">
+    <map:query src="data/sql/location_delete.xml"/>
+  </map:gate>
 
 
 	<!-- View location image library -->
-	<map:gate name="ifp-location-view" role="client">
-        <map:query src="data/sql/location_get_summary.xml"/>
-        <map:xsl src="templates/xsl/location_view.xsl"/>
-	</map:gate>
+  <map:gate name="ifp-location-view" role="client">
+    <map:query src="data/sql/location_get_summary.xml"/>
+    <map:xsl src="templates/xsl/location_view.xsl"/>
+  </map:gate>
 
 	<!-- Add new image -->
-	<map:gate name="ifp-location-image-edit" role="client">
-		<map:if name="//_post">
-            <map:true>
-                <map:action type="upload" params="file,//_post/dest"/>
-                <map:query src="data/sql/location_image_create.xml"/>
-                <map:query src="data/sql/location_get_summary.xml"/>
-                <map:query src="data/sql/location_get_images.xml"/>
-                <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-location-view&amp;location_id={//_post/location_id}"/>
-            </map:true>
-            <map:false>
-            </map:false>
-        </map:if>
-        <map:xml src="data/xml/static_file_types.xml"/>
-		<map:query src="data/sql/location_get_summary.xml"/>
-		<map:xsl src="templates/xsl/location_image_form.xsl"/>
-	</map:gate>
+  <map:gate name="ifp-location-image-edit" role="client">
+    <map:if name="//_post">
+      <map:true>
+        <map:action type="upload" params="file,//_post/dest"/>
+        <map:query src="data/sql/location_image_create.xml"/>
+        <map:query src="data/sql/location_get_summary.xml"/>
+        <map:query src="data/sql/location_get_images.xml"/>
+        <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-location-view&amp;location_id={//_post/location_id}"/>
+      </map:true>
+      <map:false></map:false>
+    </map:if>
+    <map:xml src="data/xml/static_file_types.xml"/>
+    <map:query src="data/sql/location_get_summary.xml"/>
+    <map:xsl src="templates/xsl/location_image_form.xsl"/>
+  </map:gate>
 
 	<!-- Delete image -->
-	<map:gate name="ifp-location-image-delete" role="client">
-		<map:query src="data/sql/location_image_delete.xml"/>
-		<map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-locations"/>
-	</map:gate>
+  <map:gate name="ifp-location-image-delete" role="client">
+    <map:query src="data/sql/location_image_delete.xml"/>
+    <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-locations"/>
+  </map:gate>
 
 	<!-- View location space plans -->
-	<map:gate name="ifp-location-space-plans" role="client" cache="0">
-        <map:query src="data/sql/location_get_summary.xml"/>
-        <map:query src="data/sql/location_get_space_plans.xml"/>
-        <map:query src="data/sql/equipment_types_get_all.xml"/>
-        <map:xsl src="templates/xsl/location_space_plan.xsl"/>
-	</map:gate>
-
-	<map:gate name="ifp-location-space-plan-key-update" role="client">
-		<map:query src="data/sql/edit_space_plan_key_position.xml"/>
-	</map:gate>
+  <map:gate name="ifp-location-space-plans" role="client" cache="0">
+    <map:query src="data/sql/location_get_summary.xml"/>
+    <map:query src="data/sql/location_get_space_plans.xml"/>
+    <map:query src="data/sql/equipment_types_get_all.xml"/>
+    <map:xsl src="templates/xsl/location_space_plan.xsl"/>
+  </map:gate>
+	
+  <map:gate name="ifp-location-space-plan-key-update" role="client">
+    <map:query src="data/sql/edit_space_plan_key_position.xml"/>
+  </map:gate>
 
 	<!-- PDF OF FLOORPLAN -->
-	<map:gate name="ifp-location-space-plan-pdf-server" role="client">
-		<map:query src="data/sql/location_get_summary.xml"/>
-		<map:query src="data/sql/location_get_space_plans.xml"/>
-		<map:query src="data/sql/equipment_get_all_types.xml"/>
-		<map:query src="data/sql/location_get_space_plan_by_id.xml"/>
-		<map:query src="data/sql/location_get_space_plan_equipment.xml"/>
-		<map:script src="lib/php/floorplan_pdf.php"/>
-	</map:gate>
+  <map:gate name="ifp-location-space-plan-pdf-server" role="client">
+    <map:query src="data/sql/location_get_summary.xml"/>
+    <map:query src="data/sql/location_get_space_plans.xml"/>
+    <map:query src="data/sql/equipment_get_all_types.xml"/>
+    <map:query src="data/sql/location_get_space_plan_by_id.xml"/>
+    <map:query src="data/sql/location_get_space_plan_equipment.xml"/>
+    <map:script src="lib/php/floorplan_pdf.php"/>
+  </map:gate>
 
 
 
 	<!-- Add new plan -->
-	<map:gate name="ifp-location-space-plan-edit" role="client">
-		<map:if name="//_post">
-			<map:true>
-				<map:action type="upload" params="file,//_post/dest"/>
-				<map:script src="lib/php/floorplan_processor.php"/>
-				<map:query src="data/sql/location_space_plan_create.xml"/>
-                <map:action type="redirect"
-                    params="{/_R_/runtime/link_prefix}ifp-location-space-plans&amp;location_id={//_post/location_id}"/>
-			</map:true>
-			<map:false>
-				<map:query src="data/sql/location_get_summary.xml"/>
-				<map:xsl src="templates/xsl/location_space_plan_form.xsl"/>
-			</map:false>
-		</map:if>
-	</map:gate>
+  <map:gate name="ifp-location-space-plan-edit" role="client">
+    <map:if name="//_post">
+      <map:true>
+        <map:action type="upload" params="file,//_post/dest"/>
+        <map:script src="lib/php/floorplan_processor.php"/>
+        <map:query src="data/sql/location_space_plan_create.xml"/>
+        <map:action type="redirect"
+            params="{/_R_/runtime/link_prefix}ifp-location-space-plans&amp;location_id={//_post/location_id}"/>
+      </map:true>
+      <map:false>
+        <map:query src="data/sql/location_get_summary.xml"/>
+        <map:xsl src="templates/xsl/location_space_plan_form.xsl"/>
+      </map:false>
+    </map:if>
+  </map:gate>
 
 	<!-- Delete plan -->
-	<map:gate name="ifp-location-space-plan-delete" role="client">
-		<map:query src="data/sql/location_space_plan_delete.xml"/>
-	</map:gate>
+  <map:gate name="ifp-location-space-plan-delete" role="client">
+    <map:query src="data/sql/location_space_plan_delete.xml"/>
+  </map:gate>
 	<!-- edit space plan comments -->
-	<map:gate name="ifp-location-space-plan-edit-dnu" role="client">
-        <map:query src="data/sql/location_get_summary.xml"/>
-        <map:query src="data/sql/get_location_space_plans.xml"/>
-        <map:query src="data/sql/equipment_types_get_all.xml"/>
-        <map:xsl src="templates/xsl/view_location_sp.xsl"/>
-	</map:gate>
+  <map:gate name="ifp-location-space-plan-edit-dnu" role="client">
+    <map:query src="data/sql/location_get_summary.xml"/>
+    <map:query src="data/sql/get_location_space_plans.xml"/>
+    <map:query src="data/sql/equipment_types_get_all.xml"/>
+    <map:xsl src="templates/xsl/view_location_sp.xsl"/>
+  </map:gate>
 
 	<!-- View location equipment -->
-	<map:gate name="ifp-location-equipment-quantities" role="client">
-		<map:query src="data/sql/location_get_summary.xml"/>
-		<map:query src="data/sql/equipment_types_get_all.xml"/>
-		<map:query src="data/sql/location_get_equipment.xml"/>
-		<map:xsl src="templates/xsl/location_equipment.xsl"/>
-	</map:gate>
+  <map:gate name="ifp-location-equipment-quantities" role="client">
+    <map:query src="data/sql/location_get_summary.xml"/>
+    <map:query src="data/sql/equipment_types_get_all.xml"/>
+    <map:query src="data/sql/location_get_equipment.xml"/>
+    <map:xsl src="templates/xsl/location_equipment.xsl"/>
+  </map:gate>
 
 	<!-- View location equipment list -->
-	<map:gate name="ifp-location-equipment-list" role="client">
-		<map:query src="data/sql/equipment_types_get_all.xml"/>
-        <map:query src="data/sql/location_get_summary.xml"/>
-		<map:query src="data/sql/location_get_equipment.xml"/>
-		<map:xsl src="templates/xsl/location_equipment_list.xsl"/>
-	</map:gate>
+  <map:gate name="ifp-location-equipment-list" role="client">
+    <map:query src="data/sql/equipment_types_get_all.xml"/>
+    <map:query src="data/sql/location_get_summary.xml"/>
+    <map:query src="data/sql/location_get_equipment.xml"/>
+    <map:xsl src="templates/xsl/location_equipment_list.xsl"/>
+  </map:gate>
 
 	<!-- Edit location equipment -->
-	<map:gate name="ifp-location-equipment-position-edit" role="client">
-		<map:query src="data/sql/location_equipment_position_update.xml"/>
-	</map:gate>
-
-	<map:gate name="ifp-regions">
-		<map:if name="//_post">
-			<map:true>
-                <map:query src="data/sql/regions_delete.xml"/>
-                <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-regions"/>
-			</map:true>
-			<map:false>
-				<map:query src="data/sql/regions_get_all.xml"/>
-				<map:query src="data/sql/locations_get_by_region_id.xml"/>
-				<map:xsl src="templates/xsl/regions_view_all.xsl"/>
-			</map:false>
-		</map:if>
-	</map:gate>
+  <map:gate name="ifp-location-equipment-position-edit" role="client">
+    <map:query src="data/sql/location_equipment_position_update.xml"/>
+  </map:gate>
+	
+  <map:gate name="ifp-regions">
+    <map:if name="//_post">
+      <map:true>
+        <map:query src="data/sql/regions_delete.xml"/>
+        <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-regions"/>
+      </map:true>
+      <map:false>
+        <map:query src="data/sql/regions_get_all.xml"/>
+        <map:query src="data/sql/locations_get_by_region_id.xml"/>
+        <map:xsl src="templates/xsl/regions_view_all.xsl"/>
+      </map:false>
+    </map:if>
+  </map:gate>
 
 	<!-- New region -->
-	<map:gate name="ifp-region-edit" role="client">
-		<map:if name="_post/submit">
-			<map:true>
-                <map:if name="_post/region_id">
-                    <map:true>
-                        <map:query src="data/sql/region_update.xml"/>
-                    </map:true>
-                    <map:false>
-                        <map:query src="data/sql/region_create.xml"/>
-                    </map:false>
-                </map:if>
-				<map:query src="data/sql/region_locations_delete.xml"/>
-				<map:query src="data/sql/region_locations_update.xml"/>
-                <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-regions"/>
-            </map:true>
-			<map:false>
-			</map:false>
-		</map:if>
-        <map:query src="data/sql/region_get_by_id.xml"/>
-        <map:query src="data/sql/locations_get_all.xml"/>
-        <map:xsl src="templates/xsl/region_form.xsl"/>
-	</map:gate>
+  <map:gate name="ifp-region-edit" role="client">
+    <map:if name="_post/submit">
+      <map:true>
+        <map:if name="_post/region_id">
+          <map:true>
+            <map:query src="data/sql/region_update.xml"/>
+          </map:true>
+          <map:false>
+            <map:query src="data/sql/region_create.xml"/>
+          </map:false>
+        </map:if>
+        <map:query src="data/sql/region_locations_delete.xml"/>
+        <map:query src="data/sql/region_locations_update.xml"/>
+        <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-regions"/>
+      </map:true>
+      <map:false></map:false>
+    </map:if>
+    <map:query src="data/sql/region_get_by_id.xml"/>
+    <map:query src="data/sql/locations_get_all.xml"/>
+    <map:xsl src="templates/xsl/region_form.xsl"/>
+  </map:gate>
 
 
 	<!-- View all equipment -->
-	<map:gate name="ifp-equipment" role="client">
-		<map:query src="data/sql/equipment_get_all.xml"/>
-		<map:xsl src="templates/xsl/equipment_view_all.xsl"/>
-	</map:gate>
-	<map:gate name="ifp-equipment-quantities" role="client">
-		<map:query src="data/sql/equipment_types_get_all.xml"/>
-		<map:query src="data/sql/get_all_equipment.xml"/>
-		<map:xsl src="templates/xsl/view_all_equipment_q.xsl"/>
-	</map:gate>
+  <map:gate name="ifp-equipment" role="client">
+    <map:query src="data/sql/equipment_get_all.xml"/>
+    <map:xsl src="templates/xsl/equipment_view_all.xsl"/>
+  </map:gate>
+  <map:gate name="ifp-equipment-quantities" role="client">
+    <map:query src="data/sql/equipment_types_get_all.xml"/>
+    <map:query src="data/sql/get_all_equipment.xml"/>
+    <map:xsl src="templates/xsl/view_all_equipment_q.xsl"/>
+  </map:gate>
 	<!-- New equipment form -->
-	<map:gate name="ifp-equipment-edit" role="client">
-		<map:if name="//_post/submit">
-			<map:true>
-				<map:switch name="//_post/type">
-					<map:case value="new">
-						<map:query src="data/sql/equipment_create.xml"/>
-						<map:query src="data/sql/equipment_get_last_id.xml"/>
-						<map:query src="data/sql/location_equipment_create.xml"/>
-					</map:case>
-					<map:case value="edit">
-					</map:case>
-					<map:default>
-					</map:default>
-				</map:switch>
-                <map:action type="redirect"
-                    params="{/_R_/runtime/link_prefix}ifp-location-equipment-list&amp;location_id={//_post/location_id}"/>
-			</map:true>
-		</map:if>
-		<map:query src="data/sql/location_get_summary.xml"/>
-		<map:query src="data/sql/locations_get_all.xml"/>
-		<map:query src="data/sql/equipment_types_get_all.xml"/>
-		<map:if name="_get/equipment_id">
+  <map:gate name="ifp-equipment-edit" role="client">
+    <map:if name="//_post/submit">
+      <map:true>
+        <map:switch name="//_post/type">
+          <map:case value="new">
+            <map:query src="data/sql/equipment_create.xml"/>
+            <map:query src="data/sql/equipment_get_last_id.xml"/>
+            <map:query src="data/sql/location_equipment_create.xml"/>
+          </map:case>
+          <map:case value="edit"></map:case>
+          <map:default></map:default>
+        </map:switch>
+        <map:action type="redirect"
+            params="{/_R_/runtime/link_prefix}ifp-location-equipment-list&amp;location_id={//_post/location_id}"/>
+      </map:true>
+    </map:if>
+    <map:query src="data/sql/location_get_summary.xml"/>
+    <map:query src="data/sql/locations_get_all.xml"/>
+    <map:query src="data/sql/equipment_types_get_all.xml"/>
+    <map:if name="_get/equipment_id">
 			<!-- EDIT FORM-->
-			<map:true>
-				<map:query src="data/sql/equipment_get_by_id.xml"/>
-				<map:xsl src="templates/xsl/equipment_form.xsl"/>
-			</map:true>
-			<map:false>
-				<map:xsl src="templates/xsl/equipment_form.xsl"/>
-			</map:false>
-		</map:if>
-	</map:gate>
-	<map:gate name="ifp-equipment-edit-submit" role="client">
-	<map:if name="//_post/submit">
-		<map:true>
-			<map:switch name="//_post/type">
-				<map:case value="new">
-					<map:query src="data/sql/equipment_create.xml"/>
+      <map:true>
+        <map:query src="data/sql/equipment_get_by_id.xml"/>
+        <map:xsl src="templates/xsl/equipment_form.xsl"/>
+      </map:true>
+      <map:false>
+        <map:xsl src="templates/xsl/equipment_form.xsl"/>
+      </map:false>
+    </map:if>
+  </map:gate>
+  <map:gate name="ifp-equipment-edit-submit" role="client">
+    <map:if name="//_post/submit">
+      <map:true>
+        <map:switch name="//_post/type">
+          <map:case value="new">
+            <map:query src="data/sql/equipment_create.xml"/>
                     <!--
 					<map:query src="data/sql/get_last_equipment_id.xml"/>
 					<map:query src="data/sql/add_equipment_location.xml"/>
 					<map:query src="data/sql/get_last_location_equipment_id.xml"/>
 					<map:query src="data/sql/add_equipment_location_position.xml"/>
                     -->
-				</map:case>
-				<map:case value="edit">
-				</map:case>
-				<map:default>
-				</map:default>
-			</map:switch>
-			<map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-equipment"/>
-		</map:true>
-	</map:if>
-	</map:gate>
+          </map:case>
+          <map:case value="edit"></map:case>
+          <map:default></map:default>
+        </map:switch>
+        <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-equipment"/>
+      </map:true>
+    </map:if>
+  </map:gate>
 
 	<!-- Delete equipment -->
-	<map:gate name="ifp-equipment-delete" role="client">
-		<map:query src="data/sql/equipment_delete.xml"/>
-	</map:gate>
+  <map:gate name="ifp-equipment-delete" role="client">
+    <map:query src="data/sql/equipment_delete.xml"/>
+  </map:gate>
 
 
 	<!-- equipment Types -->
-	<map:gate name="ifp-equipment-types" role="client">
-		<map:query src="data/sql/equipment_types_get_all.xml"/>
-		<map:xsl src="templates/xsl/equipment_types.xsl"/>
-	</map:gate>
+  <map:gate name="ifp-equipment-types" role="client">
+    <map:query src="data/sql/equipment_types_get_all.xml"/>
+    <map:xsl src="templates/xsl/equipment_types.xsl"/>
+  </map:gate>
 
 	<!-- Add new equipment type -->
-	<map:gate name="ifp-equipment-type-edit" role="client">
-		<map:if name="_post/submit">
-            <map:true>
-                <map:if name="_post/equipment_type_id">
-                    <map:true>
-                        <map:query src="data/sql/equipment_type_update.xml"/>
-                    </map:true>
-                    <map:false>
-                        <map:query src="data/sql/equipment_type_create.xml"/>
-                    </map:false>
-                </map:if>
-                <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-equipment-types"/>
-            </map:true>
-            <map:false>
-            </map:false>
-		</map:if>
-		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
-		<map:xsl src="templates/xsl/equipment_type_form.xsl"/>
-	</map:gate>
-
-	<map:gate name="ifp-equipment-type-edit-submit" role="client">
-		<map:if name="_post/submit">
-			<map:true>
-                <map:query src="data/sql/equipment_image_create.xml"/>
-             </map:true>
-			<map:false>
-				<map:xsl src="templates/xsl/equipment_image_form.xsl"/>
-			</map:false>
-		</map:if>
-	</map:gate>
-	<map:gate name="ifp-equipment-type-delete" role="client">
-		<map:query src="data/sql/equipment_type_image_delete.xml"/>
+  <map:gate name="ifp-equipment-type-edit" role="client">
+    <map:if name="_post/submit">
+      <map:true>
+        <map:if name="_post/equipment_type_id">
+          <map:true>
+            <map:query src="data/sql/equipment_type_update.xml"/>
+          </map:true>
+          <map:false>
+            <map:query src="data/sql/equipment_type_create.xml"/>
+          </map:false>
+        </map:if>
         <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-equipment-types"/>
-	</map:gate>
+      </map:true>
+      <map:false></map:false>
+    </map:if>
+    <map:query src="data/sql/equipment_type_get_by_id.xml"/>
+    <map:xsl src="templates/xsl/equipment_type_form.xsl"/>
+  </map:gate>
+	
+  <map:gate name="ifp-equipment-type-edit-submit" role="client">
+    <map:if name="_post/submit">
+      <map:true>
+        <map:query src="data/sql/equipment_image_create.xml"/>
+      </map:true>
+      <map:false>
+        <map:xsl src="templates/xsl/equipment_image_form.xsl"/>
+      </map:false>
+    </map:if>
+  </map:gate>
+  <map:gate name="ifp-equipment-type-delete" role="client">
+    <map:query src="data/sql/equipment_type_image_delete.xml"/>
+    <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-equipment-types"/>
+  </map:gate>
 
 	<!-- View equipment type images -->
-	<map:gate name="ifp-equipment-type-images" role="client">
-		<map:xml src="data/xml/equipment_type_image_meta.xml"/>
-		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
-		<map:query src="data/sql/static_file_get_by_metadata_key.xml"/>
-		<map:xsl src="templates/xsl/equipment_type_images.xsl"/>
-	</map:gate>
+  <map:gate name="ifp-equipment-type-images" role="client">
+    <map:xml src="data/xml/equipment_type_image_meta.xml"/>
+    <map:query src="data/sql/equipment_type_get_by_id.xml"/>
+    <map:query src="data/sql/static_file_get_by_metadata_key.xml"/>
+    <map:xsl src="templates/xsl/equipment_type_images.xsl"/>
+  </map:gate>
 	<!-- Create equipment type images -->
-	<map:gate name="ifp-equipment-type-image-edit" role="client">
-        <map:if name="_post/submit">
-			<map:true>
-                <map:action type="upload" params="file,//_post/dest"/>
-                <map:query src="data/sql/static_file_update.xml"/>
-                <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-equipment-types"/>
-			</map:true>
-			<map:false>
-                <map:query src="data/sql/static_file_create.xml"/>
-                <map:query src="data/sql/static_file_get_id.xml"/>
-                <map:xsl src="templates/xsl/equipment_type_image_form.xsl"/>
-			</map:false>
-		</map:if>
-	</map:gate>
-	<map:gate name="ifp-equipment-type-image-delete" role="client">
-		<map:query src="data/sql/static_file_delete.xml"/>
-	</map:gate>
+  <map:gate name="ifp-equipment-type-image-edit" role="client">
+    <map:if name="_post/submit">
+      <map:true>
+        <map:action type="upload" params="file,//_post/dest"/>
+        <map:query src="data/sql/static_file_update.xml"/>
+        <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-equipment-types"/>
+      </map:true>
+      <map:false>
+        <map:query src="data/sql/static_file_create.xml"/>
+        <map:query src="data/sql/static_file_get_id.xml"/>
+        <map:xsl src="templates/xsl/equipment_type_image_form.xsl"/>
+      </map:false>
+    </map:if>
+  </map:gate>
+  <map:gate name="ifp-equipment-type-image-delete" role="client">
+    <map:query src="data/sql/static_file_delete.xml"/>
+  </map:gate>
 
 
 	<!-- View equipment type icons -->
-	<map:gate name="ifp-equipment-type-icons" role="client">
-		<map:query src="data/sql/equipment_type_get_by_id.xml"/>
-		<map:query src="data/sql/equipment_type_get_icons.xml"/>
-		<map:xsl src="templates/xsl/equipment_type_icons.xsl"/>
-	</map:gate>
+  <map:gate name="ifp-equipment-type-icons" role="client">
+    <map:query src="data/sql/equipment_type_get_by_id.xml"/>
+    <map:query src="data/sql/equipment_type_get_icons.xml"/>
+    <map:xsl src="templates/xsl/equipment_type_icons.xsl"/>
+  </map:gate>
 
 	<!-- Add new equipment type icon -->
-	<map:gate name="ifp-equipment-type-icon-edit" role="client">
-		<map:if name="_post/submit">
-			<map:true>
-                <map:action type="upload" params="file,//_post/dest"/>
-                <map:script src="lib/php/icon_processor.php"/>
-                <map:query src="data/sql/equipment_type_icon_create.xml"/>
-                <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-equipment-types"/>
-			</map:true>
-			<map:false>
-                <map:query src="data/sql/equipment_type_get_by_id.xml"/>
-				<map:xsl src="templates/xsl/equipment_type_icon_form.xsl"/>
-			</map:false>
-		</map:if>
-	</map:gate>
+  <map:gate name="ifp-equipment-type-icon-edit" role="client">
+    <map:if name="_post/submit">
+      <map:true>
+        <map:action type="upload" params="file,//_post/dest"/>
+        <map:script src="lib/php/icon_processor.php"/>
+        <map:query src="data/sql/equipment_type_icon_create.xml"/>
+        <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-equipment-types"/>
+      </map:true>
+      <map:false>
+        <map:query src="data/sql/equipment_type_get_by_id.xml"/>
+        <map:xsl src="templates/xsl/equipment_type_icon_form.xsl"/>
+      </map:false>
+    </map:if>
+  </map:gate>
 
 	<!-- Delete icon -->
-	<map:gate name="ifp-equipment-type-icon-edit-delete" role="client">
-		<map:query src="data/sql/equipment_type_icon_delete.xml"/>
-	</map:gate>
+  <map:gate name="ifp-equipment-type-icon-edit-delete" role="client">
+    <map:query src="data/sql/equipment_type_icon_delete.xml"/>
+  </map:gate>
 
 
 	<!-- Delete equipment Types -->
-	<map:gate name="ifp-equipment-type-delete" role="client">
-		<map:query src="data/sql/equipment_type_delete.xml"/>
-	</map:gate>
+  <map:gate name="ifp-equipment-type-delete" role="client">
+    <map:query src="data/sql/equipment_type_delete.xml"/>
+  </map:gate>
 
 
 
 
 	<!-- MING SPACE PLAN SERVER -->
-	<map:gate name="ifp-location-space-plan-server" role="client" cache="0">
-        <map:action type="header" params="Content-Type,application/x-shockwave-flash"/>
-		<map:query src="data/sql/location_get_space_plan_by_id.xml"/>
-		<map:query src="data/sql/location_get_space_plan_equipment.xml"/>
-		<map:script src="lib/php/floorplan_generator.php" />
-	</map:gate>
+  <map:gate name="ifp-location-space-plan-server" role="client" cache="0">
+    <map:action type="header" params="Content-Type,application/x-shockwave-flash"/>
+    <map:query src="data/sql/location_get_space_plan_by_id.xml"/>
+    <map:query src="data/sql/location_get_space_plan_equipment.xml"/>
+    <map:script src="lib/php/floorplan_generator.php" />
+  </map:gate>
 
 
 
 
 
-<map:gate name="ifp-upload-options">
+  <map:gate name="ifp-upload-options">
     <map:set name="option_set" value="options_upload"/>
     <map:block name="ifp-options">
-    <map:if name="//_post">
+      <map:if name="//_post">
         <map:true>
-            <map:query src="data/sql/option_delete.xml"/>
-            <map:query src="data/sql/option_update.xml"/>
-            <map:action type="redirect" params="{/_R_/runtime/link_prefix}{//_get/nid}"/>
+          <map:query src="data/sql/option_delete.xml"/>
+          <map:query src="data/sql/option_update.xml"/>
+          <map:action type="redirect" params="{/_R_/runtime/link_prefix}{//_get/nid}"/>
         </map:true>
-        <map:false>
-        </map:false>
-    </map:if>
-    <map:query src="data/sql/option_get.xml"/>
-    <map:xsl src="templates/xsl/options.xsl"/>
+        <map:false></map:false>
+      </map:if>
+      <map:query src="data/sql/option_get.xml"/>
+      <map:xsl src="templates/xsl/options.xsl"/>
     </map:block>
-</map:gate>
-<map:gate name="ifp-image-options">
+  </map:gate>
+  <map:gate name="ifp-image-options">
     <map:set name="option_set" value="options_image"/>
     <map:insert name="ifp-options"/>
-</map:gate>
-<map:gate name="ifp-database-options">
+  </map:gate>
+  <map:gate name="ifp-database-options">
     <map:set name="option_set" value="options_database"/>
     <map:insert name="ifp-options"/>
-</map:gate>
-<map:gate name="ifp-interface-options">
+  </map:gate>
+  <map:gate name="ifp-interface-options">
     <map:set name="option_set" value="options_interface"/>
     <map:insert name="ifp-options"/>
-</map:gate>
+  </map:gate>
 
 
 
@@ -448,39 +440,40 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
 
-    <map:gate name="ifp-iframe-viewer" cache="0">
-        <map:xsl src="templates/xsl/ifp_iframe_viewer.xsl"/>
-    </map:gate>
-    <map:gate name="dynamic-css" cache="0">
-        <map:action type="header" params="Content-Type,text/css"/>
-        <map:xsl src="templates/css/dynamic.css.xsl"/>
-    </map:gate>
-    <map:gate name="dynamic-database-model" cache="0">
-        <map:set name="table_prefix" value="ifp_"/>
-        <map:set name="engine" value="mysqli"/>
-        <map:action type="header" params="Content-Type,text/plain"/>
-        <map:xsl src="data/model/internetfloorplans.sql.xsl"/>
-    </map:gate>
+  <map:gate name="ifp-iframe-viewer" cache="0">
+    <map:xsl src="templates/xsl/ifp_iframe_viewer.xsl"/>
+  </map:gate>
+  <map:gate name="dynamic-css" cache="0">
+    <map:action type="header" params="Content-Type,text/css"/>
+    <map:xml src="data/xml/default_css_colors.xml"/>
+    <map:xsl src="templates/css/dynamic.css.xsl"/>
+  </map:gate>
+  <map:gate name="dynamic-database-model" cache="0">
+    <map:set name="table_prefix" value="ifp_"/>
+    <map:set name="engine" value="mysqli"/>
+    <map:action type="header" params="Content-Type,text/plain"/>
+    <map:xsl src="data/model/internetfloorplans.sql.xsl"/>
+  </map:gate>
 
-    <map:gate name="license" cache="0">
-        <map:action type="header" params="Content-Type,text/plain"/>
-        <map:raw src="LICENSE" />
-    </map:gate>
-    <map:gate name="readme" cache="0">
-        <map:action type="header" params="Content-Type,text/plain"/>
-        <map:raw src="README" />
-    </map:gate>
-    
-    
-    <map:gate name="ming-test" cache="0">
-        <map:action type="header" params="Content-Type,application/x-shockwave-flash"/>
-        <map:script src="lib/php/ming_test.php"/>
-    </map:gate>
-    <map:gate name="ming-test-view" cache="0">
-        <map:xsl src="templates/xsl/ming_test.xsl"/>
-    </map:gate>
-    <map:gate name="x--i18n-fixer">
-        <map:action type="header" params="Content-type,text/plain"/>
-        <map:xsl src="templates/xml/i18n_fixer.xml.xsl"/>
-    </map:gate>
+  <map:gate name="license" cache="0">
+    <map:action type="header" params="Content-Type,text/plain"/>
+    <map:raw src="LICENSE" />
+  </map:gate>
+  <map:gate name="readme" cache="0">
+    <map:action type="header" params="Content-Type,text/plain"/>
+    <map:raw src="README" />
+  </map:gate>
+
+
+  <map:gate name="ming-test" cache="0">
+    <map:action type="header" params="Content-Type,application/x-shockwave-flash"/>
+    <map:script src="lib/php/ming_test.php"/>
+  </map:gate>
+  <map:gate name="ming-test-view" cache="0">
+    <map:xsl src="templates/xsl/ming_test.xsl"/>
+  </map:gate>
+  <map:gate name="x--i18n-fixer">
+    <map:action type="header" params="Content-type,text/plain"/>
+    <map:xsl src="templates/xml/i18n_fixer.xml.xsl"/>
+  </map:gate>
 </map:sitemap>
