@@ -22,44 +22,50 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="location_summary.xsl"/>
-<xsl:include href="location_menu.xsl"/>
-<xsl:include href="pager.xsl"/>
-<xsl:template name="content">
-<xsl:call-template name="jquery-setup">
-    <xsl:with-param name="my-table">my-location-equipment-list</xsl:with-param>
-    <xsl:with-param name="my-table-div">my-location-equipment-list-div</xsl:with-param>
-</xsl:call-template>
-<div id="my-location-equipment-list-div">
+  <xsl:include href="html_main.xsl"/>
+  <xsl:include href="location_summary.xsl"/>
+  <xsl:include href="location_menu.xsl"/>
+  <xsl:include href="pager.xsl"/>
+  <xsl:template name="content">
+    <xsl:call-template name="jquery-setup">
+      <xsl:with-param name="my-table">my-location-equipment-list</xsl:with-param>
+      <xsl:with-param name="my-table-div">my-location-equipment-list-div</xsl:with-param>
+    </xsl:call-template>
+    <div id="my-location-equipment-list-div">
 
-<xsl:call-template name="location_menu" />
+      <xsl:call-template name="location_menu" />
 
-<xsl:call-template name="location_summary" />
-<table width="100%" class="tablesorter" id="my-location-equipment-list">
+      <xsl:call-template name="location_summary" />
+      <table width="100%" class="tablesorter" id="my-location-equipment-list">
         <thead>
-        <tr>
-            <th><xsl:value-of select="/_R_/i18n/equipment_type"/></th>
-            <th><xsl:value-of select="/_R_/i18n/quantity"/></th>
-        </tr>
+          <tr>
+            <th>
+              <xsl:value-of select="/_R_/i18n/equipment_type"/>
+            </th>
+            <th>
+              <xsl:value-of select="/_R_/i18n/quantity"/>
+            </th>
+          </tr>
         </thead>
         <tbody>
-        <xsl:for-each select="//equipment_types_get_all/equipment_types_get_all">
-        <xsl:variable name="my_equipment_type_id"><xsl:value-of select="equipment_type_id"/></xsl:variable>
-        <tr>
-            <td>
+          <xsl:for-each select="//equipment_types_get_all/equipment_types_get_all">
+            <xsl:variable name="my_equipment_type_id">
+              <xsl:value-of select="equipment_type_id"/>
+            </xsl:variable>
+            <tr>
+              <td>
                 <xsl:value-of select="name"/>
-            </td>
-            <td>
+              </td>
+              <td>
                 <xsl:value-of select="count(//location_get_equipment/location_get_equipment[equipment_type_id=$my_equipment_type_id])"/>
-            </td>
-        </tr>
-        </xsl:for-each>
-	</tbody>
-</table>
-</div>
-<xsl:call-template name="pager">
-    <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
-</xsl:call-template>
-</xsl:template>
+              </td>
+            </tr>
+          </xsl:for-each>
+        </tbody>
+      </table>
+    </div>
+    <xsl:call-template name="pager">
+      <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
+    </xsl:call-template>
+  </xsl:template>
 </xsl:stylesheet>

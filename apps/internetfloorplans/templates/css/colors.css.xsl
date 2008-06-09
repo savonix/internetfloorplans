@@ -32,11 +32,16 @@ body {
 #page {
 	background: #FFF;
 }
+
+#header h1 {
+  color: <xsl:value-of select="//option_get[option_key='link_color']/option_value"/>;
+}
+
 a {
     color: fuchsia;
 }
 a {
-    color: <xsl:value-of select="//option_get[option_key='link_color']/option_value"/>
+    color: <xsl:value-of select="//option_get[option_key='link_color']/option_value"/>;
 }
 
 .simple-table {
