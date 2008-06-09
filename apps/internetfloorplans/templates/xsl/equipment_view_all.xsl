@@ -73,7 +73,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           </tr>
         </thead>
         <tbody>
-          <xsl:for-each select="//equipment_get_all">
+          <xsl:for-each select="//equipment_get_all/equipment_get_all">
             <tr>
               <td>
                 <xsl:value-of select="name"/>
