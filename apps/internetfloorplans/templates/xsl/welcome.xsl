@@ -24,15 +24,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:include href="html_main.xsl"/>
   <xsl:template name="content">
-    <table>
-      <tr>
-        <td>
-          <xsl:value-of select="/_R_/i18n/welcome_to_ifp"/>!<br/>
-          <br/>
-          <xsl:value-of select="/_R_/i18n/with_ifp_you_can"/>.
-            <br/>
-        </td>
-      </tr>
-    </table>
+    <h4><xsl:value-of select="/_R_/i18n/welcome_to_ifp"/>!</h4>
+    <br/>
+    <img src="{/_R_/runtime/path_prefix}/s/img/20071116_floor-plan.gif" alt="Floor plan"/>
+    <br/>
+    <br/>
+    <xsl:value-of select="/_R_/i18n/with_ifp_you_can"/>.
+    <br/>
   </xsl:template>
 </xsl:stylesheet>
