@@ -59,6 +59,13 @@ Fifth Floor, Boston, MA 02110-1301  USA
       </tr>
       <tr>
         <td>
+          <xsl:value-of select="/_R_/i18n/file_location"/>: * </td>
+        <td>
+          <input type="text" name="file_location"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <xsl:value-of select="/_R_/i18n/comments"/>:</td>
         <td>
           <textarea cols="35" rows="5" name="comments">
