@@ -56,7 +56,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           </thead>
           <tbody>
           <!-- Regions-->
-            <xsl:for-each select="//regions_get_all">
+            <xsl:for-each select="//regions_get_all/regions_get_all">
               <xsl:sort select="region_name"/>
               <xsl:variable name="current_region_id">
                 <xsl:value-of select="region_id"/>

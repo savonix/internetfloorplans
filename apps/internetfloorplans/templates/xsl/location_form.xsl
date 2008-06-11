@@ -76,7 +76,7 @@
 <tr>
 	<td><xsl:value-of select="/_R_/i18n/regions"/>:</td>
 	<td>
-	<xsl:for-each select="//regions_get_all">
+	<xsl:for-each select="//regions_get_all/regions_get_all">
 		<input type="checkbox" name="regions[]" value="{region_id}"><xsl:if test="region_id=//get_location_regions/region_id"><xsl:attribute name="checked">checked</xsl:attribute></xsl:if></input>
 		<xsl:value-of select="region_name" />
 		<br/>
