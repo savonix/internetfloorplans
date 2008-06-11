@@ -52,16 +52,24 @@ Fifth Floor, Boston, MA 02110-1301  USA
       </xsl:if>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/file_to_upload"/>: * </td>
+          <xsl:value-of select="/_R_/i18n/file_to_upload"/>: *
+        </td>
         <td>
           <input type="file" name="file"/>
         </td>
       </tr>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/file_location"/>: * </td>
+          -OR-
+        </td>
         <td>
-          <input type="text" name="file_location"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <xsl:value-of select="/_R_/i18n/file_url"/>: * </td>
+        <td>
+          <input type="text" name="file_url"/>
         </td>
       </tr>
       <tr>

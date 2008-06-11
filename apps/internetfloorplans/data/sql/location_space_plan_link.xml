@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: location_space_plan_create.xml
+Component: location_space_plan_link.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,13 +22,13 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="location_space_plan_create">
+<query name="location_space_plan_link">
     <connection>&ifp_connection;</connection>
     <params>
 		<param name="_post/name" type="text" default="Plan"/>
         <param name="_post/location_id" type="text"/>
         <param name="_post/default" type="text" default="1"/>
-        <param name="//bitmap_filename" type="text"/>
+        <param name="_post/file_url" type="text"/>
         <param name="_post/comments" type="text" default=" "/>
         <param name="//runtime/utcdate" type="text"/>
     </params>

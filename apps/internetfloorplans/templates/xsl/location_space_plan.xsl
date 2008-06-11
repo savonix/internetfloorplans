@@ -108,7 +108,7 @@ return confirm('Are you sure you want to delete this location image?')
 <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.swf.js"></script>
 <div id="space_plan">
     <!-- Show static jpg here when the visitor does not have the flash plugin. -->
-    <img src="{//path_prefix}/s/{//space_plan_pointer}"/>
+    <img src="{//space_plan_pointer}"/>
 </div>
 
 <xsl:if test="//defaults/use_interactive_space_plans='true'">

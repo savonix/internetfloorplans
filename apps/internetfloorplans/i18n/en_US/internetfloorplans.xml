@@ -36,6 +36,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <file_title>File Title</file_title>
   <file_type>File Type</file_type>
   <file_to_upload>File to upload</file_to_upload>
+  <file_url>File location</file_url>
   <ifp_upload_options>Upload Options</ifp_upload_options>
   <ifp_image_options>Image Options</ifp_image_options>
   <ifp_interface_options>Interface Options</ifp_interface_options>
