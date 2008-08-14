@@ -31,7 +31,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <a href="http://www.internetfloorplans.com/blog/">
         <xsl:value-of select="/_R_/i18n/open_source_internet_software"/>
     </a>.
-    <a href="http://www.internetfloorplans.com/trac/browser/?rev={//svn_revision}">Revision ~ <xsl:value-of select="//svn_revision"/></a>
+    <a href="http://www.internetfloorplans.com/trac/browser/?rev={//svn_revision}">
+		Revision ~ <xsl:value-of select="//svn_revision"/>
+	</a>
     <xsl:value-of select="/_R_/i18n/copyright"/>.
     
     <a href="{//link_prefix}ifp-iframe-viewer&amp;url=license">
