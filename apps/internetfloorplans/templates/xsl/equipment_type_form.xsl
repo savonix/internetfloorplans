@@ -22,65 +22,57 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="equipment_type_menu.xsl"/>
+	<xsl:include href="html_main.xsl"/>
+	<xsl:include href="equipment_type_menu.xsl"/>
 
-<xsl:template name="content">
-<xsl:call-template name="equipment-type-menu"/>
-<form method="post">
-	<xsl:if test="//_get/equipment_type_id">
-		<input
-            type="hidden"
-            name="equipment_type_id"
-            value="{//_get/equipment_type_id}"
-            />
-	</xsl:if>
-    <table>
-        <tr>
-            <td>
-                <xsl:value-of
-                    select="/_R_/i18n/equipment_type_name"
-                    />
-            </td>
-            <td>
-                <input
-                    type="text"
-                    name="name"
-                    value="{//equipment_type_get_by_id/name}"
-                    />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <xsl:value-of
-                    select="/_R_/i18n/description"
-                    />
-            </td>
-            <td>
-                <textarea
-                    name="description"
-                    cols="25"
-                    rows="5"
-                    >
-                    <xsl:value-of
-                        select="//equipment_type_get_by_id/description"
-                        />
-                </textarea>
-            </td>
-        </tr>
-    </table>
-    <div style="text-align: center;">
-        <input 
-            type="submit"
-            value="Submit"
-            name="submit"
-            />
-        <input
-            type="button"
-            value="Cancel"
-            onclick="window.location.href='{//link_prefix}ifp-equipment-types'"
-            />
-    </div>
-</form>
-</xsl:template>
+	<xsl:template name="content">
+		<xsl:call-template name="equipment-type-menu"/>
+		<form method="post">
+			<xsl:if test="//_get/equipment_type_id">
+				<input
+						type="hidden"
+						name="equipment_type_id"
+						value="{//_get/equipment_type_id}"/>
+			</xsl:if>
+			<table>
+				<tr>
+					<td>
+						<xsl:value-of
+								select="/_R_/i18n/equipment_type_name"/>
+					</td>
+					<td>
+						<input
+								type="text"
+								name="name"
+								value="{//equipment_type_get_by_id/name}"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<xsl:value-of
+								select="/_R_/i18n/description"/>
+					</td>
+					<td>
+						<textarea
+								name="description"
+								cols="25"
+								rows="5">
+							<xsl:value-of
+									select="//equipment_type_get_by_id/description"/>
+						</textarea>
+					</td>
+				</tr>
+			</table>
+			<div style="text-align: center;">
+				<input
+						type="submit"
+						value="Submit"
+						name="submit"/>
+				<input
+						type="button"
+						value="Cancel"
+						onclick="window.location.href='{//link_prefix}ifp-equipment-types'"/>
+			</div>
+		</form>
+	</xsl:template>
 </xsl:stylesheet>

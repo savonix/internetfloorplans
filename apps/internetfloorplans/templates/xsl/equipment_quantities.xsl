@@ -21,45 +21,35 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="equipment_menu.xsl"/>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:include href="html_main.xsl"/>
+	<xsl:include href="equipment_menu.xsl"/>
 
-<xsl:template name="content">
-<xsl:call-template name="equipment_menu" />
-<table class="simple-table">
-    <tr>
-        <td>
-            <xsl:value-of
-                select="/_R_/i18n/equipment_type"
-                />
-        </td>
-        <td>
-            <xsl:value-of
-                select="/_R_/i18n/quantity"
-                />
-        </td>
-    </tr>
-    <xsl:for-each select="/_R_/equipment_types_get_all/equipment_types_get_all">
-        <xsl:variable name="my_equipment_type_id">
-            <xsl:value-of select="equipment_type_id"/>
-        </xsl:variable>
-        <tr>
-            <td>
-                <xsl:value-of select="name"/>
-            </td>
-            <td>
-                <xsl:value-of
-                    select="
-                        count(
-                            //equipment_get_all[
-                                equipment_type_id=$my_equipment_type_id
-                                ]
-                            )"
-                    />
-            </td>
-        </tr>
-    </xsl:for-each>
-</table>
-</xsl:template>
+	<xsl:template name="content">
+		<xsl:call-template name="equipment_menu" />
+		<table class="simple-table">
+			<tr>
+				<td>
+					<xsl:value-of select="/_R_/i18n/equipment_type"/>
+				</td>
+				<td>
+					<xsl:value-of select="/_R_/i18n/quantity"/>
+				</td>
+			</tr>
+			<xsl:for-each select="/_R_/equipment_types_get_all/equipment_types_get_all">
+				<xsl:variable name="my_equipment_type_id">
+					<xsl:value-of select="equipment_type_id"/>
+				</xsl:variable>
+				<tr>
+					<td>
+						<xsl:value-of select="name"/>
+					</td>
+					<td>
+						<xsl:value-of
+								select=" count( //equipment_get_all[ equipment_type_id=$my_equipment_type_id ] )"/>
+					</td>
+				</tr>
+			</xsl:for-each>
+		</table>
+	</xsl:template>
 </xsl:stylesheet>
