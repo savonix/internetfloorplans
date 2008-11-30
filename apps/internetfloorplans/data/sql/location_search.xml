@@ -18,29 +18,29 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="get_all_locations">
-    <connection>&ifp_connection;</connection>
-    <params>
-		<param name="//_post/q" type="text"/>
-		<param name="//_post/q" type="text"/>
-		<param name="//_post/q" type="text"/>
-		<param name="//_get/start" type="integer" default="0"/>
-		<param name="//incr" type="integer" default="100"/>
-	</params>
-    <sql>
-        SELECT
-		&ifp_locations;.*
-		
-		FROM &ifp_locations;
-		
-		WHERE (&ifp_locations;.name LIKE ? OR &ifp_locations;.address_line_1 LIKE ? OR &ifp_locations;.city LIKE ?)  
-		GROUP BY &ifp_locations;.name
-		
-		ORDER BY &ifp_locations;.name ASC
-		LIMIT ?,? 
-    </sql>
+  <connection>&ifp_connection;</connection>
+  <params>
+    <param name="//_post/q" type="text"/>
+    <param name="//_post/q" type="text"/>
+    <param name="//_post/q" type="text"/>
+    <param name="//_get/start" type="integer" default="0"/>
+    <param name="//incr" type="integer" default="100"/>
+  </params>
+  <sql>
+  SELECT
+  &ifp_locations;.*
+  
+  FROM &ifp_locations;
+  
+  WHERE (&ifp_locations;.name LIKE ? OR &ifp_locations;.address_line_1 LIKE ? OR &ifp_locations;.city LIKE ?)  
+  GROUP BY &ifp_locations;.name
+  
+  ORDER BY &ifp_locations;.name ASC
+  LIMIT ?,?
+  </sql>
 </query>

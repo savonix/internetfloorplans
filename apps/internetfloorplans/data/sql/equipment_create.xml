@@ -18,18 +18,17 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="equipment_create">
-    <connection>&ifp_connection;</connection>
-    <params>
-		<param name="_post/equipment_type_id" type="text"/>
-		<param name="//runtime/utcdate" type="text"/>
-	</params>
-    <sql>
-        INSERT INTO &ifp_equipment; (equipment_type_id,creation_datetime)
-		VALUES (?,?)
-    </sql>
+  <connection>&ifp_connection;</connection>
+  <params>
+    <param name="_post/equipment_type_id" type="text"/>
+    <param name="//runtime/utcdate" type="text"/>
+  </params>
+  <sql>
+  INSERT INTO &ifp_equipment; (equipment_type_id,creation_datetime) VALUES (?,?)
+  </sql>
 </query>

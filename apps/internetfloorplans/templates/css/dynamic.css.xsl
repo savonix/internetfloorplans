@@ -18,47 +18,47 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:output method="text" encoding="UTF-8" omit-xml-declaration="yes"/>
-<xsl:include href="base.css.xsl"/>
-<xsl:include href="colors.css.xsl"/>
-<xsl:include href="layout.css.xsl"/>
-<xsl:include href="typography.css.xsl"/>
-<xsl:template match="/">
+  <xsl:output method="text" encoding="UTF-8" omit-xml-declaration="yes"/>
+  <xsl:include href="base.css.xsl"/>
+  <xsl:include href="colors.css.xsl"/>
+  <xsl:include href="layout.css.xsl"/>
+  <xsl:include href="typography.css.xsl"/>
+  <xsl:template match="/">
 
-<xsl:call-template name="base"/>
-<xsl:call-template name="typography"/>
-<xsl:call-template name="layout"/>
-<xsl:call-template name="colors"/>
-
-
-<xsl:call-template name="thematic-button">
-    <xsl:with-param name="button-name">basic-blue</xsl:with-param>
-    <xsl:with-param name="background-color">#F1F1F1</xsl:with-param>
-    <xsl:with-param name="color">#0066B9</xsl:with-param>
-</xsl:call-template>
-<xsl:call-template name="thematic-button">
-    <xsl:with-param name="button-name">basic-green</xsl:with-param>
-    <xsl:with-param name="background-color">#66FF99</xsl:with-param>
-    <xsl:with-param name="color">#009900</xsl:with-param>
-</xsl:call-template>
-<xsl:call-template name="thematic-button">
-    <xsl:with-param name="button-name">basic-black</xsl:with-param>
-    <xsl:with-param name="background-color">grey</xsl:with-param>
-    <xsl:with-param name="color">black</xsl:with-param>
-</xsl:call-template>
-
-</xsl:template>
+    <xsl:call-template name="base"/>
+    <xsl:call-template name="typography"/>
+    <xsl:call-template name="layout"/>
+    <xsl:call-template name="colors"/>
 
 
+    <xsl:call-template name="thematic-button">
+      <xsl:with-param name="button-name">basic-blue</xsl:with-param>
+      <xsl:with-param name="background-color">#F1F1F1</xsl:with-param>
+      <xsl:with-param name="color">#0066B9</xsl:with-param>
+    </xsl:call-template>
+    <xsl:call-template name="thematic-button">
+      <xsl:with-param name="button-name">basic-green</xsl:with-param>
+      <xsl:with-param name="background-color">#66FF99</xsl:with-param>
+      <xsl:with-param name="color">#009900</xsl:with-param>
+    </xsl:call-template>
+    <xsl:call-template name="thematic-button">
+      <xsl:with-param name="button-name">basic-black</xsl:with-param>
+      <xsl:with-param name="background-color">grey</xsl:with-param>
+      <xsl:with-param name="color">black</xsl:with-param>
+    </xsl:call-template>
 
-<xsl:template name="thematic-button">
-<xsl:param name="button-name"/>
-<xsl:param name="background-color"/>
-<xsl:param name="color"/>
+  </xsl:template>
+
+
+
+  <xsl:template name="thematic-button">
+    <xsl:param name="button-name"/>
+    <xsl:param name="background-color"/>
+    <xsl:param name="color"/>
 .button-<xsl:value-of select="$button-name"/>
 {
     padding: .2em .4em;
