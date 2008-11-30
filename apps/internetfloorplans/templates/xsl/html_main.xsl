@@ -22,23 +22,33 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:include href="html_shell.xsl"/>
-<xsl:include href="html_head.xsl"/>
-<xsl:include href="html_header.xsl"/>
-<xsl:include href="html_menu.xsl"/>
-<xsl:include href="html_footer.xsl"/>
-<xsl:include href="source_spacer.xsl"/>
-<xsl:template name="main">
-<div id="main">
-    <div id="page">
+  <xsl:include href="html_shell.xsl"/>
+  <xsl:include href="html_head.xsl"/>
+  <xsl:include href="html_header.xsl"/>
+  <xsl:include href="html_menu.xsl"/>
+  <xsl:include href="html_footer.xsl"/>
+  <xsl:include href="source_spacer.xsl"/>
+  <xsl:template name="main">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
+    <div id="main">
+      <div id="page">
         <xsl:call-template name="header"/>
         <xsl:call-template name="menu"/>
 
         <div id="content">
-            <xsl:call-template name="content"/>
+          <xsl:call-template name="content">
+            <xsl:with-param name="link_prefix">
+              <xsl:value-of select="$link_prefix"/>
+            </xsl:with-param>
+            <xsl:with-param name="path_prefix">
+              <xsl:value-of select="$path_prefix"/>
+            </xsl:with-param>
+          </xsl:call-template>
         </div>
+      </div>
     </div>
-</div>
-<xsl:call-template name="footer"/>
-</xsl:template>
+    <xsl:call-template name="footer"/>
+  </xsl:template>
 </xsl:stylesheet>

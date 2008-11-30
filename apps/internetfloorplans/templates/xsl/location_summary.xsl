@@ -23,29 +23,32 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template name="location_summary">
-    <xsl:for-each select="//get_location_summary/get_location_summary">
-      <table>
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
+    <xsl:for-each select="/_R_/location_get_summary/location_get_summary">
+      <table class="simple-table">
         <tr>
           <td>
             <xsl:value-of select="/_R_/i18n/location_options"/>
-            <a href="{//link_prefix}ifp-location-edit&amp;location_address_id={location_address_id}">
+            <a href="{$link_prefix}ifp-location-edit&amp;location_address_id={location_id}">
               <xsl:value-of select="/_R_/i18n/edit"/>
             </a>
-            <a href="{//link_prefix}ifp-location-delete&amp;location_address_id={location_address_id}" onclick="return confirm('{/_R_/i18n/confirm_delete}')">
+            <a href="{$link_prefix}ifp-location-delete&amp;location_address_id={location_id}" onclick="return confirm('{/_R_/i18n/confirm_delete}')">
               <xsl:value-of select="/_R_/i18n/delete"/>
             </a>
           </td>
           <td>
-            <xsl:value-of select="//get_location_summary/address_line_1"/>
+            <xsl:value-of select="address_line_1"/>
             <br/>
-            <xsl:value-of select="//get_location_summary/city"/>&#160;
-        <xsl:value-of select="//get_location_summary/state" />,
-		<xsl:value-of select="//get_location_summary/zip"/>
+            <xsl:value-of select="city"/>&#160;
+            <xsl:value-of select="state" />,
+            <xsl:value-of select="zip"/>
           </td>
           <td>
-		Tel: <xsl:value-of select="//get_location_summary/phone"/>
+            Tel: <xsl:value-of select="phone"/>
             <br/>
-		Fax: <xsl:value-of select="//get_location_summary/fax"/>
+            Fax: <xsl:value-of select="fax"/>
           </td>
           <td></td>
         </tr>

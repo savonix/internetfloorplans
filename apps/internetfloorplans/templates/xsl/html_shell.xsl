@@ -27,23 +27,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
   <!-- Variables to use as parameters throughout the templates -->
     <xsl:variable name="link_prefix">
-      <xsl:value-of select="/_R_/runtime/link_prefix"/>
+      <xsl:value-of select="//link_prefix"/>
     </xsl:variable>
 
     <xsl:variable name="path_prefix">
-      <xsl:value-of select="/_R_/runtime/path_prefix"/>
+      <xsl:value-of select="//path_prefix"/>
     </xsl:variable>
     <!-- End initial variables -->
 
     <html>
 
       <xsl:call-template name="head">
-        <xsl:with-param name="link_prefix">
-          <xsl:value-of select="$link_prefix"/>
-        </xsl:with-param>
-        <xsl:with-param name="path_prefix">
-          <xsl:value-of select="$path_prefix"/>
-        </xsl:with-param>
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
       </xsl:call-template>
 
       <body>
@@ -53,7 +49,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </xsl:for-each>
 
 
-        <xsl:call-template name="main"/>
+        <xsl:call-template name="main">
+          <xsl:with-param name="link_prefix" select="$link_prefix"/>
+          <xsl:with-param name="path_prefix" select="$path_prefix"/>
+        </xsl:call-template>
+
 
 
 

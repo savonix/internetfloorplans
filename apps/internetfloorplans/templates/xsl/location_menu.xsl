@@ -23,28 +23,31 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template name="location_menu">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
     <table class="simple-table">
       <tr>
         <td>
-          <xsl:value-of select="//location_get_summary/name"/>
+          <xsl:value-of select="//location_get_summary/location_get_summary/name"/>
         </td>
         <td>
-          <a href="{//link_prefix}ifp-location-view&amp;location_id={//_get/location_id}">
+          <a href="{$link_prefix}ifp-location-view&amp;location_id={//_get/location_id}">
             <xsl:value-of select="/_R_/i18n/virtual_tours"/>
           </a>
         </td>
         <td>
-          <a href="{//link_prefix}ifp-location-space-plans&amp;location_id={//_get/location_id}">
+          <a href="{$link_prefix}ifp-location-space-plans&amp;location_id={//_get/location_id}">
             <xsl:value-of select="/_R_/i18n/space_plans"/>
           </a>
         </td>
         <td>
-          <a href="{//link_prefix}ifp-location-equipment-quantities&amp;location_id={//_get/location_id}">
+          <a href="{$link_prefix}ifp-location-equipment-quantities&amp;location_id={//_get/location_id}">
             <xsl:value-of select="/_R_/i18n/equip_quantities"/>
           </a>
         </td>
         <td>
-          <a href="{//link_prefix}ifp-location-equipment-list&amp;location_id={//_get/location_id}">
+          <a href="{$link_prefix}ifp-location-equipment-list&amp;location_id={//_get/location_id}">
             <xsl:value-of select="/_R_/i18n/equip_list"/>
           </a>
         </td>

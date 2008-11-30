@@ -22,94 +22,85 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="pager.xsl"/>
-<xsl:template name="content">
-<xsl:call-template name="jquery-setup">
-    <xsl:with-param name="my-table">myequipmenttypes</xsl:with-param>
-    <xsl:with-param name="my-table-div">my-equipment-types-div</xsl:with-param>
-    <xsl:with-param name="no-sort-column">,
+  <xsl:include href="html_main.xsl"/>
+  <xsl:include href="pager.xsl"/>
+  <xsl:template name="content">
+    <xsl:call-template name="jquery-setup">
+      <xsl:with-param name="my-table">myequipmenttypes</xsl:with-param>
+      <xsl:with-param name="my-table-div">my-equipment-types-div</xsl:with-param>
+      <xsl:with-param name="no-sort-column">,
         headers: {
             2: {sorter: false},
             3: {sorter: false}
 	    }
     </xsl:with-param>
-</xsl:call-template>
-<!-- Confirm equipment deletion -->
-<script type="text/javascript">
-var question = '<xsl:value-of select="/_R_/i18n/confirm_equipment_type_delete"/>';
-function equipment_type_delete(equipment_type_id,row) {
-    if(confirm(question)) {
-        $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-delete",
-        {'equipment_type_id': equipment_type_id}, 
-        function (data){
-            myTable = document.getElementById("myequipmenttypes");
-            myTable.deleteRow(row);
-        });
+    </xsl:call-template>
+    <!-- Confirm equipment deletion -->
+    <script type="text/javascript">
+    var question = '<xsl:value-of select="/_R_/i18n/confirm_equipment_type_delete"/>';
+    function equipment_type_delete(equipment_type_id,row) {
+        if(confirm(question)) {
+            $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-delete",
+            {'equipment_type_id': equipment_type_id},
+            function (data){
+                myTable = document.getElementById("myequipmenttypes");
+                myTable.deleteRow(row);
+            });
+        }
     }
-}
-</script>
-<div id="my-equipment-types-div">
-<script type="text/javascript">
+    </script>
+    <div id="my-equipment-types-div">
+      <script type="text/javascript">
     document.getElementById('my-equipment-types-div').style.visibility = 'hidden';
 </script>
-<table width="100%" class="tablesorter" id="myequipmenttypes">
-    <thead>
-    <tr>
-        <th>
-            <xsl:value-of
-                select="/_R_/i18n/equipment_type_name"
-                />
-        </th>
-        <th>
-            <xsl:value-of
-                select="/_R_/i18n/description"
-                />
-        </th>
-        <th>
-            <xsl:value-of
-                select="/_R_/i18n/edit"
-                />
-        </th>
-        <th>
-            <xsl:value-of
-                select="/_R_/i18n/delete"
-                />
-        </th>
-    </tr>
-    </thead>
-    <tbody>
-    <xsl:for-each select="/_R_/equipment_types_get_all/equipment_types_get_all">
-    <tr>
-        <td>
-            <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
-                <xsl:value-of select="name"/>
-            </a>
-        </td>
-        <td>
-            <xsl:value-of select="description"/>
-        </td>
-        <td>
-            <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
-                <xsl:value-of select="/_R_/i18n/edit"/>
-            </a>
-        </td>
-        <td>
-            <a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}"
-            onclick="equipment_type_delete({equipment_type_id},this.parentNode.parentNode.rowIndex); return false;">
-            <xsl:value-of select="/_R_/i18n/delete"/>
-            </a>
-        </td>
-    </tr>
-    </xsl:for-each>
-    </tbody>
-</table>
-</div>
-<a href="{//link_prefix}ifp-equipment-type-edit">
-    <xsl:value-of select="/_R_/i18n/new_equipment_type"/>
-</a>
-<xsl:call-template name="pager">
-    <xsl:with-param name="my-table">myequipmenttypes</xsl:with-param>
-</xsl:call-template>
-</xsl:template>
+      <table width="100%" class="tablesorter" id="myequipmenttypes">
+        <thead>
+          <tr>
+            <th>
+              <xsl:value-of select="/_R_/i18n/equipment_type_name" />
+            </th>
+            <th>
+              <xsl:value-of select="/_R_/i18n/description" />
+            </th>
+            <th>
+              <xsl:value-of select="/_R_/i18n/edit" />
+            </th>
+            <th>
+              <xsl:value-of select="/_R_/i18n/delete" />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <xsl:for-each select="/_R_/equipment_types_get_all/equipment_types_get_all">
+            <tr>
+              <td>
+                <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
+                  <xsl:value-of select="name"/>
+                </a>
+              </td>
+              <td>
+                <xsl:value-of select="description"/>
+              </td>
+              <td>
+                <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
+                  <xsl:value-of select="/_R_/i18n/edit"/>
+                </a>
+              </td>
+              <td>
+                <a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}" onclick="equipment_type_delete({equipment_type_id},this.parentNode.parentNode.rowIndex); return false;">
+                  <xsl:value-of select="/_R_/i18n/delete"/>
+                </a>
+              </td>
+            </tr>
+          </xsl:for-each>
+        </tbody>
+      </table>
+    </div>
+    <a href="{//link_prefix}ifp-equipment-type-edit">
+      <xsl:value-of select="/_R_/i18n/new_equipment_type"/>
+    </a>
+    <xsl:call-template name="pager">
+      <xsl:with-param name="my-table">myequipmenttypes</xsl:with-param>
+    </xsl:call-template>
+  </xsl:template>
 </xsl:stylesheet>

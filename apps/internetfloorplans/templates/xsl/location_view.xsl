@@ -26,12 +26,21 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:include href="location_summary.xsl"/>
   <xsl:include href="location_menu.xsl"/>
   <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
     <form method="post">
       <input type="hidden" name="location_id" value="{//_get/location_id}"/>
 
-      <xsl:call-template name="location_menu" />
+      <xsl:call-template name="location_menu">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+      </xsl:call-template>
 
-      <xsl:call-template name="location_summary" />
+      <xsl:call-template name="location_summary">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+      </xsl:call-template>
 
       <table>
         <tr>
@@ -61,7 +70,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <xsl:if test="not(//location_image_id)">
                 <tr>
                   <td>
-                    <a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
+                    <a href="{$link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
                       <xsl:value-of select="/_R_/i18n/add_new_image"/>
                     </a>
                   </td>
