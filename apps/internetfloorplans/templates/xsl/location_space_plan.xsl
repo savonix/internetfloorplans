@@ -45,7 +45,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     var question = '<xsl:value-of select="/_R_/i18n/labels/delete_plan"/>?';
     function location_space_plan_delete(location_space_plan_id) {
         if(confirm(location_space_plan_id)) {
-            $.post("<xsl:value-of select="//link_prefix"/>ifp-location-space-plan-delete&amp;location_space_plan_id="+location_space_plan_id, 
+            $.post("<xsl:value-of select="$link_prefix"/>ifp-location-space-plan-delete&amp;location_space_plan_id="+location_space_plan_id, 
                 {'location_space_plan_id': location_space_plan_id},
             function (data){
             });
@@ -67,7 +67,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <xsl:if test="not(//get_location_space_plans/location_space_plan_id)">
                 <tr>
                   <td>
-                    <a href="{//link_prefix}ifp-location-space-plan-edit&amp;location_id={//_get/location_id}">
+                    <a href="{$link_prefix}ifp-location-space-plan-edit&amp;location_id={//_get/location_id}">
                       <xsl:value-of select="/_R_/i18n/add_new_plan"/>
                     </a>
                   </td>
@@ -77,7 +77,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <!-- TODO - FIXME
                 <tr>
                     <td>
-                        <a href="{//link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
+                        <a href="{$link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
                             <xsl:value-of select="/_R_/i18n/lock_plan"/>
                         </a>
                     </td>
@@ -85,7 +85,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 -->
                 <tr>
                   <td>
-                    <a href="{//link_prefix}location_space_plan-delete&amp;location_space_plan_id={//get_location_space_plans/location_space_plan_id}" onclick="location_space_plan_delete({//get_location_space_plans/location_space_plan_id}); return false;">
+                    <a href="{$link_prefix}location_space_plan-delete&amp;location_space_plan_id={//get_location_space_plans/location_space_plan_id}" onclick="location_space_plan_delete({//get_location_space_plans/location_space_plan_id}); return false;">
                       <xsl:value-of select="/_R_/i18n/delete_plan"/>
                     </a>
                   </td>
@@ -114,7 +114,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </td>
       </tr>
     </table>
-    <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.swf.js"></script>
+    <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.swf.js"></script>
     <div id="space_plan">
     <!-- Show static jpg here when the visitor does not have the flash plugin. -->
       <img src="{//space_plan_pointer}"/>
@@ -122,7 +122,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
     <xsl:if test="//defaults/use_interactive_space_plans='true'">
       <script type="text/javascript">
-      var mymoviestring = "<xsl:value-of select="//link_prefix"/>ifp-location-space-plan-server&amp;location_space_plan_id=<xsl:value-of select="//get_location_space_plans/location_space_plan_id"/>&amp;location_address_id=<xsl:value-of select="//_get/location_address_id"/>&amp;key=<xsl:value-of select="//_get/key"/>";
+      var mymoviestring = "<xsl:value-of select="$link_prefix"/>ifp-location-space-plan-server&amp;location_space_plan_id=<xsl:value-of select="//get_location_space_plans/location_space_plan_id"/>&amp;location_address_id=<xsl:value-of select="//_get/location_id"/>&amp;key=<xsl:value-of select="//_get/key"/>";
       var so = new SWFObject(mymoviestring, "mymovie", "825", "825", "8","#FFFFFF");
       so.write("space_plan");
       </script>
