@@ -23,20 +23,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template name="equipment-type-menu">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
     <table class="simple-table">
       <tr>
         <td>
-          <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={//_get/equipment_type_id}">
+          <a href="{$link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={//_get/equipment_type_id}">
             <xsl:value-of select="/_R_/i18n/edit"/>
           </a>
         </td>
         <td>
-          <a href="{//link_prefix}ifp-equipment-type-images&amp;equipment_type_id={//_get/equipment_type_id}">
+          <a href="{$link_prefix}ifp-equipment-type-images&amp;equipment_type_id={//_get/equipment_type_id}">
             <xsl:value-of select="/_R_/i18n/images"/>
           </a>
         </td>
         <td>
-          <a href="{//link_prefix}ifp-equipment-type-icons&amp;equipment_type_id={//_get/equipment_type_id}">
+          <a href="{$link_prefix}ifp-equipment-type-icons&amp;equipment_type_id={//_get/equipment_type_id}">
             <xsl:value-of select="/_R_/i18n/icons"/>
           </a>
         </td>

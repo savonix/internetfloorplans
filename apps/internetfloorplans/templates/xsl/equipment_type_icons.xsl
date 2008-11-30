@@ -21,93 +21,97 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="equipment_type_menu.xsl"/>
-<xsl:include href="equipment_type_summary.xsl"/>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:include href="html_main.xsl"/>
+  <xsl:include href="equipment_type_menu.xsl"/>
+  <xsl:include href="equipment_type_summary.xsl"/>
+    <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:call-template name="equipment-type-menu">
+      <xsl:with-param name="link_prefix" select="$link_prefix"/>
+      <xsl:with-param name="path_prefix" select="$path_prefix"/>
+    </xsl:call-template>
+    <xsl:call-template name="equipment-type-summary">
+      <xsl:with-param name="link_prefix" select="$link_prefix"/>
+      <xsl:with-param name="path_prefix" select="$path_prefix"/>
+    </xsl:call-template>
+    <table class="simple-table">
+      <thead>
+        <tr>
+          <th>
+            <xsl:value-of select="/_R_/i18n/icons"/>
+          </th>
+        </tr>
+      </thead>
+      <xsl:for-each select="//equipment_type_get_icons">
+        <tr>
+          <td>
+            <a>
+              <xsl:value-of select="name"/>
+            </a>
+          </td>
+        </tr>
+      </xsl:for-each>
+    </table>
+    <br/>
+    <table class="simple-table">
+      <thead>
+        <tr>
+          <th>
+            <xsl:value-of select="/_R_/i18n/options"/>
+          </th>
+        </tr>
+      </thead>
+      <xsl:if test="not(//equipment_type_get_icons)">
+        <tr>
+          <td>
+            <a href="{//link_prefix}ifp-equipment-type-icon-edit&amp;equipment_type_id={//_get/equipment_type_id}">
+              <xsl:value-of select="/_R_/i18n/add_new_icon" />
+            </a>
+          </td>
+        </tr>
+      </xsl:if>
 
-<xsl:template name="content">
-<xsl:call-template name="equipment-type-menu" />
-<xsl:call-template name="equipment-type-summary"/>
-<table class="simple-table">
-<thead>
-<tr>
-    <th>
-        <xsl:value-of select="/_R_/i18n/icons"/>
-    </th>
-</tr>
-</thead>
-<xsl:for-each select="//equipment_type_get_icons">
-<tr>
-    <td>
-        <a><xsl:value-of select="name"/></a>
-    </td>
-</tr>
-</xsl:for-each>
-</table>
-<br/>
-<table class="simple-table">
-<thead>
-<tr>
-    <th>
-<xsl:value-of select="/_R_/i18n/options"/>
-    </th>
-</tr>
-</thead>
-<xsl:if test="not(//equipment_type_get_icons)">
-<tr>
-    <td>
-        <a href="{//link_prefix}ifp-equipment-type-icon-edit&amp;equipment_type_id={//_get/equipment_type_id}">
-            <xsl:value-of
-                select="/_R_/i18n/add_new_icon"
-                />
-        </a>
-    </td>
-</tr>
-</xsl:if>
 
+      <xsl:if test="//equipment_type_get_icons">
+        <tr>
+          <td>
+            <a href="{//link_prefix}ifp-static-file-delete&amp;static_file_id={//equipment_type_get_images/static_file_id}" onclick="static_file_delete({//equipment_type_get_images/static_file_id}); return false;">
+              <xsl:value-of select="/_R_/i18n/delete"/>
+            </a>
+          </td>
+        </tr>
+      </xsl:if>
+    </table>
 
-<xsl:if test="//equipment_type_get_icons">
-<tr>
-    <td>
-        <a href="{//link_prefix}ifp-static-file-delete&amp;static_file_id={//equipment_type_get_images/static_file_id}"
-        onclick="static_file_delete({//equipment_type_get_images/static_file_id}); return false;">
-            <xsl:value-of select="/_R_/i18n/delete"/>
-        </a>
-    </td>
-</tr>
-</xsl:if>
-</table>
-
-<table class="simple-table">
-<tr>
-    <td>
-        <xsl:for-each select="//equipment_type_get_icons">
+    <table class="simple-table">
+      <tr>
+        <td>
+          <xsl:for-each select="//equipment_type_get_icons">
             <xsl:value-of select="name"/>
-        </xsl:for-each>
+          </xsl:for-each>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="{//path_prefix}{//equipment_type_get_icons/icon_pointer}"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <xsl:value-of select="/_R_/i18n/comments"/>:
     </td>
-</tr>
-<tr>
-    <td>
-        <img
-            src="{//path_prefix}{//equipment_type_get_icons/icon_pointer}"/>
-    </td>
-</tr>
-<tr>
-    <td>
-        <xsl:value-of select="/_R_/i18n/comments"/>:
-    </td>
-</tr>
-<tr>
-    <td>
-        <xsl:for-each select="//equipment_type_get_icons">
-            <xsl:if test="equipment_type_icon_id=//_get/equipment_type_icon_id
-            or (not(//_get/equipment_type_icon_id) and default_icon=1)">
-                <xsl:value-of select="comments"/>
+      </tr>
+      <tr>
+        <td>
+          <xsl:for-each select="//equipment_type_get_icons">
+            <xsl:if test="equipment_type_icon_id=//_get/equipment_type_icon_id or (not(//_get/equipment_type_icon_id) and default_icon=1)">
+              <xsl:value-of select="comments"/>
             </xsl:if>
-        </xsl:for-each>
-    </td>
-</tr>
-</table>
-</xsl:template>
+          </xsl:for-each>
+        </td>
+      </tr>
+    </table>
+  </xsl:template>
 </xsl:stylesheet>

@@ -23,15 +23,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template name="equipment-type-summary">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
     <xsl:for-each select="//get_equipment_type_by_id/get_equipment_type_by_id">
       <tr>
         <td>
           <xsl:value-of select="/_R_/i18n/options"/>:<br />
-          <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
+          <a href="{$link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
             <xsl:value-of select="/_R_/i18n/edit_this_equipment_type"/>
           </a>
           <br/>
-          <a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}" onclick="return confirm('{/_R_/i18n/confirm_delete}')">
+          <a href="{$link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}" onclick="return confirm('{/_R_/i18n/confirm_delete}')">
             <xsl:value-of select="/_R_/i18n/delete_this_equipment_type"/>
           </a>
         </td>

@@ -22,31 +22,29 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="equipment_type_menu.xsl"/>
-<xsl:include href="equipment_type_summary.xsl"/>
-<xsl:include href="upload_form.xsl"/>
-<xsl:template name="content">
-	<form enctype="multipart/form-data" method="post">
+  <xsl:include href="html_main.xsl"/>
+  <xsl:include href="equipment_type_menu.xsl"/>
+  <xsl:include href="equipment_type_summary.xsl"/>
+  <xsl:include href="upload_form.xsl"/>
+  <xsl:template name="content">
+      <xsl:call-template name="equipment-type-menu">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+      </xsl:call-template>
+      <xsl:call-template name="equipment-type-summary">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+      </xsl:call-template>
+    <form enctype="multipart/form-data" method="post">
+      <input type="hidden" name="dest" value="{//option_get[option_key='file_upload_directory']/option_value}" />
+      <input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}" />
 
-	<input
-        type="hidden"
-        name="dest"
-        value="{//option_get[option_key='file_upload_directory']/option_value}"
-        />
-
-	<input
-        type="hidden"
-        name="equipment_type_id"
-        value="{//_get/equipment_type_id}"
-        />
-
-    <xsl:if test="//static_file_id">
-	    <input type="hidden" name="static_file_id" value="{//static_file_id}"/>
-    </xsl:if>
-    <xsl:call-template name="equipment-type-menu"/>
-	<xsl:call-template name="equipment-type-summary"/>
-    <xsl:call-template name="upload_form"/>
-	</form>
-</xsl:template>
+      <xsl:if test="//static_file_id">
+        <input type="hidden" name="static_file_id" value="{//static_file_id}"/>
+      </xsl:if>
+      <xsl:call-template name="equipment-type-menu"/>
+      <xsl:call-template name="equipment-type-summary"/>
+      <xsl:call-template name="upload_form"/>
+    </form>
+  </xsl:template>
 </xsl:stylesheet>

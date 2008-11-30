@@ -22,85 +22,94 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:include href="html_main.xsl"/>
-<xsl:include href="equipment_type_menu.xsl"/>
-<xsl:include href="equipment_type_summary.xsl"/>
-<xsl:template name="content">
-<xsl:call-template name="equipment-type-menu" />
-<xsl:call-template name="equipment-type-summary"/>
-<!-- Confirm equipment type image deletion -->
-<script type="text/javascript">
-var question = '<xsl:value-of select="/_R_/i18n/confirm_delete"/>';
-function equipment_type_image_delete(static_file_id) {
-    if(confirm(question)) {
-        $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-image-delete",
-        {'static_file_id': static_file_id},
-        function (data){
-        });
+  <xsl:include href="html_main.xsl"/>
+  <xsl:include href="equipment_type_menu.xsl"/>
+  <xsl:include href="equipment_type_summary.xsl"/>
+  <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+      <xsl:call-template name="equipment-type-menu">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+      </xsl:call-template>
+      <xsl:call-template name="equipment-type-summary">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+      </xsl:call-template>
+    <!-- Confirm equipment type image deletion -->
+        <script type="text/javascript">
+    var question = '<xsl:value-of select="/_R_/i18n/confirm_delete"/>';
+    function equipment_type_image_delete(static_file_id) {
+        if(confirm(question)) {
+            $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-image-delete",
+            {'static_file_id': static_file_id},
+            function (data){
+            });
+        }
     }
-}
-</script>
-<table class="simple-table">
-<tr>
-    <td align="left">
-        <table class="simple-table">
+    </script>
+    <table class="simple-table">
+      <tr>
+        <td align="left">
+          <table class="simple-table">
             <thead>
-            <tr>
+              <tr>
                 <th>
-                    <xsl:value-of select="/_R_/i18n/images"/>
+                  <xsl:value-of select="/_R_/i18n/images"/>
                 </th>
-            </tr>
+              </tr>
             </thead>
             <xsl:for-each select="//static_file_get_by_metadata_key">
-            <tr>
+              <tr>
                 <td>
-                    <b><xsl:value-of select="title"/></b>
+                  <b>
+                    <xsl:value-of select="title"/>
+                  </b>
                 </td>
-            </tr>
+              </tr>
             </xsl:for-each>
-        </table>
-        <br/>
-        <table class="simple-table">
+          </table>
+          <br/>
+          <table class="simple-table">
             <thead>
-            <tr>
+              <tr>
                 <th>
-                    <xsl:value-of select="/_R_/i18n/options"/>
+                  <xsl:value-of select="/_R_/i18n/options"/>
                 </th>
-            </tr>
+              </tr>
             </thead>
             <tbody>
-            <xsl:if test="not(//static_file_get_by_metadata_key)">
-            <tr>
-                <td>
+              <xsl:if test="not(//static_file_get_by_metadata_key)">
+                <tr>
+                  <td>
                     <a href="{//link_prefix}ifp-equipment-type-image-edit&amp;equipment_type_id={//_get/equipment_type_id}">
-                        <xsl:value-of select="/_R_/i18n/add_new_image"/>
+                      <xsl:value-of select="/_R_/i18n/add_new_image"/>
                     </a>
-                </td>
-            </tr>
-            </xsl:if>
-            <xsl:if test="//static_file_get_by_metadata_key">
-            <tr>
-                <td>
-                    <a href="{//link_prefix}ifp-equipment-type-image-delete&amp;equipment_type_image_id={//equipment_type_get_images/static_file_id}"
-                    onclick="equipment_type_image_delete({//equipment_type_get_images/static_file_id}); return false;">
-                    <xsl:value-of select="/_R_/i18n/delete"/></a>
-                </td>
-            </tr>
-            </xsl:if>
+                  </td>
+                </tr>
+              </xsl:if>
+              <xsl:if test="//static_file_get_by_metadata_key">
+                <tr>
+                  <td>
+                    <a href="{//link_prefix}ifp-equipment-type-image-delete&amp;equipment_type_image_id={//equipment_type_get_images/static_file_id}" onclick="equipment_type_image_delete({//equipment_type_get_images/static_file_id}); return false;">
+                      <xsl:value-of select="/_R_/i18n/delete"/>
+                    </a>
+                  </td>
+                </tr>
+              </xsl:if>
             </tbody>
-        </table>
-    </td>
+          </table>
+        </td>
 
-    <td align="left" width="80%">
-        <xsl:for-each select="//equipment_type_get_images">
-            <xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id
-            or (not(//_get/equipment_type_image_id) and default_image=1)">
-                <xsl:value-of select="name"/>
+        <td align="left" width="80%">
+          <xsl:for-each select="//equipment_type_get_images">
+            <xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id or (not(//_get/equipment_type_image_id) and default_image=1)">
+              <xsl:value-of select="name"/>
             </xsl:if>
-        </xsl:for-each>
-        <img src="{//path_prefix}/s/{//static_file_get_by_metadata_key/basename}"/>
-    </td>
-</tr>
-</table>
-</xsl:template>
+          </xsl:for-each>
+          <img src="{//path_prefix}/s/{//static_file_get_by_metadata_key/basename}"/>
+        </td>
+      </tr>
+    </table>
+  </xsl:template>
 </xsl:stylesheet>
