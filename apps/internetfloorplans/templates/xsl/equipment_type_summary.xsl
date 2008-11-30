@@ -1,5 +1,5 @@
 <!--
-Program: Internet Floor Plans
+Program: Internet Floor Plans - http://www.internetfloorplans.com/
 Component: equipment_type_summary.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
@@ -18,12 +18,12 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:template name="equipment-type-summary">
-    <xsl:for-each select="//get_equipment_type_by_id">
+    <xsl:for-each select="//get_equipment_type_by_id/get_equipment_type_by_id">
       <tr>
         <td>
           <xsl:value-of select="/_R_/i18n/options"/>:<br />

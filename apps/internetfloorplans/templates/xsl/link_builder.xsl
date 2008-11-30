@@ -1,5 +1,5 @@
 <!--
-Program: Internet Floor Plans
+Program: Internet Floor Plans - http://www.internetfloorplans.com/
 Component: link_builder.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
@@ -18,28 +18,28 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:template name="link_builder">
-        <!-- This will concatenate param / value pairs -->
-        <xsl:for-each select="//link_params">
-            <!-- param = param name = constant -->
-            <!-- value = xpath to value or just plain value = variable -->
-            <!-- tokens -->
-            <!-- order -->
-            <xsl:call-template name="the-concatenator">
-                <xsl:with-param name="token">/</xsl:with-param>
-                <xsl:with-param name="display-param-names">no</xsl:with-param>
-                <xsl:with-param name="appendage">.html</xsl:with-param>
-            </xsl:call-template>
-        </xsl:for-each>
-    </xsl:template>
+  <xsl:template name="link_builder">
+      <!-- This will concatenate param / value pairs -->
+    <xsl:for-each select="//link_params">
+      <!-- param = param name = constant -->
+      <!-- value = xpath to value or just plain value = variable -->
+      <!-- tokens -->
+      <!-- order -->
+      <xsl:call-template name="the-concatenator">
+        <xsl:with-param name="token">/</xsl:with-param>
+        <xsl:with-param name="display-param-names">no</xsl:with-param>
+        <xsl:with-param name="appendage">.html</xsl:with-param>
+      </xsl:call-template>
+    </xsl:for-each>
+  </xsl:template>
 
-    <xsl:template name="the-concatenator">
-        <xsl:param name="token"/>
-        <xsl:param name="display-param-names">no</xsl:param>
-        <xsl:param name="appendage"/>
-    </xsl:template>
+  <xsl:template name="the-concatenator">
+    <xsl:param name="token"/>
+    <xsl:param name="display-param-names">no</xsl:param>
+    <xsl:param name="appendage"/>
+  </xsl:template>
 </xsl:stylesheet>

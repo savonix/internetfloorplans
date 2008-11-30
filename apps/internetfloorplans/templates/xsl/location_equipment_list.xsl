@@ -1,5 +1,5 @@
 <!--
-Program: Internet Floor Plans
+Program: Internet Floor Plans - http://www.internetfloorplans.com/
 Component: location_equipment_list.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
@@ -18,7 +18,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -49,14 +49,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
             });
         }
     }
-</script>
+    </script>
     <xsl:call-template name="location_menu"/>
     <xsl:call-template name="location_summary"/>
 
     <div id="my-location-equipment-list-div">
       <script type="text/javascript">
-//    document.getElementById('my-location-equipment-list-div').style.visibility = 'hidden';
-</script>
+      //    document.getElementById('my-location-equipment-list-div').style.visibility = 'hidden';
+      </script>
       <table width="100%" class="tablesorter" id="my-location-equipment-list">
         <thead>
           <tr>

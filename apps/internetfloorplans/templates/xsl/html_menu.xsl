@@ -1,5 +1,5 @@
 <!--
-Program: Internet Floor Plans
+Program: Internet Floor Plans - http://www.internetfloorplans.com/
 Component: main_menu.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
@@ -18,46 +18,51 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
---><xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:template name="menu">
-<xsl:call-template name="source_spacer">
-    <xsl:with-param name="section_start">main-menu</xsl:with-param>
-</xsl:call-template>
+-->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template name="menu">
+    <xsl:call-template name="source_spacer">
+      <xsl:with-param name="section_start">main-menu</xsl:with-param>
+    </xsl:call-template>
     <script type="text/javascript">
     $(document).ready(function()
     {
         $('#top-main-menu').clickMenu();
     });
     </script>
-	<ul id="top-main-menu">
-    <xsl:for-each select="//menu/item[not(@active=0)]">
-    <xsl:call-template name="button">
-        <xsl:with-param name="key"><xsl:value-of select="key"/></xsl:with-param>
-    </xsl:call-template>
-    </xsl:for-each>
+    <ul id="top-main-menu">
+      <xsl:for-each select="//menu/item[not(@active=0)]">
+        <xsl:call-template name="button">
+          <xsl:with-param name="key">
+            <xsl:value-of select="key"/>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:for-each>
     </ul>
 
-<xsl:call-template name="source_spacer">
-    <xsl:with-param name="section_end">main-menu</xsl:with-param>
-</xsl:call-template>
-</xsl:template>
+    <xsl:call-template name="source_spacer">
+      <xsl:with-param name="section_end">main-menu</xsl:with-param>
+    </xsl:call-template>
+  </xsl:template>
 
-<xsl:template name="button">
+  <xsl:template name="button">
     <xsl:param name="key"/>
     <li>
-        <xsl:value-of select="/_R_/i18n/*[local-name()=$key]"/>
-        <ul>
+      <xsl:value-of select="/_R_/i18n/*[local-name()=$key]"/>
+      <ul>
         <xsl:for-each select="//menu/item[key=$key]/item">
-        <xsl:variable name="my_key"><xsl:value-of select="key"/></xsl:variable>
-            <li>
+          <xsl:variable name="my_key">
+            <xsl:value-of select="key"/>
+          </xsl:variable>
+          <li>
             <a href="{//runtime/link_prefix}{url}" id="{key}">
-                <xsl:value-of select="/_R_/i18n/*[local-name()=$my_key]"/>
+              <xsl:value-of select="/_R_/i18n/*[local-name()=$my_key]"/>
             </a>
-            </li>
+          </li>
         </xsl:for-each>
-        </ul>
+      </ul>
     </li>
-</xsl:template>
+  </xsl:template>
 </xsl:stylesheet>

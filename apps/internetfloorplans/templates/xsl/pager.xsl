@@ -1,5 +1,5 @@
 <!--
-Program: Internet Floor Plans
+Program: Internet Floor Plans - http://www.internetfloorplans.com/
 Component: pager.xsl
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
@@ -18,8 +18,8 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation,Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301  USA
+or write to the Free Software Foundation, Inc., 51 Franklin Street,
+Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" >
 <!-- This template is used by pages which use the tablesorter and the table paginator -->
