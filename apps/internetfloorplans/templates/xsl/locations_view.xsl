@@ -36,7 +36,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         }
     </xsl:with-param>
     </xsl:call-template>
-<!-- Confirm location deletion -->
+    <!-- Confirm location deletion -->
     <script type="text/javascript">
     var question = 'Are you sure you want to delete this location?';
     function location_delete(location_id,row) {
@@ -48,7 +48,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             });
         }
     }
-</script>
+    </script>
     <div id="my-locations-div">
       <script type="text/javascript">
     document.getElementById('my-locations-div').style.visibility = 'hidden';

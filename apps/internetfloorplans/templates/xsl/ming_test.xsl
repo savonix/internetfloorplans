@@ -22,26 +22,25 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:include href="html_main.xsl"/>
-<xsl:template name="content">
+  <xsl:include href="html_main.xsl"/>
+  <xsl:template name="content">
 
-<script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.swf.js"></script>
-<link rel="stylesheet" type="text/css" href="{//path_prefix}/s/css/jquery.swf.css" />
+    <script type="text/javascript" src="{//path_prefix}/s/js/jquery/plugins/jquery.swf.js"></script>
+    <link rel="stylesheet" type="text/css" href="{//path_prefix}/s/css/jquery.swf.css" />
 
-<script type="text/javascript">
-$(document).ready(function(){
-    $('#space_plan').flash({
-        src: "<xsl:value-of select="//link_prefix"/>ming-test",
-        width: 240,
-        height: 120
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#space_plan').flash({
+            src: "<xsl:value-of select="//link_prefix"/>ming-test",
+            width: 240,
+            height: 120
+        });
     });
-});
-</script>
+    </script>
 
-<div id="space_plan">
+    <div id="space_plan">
     hello,
-</div>
+    </div>
 
-
-</xsl:template>
+  </xsl:template>
 </xsl:stylesheet>

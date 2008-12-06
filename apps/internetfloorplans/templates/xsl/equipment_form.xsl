@@ -36,11 +36,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <input type="hidden" name="equipment_id" value="{//_get/equipment_id}" />
         <input type="hidden" name="type" value="edit" />
       </xsl:if>
-			
+
       <xsl:if test="not(//_get/equipment_id)">
         <input type="hidden" name="type" value="new"/>
       </xsl:if>
-			
+
       <table>
         <tr>
           <td>
@@ -54,7 +54,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <input type="text" name="equipment_number" value="{//equipment_get_by_id/equipment_number}" />
             </xsl:if>
           </td>
-					
+
           <td rowspan="6">
             <xsl:if test="//_get/equipment_id">
               <img src="{//equipment_get_by_id/image_pointer}" />

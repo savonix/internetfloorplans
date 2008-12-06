@@ -81,7 +81,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                             <xsl:value-of select="/_R_/i18n/lock_plan"/>
                         </a>
                     </td>
-                </tr> 
+                </tr>
                 -->
                 <tr>
                   <td>
@@ -116,17 +116,20 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </table>
     <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.swf.js"></script>
     <div id="space_plan">
-    <!-- Show static jpg here when the visitor does not have the flash plugin. -->
+      <!-- Show static jpg here when the visitor does not have the flash plugin. -->
       <img src="{//space_plan_pointer}"/>
     </div>
 
     <xsl:if test="//defaults/use_interactive_space_plans='true'">
-      <script type="text/javascript">
-      var mymoviestring = "<xsl:value-of select="$link_prefix"/>ifp-location-space-plan-server&amp;location_space_plan_id=<xsl:value-of select="//get_location_space_plans/location_space_plan_id"/>&amp;location_address_id=<xsl:value-of select="//_get/location_id"/>&amp;key=<xsl:value-of select="//_get/key"/>";
-      var so = new SWFObject(mymoviestring, "mymovie", "825", "825", "8","#FFFFFF");
-      so.write("space_plan");
-      </script>
-    </xsl:if>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#space_plan').flash({
+            src: "ifp-location-space-plan-server&amp;location_space_plan_id=<xsl:value-of select="//get_location_space_plans/location_space_plan_id"/>&amp;location_address_id=<xsl:value-of select="//_get/location_id"/>&amp;key=<xsl:value-of select="//_get/key"/>",
+            width: 825,
+            height: 825
+        });
+    });
+    </script>
 
   </xsl:template>
 </xsl:stylesheet>

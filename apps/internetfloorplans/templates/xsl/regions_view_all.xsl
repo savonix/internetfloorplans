@@ -37,7 +37,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <form method="post">
       <div id="my-regions-div">
         <script type="text/javascript">
-    document.getElementById('my-regions-div').style.visibility = 'hidden';
+        document.getElementById('my-regions-div').style.visibility = 'hidden';
         </script>
         <table width="100%" class="tablesorter" id="myregions">
           <thead>
