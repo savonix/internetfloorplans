@@ -43,6 +43,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <ifp_database_options>Database Options</ifp_database_options>
   <allow_file_deletion>Allow File Deletion</allow_file_deletion>
   <file_upload_directory>File Upload Directory</file_upload_directory>
+  <file_sub_directories>File Upload Sub-Directories</file_sub_directories>
+  <file_access_directory>File Access Directory</file_access_directory>
   <organize_files>Organize Files Automatically</organize_files>
   <sort_uploads_by_year_and_month>Sort Uploads by Year and Month</sort_uploads_by_year_and_month>
   <sort_uploads_by_file_id>Sort uploads by file id</sort_uploads_by_file_id>

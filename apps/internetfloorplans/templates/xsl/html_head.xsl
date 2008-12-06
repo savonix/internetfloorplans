@@ -29,8 +29,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:call-template name="source_spacer">
       <xsl:with-param name="section_start">head</xsl:with-param>
     </xsl:call-template>
+    <xsl:variable name="gate_key" select="//menu/item/item[url=/_R_/_get/nid]/key"/>
     <head>
-      <title>Internet Floor Plans</title>
+      <title>
+        Internet Floor Plans: 
+        <xsl:value-of select="/_R_/i18n/*[name()=$gate_key]"/>
+        <xsl:value-of select="//location_get_summary/location_get_summary/name"/>
+      </title>
       <link rel="stylesheet" type="text/css" href="{$path_prefix}/s/css/clickmenu.css" />
       <link rel="stylesheet" type="text/css" href="{$link_prefix}dynamic-css"></link>
       <script type="text/javascript" src="{$path_prefix}/s/js/jquery/jquery.js"></script>
