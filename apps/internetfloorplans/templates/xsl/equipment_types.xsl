@@ -25,6 +25,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:include href="html_main.xsl"/>
   <xsl:include href="pager.xsl"/>
   <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
     <xsl:call-template name="jquery-setup">
       <xsl:with-param name="my-table">myequipmenttypes</xsl:with-param>
       <xsl:with-param name="my-table-div">my-equipment-types-div</xsl:with-param>
@@ -40,7 +43,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     var question = '<xsl:value-of select="/_R_/i18n/confirm_equipment_type_delete"/>';
     function equipment_type_delete(equipment_type_id,row) {
         if(confirm(question)) {
-            $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-delete",
+            $.post("<xsl:value-of select="$link_prefix"/>ifp-equipment-type-delete",
             {'equipment_type_id': equipment_type_id},
             function (data){
                 myTable = document.getElementById("myequipmenttypes");
@@ -51,8 +54,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </script>
     <div id="my-equipment-types-div">
       <script type="text/javascript">
-    document.getElementById('my-equipment-types-div').style.visibility = 'hidden';
-</script>
+      document.getElementById('my-equipment-types-div').style.visibility = 'hidden';
+      </script>
       <table width="100%" class="tablesorter" id="myequipmenttypes">
         <thead>
           <tr>
@@ -74,7 +77,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <xsl:for-each select="/_R_/equipment_types_get_all/equipment_types_get_all">
             <tr>
               <td>
-                <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
+                <a href="{$link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
                   <xsl:value-of select="name"/>
                 </a>
               </td>
@@ -82,12 +85,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <xsl:value-of select="description"/>
               </td>
               <td>
-                <a href="{//link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
+                <a href="{$link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
                   <xsl:value-of select="/_R_/i18n/edit"/>
                 </a>
               </td>
               <td>
-                <a href="{//link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}" onclick="equipment_type_delete({equipment_type_id},this.parentNode.parentNode.rowIndex); return false;">
+                <a href="{$link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}" onclick="equipment_type_delete({equipment_type_id},this.parentNode.parentNode.rowIndex); return false;">
                   <xsl:value-of select="/_R_/i18n/delete"/>
                 </a>
               </td>
@@ -96,7 +99,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </tbody>
       </table>
     </div>
-    <a href="{//link_prefix}ifp-equipment-type-edit">
+    <a href="{$link_prefix}ifp-equipment-type-edit">
       <xsl:value-of select="/_R_/i18n/new_equipment_type"/>
     </a>
     <xsl:call-template name="pager">
