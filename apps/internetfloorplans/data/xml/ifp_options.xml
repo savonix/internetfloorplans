@@ -28,6 +28,9 @@ Fifth Floor, Boston, MA 02110-1301  USA
     <option active="1" set="options_upload">
         <option_key>allow_file_deletion</option_key>
     </option>
+    <option active="1" set="options_upload">
+        <option_key>organize_files</option_key>
+    </option>
     <option active="1" set="options_database">
         <option_key>number_of_records</option_key>
     </option>
