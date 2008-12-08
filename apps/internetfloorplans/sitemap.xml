@@ -463,6 +463,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <map:set name="table_prefix" value="ifp_"/>
     <map:set name="engine" value="mysqli"/>
     <map:action type="header" params="Content-Type,text/plain"/>
+    <map:xml src="data/model/db_engines.mysqli.xml"/>
     <map:xsl src="data/model/internetfloorplans.sql.xsl"/>
   </map:gate>
 
