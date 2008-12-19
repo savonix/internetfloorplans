@@ -28,6 +28,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:template name="content">
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
       <xsl:call-template name="equipment-type-menu">
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="path_prefix" select="$path_prefix"/>
@@ -42,7 +43,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <table>
             <tr>
               <td>
-                <xsl:value-of select="/_R_/i18n/images" />
+                <xsl:value-of select="$i18n/images" />
               </td>
             </tr>
             <xsl:for-each select="//equipment_type_get_images">
@@ -57,23 +58,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <table>
             <tr>
               <td>
-                <xsl:value-of select="/_R_/i18n/options"/>
+                <xsl:value-of select="$i18n/options"/>
               </td>
             </tr>
             <xsl:if test="not(//equipment_type_get_images)">
               <tr>
                 <td>
                   <a href="#">
-                    <xsl:value-of select="/_R_/i18n/add_new_image" />
+                    <xsl:value-of select="$i18n/add_new_image" />
                   </a>
                 </td>
               </tr>
             </xsl:if>
             <tr>
               <td>
-                <a href="{//link_prefix}ifp-equipment-delete"
-                  onclick="return confirm('{/_R_/i18n/confirm_delete}')">
-                  <xsl:value-of select="/_R_/i18n/delete_this_image"/>
+                <a href="{$link_prefix}ifp-equipment-delete"
+                  onclick="return confirm('{$i18n/confirm_delete}')">
+                  <xsl:value-of select="$i18n/delete_this_image"/>
                 </a>
               </td>
             </tr>
@@ -81,7 +82,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </td>
 
         <td align="left">
-          <xsl:for-each select="//equipment_type_get_images">
+          <xsl:for-each select="//equipment_type_get_images/equipment_type_get_images">
             <xsl:if test="equipment_type_image_id=//_get/equipment_type_image_id or
             (not(//_get/equipment_type_image_id) and default_image=1)">
               <xsl:value-of select="name"/>

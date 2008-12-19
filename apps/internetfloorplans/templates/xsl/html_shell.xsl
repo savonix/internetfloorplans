@@ -25,14 +25,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:output method="html" indent="yes" encoding="UTF-8" omit-xml-declaration="no" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN" doctype-system="http://www.w3.org/TR/html4/loose.dtd" />
   <xsl:template match="/">
 
-  <!-- Variables to use as parameters throughout the templates -->
-    <xsl:variable name="link_prefix">
-      <xsl:value-of select="//link_prefix"/>
-    </xsl:variable>
+  	<!-- Variables to use as parameters throughout the templates -->
+    <xsl:variable name="link_prefix" select="//link_prefix"/>
 
-    <xsl:variable name="path_prefix">
-      <xsl:value-of select="//path_prefix"/>
-    </xsl:variable>
+    <xsl:variable name="path_prefix" select="//path_prefix"/>
+
+    <xsl:variable name="i18n" select="/_R_/i18n"/>
     <!-- End initial variables -->
 
     <html>
@@ -52,6 +50,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:call-template name="main">
           <xsl:with-param name="link_prefix" select="$link_prefix"/>
           <xsl:with-param name="path_prefix" select="$path_prefix"/>
+					<xsl:with-param name="i18n" select="$i18n"/>
         </xsl:call-template>
 
 

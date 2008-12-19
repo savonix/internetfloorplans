@@ -24,6 +24,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:include href="html_main.xsl"/>
   <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
     <form method="post">
       <xsl:if test="//_get/region_id">
         <input type="hidden" name="region_id" value="{//_get/region_id}"/>
@@ -31,7 +34,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <table>
         <tr>
           <td>
-            <xsl:value-of select="/_R_/i18n/region_name"/>:</td>
+            <xsl:value-of select="$i18n/region_name"/>:</td>
           <td>
             <input type="text" name="name"
               value="{//region_get_by_id/region_name}"/>
@@ -39,7 +42,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </tr>
         <tr>
           <td>
-            <xsl:value-of select="/_R_/i18n/locations"/>:</td>
+            <xsl:value-of select="$i18n/locations"/>:</td>
           <td>
             <table>
               <xsl:for-each select="//locations_get_all/locations_get_all">
@@ -60,7 +63,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <div style="text-align: center;">
         <input type="submit" value="Create" name="submit" />
         <input type="button" value="Cancel"
-          onclick="window.location.href='{//link_prefix}ifp-regions'"/>
+          onclick="window.location.href='{$link_prefix}ifp-regions'"/>
       </div>
     </form>
   </xsl:template>

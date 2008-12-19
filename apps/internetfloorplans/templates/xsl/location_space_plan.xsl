@@ -32,17 +32,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:call-template name="location_menu">
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
       </xsl:call-template>
 
       <xsl:call-template name="location_summary">
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
       </xsl:call-template>
     <!--
     return confirm('Are you sure you want to delete this location image?')
     -->
     <script type="text/javascript">
-    var question = '<xsl:value-of select="/_R_/i18n/labels/delete_plan"/>?';
+    var question = '<xsl:value-of select="$i18n/labels/delete_plan"/>?';
     function location_space_plan_delete(location_space_plan_id) {
         if(confirm(location_space_plan_id)) {
             $.post("<xsl:value-of select="$link_prefix"/>ifp-location-space-plan-delete&amp;location_space_plan_id="+location_space_plan_id, 
@@ -59,7 +61,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <thead>
               <tr>
                 <th>
-                  <xsl:value-of select="/_R_/i18n/space_plan_options"/>:
+                  <xsl:value-of select="$i18n/space_plan_options"/>:
                     </th>
               </tr>
             </thead>
@@ -68,7 +70,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <tr>
                   <td>
                     <a href="{$link_prefix}ifp-location-space-plan-edit&amp;location_id={//_get/location_id}">
-                      <xsl:value-of select="/_R_/i18n/add_new_plan"/>
+                      <xsl:value-of select="$i18n/add_new_plan"/>
                     </a>
                   </td>
                 </tr>
@@ -78,7 +80,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <tr>
                     <td>
                         <a href="{$link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
-                            <xsl:value-of select="/_R_/i18n/lock_plan"/>
+                            <xsl:value-of select="$i18n/lock_plan"/>
                         </a>
                     </td>
                 </tr>
@@ -86,7 +88,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <tr>
                   <td>
                     <a href="{$link_prefix}location_space_plan-delete&amp;location_space_plan_id={//get_location_space_plans/location_space_plan_id}" onclick="location_space_plan_delete({//get_location_space_plans/location_space_plan_id}); return false;">
-                      <xsl:value-of select="/_R_/i18n/delete_plan"/>
+                      <xsl:value-of select="$i18n/delete_plan"/>
                     </a>
                   </td>
                 </tr>
@@ -97,7 +99,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <br/>
             [ PDF Not Available ] / [ PDF ]
             
-            [ <a onclick="return confirm('Are you sure you want to delete this location space plan?')">><xsl:value-of select="/_R_/i18n/delete"/> This Plan</a> ]
+            [ <a onclick="return confirm('Are you sure you want to delete this location space plan?')">><xsl:value-of select="$i18n/delete"/> This Plan</a> ]
             
             <xsl:if test="//_get/key='no'">
             

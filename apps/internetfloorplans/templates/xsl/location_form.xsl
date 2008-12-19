@@ -24,27 +24,38 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:include href="html_main.xsl"/>
   <xsl:template name="content">
-     <form method="post" action="{//link_prefix}ifp-location-edit-submit">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
+     <form method="post" action="{$link_prefix}ifp-location-edit-submit">
       <xsl:if test="//_get/location_id">
         <input type="hidden" name="location_id" value="{//_get/location_id}"/>
       </xsl:if>
-      <xsl:call-template name="form"/>
+      <xsl:call-template name="form">
+				<xsl:with-param name="link_prefix" select="$link_prefix"/>
+				<xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
+			</xsl:call-template>
     </form>
   </xsl:template>
 
   <xsl:template name="form">
-    <xsl:variable name="location_get_summary" select="/_R_/location_get_summary/location_get_summary"/>
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
+    <xsl:variable name="location_get_summary"
+			select="/_R_/location_get_summary/location_get_summary"/>
     <table>
       <xsl:if test="//_post/submit">
         <tr>
           <td colspan="2">
-            <xsl:value-of select="/_R_/i18n/not_valid_data"/>.
+            <xsl:value-of select="$i18n/not_valid_data"/>.
           </td>
         </tr>
       </xsl:if>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/location_name"/>:*
+          <xsl:value-of select="$i18n/location_name"/>:*
         </td>
         <td>
           <input type="text" name="location_name" value="{$location_get_summary/name|//_post/location_name}" />
@@ -52,7 +63,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </tr>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/address_line"/> 1:*
+          <xsl:value-of select="$i18n/address_line"/> 1:*
         </td>
         <td>
           <input type="text" name="address_line_1" size="40" value="{$location_get_summary/address_line_1|//_post/address_line_1}" />
@@ -60,7 +71,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </tr>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/address_line"/> 2:
+          <xsl:value-of select="$i18n/address_line"/> 2:
         </td>
         <td>
           <input type="text" name="address_line_2" size="40" value="{$location_get_summary/address_line_2|//_post/address_line_2}" />
@@ -68,7 +79,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </tr>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/city"/>:*
+          <xsl:value-of select="$i18n/city"/>:*
         </td>
         <td>
           <input type="text" name="city" size="20" value="{$location_get_summary/city|//_post/city}" />
@@ -76,7 +87,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </tr>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/state"/>:*
+          <xsl:value-of select="$i18n/state"/>:*
         </td>
         <td>
           <input type="text" name="state" size="5" value="{$location_get_summary/state|//_post/state}" />
@@ -84,7 +95,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </tr>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/zip"/>:*
+          <xsl:value-of select="$i18n/zip"/>:*
         </td>
         <td>
           <input type="text" name="zip" size="10" value="{$location_get_summary/zip|//_post/zip}" />
@@ -92,7 +103,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </tr>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/phone"/>:
+          <xsl:value-of select="$i18n/phone"/>:
         </td>
         <td>
           <input type="text" name="phone" value="{$location_get_summary/phone|//_post/phone}" />
@@ -100,7 +111,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </tr>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/fax"/>:
+          <xsl:value-of select="$i18n/fax"/>:
         </td>
         <td>
           <input type="text" name="fax" value="{$location_get_summary/fax|//_post/fax}" />
@@ -108,7 +119,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </tr>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/regions"/>:
+          <xsl:value-of select="$i18n/regions"/>:
         </td>
         <td>
           <xsl:for-each select="//regions_get_all/regions_get_all">
@@ -126,7 +137,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <td colspan="2" align="center">
           <br />
           <input type="submit" value="Submit" name="submit" />
-          <input type="button" value="Cancel" onclick="window.location.href='{//link_prefix}ifp-locations'"/>
+          <input type="button" value="Cancel" onclick="window.location.href='{$link_prefix}ifp-locations'"/>
         </td>
       </tr>
     </table>

@@ -54,7 +54,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     var question = 'Are you sure you want to delete this equipment?';
     function equipment_delete(equipment_id,row) {
         if(confirm(question)) {
-            $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-delete", {'equipment_id': equipment_id}, 
+            $.post("<xsl:value-of select="$link_prefix"/>ifp-equipment-delete", {'equipment_id': equipment_id}, 
             function (data){
                 myTable = document.getElementById("my-location-equipment-list");
                 myTable.deleteRow(row);
@@ -71,16 +71,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <thead>
           <tr>
             <th>
-              <xsl:value-of select="/_R_/i18n/id"/>
+              <xsl:value-of select="$i18n/id"/>
             </th>
             <th>
-              <xsl:value-of select="/_R_/i18n/equipment_type"/>
+              <xsl:value-of select="$i18n/equipment_type"/>
             </th>
             <th>
-              <xsl:value-of select="/_R_/i18n/edit"/>
+              <xsl:value-of select="$i18n/edit"/>
             </th>
             <th>
-              <xsl:value-of select="/_R_/i18n/delete"/>
+              <xsl:value-of select="$i18n/delete"/>
             </th>
           </tr>
         </thead>
@@ -88,7 +88,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <xsl:for-each select="//location_get_equipment/location_get_equipment">
             <tr>
               <td>
-                <a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}&amp;location_id={//_get/location_id}">
+                <a href="{$link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}&amp;location_id={//_get/location_id}">
                   <xsl:value-of select="equipment_id"/>
                 </a>
               </td>
@@ -96,14 +96,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <xsl:value-of select="name"/>
               </td>
               <td>
-                <a href="{//link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}">
-                  <xsl:value-of select="/_R_/i18n/edit"/>
+                <a href="{$link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}">
+                  <xsl:value-of select="$i18n/edit"/>
                 </a>
               </td>
               <td>
-                <a href="{//link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}"
+                <a href="{$link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}"
                     onclick="equipment_delete({equipment_id},this.parentNode.parentNode.rowIndex); return false;">
-                  <xsl:value-of select="/_R_/i18n/delete"/>
+                  <xsl:value-of select="$i18n/delete"/>
                 </a>
               </td>
             </tr>
@@ -111,11 +111,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </tbody>
       </table>
 
-    <div style="float: right;" class="generic-button">
-      <a href="{//link_prefix}ifp-equipment-edit&amp;location_id={//_get/location_id}">
-        <xsl:value-of select="/_R_/i18n/add_new_equipment"/>
-      </a>
-    </div>
+			<div style="float: right;" class="generic-button">
+				<a href="{$link_prefix}ifp-equipment-edit&amp;location_id={//_get/location_id}">
+					<xsl:value-of select="$i18n/add_new_equipment"/>
+				</a>
+			</div>
     </div>
     <xsl:call-template name="pager">
       <xsl:with-param name="my-table">my-location-equipment-list</xsl:with-param>

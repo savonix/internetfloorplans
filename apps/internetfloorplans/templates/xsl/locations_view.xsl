@@ -25,23 +25,26 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:include href="html_main.xsl"/>
   <xsl:include href="pager.xsl"/>
   <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
     <xsl:call-template name="jquery-setup">
       <xsl:with-param name="my-table">mylocations</xsl:with-param>
       <xsl:with-param name="my-table-div">my-locations-div</xsl:with-param>
       <xsl:with-param name="no-sort-column">,
-        headers: {
-            3: {sorter: false},
-            4: {sorter: false},
-            5: {sorter: false}
-        }
-    </xsl:with-param>
+			headers: {
+					3: {sorter: false},
+					4: {sorter: false},
+					5: {sorter: false}
+			}
+			</xsl:with-param>
     </xsl:call-template>
     <!-- Confirm location deletion -->
     <script type="text/javascript">
     var question = 'Are you sure you want to delete this location?';
     function location_delete(location_id,row) {
         if(confirm(question)) { 
-            $.post("<xsl:value-of select="//link_prefix"/>ifp-location-delete", {'location_id': location_id}, 
+            $.post("<xsl:value-of select="$link_prefix"/>ifp-location-delete", {'location_id': location_id}, 
             function (data){
                 myTable = document.getElementById("mylocations");
                 myTable.deleteRow(row);
@@ -51,46 +54,54 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </script>
     <div id="my-locations-div">
       <script type="text/javascript">
-    document.getElementById('my-locations-div').style.visibility = 'hidden';
-</script>
+			document.getElementById('my-locations-div').style.visibility = 'hidden';
+			</script>
       <table width="100%" class="tablesorter" id="mylocations">
         <thead>
           <tr>
             <th>
-              <xsl:value-of select="/_R_/i18n/branch_name"/>
+              <xsl:value-of select="$i18n/branch_name"/>
             </th>
             <th>
-              <xsl:value-of select="/_R_/i18n/address"/>
+              <xsl:value-of select="$i18n/address"/>
             </th>
             <th>
-              <xsl:value-of select="/_R_/i18n/city"/>
+              <xsl:value-of select="$i18n/city"/>
             </th>
             <th>
-              <xsl:value-of select="/_R_/i18n/phone"/>
+              <xsl:value-of select="$i18n/phone"/>
             </th>
             <th>
-              <xsl:value-of select="/_R_/i18n/edit"/>
+              <xsl:value-of select="$i18n/edit"/>
             </th>
             <th>
-              <xsl:value-of select="/_R_/i18n/delete"/>
+              <xsl:value-of select="$i18n/delete"/>
             </th>
           </tr>
         </thead>
         <tbody>
           <xsl:for-each select="/_R_/locations_get_all/locations_get_all">
             <xsl:if test="not(//x_view)">
-              <xsl:call-template name="location_row"/>
+              <xsl:call-template name="location_row">
+								<xsl:with-param name="link_prefix" select="$link_prefix"/>
+								<xsl:with-param name="path_prefix" select="$path_prefix"/>
+								<xsl:with-param name="i18n" select="$i18n"/>
+							</xsl:call-template>
             </xsl:if>
             <xsl:if test="(//x_view) and (status_id=0)">
-              <xsl:call-template name="location_row"/>
+              <xsl:call-template name="location_row">
+								<xsl:with-param name="link_prefix" select="$link_prefix"/>
+								<xsl:with-param name="path_prefix" select="$path_prefix"/>
+								<xsl:with-param name="i18n" select="$i18n"/>
+							</xsl:call-template>
             </xsl:if>
           </xsl:for-each>
         </tbody>
       </table>
     </div>
     <div style="float: right;" class="generic-button">
-      <a href="{//link_prefix}ifp-location-create">
-        <xsl:value-of select="/_R_/i18n/add_location"/>
+      <a href="{$link_prefix}ifp-location-create">
+        <xsl:value-of select="$i18n/add_location"/>
       </a>
     </div>
     <xsl:call-template name="pager">
@@ -100,9 +111,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 
   <xsl:template name="location_row">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
     <tr>
       <td>
-        <a href="{//link_prefix}ifp-location-view&amp;location_id={location_id}">
+        <a href="{$link_prefix}ifp-location-view&amp;location_id={location_id}">
           <xsl:value-of select="name"/>
         </a>
       </td>
@@ -116,14 +130,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:value-of select="phone"/>
       </td>
       <td>
-        <a href="{//link_prefix}ifp-location-edit&amp;location_id={location_id}">
-          <xsl:value-of select="/_R_/i18n/edit"/>
+        <a href="{$link_prefix}ifp-location-edit&amp;location_id={location_id}">
+          <xsl:value-of select="$i18n/edit"/>
         </a>
       </td>
       <td>
-        <a href="{//link_prefix}ifp-location-delete&amp;location_id={location_id}"
+        <a href="{$link_prefix}ifp-location-delete&amp;location_id={location_id}"
           onclick="location_delete({location_id},this.parentNode.parentNode.rowIndex); return false;">
-          <xsl:value-of select="/_R_/i18n/delete"/>
+          <xsl:value-of select="$i18n/delete"/>
         </a>
       </td>
     </tr>

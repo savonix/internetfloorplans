@@ -33,14 +33,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <input type="hidden" name="location_id" value="{//_get/location_id}"/>
 
       <xsl:call-template name="location_menu">
-        <xsl:with-param name="link_prefix" select="$link_prefix"/>
-        <xsl:with-param name="path_prefix" select="$path_prefix"/>
-      </xsl:call-template>
+				<xsl:with-param name="link_prefix" select="$link_prefix"/>
+				<xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
+			</xsl:call-template>
 
       <xsl:call-template name="location_summary">
-        <xsl:with-param name="link_prefix" select="$link_prefix"/>
-        <xsl:with-param name="path_prefix" select="$path_prefix"/>
-      </xsl:call-template>
+				<xsl:with-param name="link_prefix" select="$link_prefix"/>
+				<xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
+			</xsl:call-template>
 
       <table>
         <tr>
@@ -48,7 +50,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <table class="simple-table">
               <tr>
                 <td>
-                  <xsl:value-of select="/_R_/i18n/virtual_tours"/>
+                  <xsl:value-of select="$i18n/virtual_tours"/>
                 </td>
               </tr>
               <xsl:for-each select="//get_location_images">
@@ -63,7 +65,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <thead>
                 <tr>
                   <th>
-                    <xsl:value-of select="/_R_/i18n/tour_options"/>
+                    <xsl:value-of select="$i18n/tour_options"/>
                   </th>
                 </tr>
               </thead>
@@ -71,7 +73,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <tr>
                   <td>
                     <a href="{$link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
-                      <xsl:value-of select="/_R_/i18n/add_new_image"/>
+                      <xsl:value-of select="$i18n/add_new_image"/>
                     </a>
                   </td>
                 </tr>
@@ -80,9 +82,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 <tr>
                   <td>
                     <a href="#"
-                      onclick="return confirm('{/_R_/i18n/confirm_delete}')">
-                      <xsl:value-of select="/_R_/i18n/delete"/>
-                      <xsl:value-of select="/_R_/i18n/this_image"/>
+                      onclick="return confirm('{$i18n/confirm_delete}')">
+                      <xsl:value-of select="$i18n/delete"/>
+                      <xsl:value-of select="$i18n/this_image"/>
                     </a>
                   </td>
                 </tr>

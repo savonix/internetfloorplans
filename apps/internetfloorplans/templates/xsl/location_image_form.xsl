@@ -27,12 +27,28 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:include href="location_menu.xsl"/>
   <xsl:include href="upload_form.xsl"/>
   <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
     <form enctype="multipart/form-data" method="post">
       <input type="hidden" name="dest" value="/tmp/"/>
       <input type="hidden" name="location_id" value="{//_get/location_id}"/>
-      <xsl:call-template name="location_menu" />
-      <xsl:call-template name="location_summary" />
-      <xsl:call-template name="upload_form" />
+      <xsl:call-template name="location_menu">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
+      </xsl:call-template>
+
+      <xsl:call-template name="location_summary">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
+      </xsl:call-template>
+      <xsl:call-template name="upload_form">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
+      </xsl:call-template>
     </form>
   </xsl:template>
 </xsl:stylesheet>

@@ -40,7 +40,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </xsl:call-template>
     <!-- Confirm equipment deletion -->
     <script type="text/javascript">
-    var question = '<xsl:value-of select="/_R_/i18n/confirm_equipment_type_delete"/>';
+    var question = '<xsl:value-of select="$i18n/confirm_equipment_type_delete"/>';
     function equipment_type_delete(equipment_type_id,row) {
         if(confirm(question)) {
             $.post("<xsl:value-of select="$link_prefix"/>ifp-equipment-type-delete",
@@ -60,16 +60,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <thead>
           <tr>
             <th>
-              <xsl:value-of select="/_R_/i18n/equipment_type_name" />
+              <xsl:value-of select="$i18n/equipment_type_name" />
             </th>
             <th>
-              <xsl:value-of select="/_R_/i18n/description" />
+              <xsl:value-of select="$i18n/description" />
             </th>
             <th>
-              <xsl:value-of select="/_R_/i18n/edit" />
+              <xsl:value-of select="$i18n/edit" />
             </th>
             <th>
-              <xsl:value-of select="/_R_/i18n/delete" />
+              <xsl:value-of select="$i18n/delete" />
             </th>
           </tr>
         </thead>
@@ -86,12 +86,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
               </td>
               <td>
                 <a href="{$link_prefix}ifp-equipment-type-edit&amp;equipment_type_id={equipment_type_id}">
-                  <xsl:value-of select="/_R_/i18n/edit"/>
+                  <xsl:value-of select="$i18n/edit"/>
                 </a>
               </td>
               <td>
                 <a href="{$link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}" onclick="equipment_type_delete({equipment_type_id},this.parentNode.parentNode.rowIndex); return false;">
-                  <xsl:value-of select="/_R_/i18n/delete"/>
+                  <xsl:value-of select="$i18n/delete"/>
                 </a>
               </td>
             </tr>
@@ -100,7 +100,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </table>
     </div>
     <a href="{$link_prefix}ifp-equipment-type-edit">
-      <xsl:value-of select="/_R_/i18n/new_equipment_type"/>
+      <xsl:value-of select="$i18n/new_equipment_type"/>
     </a>
     <xsl:call-template name="pager">
       <xsl:with-param name="my-table">myequipmenttypes</xsl:with-param>
