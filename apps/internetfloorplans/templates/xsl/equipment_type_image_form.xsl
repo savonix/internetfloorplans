@@ -27,13 +27,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:include href="equipment_type_summary.xsl"/>
   <xsl:include href="upload_form.xsl"/>
   <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
       <xsl:call-template name="equipment-type-menu">
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
       </xsl:call-template>
       <xsl:call-template name="equipment-type-summary">
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
       </xsl:call-template>
     <form enctype="multipart/form-data" method="post">
       <input type="hidden" name="dest" value="{//option_get[option_key='file_upload_directory']/option_value}" />

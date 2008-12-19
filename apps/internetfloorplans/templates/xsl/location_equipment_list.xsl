@@ -34,11 +34,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:call-template name="location_menu">
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
       </xsl:call-template>
 
       <xsl:call-template name="location_summary">
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
       </xsl:call-template>
     <xsl:call-template name="jquery-setup">
       <xsl:with-param name="my-table">my-location-equipment-list</xsl:with-param>

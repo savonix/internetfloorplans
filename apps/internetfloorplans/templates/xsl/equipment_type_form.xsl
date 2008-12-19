@@ -24,9 +24,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
   <xsl:include href="html_main.xsl"/>
   <xsl:include href="equipment_type_menu.xsl"/>
-	
   <xsl:template name="content">
-    <xsl:call-template name="equipment-type-menu"/>
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
+      <xsl:call-template name="equipment-type-menu">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
+      </xsl:call-template>
     <form method="post">
       <xsl:if test="//_get/equipment_type_id">
         <input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>

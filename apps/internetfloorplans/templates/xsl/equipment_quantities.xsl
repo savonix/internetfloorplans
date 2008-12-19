@@ -24,16 +24,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:include href="html_main.xsl"/>
 	<xsl:include href="equipment_menu.xsl"/>
-
 	<xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
 		<xsl:call-template name="equipment_menu" />
 		<table class="simple-table">
 			<tr>
 				<td>
-					<xsl:value-of select="/_R_/i18n/equipment_type"/>
+					<xsl:value-of select="$i18n/equipment_type"/>
 				</td>
 				<td>
-					<xsl:value-of select="/_R_/i18n/quantity"/>
+					<xsl:value-of select="$i18n/quantity"/>
 				</td>
 			</tr>
 			<xsl:for-each select="/_R_/equipment_types_get_all/equipment_types_get_all">
