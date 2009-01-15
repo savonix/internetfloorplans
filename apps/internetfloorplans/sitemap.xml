@@ -456,7 +456,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   </map:gate>
   <map:gate name="dynamic-css" cache="0">
     <map:action type="header" params="Content-Type,text/css"/>
-    <map:xml src="data/xml/default_css_colors.xml"/>
+    <map:xml src="data/css/default_css_colors.xml"/>
     <map:xsl src="templates/css/dynamic.css.xsl"/>
   </map:gate>
   <map:gate name="dynamic-database-model" cache="0">
