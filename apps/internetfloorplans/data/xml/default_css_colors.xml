@@ -22,13 +22,13 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <css>
-    <colors>
-        <background>#</background>
-        <light-background>#C9DDE6</light-background>
-        <light-background-alt>#EBECF5</light-background-alt>
-        <med-background>#</med-background>
-        <med-background-alt>#</med-background-alt>
-        <dark-background>#</dark-background>
-        <header-hover>#</header-hover>
-    </colors>
+	<colors>
+		<background>#</background>
+		<light-background>#C9DDE6</light-background>
+		<light-background-alt>#EBECF5</light-background-alt>
+		<med-background>#</med-background>
+		<med-background-alt>#</med-background-alt>
+		<dark-background>#</dark-background>
+		<header-hover>#</header-hover>
+	</colors>
 </css>
