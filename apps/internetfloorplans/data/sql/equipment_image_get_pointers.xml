@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: 
+Component: equipment_image_get_pointers.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -23,13 +23,12 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="get_image_pointer_by_id">
-    <connection>&ifp_connection_read;</connection>
-    <params>
-        <param name="//equipment_type_image_id" type="text"/>
-        <param name="runtime/utdate" type="text"/>
+	<connection>&ifp_connection_read;</connection>
+	<params>
+		<param name="//equipment_type_image_id" type="text"/>
+		<param name="runtime/utdate" type="text"/>
 	</params>
-    <sql>
-        SELECT image_pointer, thumb_pointer, mime_type FROM &ifp_equipment_type_images; WHERE equipment_type_image_id = ?
-		 AND deletion_datetime &gt; ?
-    </sql>
+	<sql>
+	SELECT image_pointer, thumb_pointer, mime_type FROM &ifp_equipment_type_images; WHERE equipment_type_image_id = ? AND deletion_datetime &gt; ?
+	</sql>
 </query>

@@ -23,11 +23,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="location_get_last_equipment_id">
-    <connection>&ifp_connection;</connection>
-	<params>
-	</params>
-    <sql>
-        SELECT Max(equipment_id) as equipment_id 
-        FROM &ifp_equipment;
-    </sql>
+	<connection>&ifp_connection;</connection>
+	<params></params>
+	<sql>
+	SELECT Max(equipment_id) as equipment_id FROM &ifp_equipment;
+	</sql>
 </query>

@@ -21,19 +21,15 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
-
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="get_location_regions">
-
-    <connection>&ifp_connection;</connection>
-    <params>
-        <param name="_get/location_id" type="text"/>
+	<connection>&ifp_connection;</connection>
+	<params>
+		<param name="_get/location_id" type="text"/>
 	</params>
-	
-    <sql>
-        SELECT uplink_region.region_id FROM uplink_location_region, uplink_region 
-        WHERE uplink_location_region.location_id = ?
-		AND uplink_location_region.region_id=uplink_region.region_id
-    </sql>
-    
+	<sql>
+	SELECT uplink_region.region_id FROM uplink_location_region, uplink_region
+	WHERE uplink_location_region.location_id = ?
+	AND uplink_location_region.region_id=uplink_region.region_id
+	</sql>
 </query>

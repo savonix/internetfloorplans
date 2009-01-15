@@ -23,12 +23,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="get_location_space_plans">
-    <connection>&ifp_connection;</connection>
-    <params>
-        <param name="_get/location_id" type="text"/>
+	<connection>&ifp_connection;</connection>
+	<params>
+		<param name="_get/location_id" type="text"/>
 	</params>
-    <sql>
-        SELECT * FROM &ifp_location_space_plans; 
-        WHERE location_id = ?
-    </sql>
+	<sql>
+	SELECT * FROM &ifp_location_space_plans; WHERE location_id = ?
+	</sql>
 </query>

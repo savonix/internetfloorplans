@@ -23,22 +23,22 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="add_location_image">
-    <connection>&ifp_connection;</connection>
-    <params>
-        <param name="_post/name" type="text"/>
-        <param name="_post/location_id" type="text"/>
+	<connection>&ifp_connection;</connection>
+	<params>
+		<param name="_post/name" type="text"/>
+		<param name="_post/location_id" type="text"/>
 		<param name="_post/default" type="text"/>
 		<param name="php:$_POST['prefix'].'_'.$_FILES['file']['name']" type="text"/>
 		<param name="//thumbname" type="text"/>
 		<param name="_files/file/type" type="text"/>
 		<param name="_post/comments" type="text"/>
-        <param name="//right_now" type="text"/>
+		<param name="//right_now" type="text"/>
 		<param name="//width" type="text"/>
 		<param name="//height" type="text"/>
-    </params>
-    <sql>
-        INSERT INTO &ifp_location_images;
-		(name,location_id,default_image, image_pointer,thumb_pointer,mime_type,comments, creation_datetime,width,height) 
-		VALUES (?,?,?,?,?,?,?,?,?,?)
-    </sql>
+	</params>
+	<sql>
+	INSERT INTO &ifp_location_images;
+	(name,location_id,default_image, image_pointer,thumb_pointer,mime_type,comments, creation_datetime,width,height) 
+	VALUES (?,?,?,?,?,?,?,?,?,?)
+	</sql>
 </query>

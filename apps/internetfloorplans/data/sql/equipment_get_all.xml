@@ -23,22 +23,21 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="equipment_get_all">
-    <connection>&ifp_connection_read;</connection>
-    <params>
-	</params>
-    <sql>
-        SELECT &ifp_equipment;.*, 
-        &ifp_equipment_types;.name, &ifp_equipment_types;.equipment_type_id, 
-        (&ifp_locations;.name) as location_address_name, &ifp_locations;.location_id
-		
-		FROM (&ifp_equipment;, &ifp_equipment_types;, &ifp_locations;)
-		
-		LEFT JOIN &ifp_location_equipment;
-		ON (&ifp_locations;.location_id=&ifp_location_equipment;.location_id)
-		
-		WHERE 
-        &ifp_equipment;.equipment_type_id=&ifp_equipment_types;.equipment_type_id
-		AND &ifp_location_equipment;.equipment_id=&ifp_equipment;.equipment_id
-		ORDER BY &ifp_locations;.name, &ifp_equipment_types;.name
-    </sql>
+	<connection>&ifp_connection_read;</connection>
+	<params></params>
+	<sql>
+	SELECT &ifp_equipment;.*,
+	&ifp_equipment_types;.name, &ifp_equipment_types;.equipment_type_id,
+	(&ifp_locations;.name) as location_address_name, &ifp_locations;.location_id
+
+	FROM (&ifp_equipment;, &ifp_equipment_types;, &ifp_locations;)
+
+	LEFT JOIN &ifp_location_equipment;
+	ON (&ifp_locations;.location_id=&ifp_location_equipment;.location_id)
+
+	WHERE
+	&ifp_equipment;.equipment_type_id=&ifp_equipment_types;.equipment_type_id
+	AND &ifp_location_equipment;.equipment_id=&ifp_equipment;.equipment_id
+	ORDER BY &ifp_locations;.name, &ifp_equipment_types;.name
+	</sql>
 </query>
