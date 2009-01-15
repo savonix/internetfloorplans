@@ -22,28 +22,28 @@ or write to the Free Software Foundation,Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301  USA
 -->
 <static_file_types>
-    <type active="1">
-        <key>space_plan</key>
-        <label>Space Plan</label>
-    </type>
-    <type active="1">
-        <key>virtual_tour</key>
-        <label>Virtual Tour</label>
-    </type>
-    <type active="1">
-        <key>equipment_type_icon</key>
-        <label>Equipment Type Icon</label>
-    </type>
-    <type active="1">
-        <key>equipment_type_image</key>
-        <label>Equipment Type Image</label>
-    </type>
-    <type active="1">
-        <key>equipment_image</key>
-        <label>Equipment Image</label>
-    </type>
-    <type active="1">
-        <key>other</key>
-        <label>Other</label>
-    </type>
+	<type active="1">
+		<key>space_plan</key>
+		<label>Space Plan</label>
+	</type>
+	<type active="1">
+		<key>virtual_tour</key>
+		<label>Virtual Tour</label>
+	</type>
+	<type active="1">
+		<key>equipment_type_icon</key>
+		<label>Equipment Type Icon</label>
+	</type>
+	<type active="1">
+		<key>equipment_type_image</key>
+		<label>Equipment Type Image</label>
+	</type>
+	<type active="1">
+		<key>equipment_image</key>
+		<label>Equipment Image</label>
+	</type>
+	<type active="1">
+		<key>other</key>
+		<label>Other</label>
+	</type>
 </static_file_types>
