@@ -30,10 +30,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <script type="text/javascript">
     $(document).ready(function()
     {
-        $('#top-main-menu').clickMenu();
+        $('#nav').droppy();
     });
     </script>
-    <ul id="top-main-menu">
+    <ul id="nav">
       <xsl:for-each select="//menu/item[not(@active=0)]">
         <xsl:call-template name="button">
           <xsl:with-param name="key">
