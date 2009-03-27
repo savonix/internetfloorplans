@@ -90,6 +90,7 @@ a.generic-button {
 }
 #nav li div {
   padding: 2px 8px;
+  cursor: pointer;
 }
 </xsl:template>
 </xsl:stylesheet>

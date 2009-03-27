@@ -28,19 +28,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:with-param name="section_start">footer</xsl:with-param>
     </xsl:call-template>
     <div id="footer">
-      <footer>
-        <a href="http://www.internetfloorplans.com/blog/">
-          <xsl:value-of select="/_R_/i18n/open_source_internet_software"/>
-        </a>.
-        <a href="http://www.internetfloorplans.com/trac/browser/?rev={//svn_revision}">
-          Revision ~ <xsl:value-of select="//svn_revision"/>
-        </a>
-        <xsl:value-of select="/_R_/i18n/copyright"/>.
+      <a href="http://www.internetfloorplans.com/blog/">
+        <xsl:value-of select="/_R_/i18n/open_source_internet_software"/>
+      </a>.
+      <xsl:value-of select="/_R_/i18n/copyright"/>.
 
-        <a href="{//link_prefix}ifp-iframe-viewer&amp;url=license">
-          <xsl:value-of select="/_R_/i18n/license"/>
-        </a>.
-      </footer>
+      <a href="{//link_prefix}ifp-iframe-viewer&amp;url=license">
+        <xsl:value-of select="/_R_/i18n/license"/>
+      </a>.
     </div>
     <xsl:call-template name="source_spacer">
       <xsl:with-param name="section_end">footer</xsl:with-param>
