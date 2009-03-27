@@ -88,6 +88,8 @@ a.generic-button {
     border-style: solid;
     text-align: center;
 }
-
+#nav li div {
+  padding: 2px 8px;
+}
 </xsl:template>
 </xsl:stylesheet>

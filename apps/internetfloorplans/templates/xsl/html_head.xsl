@@ -37,18 +37,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:value-of select="/_R_/i18n/*[name()=$gate_key]"/>
         <xsl:value-of select="//location_get_summary/location_get_summary/name"/>
       </title>
-      <link rel="stylesheet" type="text/css" href="{$path_prefix}/s/css/clickmenu.css" />
-      <link rel="stylesheet" type="text/css" href="{$link_prefix}dynamic-css"></link>
-      <script type="text/javascript" src="{$path_prefix}/s/js/jquery/jquery.js"></script>
-      <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.cookiejar.js"></script>
-      <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.tablesorter.min.js"></script>
-      <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.tablesorter.pager.js"></script>
-      <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.dimensions.js"></script>
-      <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.cookie.js"></script>
-      <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.json.js"></script>
-      <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.tablesorter.cookie.js"></script>
-      <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.clickmenu.js"></script>
-      <script type="text/javascript" src="{$path_prefix}/s/js/jsval.js"></script>
+      <link rel="stylesheet" type="text/css" href="{$path_prefix}s/css/droppy.css" />
+      <link rel="stylesheet" type="text/css" href="{$link_prefix}x-dynamic-css"></link>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/jquery.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.cookiejar.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.tablesorter.min.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.tablesorter.pager.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.dimensions.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.cookie.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.json.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.tablesorter.cookie.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.droppy.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jsval.js"></script>
       <xsl:for-each select="//head_nodes">
 				<xsl:sort select="priority" order="ascending"/>
 				<xsl:apply-templates select="nodes/*"/>
