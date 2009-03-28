@@ -52,7 +52,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <xsl:value-of select="//equipment_get_by_id/equipment_number" />
             </xsl:if>
             <xsl:if test="not(//_get/equipment_id)">
-              <input type="text" name="equipment_number" value="{//equipment_get_by_id/equipment_number}" />
+              <input type="text" name="equipment_number"
+                value="{//equipment_get_by_id/equipment_number}" />
             </xsl:if>
           </td>
 
@@ -82,8 +83,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   <option value="{equipment_type_id}">
                     <xsl:if test=" equipment_type_id= //equipment_get_by_id/equipment_type_id ">
                       <xsl:attribute name="selected">
-                                    selected
-                                </xsl:attribute>
+                        selected
+                      </xsl:attribute>
                     </xsl:if>
                     <xsl:value-of select="name"/>
                   </option>
@@ -106,8 +107,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   <option value="{location_id}">
                     <xsl:if test=" location_id= //equipment_get_by_id/location_id ">
                       <xsl:attribute name="selected">
-                                    selected
-                                </xsl:attribute>
+                        selected
+                      </xsl:attribute>
                     </xsl:if>
                     <xsl:value-of select="name"/>
                   </option>

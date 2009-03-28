@@ -60,7 +60,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </table>
       <div style="text-align: center;">
         <input type="submit" value="Submit" name="submit"/>
-        <input type="button" value="Cancel" onclick="window.location.href='{//link_prefix}ifp-equipment-types'"/>
+        <input type="button" value="Cancel"
+          onclick="window.location.href='{//link_prefix}ifp-equipment-types'"/>
       </div>
     </form>
   </xsl:template>
