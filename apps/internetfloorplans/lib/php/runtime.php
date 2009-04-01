@@ -39,22 +39,16 @@ if ($_GET['view_flow'] == "true" ) {
 $utcdate = gmdate('Y-m-d H:i:s');
 
 
-if (is_file('../revision')) {
-    $svn_revision = file_get_contents('../revision');
-}
-
-
 $defaults = Nexista_Config::getSection('defaults');
 Nexista_Flow::add("defaults", $defaults, false);
 
 $runtime = array(
-                'path_prefix' => $path_prefix,
-                'link_prefix' => $link_prefix,
-                'utcdate' => $utcdate,
-                'user_id' => $current_user_id,
-                'upload_dest' => $upload_dest,
-                'svn_revision' => $svn_revision
-                );
+    'path_prefix' => $path_prefix,
+    'link_prefix' => $link_prefix,
+    'utcdate' => $utcdate,
+    'user_id' => $current_user_id,
+    'upload_dest' => $upload_dest
+    );
 
 Nexista_Flow::add("runtime", $runtime, false);
 ?>

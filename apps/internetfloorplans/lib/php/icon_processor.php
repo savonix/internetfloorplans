@@ -1,5 +1,5 @@
 <?php
-/*
+/* <!--
 Program: Internet Floor Plans
 Component: icon_processor.php
 Copyright: Savonix Corporation
@@ -21,7 +21,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
-*/
+--> */
 $filename = Nexista_Path::get("_files/file/name","flow");
 
 $path = $_SERVER['SCRIPT_FILENAME'];
@@ -49,8 +49,6 @@ rm $c_ppm";
 
 
 fork($my_commands);
-
-
 
 
 

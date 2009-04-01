@@ -1,5 +1,5 @@
 <?php
-/*
+/* <!--
 Program: Internet Floor Plans
 Component: floorplan_generator.php
 Copyright: Savonix Corporation
@@ -21,7 +21,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
-*/
+--> */
 
 $x_shift=0;
 // This is 3/4 the size of an 11x11 page.

@@ -1,5 +1,5 @@
 <?php
-/*
+/* <!--
 Program: Internet Floor Plans
 Component: ming_test.php
 Copyright: Savonix Corporation
@@ -21,7 +21,7 @@ You should have received a copy of the GNU Affero General Public License
 along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
-*/
+--> */
 ming_useswfversion(7);
 
 $m = new SWFMovie();
@@ -38,7 +38,6 @@ $m->add($my_key_label_header);
 //$m->save('/tmp/ming_test.swf');
 
 $m->output();
-
 
 
 ?>
