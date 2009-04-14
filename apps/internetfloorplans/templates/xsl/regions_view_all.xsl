@@ -31,7 +31,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="i18n"/>
     <xsl:call-template name="jquery-setup">
       <xsl:with-param name="my-table">myregions</xsl:with-param>
-      <xsl:with-param name="my-table-div">my-regions-div</xsl:with-param>
       <xsl:with-param name="no-sort-column">,
 			headers: {
 					0: {sorter: false}
@@ -39,10 +38,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 			</xsl:with-param>
     </xsl:call-template>
     <form method="post">
-      <div id="my-regions-div">
-        <script type="text/javascript">
-        document.getElementById('my-regions-div').style.visibility = 'hidden';
-        </script>
+      <div id="tableframe">
         <table width="100%" class="tablesorter" id="myregions">
           <thead>
             <tr>
@@ -62,9 +58,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
           <!-- Regions-->
             <xsl:for-each select="//regions_get_all/regions_get_all">
               <xsl:sort select="region_name"/>
-              <xsl:variable name="current_region_id">
-                <xsl:value-of select="region_id"/>
-              </xsl:variable>
+              <xsl:variable name="current_region_id" select="region_id"/>
               <tr>
                 <td>
                   <input type="checkbox" name="region_id[]">
@@ -86,7 +80,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   <xsl:for-each select="//get_all_region_data">
                     <xsl:if test="$current_region_id=region_id">
                       <xsl:value-of select="name"/>
-                      <xsl:text></xsl:text>
                     </xsl:if>
                   </xsl:for-each>
                 </td>

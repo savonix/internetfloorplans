@@ -45,7 +45,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </xsl:call-template>
     <xsl:call-template name="jquery-setup">
       <xsl:with-param name="my-table">my-location-equipment-list</xsl:with-param>
-      <xsl:with-param name="my-table-div">my-location-equipment-list-div</xsl:with-param>
       <xsl:with-param name="no-sort-column">,
         headers: {
             2: {sorter: false},
@@ -55,12 +54,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
     </xsl:call-template>
     <script type="text/javascript">
     var question = 'Are you sure you want to delete this equipment?';
-    function equipment_delete(equipment_id,row) {
+    function equipment_delete(equipment_id) {
         if(confirm(question)) {
-            $.post("<xsl:value-of select="$link_prefix"/>ifp-equipment-delete", {'equipment_id': equipment_id}, 
+            $.post("<xsl:value-of select="$link_prefix"/>ifp-equipment-delete", {'equipment_id': equipment_id},
             function (data){
-                myTable = document.getElementById("my-location-equipment-list");
-                myTable.deleteRow(row);
             });
         }
     }
@@ -89,7 +86,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </thead>
         <tbody>
           <xsl:for-each select="//location_get_equipment/location_get_equipment">
-            <tr>
+            <tr id="e_{equipment_id}">
               <td>
                 <a href="{$link_prefix}ifp-equipment-edit&amp;equipment_id={equipment_id}&amp;location_id={//_get/location_id}">
                   <xsl:value-of select="equipment_id"/>
@@ -105,7 +102,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               </td>
               <td>
                 <a href="{$link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}"
-                    onclick="equipment_delete({equipment_id},this.parentNode.parentNode.rowIndex); return false;">
+                    onclick="equipment_delete({equipment_id}); return false;">
                   <xsl:value-of select="$i18n/delete"/>
                 </a>
               </td>

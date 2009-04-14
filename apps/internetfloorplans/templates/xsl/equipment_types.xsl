@@ -31,7 +31,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="i18n"/>
     <xsl:call-template name="jquery-setup">
       <xsl:with-param name="my-table">myequipmenttypes</xsl:with-param>
-      <xsl:with-param name="my-table-div">my-equipment-types-div</xsl:with-param>
       <xsl:with-param name="no-sort-column">,
         headers: {
             2: {sorter: false},
@@ -42,21 +41,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <!-- Confirm equipment deletion -->
     <script type="text/javascript">
     var question = '<xsl:value-of select="$i18n/confirm_equipment_type_delete"/>';
-    function equipment_type_delete(equipment_type_id,row) {
+    function equipment_type_delete(equipment_type_id) {
         if(confirm(question)) {
             $.post("<xsl:value-of select="$link_prefix"/>ifp-equipment-type-delete",
             {'equipment_type_id': equipment_type_id},
             function (data){
-                myTable = document.getElementById("myequipmenttypes");
-                myTable.deleteRow(row);
             });
         }
     }
     </script>
-    <div id="my-equipment-types-div">
-      <script type="text/javascript">
-      document.getElementById('my-equipment-types-div').style.visibility = 'hidden';
-      </script>
+    <div id="tableframe">
       <table width="100%" class="tablesorter" id="myequipmenttypes">
         <thead>
           <tr>
@@ -91,7 +85,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 </a>
               </td>
               <td>
-                <a href="{$link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}" onclick="equipment_type_delete({equipment_type_id},this.parentNode.parentNode.rowIndex); return false;">
+                <a href="{$link_prefix}ifp-equipment-type-delete&amp;equipment_type_id={equipment_type_id}"
+                  onclick="equipment_type_delete({equipment_type_id}); return false;">
                   <xsl:value-of select="$i18n/delete"/>
                 </a>
               </td>

@@ -44,9 +44,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </xsl:call-template>
     <xsl:call-template name="jquery-setup">
       <xsl:with-param name="my-table">my-location-equipment-list</xsl:with-param>
-      <xsl:with-param name="my-table-div">my-location-equipment-list-div</xsl:with-param>
     </xsl:call-template>
-    <div id="my-location-equipment-list-div">
+    <div id="tableframe">
 
       <table width="100%" class="tablesorter" id="my-location-equipment-list">
         <thead>

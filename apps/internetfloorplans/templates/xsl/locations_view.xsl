@@ -31,7 +31,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="i18n"/>
     <xsl:call-template name="jquery-setup">
       <xsl:with-param name="my-table">mylocations</xsl:with-param>
-      <xsl:with-param name="my-table-div">my-locations-div</xsl:with-param>
       <xsl:with-param name="no-sort-column">,
 			headers: {
 					3: {sorter: false},
@@ -43,20 +42,16 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <!-- Confirm location deletion -->
     <script type="text/javascript">
     var question = 'Are you sure you want to delete this location?';
-    function location_delete(location_id,row) {
+    function location_delete(location_id) {
         if(confirm(question)) { 
-            $.post("<xsl:value-of select="$link_prefix"/>ifp-location-delete", {'location_id': location_id}, 
+            $.post("<xsl:value-of select="$link_prefix"/>ifp-location-delete", {'location_id': location_id},
             function (data){
-                myTable = document.getElementById("mylocations");
-                myTable.deleteRow(row);
+                $("#l_{location_id}").remove();
             });
         }
     }
     </script>
-    <div id="my-locations-div">
-      <script type="text/javascript">
-			document.getElementById('my-locations-div').style.visibility = 'hidden';
-			</script>
+    <div id="tableframe">
       <table width="100%" class="tablesorter" id="mylocations">
         <thead>
           <tr>
@@ -115,7 +110,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
     <xsl:param name="i18n"/>
-    <tr>
+    <tr id="l_{location_id}">
       <td>
         <a href="{$link_prefix}ifp-location-view&amp;location_id={location_id}">
           <xsl:value-of select="name"/>
@@ -137,7 +132,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </td>
       <td>
         <a href="{$link_prefix}ifp-location-delete&amp;location_id={location_id}"
-          onclick="location_delete({location_id},this.parentNode.parentNode.rowIndex); return false;">
+          onclick="location_delete({location_id}); return false;">
           <xsl:value-of select="$i18n/delete"/>
         </a>
       </td>

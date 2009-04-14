@@ -26,30 +26,27 @@ Fifth Floor, Boston, MA 02110-1301 USA
 <!-- This template is used by pages which use the tablesorter and the table paginator -->
   <xsl:template name="jquery-setup">
     <xsl:param name="my-table"/>
-    <xsl:param name="my-table-div"/>
     <xsl:param name="my-sort-column"/>
     <xsl:param name="no-sort-column"/>
     <xsl:param name="my-page-num">0</xsl:param>
     <xsl:call-template name="jquery-links"/>
     <script type="text/javascript">
     $(document).ready(function()
-        { 
-            $("#<xsl:value-of select="$my-table"/>")
-            .tablesorter(
-                {
-                    widgets:['zebra','cookie']
-                    <xsl:value-of select="$my-sort-column"/>
-          <xsl:value-of select="$no-sort-column"/>
-                }
-            )
-            .tablesorterPager(
-                {
-                    container: $("#<xsl:value-of select="$my-table"/>-pager"),
-                    positionFixed: false
-                }
-            );
-
-            document.getElementById('<xsl:value-of select="$my-table-div"/>').style.visibility = 'visible';
+        {
+          $("#<xsl:value-of select="$my-table"/>")
+          .tablesorter(
+            {
+              widgets:['zebra','cookie']
+              <xsl:value-of select="$my-sort-column"/>
+              <xsl:value-of select="$no-sort-column"/>
+            }
+          )
+          .tablesorterPager(
+            {
+              container: $("#<xsl:value-of select="$my-table"/>-pager"),
+              positionFixed: false
+            }
+          );
         }
     ); 
     </script>
@@ -79,7 +76,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
   <!-- load the javascript -->
   <xsl:template name="jquery-links">
-    <link rel="stylesheet" href="{_R_/runtime/path_prefix}/s/css/blue/style.css" type="text/css" media="print, projection, screen"/>
+    <link rel="stylesheet" href="{_R_/runtime/path_prefix}s/css/blue/style.css" type="text/css" media="print, projection, screen"/>
   </xsl:template>
 
   <xsl:template name="pager">
@@ -89,15 +86,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <table>
         <tr>
           <td>
-            <img src="{/_R_/runtime/path_prefix}/s/css/blue/first.png" class="first"/>
-            <img src="{/_R_/runtime/path_prefix}/s/css/blue/prev.png" class="prev"/>
+            <img src="{/_R_/runtime/path_prefix}s/css/blue/first.png" class="first"/>
+            <img src="{/_R_/runtime/path_prefix}s/css/blue/prev.png" class="prev"/>
           </td>
           <td>
             <input type="text" class="pagedisplay" size="10" readonly="readonly"/>
           </td>
           <td>
-            <img src="{/_R_/runtime/path_prefix}/s/css/blue/next.png" class="next"/>
-            <img src="{/_R_/runtime/path_prefix}/s/css/blue/last.png" class="last"/>
+            <img src="{/_R_/runtime/path_prefix}s/css/blue/next.png" class="next"/>
+            <img src="{/_R_/runtime/path_prefix}s/css/blue/last.png" class="last"/>
           </td>
         </tr>
       </table>

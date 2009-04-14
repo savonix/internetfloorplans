@@ -32,7 +32,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="i18n"/>
     <xsl:call-template name="jquery-setup">
       <xsl:with-param name="my-table">my-equipment-view-all</xsl:with-param>
-      <xsl:with-param name="my-table-div">my-equipment-view-all-div</xsl:with-param>
       <xsl:with-param name="no-sort-column">,
 			headers: {
 					2: {sorter: false},
@@ -44,21 +43,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<!-- Confirm equipment deletion -->
     <script type="text/javascript">
     var question = '<xsl:value-of select="$i18n/are_you_sure_delete"/>?';
-    function equipment_delete(equipment_id,row) {
+    function equipment_delete(equipment_id) {
         if(confirm(question)) {
             $.post("<xsl:value-of select="$link_prefix"/>ifp-equipment-delete", {'equipment_id': equipment_id},
             function (data){
-                myTable = document.getElementById("my-equipment-view-all");
-                myTable.deleteRow(row);
+            
             });
         }
     }
 		</script>
 
-    <div id="my-equipment-view-all-div">
-      <script type="text/javascript">
-			//    document.getElementById('my-equipment-view-all-div').style.visibility = 'hidden';
-			</script>
+    <div id="tableframe">
       <table width="100%" class="tablesorter" id="my-equipment-view-all">
         <thead>
           <tr>
@@ -78,7 +73,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </thead>
         <tbody>
           <xsl:for-each select="//equipment_get_all/equipment_get_all">
-            <tr>
+            <tr id="e_{equipment_id}">
               <td>
                 <xsl:value-of select="name"/>
               </td>
@@ -94,7 +89,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               </td>
               <td>
                 <a href="{$link_prefix}ifp-equipment-delete&amp;equipment_id={equipment_id}"
-                  onclick="equipment_delete({equipment_id},this.parentNode.parentNode.rowIndex); return false;">
+                  onclick="equipment_delete({equipment_id}); return false;">
                   <xsl:value-of select="$i18n/delete"/>
                 </a>
               </td>
