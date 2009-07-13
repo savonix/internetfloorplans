@@ -52,7 +52,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     <input type="checkbox" name="location_address_id[]"
                       value="{location_address_id}">
                       <xsl:variable name="current_id" select="//location_address_id"/>
-                      </xsl:variable>
                       <xsl:for-each select="//get_region_data">
                         <xsl:if test="$current_id=//get_region_data/location_address_id">
                           <xsl:attribute name="checked">true</xsl:attribute>

@@ -5,11 +5,14 @@ Copyright Savonix Corporation
 
 Summary
 -------
-
+Internet Floor Plans is web software used to catalog locations.
 
 Requirements
 ------------
 
+* Nexista
+* PHP + XSL
+* MySQL
 
 Installation
 ------------
@@ -21,3 +24,4 @@ Usage
 
 Credits
 -------
+Author: Albert L. Lash, IV
