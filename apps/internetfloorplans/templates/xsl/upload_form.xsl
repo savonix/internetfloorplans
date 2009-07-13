@@ -31,7 +31,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <table>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/file_title"/>:</td>
+          <xsl:value-of select="$i18n/file_title"/>:</td>
         <td>
           <input type="text" name="name" value="{//_post/name}"/>
         </td>
@@ -39,11 +39,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:if test="count(//static_file_types) &gt; 0">
         <tr>
           <td>
-            <xsl:value-of select="/_R_/i18n/file_type"/>:</td>
+            <xsl:value-of select="$i18n/file_type"/>:</td>
           <td>
             <select name="static_file_type">
               <option>
-                <xsl:value-of select="/_R_/i18n/select_one"/>
+                <xsl:value-of select="$i18n/select_one"/>
               </option>
               <xsl:for-each select="//static_file_types/type">
                 <option value="{key}">
@@ -56,7 +56,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </xsl:if>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/file_to_upload"/>: *
+          <xsl:value-of select="$i18n/file_to_upload"/>: *
         </td>
         <td>
           <input type="file" name="file"/>
@@ -71,14 +71,14 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </tr>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/file_url"/>: * </td>
+          <xsl:value-of select="$i18n/file_url"/>: * </td>
         <td>
           <input type="text" name="file_url"/>
         </td>
       </tr>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/comments"/>:</td>
+          <xsl:value-of select="$i18n/comments"/>:</td>
         <td>
           <textarea cols="35" rows="5" name="comments">
             <xsl:value-of select="//_post/comments"/>
