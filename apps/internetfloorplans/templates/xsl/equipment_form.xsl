@@ -27,9 +27,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
   <xsl:template name="content">
     <form method="post">
       <input type="hidden" value="1" name="quantity"/>
-    <!--
-        Is this form editing an exiting piece of equipment?
-    -->
       <xsl:if test="//_get/equipment_id">
         <input type="hidden" name="location_id" value="{//_get/location_id}" />
         <input type="hidden" name="equipment_type_id" value="{//equipment_get_by_id/equipment_type_id}" />
@@ -71,7 +68,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             <!-- Existing equipment type cannot be changed -->
           <xsl:if test="//_get/equipment_id">
             <td>
-              <xsl:value-of select=" //equipment_types_get_all[ equipment_type_id= //equipment_get_by_id/equipment_type_id ]/name" />
+              <xsl:value-of select="//equipment_types_get_all[ equipment_type_id=//equipment_get_by_id/equipment_type_id ]/name" />
             </td>
           </xsl:if>
 
@@ -81,7 +78,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <select name="equipment_type_id">
                 <xsl:for-each select="//equipment_types_get_all">
                   <option value="{equipment_type_id}">
-                    <xsl:if test=" equipment_type_id= //equipment_get_by_id/equipment_type_id ">
+                    <xsl:if test="equipment_type_id=//equipment_get_by_id/equipment_type_id">
                       <xsl:attribute name="selected">
                         selected
                       </xsl:attribute>
@@ -99,13 +96,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
           </td>
           <td>
             <xsl:if test="//_get/equipment_id">
-              <xsl:value-of select=" //locations_get_all[ location_id=//equipment_get_by_id/location_id ]/name" />
+              <xsl:value-of select="//locations_get_all[location_id=//equipment_get_by_id/location_id]/name" />
             </xsl:if>
             <xsl:if test="not(//_get/equipment_id)">
               <select name="location_id">
                 <xsl:for-each select="//locations_get_all">
                   <option value="{location_id}">
-                    <xsl:if test=" location_id= //equipment_get_by_id/location_id ">
+                    <xsl:if test="location_id=//equipment_get_by_id/location_id ">
                       <xsl:attribute name="selected">
                         selected
                       </xsl:attribute>

@@ -44,7 +44,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <thead>
         <tr>
           <th>
-            <xsl:value-of select="/_R_/i18n/icons"/>
+            <xsl:value-of select="$i18n/icons"/>
           </th>
         </tr>
       </thead>
@@ -63,7 +63,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <thead>
         <tr>
           <th>
-            <xsl:value-of select="/_R_/i18n/options"/>
+            <xsl:value-of select="$i18n/options"/>
           </th>
         </tr>
       </thead>
@@ -71,7 +71,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <tr>
           <td>
             <a href="{//link_prefix}ifp-equipment-type-icon-edit&amp;equipment_type_id={//_get/equipment_type_id}">
-              <xsl:value-of select="/_R_/i18n/add_new_icon" />
+              <xsl:value-of select="$i18n/add_new_icon" />
             </a>
           </td>
         </tr>
@@ -82,7 +82,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <tr>
           <td>
             <a href="{//link_prefix}ifp-static-file-delete&amp;static_file_id={//equipment_type_get_images/static_file_id}" onclick="static_file_delete({//equipment_type_get_images/static_file_id}); return false;">
-              <xsl:value-of select="/_R_/i18n/delete"/>
+              <xsl:value-of select="$i18n/delete"/>
             </a>
           </td>
         </tr>
@@ -104,7 +104,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </tr>
       <tr>
         <td>
-          <xsl:value-of select="/_R_/i18n/comments"/>:
+          <xsl:value-of select="$i18n/comments"/>:
     </td>
       </tr>
       <tr>

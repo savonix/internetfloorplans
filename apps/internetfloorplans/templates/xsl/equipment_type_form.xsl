@@ -41,7 +41,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <table>
         <tr>
           <td>
-            <xsl:value-of select="/_R_/i18n/equipment_type_name"/>
+            <xsl:value-of select="$i18n/equipment_type_name"/>
           </td>
           <td>
             <input type="text" name="name" value="{//equipment_type_get_by_id/name}"/>
@@ -49,7 +49,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </tr>
         <tr>
           <td>
-            <xsl:value-of select="/_R_/i18n/description"/>
+            <xsl:value-of select="$i18n/description"/>
           </td>
           <td>
             <textarea name="description" cols="25" rows="5">
@@ -61,7 +61,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <div style="text-align: center;">
         <input type="submit" value="Submit" name="submit"/>
         <input type="button" value="Cancel"
-          onclick="window.location.href='{//link_prefix}ifp-equipment-types'"/>
+          onclick="window.location.href='{$link_prefix}ifp-equipment-types'"/>
       </div>
     </form>
   </xsl:template>
