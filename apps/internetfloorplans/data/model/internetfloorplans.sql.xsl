@@ -30,7 +30,14 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>equipment` (
   `equipment_id` int(11) NOT NULL auto_increment,
   `equipment_number` varchar(100) NULL,
   `equipment_type_id` int(11) NOT NULL default '0',
+  `equipment_location_id` int(11) NOT NULL default '0',
   `status_id` int(11) NOT NULL default '0',
+  `x_position` int(11) NOT NULL default '0',
+  `y_position` int(11) NOT NULL default '0',
+  `x_scale` int(11) NOT NULL default '100',
+  `y_scale` int(11) NOT NULL default '100',
+  `rotation_angle` int(11) NOT NULL default '0',
+  `alpha_transparency` int(11) NOT NULL default '100',
   `modification_timestamp` timestamp DEFAULT <xsl:value-of select="//db_engines/engine_default_timestamp/text"/>,
   `creation_datetime` datetime DEFAULT NULL,
   UNIQUE KEY `equipment_id` (`equipment_id`)
@@ -65,32 +72,6 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>locations` (
   `creation_datetime` datetime DEFAULT NULL,
   UNIQUE KEY `location_id` (`location_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-
-CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_equipment` (
-  `location_equipment_id` int(11) NOT NULL auto_increment,
-  `location_id` int(11) NOT NULL default '0',
-  `equipment_id` int(11) NOT NULL default '0',
-  `modification_timestamp` timestamp DEFAULT <xsl:value-of select="//db_engines/engine_default_timestamp/text"/>,
-  `creation_datetime` datetime DEFAULT NULL,
-  UNIQUE KEY `location_equipment_id` (`location_equipment_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
-
-
-CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>location_equipment_position` (
-  `location_equipment_position_id` int(11) NOT NULL auto_increment,
-  `location_equipment_id` int(11) NOT NULL default '0',
-  `x_position` int(11) NOT NULL default '0',
-  `y_position` int(11) NOT NULL default '0',
-  `x_scale` int(11) NOT NULL default '100',
-  `y_scale` int(11) NOT NULL default '100',
-  `rotation_angle` int(11) NOT NULL default '0',
-  `alpha_transparency` int(11) NOT NULL default '100',
-  `modification_timestamp` timestamp DEFAULT <xsl:value-of select="//db_engines/engine_default_timestamp/text"/>,
-  `creation_datetime` datetime DEFAULT NULL,
-  UNIQUE KEY `location_equipment_position_id` (`location_equipment_position_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 
 
