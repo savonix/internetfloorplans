@@ -84,7 +84,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   <td>
                     <a href="#"
                       onclick="return confirm('{$i18n/confirm_delete}')">
-                      <xsl:value-of select="$i18n/delete"/>
+                      <xsl:value-of select="$i18n/delete"/>&#160;
                       <xsl:value-of select="$i18n/this_image"/>
                     </a>
                   </td>
@@ -111,6 +111,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <tr>
                 <td>
                 <!-- FIXME: IMAGE OR MOVIE GOES HERE - REDO THIS -->
+                  <img src="{//get_location_images[location_image_id=$image_id]/image_pointer}"/>
                 </td>
               </tr>
             </table>

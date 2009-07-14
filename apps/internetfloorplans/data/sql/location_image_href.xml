@@ -1,6 +1,6 @@
 <!--
 Program: Internet Floor Plans
-Component: location_image_delete.xml
+Component: location_image_create.xml
 Copyright: Savonix Corporation
 Author: Albert L. Lash, IV
 License: Gnu Affero Public License version 3
@@ -22,12 +22,22 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
-<query name="location_image_delete">
-  <connection>&ifp_connection;</connection>
-  <params>
-    <param name="_post/location_image_id" type="integer"/>
-  </params>
-  <sql>
-  DELETE FROM &ifp_location_images; WHERE location_image_id=?
-  </sql>
+<query name="location_image_create">
+	<connection>&ifp_connection;</connection>
+	<params>
+		<param name="_post/name" type="text"/>
+		<param name="_post/location_id" type="text"/>
+		<param name="_post/file_url" type="text"/>
+		<param name="_post/file_url" type="text"/>
+		<param name="//thumbname" type="text"/>
+		<param name="_files/file/type" type="text"/>
+		<param name="_post/comments" type="text"/>
+		<param name="//width" type="text"/>
+		<param name="//height" type="text"/>
+	</params>
+	<sql>
+	INSERT INTO &ifp_location_images;
+	(name,location_id,default_image, image_pointer,thumb_pointer,mime_type,comments,width,height) 
+	VALUES (?,?,?,?,?,?,?,?,?)
+	</sql>
 </query>

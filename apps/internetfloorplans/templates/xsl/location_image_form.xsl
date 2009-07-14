@@ -31,7 +31,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
     <xsl:param name="i18n"/>
-    <form enctype="multipart/form-data" method="post">
+    <form enctype="multipart/form-data" method="post" action="{$link_prefix}ifp-location-image-edit">
       <input type="hidden" name="dest" value="/tmp/"/>
       <input type="hidden" name="location_id" value="{//_get/location_id}"/>
       <xsl:call-template name="location_menu">
