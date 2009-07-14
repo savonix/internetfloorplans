@@ -63,10 +63,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
     }
     </script>
 
-    <div id="my-location-equipment-list-div">
-      <script type="text/javascript">
-      //    document.getElementById('my-location-equipment-list-div').style.visibility = 'hidden';
-      </script>
       <table width="100%" class="tablesorter" id="my-location-equipment-list">
         <thead>
           <tr>
@@ -116,7 +112,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
 					<xsl:value-of select="$i18n/add_new_equipment"/>
 				</a>
 			</div>
-    </div>
     <xsl:call-template name="pager">
       <xsl:with-param name="my-table">my-location-equipment-list</xsl:with-param>
     </xsl:call-template>
