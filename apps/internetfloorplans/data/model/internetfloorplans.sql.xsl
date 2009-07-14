@@ -171,9 +171,5 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>options` (
 
 
 
-<!--
-ALTER TABLE `ifp_location_images`
-  ADD CONSTRAINT `ifp_location_images_ibfk_1` FOREIGN KEY (`location_id`) REFERENCES `ifp_locations` (`location_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
--->
 </xsl:template>
 </xsl:stylesheet>
