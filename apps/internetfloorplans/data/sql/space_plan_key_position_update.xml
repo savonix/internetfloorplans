@@ -23,15 +23,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="edit_location_space_plan">
-    <connection>&ifp_connection;</connection>
-    <params>
-        <param name="//key_x_position" type="integer"/>
-        <param name="//key_y_position" type="integer"/>
-        <param name="//location_space_plan_id" type="text"/>
-    </params>
-    <sql>
-        UPDATE &ifp_location_space_plans;
-		SET key_x_position=?, key_y_position=? 
-        WHERE location_space_plan_id=?
-    </sql>
+  <connection>&ifp_connection;</connection>
+  <params>
+    <param name="//key_x_position" type="integer"/>
+    <param name="//key_y_position" type="integer"/>
+    <param name="//location_space_plan_id" type="text"/>
+  </params>
+  <sql>
+  UPDATE &ifp_location_space_plans;
+  SET key_x_position=?, key_y_position=? 
+  WHERE location_space_plan_id=?
+  </sql>
 </query>
