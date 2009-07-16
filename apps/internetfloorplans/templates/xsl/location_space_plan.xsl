@@ -41,9 +41,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:with-param name="path_prefix" select="$path_prefix"/>
 				<xsl:with-param name="i18n" select="$i18n"/>
       </xsl:call-template>
-    <!--
-    return confirm('Are you sure you want to delete this location image?')
-    -->
     <script type="text/javascript">
     var question = '<xsl:value-of select="$i18n/delete_plan"/>';
     function location_space_plan_delete(location_space_plan_id) {
@@ -117,23 +114,23 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </td>
       </tr>
     </table>
-    <script type="text/javascript" src="{$path_prefix}/s/js/jquery/plugins/jquery.swf.js"></script>
-    <div id="space_plan">
-      <!-- Show static jpg here when the visitor does not have the flash plugin. -->
-      <img src="{//space_plan_pointer}"/>
-    </div>
+    <xsl:if test="//get_location_space_plans/location_space_plan_id">
+      <div id="space_plan">
+        <!-- Show static jpg here when the visitor does not have the flash plugin. -->
+        <img src="{//space_plan_pointer}"/>
+      </div>
 
-    <xsl:if test="//defaults/use_interactive_space_plans='true'">
-    <script type="text/javascript">
-    $(document).ready(function(){
-        $('#space_plan').flash({
-            src: "ifp-location-space-plan-server&amp;location_space_plan_id=<xsl:value-of select="//get_location_space_plans/location_space_plan_id"/>&amp;location_address_id=<xsl:value-of select="//_get/location_id"/>&amp;key=<xsl:value-of select="//_get/key"/>",
-            width: 825,
-            height: 825
-        });
-    });
-    </script>
+      <xsl:if test="//defaults/use_interactive_space_plans='true'">
+      <script type="text/javascript">
+      $(document).ready(function(){
+          $('#space_plan').flash({
+              src: "ifp-location-space-plan-server&amp;location_space_plan_id=<xsl:value-of select="//get_location_space_plans/location_space_plan_id"/>&amp;location_address_id=<xsl:value-of select="//_get/location_id"/>&amp;key=<xsl:value-of select="//_get/key"/>",
+              width: 825,
+              height: 825
+          });
+      });
+      </script>
+      </xsl:if>
     </xsl:if>
-
   </xsl:template>
 </xsl:stylesheet>
