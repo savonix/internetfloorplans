@@ -120,6 +120,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <img src="{//space_plan_pointer}"/>
       </div>
 
+      <!--
+      SVG
+      <object data="200907_space_plans.svg" width="640" height="480" type="image/svg+xml"/>
+      -->
       <xsl:if test="//defaults/use_interactive_space_plans='true'">
       <script type="text/javascript">
       $(document).ready(function(){
