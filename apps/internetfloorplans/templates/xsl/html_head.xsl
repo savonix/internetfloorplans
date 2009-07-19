@@ -37,6 +37,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <xsl:value-of select="/_R_/i18n/*[name()=$gate_key]"/>
         <xsl:value-of select="//location_get_summary/location_get_summary/name"/>
       </title>
+      <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.7.0/build/reset/reset-min.css"/>
       <link rel="stylesheet" type="text/css" href="{$path_prefix}s/css/droppy.css" />
       <link rel="stylesheet" type="text/css" href="{$link_prefix}x-dynamic-css"></link>
       <script type="text/javascript" src="{$path_prefix}s/js/jquery/jquery.js"></script>
