@@ -52,47 +52,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
         }
     }
     </script>
-    <table>
-      <tr>
-        <td colspan="2">
-          <table class="simple-table">
-            <thead>
-              <tr>
-                <th>
-                  <xsl:value-of select="$i18n/space_plan_options"/>:
-                    </th>
-              </tr>
-            </thead>
-            <tbody>
-              <xsl:if test="not(//get_location_space_plans/location_space_plan_id)">
-                <tr>
-                  <td>
-                    <a href="{$link_prefix}ifp-location-space-plan-edit&amp;location_id={//_get/location_id}">
-                      <xsl:value-of select="$i18n/add_new_plan"/>
-                    </a>
-                  </td>
-                </tr>
-              </xsl:if>
-              <xsl:if test="//get_location_space_plans/location_space_plan_id">
-                <!-- TODO - FIXME
-                <tr>
-                    <td>
-                        <a href="{$link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
-                            <xsl:value-of select="$i18n/lock_plan"/>
-                        </a>
-                    </td>
-                </tr>
-                -->
-                <tr>
-                  <td>
-                    <a href="{$link_prefix}location_space_plan-delete&amp;location_space_plan_id={//get_location_space_plans/location_space_plan_id}" onclick="location_space_plan_delete({//get_location_space_plans/location_space_plan_id}); return false;">
-                      <xsl:value-of select="$i18n/delete_plan"/>
-                    </a>
-                  </td>
-                </tr>
-              </xsl:if>
-            </tbody>
-          </table>
+    <xsl:value-of select="$i18n/space_plan_options"/>:
+      <xsl:if test="not(//get_location_space_plans/location_space_plan_id)">
+        <a href="{$link_prefix}ifp-location-space-plan-edit&amp;location_id={//_get/location_id}">
+          <xsl:value-of select="$i18n/add_new_plan"/>
+        </a>
+      </xsl:if>
+      <xsl:if test="//get_location_space_plans/location_space_plan_id">
+        <a href="{$link_prefix}location_space_plan-delete&amp;location_space_plan_id={//get_location_space_plans/location_space_plan_id}" onclick="location_space_plan_delete({//get_location_space_plans/location_space_plan_id}); return false;">
+          <xsl:value-of select="$i18n/delete_plan"/>
+        </a>
+      </xsl:if>
             <!--
             <br/>
             [ PDF Not Available ] / [ PDF ]
@@ -111,19 +81,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
             [ <a>Debug SWF</a> ]
             -->
 
-        </td>
-      </tr>
-    </table>
     <xsl:if test="//get_location_space_plans/location_space_plan_id">
-      <div id="space_plan">
+      <div id="space_plan" style="width:640px;height:640px;background: #fff url(http://www.internetfloorplans.com/demo//s/img/20071116_floor-plan.gif) no-repeat scroll left top;">
         <!-- Show static jpg here when the visitor does not have the flash plugin. -->
-        <img src="{//space_plan_pointer}"/>
+        hello
       </div>
+    </xsl:if>
 
       <!--
       SVG
       <object data="200907_space_plans.svg" width="640" height="480" type="image/svg+xml"/>
       -->
+
       <xsl:if test="//defaults/use_interactive_space_plans='true'">
       <script type="text/javascript">
       $(document).ready(function(){
@@ -135,6 +104,5 @@ Fifth Floor, Boston, MA 02110-1301 USA
       });
       </script>
       </xsl:if>
-    </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
