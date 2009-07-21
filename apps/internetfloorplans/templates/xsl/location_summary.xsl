@@ -32,10 +32,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <tr>
           <td>
             <xsl:value-of select="$i18n/location_options"/>&#160;
-            <a href="{$link_prefix}ifp-location-edit&amp;location_address_id={location_id}">
+            <a href="{$link_prefix}ifp-location-edit&amp;location_id={location_id}">
               <xsl:value-of select="$i18n/edit"/>
             </a>&#160;
-            <a href="{$link_prefix}ifp-location-delete&amp;location_address_id={location_id}"
+            <a href="{$link_prefix}ifp-location-delete&amp;location_id={location_id}"
 							onclick="return confirm('{$i18n/confirm_delete}')">
               <xsl:value-of select="$i18n/delete"/>
             </a>
