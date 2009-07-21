@@ -105,7 +105,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <tr>
         <td>
           <xsl:value-of select="$i18n/comments"/>:
-    </td>
+        </td>
       </tr>
       <tr>
         <td>

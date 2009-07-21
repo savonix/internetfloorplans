@@ -45,9 +45,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
     var question = '<xsl:value-of select="$i18n/are_you_sure_delete"/>?';
     function equipment_delete(equipment_id) {
         if(confirm(question)) {
-            $.post("<xsl:value-of select="$link_prefix"/>ifp-equipment-delete", {'equipment_id': equipment_id},
+            $.post("<xsl:value-of select="$link_prefix"/>ifp-equipment-delete",
+            {'equipment_id': equipment_id},
             function (data){
-            
             });
         }
     }

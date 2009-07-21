@@ -66,7 +66,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
                 {
                     widgets:['zebra','cookie']
                     <xsl:value-of select="$my-sort-column"/>
-          <xsl:value-of select="$no-sort-column"/>
+                    <xsl:value-of select="$no-sort-column"/>
                 }
             );
         }

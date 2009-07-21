@@ -25,6 +25,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	xmlns="http://www.w3.org/1999/xhtml">
   <xsl:include href="html_main.xsl"/>
   <xsl:template name="content">
+    <xsl:param name="link_prefix"/>
+    <xsl:param name="path_prefix"/>
+    <xsl:param name="i18n"/>
     <form method="post">
       <input type="hidden" value="1" name="quantity"/>
       <xsl:if test="//_get/equipment_id">

@@ -45,7 +45,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     var question = '<xsl:value-of select="$i18n/delete_plan"/>';
     function location_space_plan_delete(location_space_plan_id) {
         if(confirm(question+" "+location_space_plan_id+"?")) {
-            $.post("<xsl:value-of select="$link_prefix"/>ifp-location-space-plan-delete&amp;location_space_plan_id="+location_space_plan_id, 
+            $.post("<xsl:value-of select="$link_prefix"/>ifp-location-space-plan-delete&amp;location_space_plan_id="+location_space_plan_id,
                 {'location_space_plan_id': location_space_plan_id},
             function (data){
             });
