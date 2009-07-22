@@ -31,14 +31,14 @@ $movie_height = 825;
 
 $my_rotation_angle = 0;
 $equipment_status = 0;
-$my_equipment_number = "";
+$my_equipment_number = '';
 $num_icons = 0;
 $this_url=$_SERVER['REQUEST_URI'];
 
-$space_plan_locked = Nexista_Path::get("//get_sp_pointer_by_id/space_plan_locked","flow");
-if($space_plan_locked=="false") {
+$space_plan_locked = Nexista_Path::get('//get_sp_pointer_by_id/space_plan_locked','flow');
+if($space_plan_locked=='false') {
 	$space_plan_locked=false;
-} elseif($space_plan_locked=="true") {
+} elseif($space_plan_locked=='true') {
 	$space_plan_locked=true;
 }
 
@@ -54,15 +54,15 @@ $path = dirname(dirname($path));
 
 
 
-$f = new SWFFont("_sans");
+$f = new SWFFont('_sans');
 
 
-$roles = Nexista_Path::get("//user_roles","flow");
-$file_path = Nexista_Path::get("//get_sp_pointer_by_id/space_plan_pointer","flow");
-$x_position = Nexista_Path::get("//get_sp_pointer_by_id/x_position","flow");
-$y_shift = Nexista_Path::get("//get_sp_pointer_by_id/y_position","flow");
-$key_x_position = Nexista_Path::get("//get_sp_pointer_by_id/key_x_position","flow");
-$key_y_position = Nexista_Path::get("//get_sp_pointer_by_id/key_y_position","flow");
+$roles = Nexista_Path::get('//user_roles','flow');
+$file_path = Nexista_Path::get('//get_sp_pointer_by_id/space_plan_pointer','flow');
+$x_position = Nexista_Path::get('//get_sp_pointer_by_id/x_position','flow');
+$y_shift = Nexista_Path::get('//get_sp_pointer_by_id/y_position','flow');
+$key_x_position = Nexista_Path::get('//get_sp_pointer_by_id/key_x_position','flow');
+$key_y_position = Nexista_Path::get('//get_sp_pointer_by_id/key_y_position','flow');
 
 if($key_x_position > 775 || $key_x_position < 25) {
 	$key_x_position = 25;
@@ -72,21 +72,21 @@ if($key_y_position > 775 || $key_y_position < 25) {
 	$key_y_position = 25;
 }
 
-$location_space_plan_id = Nexista_Path::get("//_get/location_space_plan_id","flow");
+$location_space_plan_id = Nexista_Path::get('//_get/location_space_plan_id','flow');
 
 if(empty($key_x_position)) { $key_x_position=0;}
 if(empty($key_y_position)) { $key_y_position=0;}
 
 $x_shift=$x_shift+$x_position;
-$display_eqp_icons=Nexista_Path::get("//get_sp_pointer_by_id/display_eqp_icons","flow");
+$display_eqp_icons=Nexista_Path::get('//get_sp_pointer_by_id/display_eqp_icons','flow');
 
-$my_address_id = Nexista_Path::get("//_get/location_address_id","flow");
+$my_address_id = Nexista_Path::get('//_get/location_address_id','flow');
 
-if(strpos($file_path,".swf")) {
-	$sp_clip = new SWFPrebuiltClip(fopen($file, "r"));
+if(strpos($file_path,'.swf')) {
+	$sp_clip = new SWFPrebuiltClip(fopen($file, 'r'));
 } else {
-	$jpg_file = $file.".jpg";
-	$sp_clip = new SWFBitmap(fopen($jpg_file, "r"));
+	$jpg_file = $file.'.jpg';
+	$sp_clip = new SWFBitmap(fopen($jpg_file, 'r'));
 }
 
 $fpbk = new SWFSprite();
@@ -114,7 +114,7 @@ $my_key_label_header = new SWFShape();
 $my_key_label_header->setLine(1,0,0,0);
 $my_key_label_header->setRightFill(240,240,240);
 $my_key_label_header->movePenTo(0,5);
-$my_key_label_header->drawLine(150,0); 
+$my_key_label_header->drawLine(150,0);
 $my_key_label_header->drawLine(0,25);
 $my_key_label_header->drawLine(-150,0);
 $my_key_label_header->drawLine(0,-25);
