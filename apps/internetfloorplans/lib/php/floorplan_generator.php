@@ -80,7 +80,7 @@ if(empty($key_y_position)) { $key_y_position=0;}
 $x_shift=$x_shift+$x_position;
 $display_eqp_icons=Nexista_Path::get('//get_sp_pointer_by_id/display_eqp_icons','flow');
 
-$my_address_id = Nexista_Path::get('//_get/location_address_id','flow');
+$my_address_id = Nexista_Path::get('//_get/location_id','flow');
 
 if(strpos($file_path,'.swf')) {
 	$sp_clip = new SWFPrebuiltClip(fopen($file, 'r'));
@@ -128,7 +128,7 @@ $my_key_label_sprite = $entire_key->add($my_key_label);
 $my_key_label_sprite->setName('my_key_label');
 
 
-if($display_eqp_icons=='checkedzzz') {
+//if($display_eqp_icons=='checkedzzz') {
     /* FIXME */
 
 	$empty_sprite = new SWFSprite();
@@ -185,12 +185,12 @@ createNewFixture.prototype.onPress=function() {
 	this.newone.startDrag(lock);
 };
 createNewFixture.prototype.onRelease=createNewFixture.prototype.onReleaseOutside=function() {
-	location_address_id=$my_address_id;
+	location_id=$my_address_id;
 	equipment_type_id=this.equipment_type_id;
 	submit='Submit';
 	x_position = _root._xmouse;
 	y_position = _root._ymouse;
-	getURL('$FIXME&location_address_id=$my_address_id', '', 'POST');
+	getURL('$FIXME&location_id=$my_address_id', '', 'POST');
 };
 createNewFixture.prototype.onRollOver=function() {
 	var dconf = new LoadVars();
@@ -254,7 +254,7 @@ function positionFixture() {
 			var my_dconf = new LoadVars();
 			my_dconf.location_equipment_id=this.my_leid;
 			my_dconf.equipment_id=this.my_eid;
-			my_dconf.location_address_id=$my_address_id;
+			my_dconf.location_id=$my_address_id;
 			my_dconf.equipment_type_id=this.equipment_type_id;
 			my_dconf.equipment_type_image_id=this.equipment_type_image_id;
 			my_dconf.send('$FIXME&body=true','config', 'POST');
@@ -265,9 +265,6 @@ function positionFixture() {
 
 positionFixture.prototype = new MovieClip();
 
-
-
-
 entire_key.my_key_label.onPress=function(){
 	_root.entire_key.startDrag(lock);
 };
@@ -276,7 +273,7 @@ entire_key.my_key_label.onRelease=entire_key.my_key_label.onReleaseOutside=funct
 	update_key.key_x_position = _root.entire_key._x;
 	update_key.key_y_position = _root.entire_key._y;
 	update_key.location_space_plan_id = '$location_space_plan_id';
-	update_key.location_address_id = '$my_address_id';
+	update_key.location_id = '$my_address_id';
 	update_key.sendAndLoad('$FIXME',update_key,'POST');
 };
 entire_key.cacheAsBitmap = true;
@@ -393,7 +390,7 @@ if($number_of_icons>0) {
 
 }
 
-}
+//}
 
 $all_actionscript = $main_actionscript.$icon_as.$inventory_as."
 removeMovieClip(bitmap_$icon_id);";
