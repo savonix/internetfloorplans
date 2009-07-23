@@ -23,19 +23,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="location_space_plan_link">
-    <connection>&ifp_connection;</connection>
-    <params>
-		<param name="_post/name" type="text" default="Plan"/>
-        <param name="_post/location_id" type="text"/>
-        <param name="_post/default" type="text" default="1"/>
-        <param name="_post/file_url" type="text"/>
-        <param name="_post/comments" type="text" default=" "/>
-        <param name="//runtime/utcdate" type="text"/>
-    </params>
-    <sql>
-        INSERT INTO &ifp_location_space_plans;
-		(name,location_id,default_space_plan,space_plan_pointer,
-		comments,creation_datetime,display_eqp_icons)
-		VALUES (?,?,?,?,?,?,'checked')
-    </sql>
+  <connection>&ifp_connection;</connection>
+  <params>
+    <param name="_post/name" type="text" default="Plan"/>
+    <param name="_post/location_id" type="text"/>
+    <param name="_post/default" type="text" default="1"/>
+    <param name="_post/file_url" type="text"/>
+    <param name="_post/comments" type="text" default=" "/>
+    <param name="//runtime/utcdate" type="text"/>
+  </params>
+  <sql>
+  INSERT INTO &ifp_location_space_plans;
+  (name,location_id,default_space_plan,space_plan_pointer,
+  comments,creation_datetime,display_eqp_icons)
+  VALUES (?,?,?,?,?,?,'checked')
+  </sql>
 </query>

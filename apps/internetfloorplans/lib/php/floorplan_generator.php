@@ -58,8 +58,12 @@ $roles = Nexista_Path::get('//user_roles','flow');
 $file_path = Nexista_Path::get('//get_sp_pointer_by_id/space_plan_pointer','flow');
 $x_position = Nexista_Path::get('//get_sp_pointer_by_id/x_position','flow');
 $y_shift = Nexista_Path::get('//get_sp_pointer_by_id/y_position','flow');
-$key_x_position = Nexista_Path::get('//get_sp_pointer_by_id/key_x_position','flow');
-$key_y_position = Nexista_Path::get('//get_sp_pointer_by_id/key_y_position','flow');
+
+//$key_x_position = Nexista_Path::get('//get_sp_pointer_by_id/key_x_position','flow');
+//$key_y_position = Nexista_Path::get('//get_sp_pointer_by_id/key_y_position','flow');
+
+$key_x_position = Nexista_Path::get('//runtime/key_x_position','flow');
+$key_y_position = Nexista_Path::get('//runtime/key_y_position','flow');
 
 if($key_x_position > 775 || $key_x_position < 25) {
 	$key_x_position = 25;
@@ -271,7 +275,7 @@ entire_key.my_key_label.onRelease=entire_key.my_key_label.onReleaseOutside=funct
 	update_key.key_y_position = _root.entire_key._y;
 	update_key.location_space_plan_id = '$location_space_plan_id';
 	update_key.location_id = '$my_address_id';
-	//update_key.sendAndLoad('$FIXME',update_key,'POST');
+	update_key.sendAndLoad('index.php?nid=ifp-location-space-plan-key-update',update_key,'POST');
 };
 entire_key.cacheAsBitmap = true;
 ";

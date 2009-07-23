@@ -38,6 +38,14 @@ if ($_GET['view_flow'] == 'true' ) {
 
 $utcdate = gmdate('Y-m-d H:i:s');
 
+if(isset($_POST['key_x_position'])) {
+    $_SESSION['key_x_position'] = $_POST['key_x_position'];
+    $_SESSION['key_y_position'] = $_POST['key_y_position'];
+} elseif (!$_SESSION['key_x_position']) {
+    $_SESSION['key_x_position'] = 10;
+    $_SESSION['key_y_position'] = 10;
+}
+
 
 $defaults = Nexista_Config::getSection('defaults');
 Nexista_Flow::add('defaults', $defaults, false);
@@ -47,6 +55,8 @@ $runtime = array(
     'link_prefix' => $link_prefix,
     'utcdate' => $utcdate,
     'user_id' => $current_user_id,
+    'key_x_position' => $_SESSION['key_x_position'],
+    'key_y_position' => $_SESSION['key_y_position'],
     'upload_dest' => $upload_dest
     );
 

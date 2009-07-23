@@ -125,7 +125,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
   </map:gate>
 
   <map:gate name="ifp-location-space-plan-key-update" role="client">
-    <map:query src="data/sql/edit_space_plan_key_position.xml"/>
+    <map:query src="data/sql/space_plan_key_position_update.xml"/>
   </map:gate>
 
 
