@@ -155,12 +155,14 @@ CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>static_files`
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>static_file_metadata` (
-  `static_file_id` int(11) NOT NULL auto_increment,
+  `static_file_id` int(11) NOT NULL,
   `meta_key` varchar(100) NULL,
   `meta_value` varchar(100) NULL,
-  PRIMARY KEY `static_file_index` (`static_file_id`)
+  KEY `static_file_index` (`static_file_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+ALTER TABLE `<xsl:value-of select="//table_prefix"/>static_file_metadata`
+  ADD CONSTRAINT `<xsl:value-of select="//table_prefix"/>static_files_ibfk_1` FOREIGN KEY (`static_file_id`) REFERENCES `<xsl:value-of select="//table_prefix"/>static_files` (`static_file_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 
 CREATE TABLE IF NOT EXISTS `<xsl:value-of select="//table_prefix"/>options` (

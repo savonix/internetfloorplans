@@ -23,13 +23,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
 -->
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="static_file_create">
-    <connection>&ifp_connection;</connection>
-    <params>
-        <param name="//runtime/utcdate" type="text"/>
-    </params>
-    <sql>
-        SELECT static_file_id FROM &ifp_static_files;
-		WHERE 
-        creation_datetime = ?
-    </sql>
+  <connection>&ifp_connection;</connection>
+  <params>
+    <param name="//runtime/utcdate" type="text"/>
+  </params>
+  <sql>
+  SELECT static_file_id FROM &ifp_static_files; WHERE creation_datetime = ?
+  </sql>
 </query>
