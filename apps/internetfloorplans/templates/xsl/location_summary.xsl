@@ -27,8 +27,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
     <xsl:param name="i18n"/>
+    <div id="summary-controls">
+      <span id="dc1" onclick="$('#location-summary').hide();">Hide</span>
+      <span id="dc2" onclick="$('#location-summary').show();">Show</span>
+    </div>
+
     <xsl:for-each select="/_R_/location_get_summary/location_get_summary">
-      <table class="simple-table">
+      <table class="simple-table" id="location-summary">
         <tr>
           <td>
             <xsl:value-of select="$i18n/location_options"/>&#160;
@@ -56,5 +61,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
         </tr>
       </table>
     </xsl:for-each>
+    <script type="text/javascript">
+    $('#location-summary').hide();
+    </script>
   </xsl:template>
 </xsl:stylesheet>

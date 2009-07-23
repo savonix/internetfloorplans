@@ -52,17 +52,6 @@ Fifth Floor, Boston, MA 02110-1301 USA
         }
     }
     </script>
-    <xsl:value-of select="$i18n/space_plan_options"/>:
-      <xsl:if test="not(//get_location_space_plans/location_space_plan_id)">
-        <a href="{$link_prefix}ifp-location-space-plan-edit&amp;location_id={//_get/location_id}">
-          <xsl:value-of select="$i18n/add_new_plan"/>
-        </a>
-      </xsl:if>
-      <xsl:if test="//get_location_space_plans/location_space_plan_id">
-        <a href="{$link_prefix}location_space_plan-delete&amp;location_space_plan_id={//get_location_space_plans/location_space_plan_id}" onclick="location_space_plan_delete({//get_location_space_plans/location_space_plan_id}); return false;">
-          <xsl:value-of select="$i18n/delete_plan"/>
-        </a>
-      </xsl:if>
             <!--
             <br/>
             [ PDF Not Available ] / [ PDF ]
@@ -107,6 +96,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
           });
       });
       </script>
+      </xsl:if>
+      
+    <xsl:value-of select="$i18n/space_plan_options"/>:
+      <xsl:if test="not(//get_location_space_plans/location_space_plan_id)">
+        <a href="{$link_prefix}ifp-location-space-plan-edit&amp;location_id={//_get/location_id}">
+          <xsl:value-of select="$i18n/add_new_plan"/>
+        </a>
+      </xsl:if>
+      <xsl:if test="//get_location_space_plans/location_space_plan_id">
+        <a href="{$link_prefix}location_space_plan-delete&amp;location_space_plan_id={//get_location_space_plans/location_space_plan_id}" onclick="location_space_plan_delete({//get_location_space_plans/location_space_plan_id}); return false;">
+          <xsl:value-of select="$i18n/delete_plan"/>
+        </a>
       </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
