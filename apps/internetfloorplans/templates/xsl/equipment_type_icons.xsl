@@ -40,6 +40,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:with-param name="path_prefix" select="$path_prefix"/>
 			<xsl:with-param name="i18n" select="$i18n"/>
     </xsl:call-template>
+    <script type="text/javascript">
+    var question = '<xsl:value-of select="$i18n/confirm_delete"/>';
+    function equipment_type_icon_delete(static_file_id) {
+        if(confirm(question)) {
+            $.post("<xsl:value-of select="//link_prefix"/>x-equipment-type-icon-delete",
+            {'static_file_id': static_file_id},
+            function (data){
+            });
+        }
+    }
+    </script>
     <table class="simple-table">
       <thead>
         <tr>
@@ -81,7 +92,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:if test="//equipment_type_get_icons">
         <tr>
           <td>
-            <a href="{//link_prefix}ifp-static-file-delete&amp;static_file_id={//equipment_type_get_images/static_file_id}" onclick="static_file_delete({//equipment_type_get_images/static_file_id}); return false;">
+            <a href="{//link_prefix}x-static-file-delete&amp;static_file_id={//equipment_type_get_icons/static_file_id}"
+              onclick="static_file_delete({//equipment_type_get_icons/static_file_id}); return false;">
               <xsl:value-of select="$i18n/delete"/>
             </a>
           </td>

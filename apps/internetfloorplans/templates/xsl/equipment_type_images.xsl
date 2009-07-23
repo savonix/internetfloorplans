@@ -41,7 +41,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 				<xsl:with-param name="i18n" select="$i18n"/>
       </xsl:call-template>
     <!-- Confirm equipment type image deletion -->
-        <script type="text/javascript">
+    <script type="text/javascript">
     var question = '<xsl:value-of select="$i18n/confirm_delete"/>';
     function equipment_type_image_delete(static_file_id) {
         if(confirm(question)) {
