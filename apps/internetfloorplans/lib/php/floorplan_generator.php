@@ -296,14 +296,10 @@ if($number_of_icons>0) {
             /* FIXME */
 			$mfile = $fixme_path . $filename;
 
-            // This is no longer needed - it was necessary to support old
-            // components which were stored as swf files
-			if(strpos($filename,'.swf')) {
-				$source_file = new SWFPrebuiltClip(fopen($mfile,'r'));
-			} elseif(strpos($filename,'.pdf') || strpos($filename,'.ai')) {
-				$jpg_mfile = $mfile.'.jpg';
-				$source_file = new SWFBitmap(fopen($mfile.'.jpg','r'));
-			}
+
+            $jpg_mfile = $mfile.'.jpg';
+            $source_file = new SWFBitmap(fopen($mfile.'.jpg','r'));
+
 			$icon_id = 'icon_'.$id;
 			$my_y_pos = 25+(22*$i);
 
