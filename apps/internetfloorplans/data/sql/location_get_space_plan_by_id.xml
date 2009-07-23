@@ -32,7 +32,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	SELECT space_plan_pointer,
 	x_position, y_position, x_scale, y_scale, rotation_angle, 
 	alpha_transparency, display_eqp_icons, space_plan_locked, key_x_position, key_y_position 
-	FROM uplink_location_space_plan 
+	FROM &ifp_location_space_plans; 
 	WHERE location_space_plan_id = ?
 	AND location_id=?
 	</sql>

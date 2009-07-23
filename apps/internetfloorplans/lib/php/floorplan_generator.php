@@ -85,7 +85,8 @@ $my_address_id = Nexista_Path::get('//_get/location_address_id','flow');
 if(strpos($file_path,'.swf')) {
 	$sp_clip = new SWFPrebuiltClip(fopen($file, 'r'));
 } else {
-	$jpg_file = $file.'.jpg';
+	$jpg_file = '/var/www/dev/internetfloorplans/web/s/img/20071116_floor_plan.png';
+    //$jpg_file = $file.'.png';
 	$sp_clip = new SWFBitmap(fopen($jpg_file, 'r'));
 }
 
@@ -94,7 +95,7 @@ $fpbk->add($sp_clip);
 $fpbk->nextFrame();
 $y = $m->add($fpbk);
 $y->moveTo($x_shift,$y_shift);
-$y->setName("background");
+$y->setName('background');
 
 
 $entire_key = new SWFSprite();
@@ -104,10 +105,10 @@ $key_label->setFont($f);
 $key_label->setHeight(14);
 if($space_plan_locked===false) {
 	$key_label->setColor(0,0,0);
-	$key_label_text = "Merchandising Key";
+	$key_label_text = 'Merchandising Key';
 } else  {
 	$key_label->setColor(255,0,0);
-	$key_label_text = "Plan Is Locked";
+	$key_label_text = 'Plan Is Locked';
 }
 $key_label->addString($key_label_text);
 $my_key_label_header = new SWFShape();
@@ -124,10 +125,10 @@ $key_spr = $my_key_label->add($key_label);
 $key_spr->moveTo(5,7);
 $my_key_label->nextFrame();
 $my_key_label_sprite = $entire_key->add($my_key_label);
-$my_key_label_sprite->setName("my_key_label");
+$my_key_label_sprite->setName('my_key_label');
 
 
-if($display_eqp_icons=="checked") {
+if($display_eqp_icons=='checkedzzz') {
     /* FIXME */
 
 	$empty_sprite = new SWFSprite();
@@ -287,10 +288,10 @@ entire_key.cacheAsBitmap = true;
 
 
 
-$icon_pointers['filename'] = Nexista_Path::get("//equipment_type_get_icons/icon_pointer","flow");
-$icon_pointers['name'] = Nexista_Path::get("//equipment_type_get_icons/name","flow");
-$icon_pointers['equipment_type_image_id'] = Nexista_Path::get("//equipment_type_get_icons/equipment_type_image_id","flow");
-$icon_pointers['equipment_type_id'] = Nexista_Path::get("//equipment_type_get_icons/equipment_type_id","flow");
+$icon_pointers['filename'] = Nexista_Path::get('//equipment_type_get_icons/icon_pointer','flow');
+$icon_pointers['name'] = Nexista_Path::get('//equipment_type_get_icons/name','flow');
+$icon_pointers['equipment_type_image_id'] = Nexista_Path::get('//equipment_type_get_icons/equipment_type_image_id','flow');
+$icon_pointers['equipment_type_id'] = Nexista_Path::get('//equipment_type_get_icons/equipment_type_id','flow');
 
 $number_of_icons = count($icon_pointers['filename']);
 
@@ -306,13 +307,15 @@ if($number_of_icons>0) {
             /* FIXME */
 			$mfile = $fixme_path . $filename;
 
-			if(strpos($filename,".swf")) {
-				$source_file = new SWFPrebuiltClip(fopen($mfile,"r"));
-			} elseif(strpos($filename,".pdf") || strpos($filename,".ai")) {
-				$jpg_mfile = $mfile.".jpg";
-				$source_file = new SWFBitmap(fopen($mfile.".jpg","r"));
+            // This is no longer needed - it was necessary to support old 
+            // components which were stored as swf files
+			if(strpos($filename,'.swf')) {
+				$source_file = new SWFPrebuiltClip(fopen($mfile,'r'));
+			} elseif(strpos($filename,'.pdf') || strpos($filename,'.ai')) {
+				$jpg_mfile = $mfile.'.jpg';
+				$source_file = new SWFBitmap(fopen($mfile.'.jpg','r'));
 			}
-			$icon_id = "icon_".$id;
+			$icon_id = 'icon_'.$id;
 			$my_y_pos = 25+(22*$i);
 
 
@@ -340,10 +343,10 @@ unset($icon_pointers);
 
 
 
-if($_GET['key']=="yes" || $_GET['key']=="") {
+if($_GET['key']=='yes' || $_GET['key']=='') {
 	$entire_key->nextFrame();
 	$i = $m->add($entire_key);
-	$i->setName("entire_key");
+	$i->setName('entire_key');
 	$i->moveTo($key_x_position, $key_y_position);
 }
 unset($i);
@@ -355,16 +358,16 @@ unset($i);
 
 
 /* NOW BEGINS THE FIXTURE ICONS THAT ARE IN INVENTORY!!! */
-$equipment['x_pos'] = Nexista_Path::get("//equipment_get_all/x_position","flow");
+$equipment['x_pos'] = Nexista_Path::get('//equipment_get_all/x_position','flow');
 if($equipment['x_pos']!=NULL) {
 
-	$equipment['y_pos'] = (array)Nexista_Path::get("//equipment_get_all/y_position","flow");
-	$equipment['rotation_angle'] = (array)Nexista_Path::get("//equipment_get_all/rotation_angle","flow");
-	$equipment['equipment_type_id'] = (array)Nexista_Path::get("//equipment_get_all/equipment_type_id","flow");
-	$equipment['location_equipment_id'] = (array)Nexista_Path::get("//equipment_get_all/location_equipment_id","flow");
-	$equipment['equipment_id'] = (array)Nexista_Path::get("//equipment_get_all/equipment_id","flow");
-	$equipment['equipment_number'] = (array)Nexista_Path::get("//equipment_get_all/equipment_number","flow");
-	$equipment['equipment_type_image_id'] =(array) Nexista_Path::get("//equipment_get_all/equipment_type_image_id","flow");
+	$equipment['y_pos'] = (array)Nexista_Path::get('//equipment_get_all/y_position','flow');
+	$equipment['rotation_angle'] = (array)Nexista_Path::get('//equipment_get_all/rotation_angle','flow');
+	$equipment['equipment_type_id'] = (array)Nexista_Path::get('//equipment_get_all/equipment_type_id','flow');
+	$equipment['location_equipment_id'] = (array)Nexista_Path::get('//equipment_get_all/location_equipment_id','flow');
+	$equipment['equipment_id'] = (array)Nexista_Path::get('//equipment_get_all/equipment_id','flow');
+	$equipment['equipment_number'] = (array)Nexista_Path::get('//equipment_get_all/equipment_number','flow');
+	$equipment['equipment_type_image_id'] =(array) Nexista_Path::get('//equipment_get_all/equipment_type_image_id','flow');
 
 	$num_icons = count($equipment['y_pos']);
 }
@@ -398,7 +401,9 @@ removeMovieClip(bitmap_$icon_id);";
 $m->add(new SWFAction($all_actionscript));
 $m->writeExports();
 
+header('Content-Type: application/x-shockwave-flash');
 ob_start();
+
 
 
 //file_put_contents(NX_PATH_CACHE."main_actionscript.as",$all_actionscript);

@@ -82,7 +82,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
             -->
 
     <xsl:if test="//get_location_space_plans/location_space_plan_id">
-      <div id="space_plan" style="width:640px;height:640px;background: #fff url(http://www.internetfloorplans.com/demo//s/img/20071116_floor-plan.gif) no-repeat scroll left top;">
+      <div id="space_plan" style="width:640px;height:640px;background: #fff url(http://www.internetfloorplans.com/demo/s/img/20071116_floor-plan.gif) no-repeat scroll left top;">
         <!-- Show static jpg here when the visitor does not have the flash plugin. -->
         hello
       </div>
