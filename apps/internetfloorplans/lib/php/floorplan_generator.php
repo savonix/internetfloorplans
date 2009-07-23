@@ -237,7 +237,7 @@ function positionFixture() {
 			update_position.x_position = this._x - $x_shift;
 			update_position.y_position = this._y;
 			update_position.rotation_angle = this.symbol._rotation;
-			update_position.sendAndLoad('/acc/link/loc/view/eqp/edit_loc/&is_server=yes',update_position,'POST');
+			update_position.sendAndLoad('index.php?nid=ifp-location-equipment-position-edit',update_position,'POST');
 			update_position = null;
 			this.symbol_rotation=this.symbol._rotation;
 		}
@@ -249,7 +249,7 @@ function positionFixture() {
 			my_dconf.location_address_id=$my_address_id;
 			my_dconf.equipment_type_id=this.equipment_type_id;
 			my_dconf.equipment_type_image_id=this.equipment_type_image_id;
-			my_dconf.send('/acc/link/types/display_config/&body=true','config', 'POST');
+			//my_dconf.send('index.php?nid=ifp-location-space-plan-key-update','config', 'POST');
 			my_dconf = null;
 	};
 };
