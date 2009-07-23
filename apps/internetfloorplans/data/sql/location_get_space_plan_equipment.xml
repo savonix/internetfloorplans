@@ -29,12 +29,10 @@ Fifth Floor, Boston, MA 02110-1301 USA
 		<param name="_get/location_id" type="text" />
 	</params>
 	<sql>
-	SELECT NULL
-  <!--
+	SELECT 
 	&ifp_location_space_plans;.location_id,
 	&ifp_equipment;.*,
 	&ifp_equipment_types;.name,
-	&ifp_equipment_type_images;.equipment_type_image_id,
 	&ifp_location_equipment_position;.*,
 	(&ifp_locations;.name) as location_address_name
 	FROM
@@ -43,8 +41,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	&ifp_equipment_types;,
 	&ifp_location_equipment;, 
 	&ifp_location_equipment_position;,
-	&ifp_locations;,
-	&ifp_equipment_type_images;)
+	&ifp_locations;)
 
 	WHERE
 	&ifp_equipment;.equipment_type_id = &ifp_equipment_types;.equipment_type_id
@@ -54,10 +51,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	AND &ifp_location_equipment;.location_id=?
 	AND &ifp_locations;.location_id=&ifp_location_space_plans;.location_id
 	AND &ifp_location_equipment_position;.location_equipment_id=&ifp_location_equipment;.location_equipment_id
-	AND &ifp_equipment_type_images;.equipment_type_id=&ifp_equipment;.equipment_type_id
-	AND &ifp_equipment_type_images;.default_image='1'
 	
 	GROUP BY equipment_id
-  -->
 	</sql>
 </query>
