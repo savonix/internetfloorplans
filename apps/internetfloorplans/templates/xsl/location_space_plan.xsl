@@ -90,7 +90,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <script type="text/javascript">
       $(document).ready(function(){
           $('#space_plan_spot').flash({
-              src: "<xsl:value-of select="$link_prefix"/>ifp-location-space-plan-server&amp;location_id=1",
+              src: "<xsl:value-of select="$link_prefix"/>ifp-location-space-plan-swf-server&amp;location_id=1",
               width: 825,
               height: 825
           });

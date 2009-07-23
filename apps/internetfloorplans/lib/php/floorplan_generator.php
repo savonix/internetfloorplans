@@ -163,16 +163,21 @@ function argbtohex(a, r, g, b)
 
 // ICON CLASS
 function createIcon() {
-	var equipment_type_icon = this.equipment_type_icon;
-	key_icon.my_bitmap = new flash.display.BitmapData(this._width,this._height,true,0x00000000);
-	key_icon.attachBitmap(key_icon.my_bitmap, 1);
-	key_icon.my_bitmap.draw(this);
+    var equipment_type_symbol = this.equipment_type_symbol;
+    Object.registerClass('container', createNewFixture);
+    handle = attachMovie('container',equipment_type_symbol, getNextHighestDepth());
 
-	for(i=_root.j;i>=0;--i) {
-		var rgb = _root.greyscale-i;
-		var my_color = _root.argbtohex(255,rgb,rgb,rgb);
-		key_icon.my_bitmap.threshold(key_icon.my_bitmap,key_icon.my_bitmap.rectangle,key_icon.my_bitmap.rectangle.topLeft,'>=',my_color,0x00000000,my_color,true);
-	}
+    key_icon = entire_key.attachMovie('container',equipment_type_symbol,getNextHighestDepth(),
+        {_x:0,_y:this._y,equipment_type_id:this.equipment_type_id,equipment_type_image_id:this.equipment_type_image_id});
+    key_icon.my_bitmap = new flash.display.BitmapData(this._width,this._height,true,0x00000000);
+    key_icon.attachBitmap(key_icon.my_bitmap, 1);
+    key_icon.my_bitmap.draw(this);
+
+    for(i=_root.j;i>=0;--i) {
+        var rgb = _root.greyscale-i;
+        var my_color = _root.argbtohex(255,rgb,rgb,rgb);
+        key_icon.my_bitmap.threshold(key_icon.my_bitmap,key_icon.my_bitmap.rectangle,key_icon.my_bitmap.rectangle.topLeft,'>=',my_color,0x00000000,my_color,true);
+    }
 };
 createIcon.prototype = new MovieClip();
 
@@ -281,10 +286,10 @@ entire_key.cacheAsBitmap = true;
 ";
 
 
-$icon_pointers['filename'] = Nexista_Path::get('//equipment_type_get_icons/icon_pointer','flow');
-$icon_pointers['name'] = Nexista_Path::get('//equipment_type_get_icons/name','flow');
-$icon_pointers['equipment_type_image_id'] = Nexista_Path::get('//equipment_type_get_icons/equipment_type_image_id','flow');
-$icon_pointers['equipment_type_id'] = Nexista_Path::get('//equipment_type_get_icons/equipment_type_id','flow');
+$icon_pointers['filename'] = Nexista_Path::get('//equipment_types_get_all/equipment_types_get_all/file_pointer','flow');
+$icon_pointers['name'] = Nexista_Path::get('//equipment_types_get_all/name','flow');
+$icon_pointers['equipment_type_image_id'] = Nexista_Path::get('//equipment_types_get_all/equipment_type_image_id','flow');
+$icon_pointers['equipment_type_id'] = Nexista_Path::get('//equipment_types_get_all/equipment_type_id','flow');
 
 $number_of_icons = count($icon_pointers['filename']);
 
@@ -297,15 +302,25 @@ if($number_of_icons>0) {
 			$name = $icon_pointers['name'][$i];
 			$id = $icon_pointers['equipment_type_id'][$i];
 			$equipment_type_image_id = $icon_pointers['equipment_type_image_id'][$i];
-            /* FIXME */
-			$mfile = $fixme_path . $filename;
+			$mfile = $filename;
 
 
-            $jpg_mfile = $mfile.'.jpg';
-            $source_file = new SWFBitmap(fopen($mfile.'.jpg','r'));
-
+            $source_file = new SWFBitmap(fopen($mfile,'r'));
+            if(1==2){
+            header("Content-type: image/png");
+            readfile($mfile);
+            exit;
+            }
 			$icon_id = 'icon_'.$id;
+            if(1==2){
+            echo $icon_id;
+            exit;
+            }
 			$my_y_pos = 25+(22*$i);
+            $container = new SWFSprite();
+            $container->add($source_file);
+            $container->nextFrame();
+            $m->addExport($container,$icon_id);
 
 			$icon_as .="Object.registerClass('$icon_id', createIcon);
 			attachMovie('$icon_id','bitmap_$icon_id',1,

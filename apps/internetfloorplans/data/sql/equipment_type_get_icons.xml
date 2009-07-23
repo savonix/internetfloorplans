@@ -21,18 +21,13 @@ along with this program; if not, see http://www.gnu.org/licenses
 or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 -->
-
 <!DOCTYPE query SYSTEM "__default_table_names__.txt">
 <query name="equipment_type_get_icons">
-
-    <connection>&ifp_connection;</connection>
-    <params>
-        <param name="_get/equipment_type_id" type="text"/>
-	</params>
-	
-    <sql>
-        SELECT * FROM &ifp_equipment_type_icons; 
-        WHERE equipment_type_id = ?
-    </sql>
-    
+  <connection>&ifp_connection;</connection>
+  <params>
+    <param name="_get/equipment_type_id" type="integer"/>
+  </params>
+  <sql>
+  SELECT * FROM &ifp_equipment_type_icons; WHERE equipment_type_id = ?
+  </sql>
 </query>
