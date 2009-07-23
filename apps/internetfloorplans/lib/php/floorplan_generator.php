@@ -1,27 +1,6 @@
 <?php
-/* <!--
-Program: Internet Floor Plans
-Component: floorplan_generator.php
-Copyright: Savonix Corporation
-Author: Albert L. Lash, IV
-License: Gnu Affero Public License version 3
-http://www.gnu.org/licenses
+// Copyright Savonix Corporation 2003-2006
 
-This program is free software; you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published by
-the Free Software Foundation; either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program; if not, see http://www.gnu.org/licenses
-or write to the Free Software Foundation, Inc., 51 Franklin Street,
-Fifth Floor, Boston, MA 02110-1301 USA
---> */
 
 $x_shift=0;
 // This is 3/4 the size of an 11x11 page.
@@ -104,7 +83,7 @@ $key_label = new SWFTextField(SWFTEXTFIELD_NOSELECT);
 $key_label->setBounds(150,25);
 $key_label->setFont($f);
 $key_label->setHeight(14);
-if($space_plan_locked===false) {
+if($space_plan_locked===false) { 
 	$key_label->setColor(0,0,0);
 	$key_label_text = 'Merchandising Key';
 } else  {
@@ -128,11 +107,18 @@ $my_key_label->nextFrame();
 $my_key_label_sprite = $entire_key->add($my_key_label);
 $my_key_label_sprite->setName('my_key_label');
 
+$display_eqp_icons = true;
 
-//if($display_eqp_icons=='checked') {
-    /* FIXME */
+if($display_eqp_icons) {
+	$ind_path = $path."/htdocs/resources/img/style-1.1/images/";
+	if($status_symbol=="yes") { 
+		$ex_clip = new SWFBitmap(fopen($ind_path."icon_warning_sml.jpg","r"));
+		$check_clip = new SWFBitmap(fopen($ind_path."icon_warning_sml.jpg","r"));
+		$equals_clip = new SWFBitmap(fopen($ind_path."icon_warning_sml.jpg","r"));
+	}
 
 	$empty_sprite = new SWFSprite();
+	$m->addExport($empty_sprite,'container');
 
 
 $main_actionscript = "
@@ -149,9 +135,9 @@ background.onPress=function(){
 	selection.filters=null;
 	selection=null;
 };
-//onMouseDown=function() {
-//	getUrl('about:blank','config', 'GET');
-//};
+onMouseDown=function() { 
+	getUrl('about:blank','config', 'GET');
+};
 onMouseUp=function() {
 	stopDrag();
 };
@@ -162,13 +148,18 @@ function argbtohex(a, r, g, b)
 }
 
 // ICON CLASS
-function createIcon() {
-	var equipment_type_icon = this.equipment_type_icon;
+function createIcon() { 
+	var equipment_type_symbol = this.equipment_type_symbol;
+	Object.registerClass('container', createNewFixture);
+	handle = attachMovie('container',equipment_type_symbol, getNextHighestDepth());
+	
+	key_icon = entire_key.attachMovie('container',equipment_type_symbol,getNextHighestDepth(),
+		{_x:0,_y:this._y,equipment_type_id:this.equipment_type_id,equipment_type_image_id:this.equipment_type_image_id});
 	key_icon.my_bitmap = new flash.display.BitmapData(this._width,this._height,true,0x00000000);
 	key_icon.attachBitmap(key_icon.my_bitmap, 1);
 	key_icon.my_bitmap.draw(this);
-
-	for(i=_root.j;i>=0;--i) {
+	
+	for(i=_root.j;i>=0;--i) { 
 		var rgb = _root.greyscale-i;
 		var my_color = _root.argbtohex(255,rgb,rgb,rgb);
 		key_icon.my_bitmap.threshold(key_icon.my_bitmap,key_icon.my_bitmap.rectangle,key_icon.my_bitmap.rectangle.topLeft,'>=',my_color,0x00000000,my_color,true);
@@ -180,85 +171,85 @@ createIcon.prototype = new MovieClip();
 function createNewFixture() {};
 createNewFixture.prototype = new MovieClip();
 
-createNewFixture.prototype.onPress=function() {
+createNewFixture.prototype.onPress=function() { 
 	this.createEmptyMovieClip('newone', getNextHighestDepth());
 	this.newone.attachBitmap(this.my_bitmap,2,auto,false);
-	this.newone.startDrag(lock);
+	this.newone.startDrag(lock);	
 };
-createNewFixture.prototype.onRelease=createNewFixture.prototype.onReleaseOutside=function() {
-	location_id=$my_address_id;
+createNewFixture.prototype.onRelease=createNewFixture.prototype.onReleaseOutside=function() { 
+	location_address_id=$my_address_id;
 	equipment_type_id=this.equipment_type_id;
 	submit='Submit';
 	x_position = _root._xmouse;
 	y_position = _root._ymouse;
-	getURL('$FIXME&location_id=$my_address_id', '', 'POST');
+	getURL('/acc/link/loc/view/sp/&location_address_id=$my_address_id', '', 'POST');
 };
-createNewFixture.prototype.onRollOver=function() {
+createNewFixture.prototype.onRollOver=function() { 
 	var dconf = new LoadVars();
 	dconf.location_equipment_id=100;
-	dconf.equipment_type_id=this.equipment_type_id;
-	dconf.equipment_type_image_id=this.equipment_type_image_id;
-	dconf.send('$FIXME&body=true','config', 'POST');
+	dconf.equipment_type_id=this.equipment_type_id;	
+	dconf.equipment_type_image_id=this.equipment_type_image_id;	
+	dconf.send('/acc/link/types/display_config/&body=true','config', 'POST');
 	dconf = null;
 };
 
 
 // INVENTORY CLASS
 function positionFixture() {
-	this.createEmptyMovieClip('icon', this.getNextHighestDepth());
-	this.icon.cacheAsBitmap = false;
-	this.icon.createEmptyMovieClip('bitmap', this.getNextHighestDepth());
-	this.icon.bitmap.attachBitmap(this.bitmap,2,auto,true);
-	this.icon.bitmap._x=-this.icon.bitmap._width/2;
-	this.icon.bitmap._y=-this.icon.bitmap._height/2;
-	this.icon._rotation=this.icon_rotation;
-	this.onPress=function() {
+	this.createEmptyMovieClip('symbol', this.getNextHighestDepth());
+	this.symbol.cacheAsBitmap = false;
+	this.symbol.createEmptyMovieClip('bitmap', this.getNextHighestDepth());
+	this.symbol.bitmap.attachBitmap(this.bitmap,2,auto,true);
+	this.symbol.bitmap._x=-this.symbol.bitmap._width/2;
+	this.symbol.bitmap._y=-this.symbol.bitmap._height/2;	
+	this.symbol._rotation=this.symbol_rotation;
+	this.onPress=function() { 
 		// If clicked by not selected, select.
-		if(this.selected!=true) {
+		if(this.selected!=true) { 
 			this.startDrag(lock);
 			selection.selected = null;
 			selection.filters = [];
 			this.filters = [gf];
 			this.selected=true;
 			selection=this;
-
-		} else {
+			
+		} else { 
 			var my_corrFactor = 0;
 			if (this._xmouse < 0){
 				my_corrFactor = 180;
 			}
 			var counterbalance = (57.29578*(Math.atan(this._ymouse/this._xmouse)))+my_corrFactor;
-			this.onMouseMove=function() {
+			this.onMouseMove=function() { 
 				degreeAngle = (57.29578*(Math.atan(this._ymouse/this._xmouse)))-counterbalance;
 				corrFactor = 0;
 				if (this._xmouse < 0){
 					corrFactor = 180;
 				}
-				this.icon._rotation = 15*int(degreeAngle/15)+corrFactor+this.icon_rotation;
+				this.symbol._rotation = 15*int(degreeAngle/15)+corrFactor+this.symbol_rotation;
 			};
 		}
 	};
-	this.onRelease=this.onReleaseOutside=function() {
+	this.onRelease=this.onReleaseOutside=function() { 
 		this.onMouseMove = null;
-		if(x_position!=this._x || y_position!=this._y || my_rotation!=this.icon._rotation) {
+		if(x_position!=this._x || y_position!=this._y || my_rotation!=this.symbol._rotation) {
 			var update_position = new LoadVars();
 			update_position.location_equipment_id=this.my_leid;
 			update_position.x_position = this._x - $x_shift;
 			update_position.y_position = this._y;
-			update_position.rotation_angle = this.icon._rotation;
-			update_position.sendAndLoad('$FIXME',update_position,'POST');
+			update_position.rotation_angle = this.symbol._rotation;
+			update_position.sendAndLoad('/acc/link/loc/view/eqp/edit_loc/&is_server=yes',update_position,'POST');
 			update_position = null;
-			this.icon_rotation=this.icon._rotation;
-		}
-
+			this.symbol_rotation=this.symbol._rotation;
+		} 
+			
 			// display_config
 			var my_dconf = new LoadVars();
 			my_dconf.location_equipment_id=this.my_leid;
 			my_dconf.equipment_id=this.my_eid;
-			my_dconf.location_id=$my_address_id;
-			my_dconf.equipment_type_id=this.equipment_type_id;
-			my_dconf.equipment_type_image_id=this.equipment_type_image_id;
-			my_dconf.send('$FIXME&body=true','config', 'POST');
+			my_dconf.location_address_id=$my_address_id;
+			my_dconf.equipment_type_id=this.equipment_type_id;	
+			my_dconf.equipment_type_image_id=this.equipment_type_image_id;	
+			my_dconf.send('/acc/link/types/display_config/&body=true','config', 'POST');
 			my_dconf = null;
 	};
 };
@@ -266,63 +257,62 @@ function positionFixture() {
 
 positionFixture.prototype = new MovieClip();
 
+
+
+
 entire_key.my_key_label.onPress=function(){
 	_root.entire_key.startDrag(lock);
 };
-entire_key.my_key_label.onRelease=entire_key.my_key_label.onReleaseOutside=function(){
+entire_key.my_key_label.onRelease=entire_key.my_key_label.onReleaseOutside=function(){ 	
 	var update_key = new LoadVars();
 	update_key.key_x_position = _root.entire_key._x;
 	update_key.key_y_position = _root.entire_key._y;
 	update_key.location_space_plan_id = '$location_space_plan_id';
-	update_key.location_id = '$my_address_id';
-	update_key.sendAndLoad('index.php?nid=ifp-location-space-plan-key-update',update_key,'POST');
+	update_key.location_address_id = '$my_address_id';
+	update_key.sendAndLoad('/acc/link/loc/view/set-key-position/&is_server=yes',update_key,'POST');
 };
 entire_key.cacheAsBitmap = true;
 ";
 
 
-$icon_pointers['filename'] = Nexista_Path::get('//equipment_types_get_all/equipment_types_get_all/file_pointer','flow');
-$icon_pointers['name'] = Nexista_Path::get('//equipment_types_get_all/name','flow');
-$icon_pointers['equipment_type_image_id'] = Nexista_Path::get('//equipment_types_get_all/equipment_type_icon_id','flow');
-$icon_pointers['equipment_type_id'] = Nexista_Path::get('//equipment_types_get_all/equipment_type_id','flow');
 
-$number_of_icons = count($icon_pointers['filename']);
 
-if($number_of_icons>0) {
 
-	for($i=0; $i < $number_of_icons; $i++) {
 
-		$filename = $icon_pointers['filename'][$i];
+
+$symbol_pointers['filename'] = Nexista_Path::get('//equipment_types_get_all/equipment_types_get_all/file_pointer','flow');
+$symbol_pointers['name'] = Nexista_Path::get('//equipment_types_get_all/name','flow');
+$symbol_pointers['equipment_type_image_id'] = Nexista_Path::get('//equipment_types_get_all/equipment_type_icon_id','flow');
+$symbol_pointers['equipment_type_id'] = Nexista_Path::get('//equipment_types_get_all/equipment_type_id','flow');
+
+$number_of_symbols = count($symbol_pointers['filename']);
+
+if($number_of_symbols>0) {
+
+	for($i=0; $i < $number_of_symbols; $i++) {
+
+		$filename = $symbol_pointers['filename'][$i];
 		if(!empty($filename)){
-			$name = $icon_pointers['name'][$i];
-			$id = $icon_pointers['equipment_type_id'][$i];
-			$equipment_type_image_id = $icon_pointers['equipment_type_image_id'][$i];
+			$name = $symbol_pointers['name'][$i];
+			$id = $symbol_pointers['equipment_type_id'][$i];
+			$equipment_type_image_id = $symbol_pointers['equipment_type_image_id'][$i];
+			//$mfile = $path."/usr/".$account_id."/merchandising/" . $filename;
 			$mfile = $filename;
 
-
-            $source_file = new SWFBitmap(fopen($mfile,'r'));
-            if(1==2){
-            header("Content-type: image/png");
-            readfile($mfile);
-            exit;
-            }
-			$icon_id = 'icon_'.$id;
-            if(1==2){
-            echo $icon_id;
-            exit;
-            }
+			$source_file = new SWFBitmap(fopen($mfile,'r'));
+			$icon_id = "icon_".$id;
 			$my_y_pos = 25+(22*$i);
-            $container = new SWFSprite();
-            $container->add($source_file);
-            $container->nextFrame();
-            $m->addExport($container,$icon_id);
-
+			$container = new SWFSprite();
+			$container->add($source_file);
+			$container->nextFrame();
+			$m->addExport($container,$icon_id);
+			
+			
 			$icon_as .="Object.registerClass('$icon_id', createIcon);
 			attachMovie('$icon_id','bitmap_$icon_id',1,
-				{_y:$my_y_pos,equipment_type_icon:'equipment_type_$icon_id',equipment_type_id:$id,equipment_type_image_id:'$equipment_type_image_id'});
+				{_y:$my_y_pos,equipment_type_symbol:'equipment_type_$icon_id',equipment_type_id:$id,equipment_type_image_id:'$equipment_type_image_id'});
 			";
-//echo $icon_as;
-//exit;
+	
 			$kt = new SWFTextField();
 			$kt->setFont($f);
 			$kt->setHeight(11);
@@ -330,61 +320,76 @@ if($number_of_icons>0) {
 			$kt->addString("$name");
 			$kt2 = $entire_key->add($kt);
 			$kt2->moveto(37,11+$my_y_pos);
-
+			
+			
+			unset($container);
 		}
 	}
 }
 unset($kt);
 unset($kt2);
 unset($name);
-unset($icon_pointers);
+unset($symbol_pointers);
+
+
 
 if($_GET['key']=='yes' || $_GET['key']=='') {
 	$entire_key->nextFrame();
 	$i = $m->add($entire_key);
-	$i->setName('entire_key');
+	$i->setName("entire_key");
 	$i->moveTo($key_x_position, $key_y_position);
 }
 unset($i);
 
 
 /* NOW BEGINS THE FIXTURE ICONS THAT ARE IN INVENTORY!!! */
-$equipment['x_pos'] = Nexista_Path::get('//equipment_get_all/x_position','flow');
-if($equipment['x_pos']!=NULL) {
+$assets['x_pos'] = Nexista_Path::get('//equipment_get_all/x_position','flow');
+if($assets['x_pos']!=NULL) {
 
-	$equipment['y_pos'] = (array)Nexista_Path::get('//equipment_get_all/y_position','flow');
-	$equipment['rotation_angle'] = (array)Nexista_Path::get('//equipment_get_all/rotation_angle','flow');
-	$equipment['equipment_type_id'] = (array)Nexista_Path::get('//equipment_get_all/equipment_type_id','flow');
-	$equipment['location_equipment_id'] = (array)Nexista_Path::get('//equipment_get_all/location_equipment_id','flow');
-	$equipment['equipment_id'] = (array)Nexista_Path::get('//equipment_get_all/equipment_id','flow');
-	$equipment['equipment_number'] = (array)Nexista_Path::get('//equipment_get_all/equipment_number','flow');
-	$equipment['equipment_type_image_id'] =(array) Nexista_Path::get('//equipment_get_all/equipment_type_image_id','flow');
+	$assets['y_pos'] = (array)Nexista_Path::get('//equipment_get_all/y_position','flow');
+	$assets['rotation_angle'] = (array)Nexista_Path::get('//equipment_get_all/rotation_angle','flow');
+	$assets['equipment_type_id'] = (array)Nexista_Path::get('//equipment_get_all/equipment_type_id','flow');
+	$assets['location_equipment_id'] = (array)Nexista_Path::get('//equipment_get_all/location_equipment_id','flow');
+	$assets['equipment_id'] = (array)Nexista_Path::get('//equipment_get_all/equipment_id','flow');
+	$assets['asset_id'] = (array)Nexista_Path::get('//equipment_get_all/asset_id','flow');
+	$assets['equipment_type_image_id'] = (array)Nexista_Path::get('//equipment_get_all/equipment_type_image_id','flow');
+	$assets['status_id'] = (array)Nexista_Path::get('//equipment_get_all/status_id','flow');
+	$assets['container'] = Nexista_Path::get('//equipment_get_all','flow');
+	// should container be an array - no, see below??
 
-	$num_icons = count($equipment['y_pos']);
+	$num_icons = count($assets['y_pos']);
 }
 
 
-if($number_of_icons>0) {
-	if(is_array($equipment['x_pos'])) {
-		// Now loop through the actual equipment lists at that location?
-		for($j=0; $j<$num_icons; $j++) {
-			$e_id = $equipment['equipment_type_id'][$j];
-			$my_x = $equipment['x_pos'][$j];
-			$my_y = $equipment['y_pos'][$j];
-			$my_rotation_angle = $equipment['rotation_angle'][$j];
-			$my_equipment_number = $equipment['equipment_number'][$j];
-			$my_leid = $equipment['location_equipment_id'][$j];
-			$my_eid = $equipment['equipment_id'][$j];
-			$my_equipment_type_image_id = $equipment['equipment_type_image_id'][$j];
+if($number_of_symbols>0) { 
+	if(is_array($assets['x_pos'])) { 
+		// Now loop through the actual asset lists at that location?
+		$inventory_as = "Object.registerClass('container',positionFixture);";
+		for($j=0; $j<$num_icons; $j++) { 
+			$e_id = $assets['equipment_type_id'][$j];
+			$my_x = $assets['x_pos'][$j];
+			$my_y = $assets['y_pos'][$j];
+			$my_rotation_angle = $assets['rotation_angle'][$j];
+			$equipment_status=$assets['status_id'][$j];
+			$my_aid = $assets['asset_id'][$j];
+			$my_leid = $assets['location_equipment_id'][$j];
+			$my_eid = $assets['equipment_id'][$j];
+			$my_equipment_type_image_id = $assets['equipment_type_image_id'][$j]; 
 
 			$my_icon_type_id = "icon_".$e_id;
+			$inventory_as .= "
+			var this_bmp = entire_key.equipment_type_$my_icon_type_id.my_bitmap;
+			attachMovie('container','$my_eid',getNextHighestDepth(),
+				{_x:$my_x,_y:$my_y,my_eid:$my_eid,symbol_rotation:$my_rotation_angle,my_icon_type_id:'$my_icon_type_id',bitmap:this_bmp,my_leid:'$my_leid',equipment_type_image_id:'$my_equipment_type_image_id'});
+
+			";
 		}
 	}
 	unset($j);
 
 }
 
-//}
+}
 
 $all_actionscript = $main_actionscript.$icon_as.$inventory_as."
 removeMovieClip(bitmap_$icon_id);";
@@ -392,10 +397,13 @@ removeMovieClip(bitmap_$icon_id);";
 $m->add(new SWFAction($all_actionscript));
 $m->writeExports();
 
-header('Content-Type: application/x-shockwave-flash');
 ob_start();
 
-
+$gm_date = gmdate("D, d M Y H:i:s");
+header("Expires: " . $gm_date . " GMT");
+////header("Cache-Control: private, must-revalidate");
+////header("Cache-control: no-store");
+header("Content-type: application/x-shockwave-flash");
 
 //file_put_contents(NX_PATH_CACHE."main_actionscript.as",$all_actionscript);
 $file_target = NX_PATH_CACHE."bah.swf";
