@@ -28,19 +28,19 @@
  */
 
 $path        = $_SERVER['SCRIPT_NAME'];
-$path_prefix = dirname($path)."/";
+$path_prefix = dirname($path).'/';
 
-if ($_GET['view_flow'] == "true" ) {
-    $link_prefix = $path."?view_flow=true&nid=";
+if ($_GET['view_flow'] == 'true' ) {
+    $link_prefix = $path.'?view_flow=true&nid=';
 } else {
-    $link_prefix = $path."?nid=";
+    $link_prefix = $path.'?nid=';
 }
 
 $utcdate = gmdate('Y-m-d H:i:s');
 
 
 $defaults = Nexista_Config::getSection('defaults');
-Nexista_Flow::add("defaults", $defaults, false);
+Nexista_Flow::add('defaults', $defaults, false);
 
 $runtime = array(
     'path_prefix' => $path_prefix,
@@ -50,5 +50,5 @@ $runtime = array(
     'upload_dest' => $upload_dest
     );
 
-Nexista_Flow::add("runtime", $runtime, false);
+Nexista_Flow::add('runtime', $runtime, false);
 ?>

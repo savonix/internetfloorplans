@@ -81,11 +81,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
             [ <a>Debug SWF</a> ]
             -->
 
+    <xsl:if test="//defaults/use_interactive_space_plans='no'">
     <xsl:if test="//get_location_space_plans/location_space_plan_id">
-      <div id="space_plan" style="width:640px;height:640px;background: #fff url(http://www.internetfloorplans.com/demo/s/img/20071116_floor-plan.gif) no-repeat scroll left top;">
+      <div id="space_plan_spot" style="width:640px;height:640px;background: #fff url(http://www.internetfloorplans.com/demo/s/img/20071116_floor-plan.gif) no-repeat scroll left top;">
         <!-- Show static jpg here when the visitor does not have the flash plugin. -->
         hello
       </div>
+    </xsl:if>
     </xsl:if>
 
       <!--
@@ -93,11 +95,13 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <object data="200907_space_plans.svg" width="640" height="480" type="image/svg+xml"/>
       -->
 
-      <xsl:if test="//defaults/use_interactive_space_plans='true'">
+      <xsl:if test="//defaults/use_interactive_space_plans='yes'">
+      <div id="space_plan_spot">
+      </div>
       <script type="text/javascript">
       $(document).ready(function(){
-          $('#space_plan').flash({
-              src: "ifp-location-space-plan-server&amp;location_space_plan_id=<xsl:value-of select="//get_location_space_plans/location_space_plan_id"/>&amp;location_address_id=<xsl:value-of select="//_get/location_id"/>&amp;key=<xsl:value-of select="//_get/key"/>",
+          $('#space_plan_spot').flash({
+              src: "<xsl:value-of select="$link_prefix"/>ifp-location-space-plan-server&amp;location_id=1",
               width: 825,
               height: 825
           });

@@ -28,7 +28,6 @@ $x_shift=0;
 $movie_width = 825;
 $movie_height = 825;
 
-
 $my_rotation_angle = 0;
 $equipment_status = 0;
 $my_equipment_number = '';
@@ -51,8 +50,6 @@ $m->setDimension($movie_width, $movie_height);
 
 $path = $_SERVER['SCRIPT_FILENAME'];
 $path = dirname(dirname($path));
-
-
 
 $f = new SWFFont('_sans');
 
@@ -82,13 +79,13 @@ $display_eqp_icons=Nexista_Path::get('//get_sp_pointer_by_id/display_eqp_icons',
 
 $my_address_id = Nexista_Path::get('//_get/location_id','flow');
 
-if(strpos($file_path,'.swf')) {
-	$sp_clip = new SWFPrebuiltClip(fopen($file, 'r'));
+$testing = true;
+if($testing) {
+    $jpg_file = '/var/www/dev/internetfloorplans/web/s/img/200907_testing.png';
 } else {
-	$jpg_file = '/var/www/dev/internetfloorplans/web/s/img/20071116_floor_plan.png';
-    //$jpg_file = $file.'.png';
-	$sp_clip = new SWFBitmap(fopen($jpg_file, 'r'));
+    $jpg_file = $file.'.png';
 }
+$sp_clip = new SWFBitmap(fopen($jpg_file, 'r'));
 
 $fpbk = new SWFSprite();
 $fpbk->add($sp_clip);
@@ -128,7 +125,7 @@ $my_key_label_sprite = $entire_key->add($my_key_label);
 $my_key_label_sprite->setName('my_key_label');
 
 
-//if($display_eqp_icons=='checkedzzz') {
+//if($display_eqp_icons=='checked') {
     /* FIXME */
 
 	$empty_sprite = new SWFSprite();
@@ -148,9 +145,9 @@ background.onPress=function(){
 	selection.filters=null;
 	selection=null;
 };
-onMouseDown=function() {
-	getUrl('about:blank','config', 'GET');
-};
+//onMouseDown=function() {
+//	getUrl('about:blank','config', 'GET');
+//};
 onMouseUp=function() {
 	stopDrag();
 };
@@ -274,15 +271,10 @@ entire_key.my_key_label.onRelease=entire_key.my_key_label.onReleaseOutside=funct
 	update_key.key_y_position = _root.entire_key._y;
 	update_key.location_space_plan_id = '$location_space_plan_id';
 	update_key.location_id = '$my_address_id';
-	update_key.sendAndLoad('$FIXME',update_key,'POST');
+	//update_key.sendAndLoad('$FIXME',update_key,'POST');
 };
 entire_key.cacheAsBitmap = true;
 ";
-
-
-
-
-
 
 
 $icon_pointers['filename'] = Nexista_Path::get('//equipment_type_get_icons/icon_pointer','flow');
@@ -304,7 +296,7 @@ if($number_of_icons>0) {
             /* FIXME */
 			$mfile = $fixme_path . $filename;
 
-            // This is no longer needed - it was necessary to support old 
+            // This is no longer needed - it was necessary to support old
             // components which were stored as swf files
 			if(strpos($filename,'.swf')) {
 				$source_file = new SWFPrebuiltClip(fopen($mfile,'r'));
@@ -314,7 +306,6 @@ if($number_of_icons>0) {
 			}
 			$icon_id = 'icon_'.$id;
 			$my_y_pos = 25+(22*$i);
-
 
 			$icon_as .="Object.registerClass('$icon_id', createIcon);
 			attachMovie('$icon_id','bitmap_$icon_id',1,
@@ -329,7 +320,6 @@ if($number_of_icons>0) {
 			$kt2 = $entire_key->add($kt);
 			$kt2->moveto(37,11+$my_y_pos);
 
-
 		}
 	}
 }
@@ -338,8 +328,6 @@ unset($kt2);
 unset($name);
 unset($icon_pointers);
 
-
-
 if($_GET['key']=='yes' || $_GET['key']=='') {
 	$entire_key->nextFrame();
 	$i = $m->add($entire_key);
@@ -347,11 +335,6 @@ if($_GET['key']=='yes' || $_GET['key']=='') {
 	$i->moveTo($key_x_position, $key_y_position);
 }
 unset($i);
-
-
-
-
-
 
 
 /* NOW BEGINS THE FIXTURE ICONS THAT ARE IN INVENTORY!!! */

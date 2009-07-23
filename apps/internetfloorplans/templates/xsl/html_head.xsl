@@ -40,7 +40,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?2.7.0/build/reset/reset-min.css"/>
       <link rel="stylesheet" type="text/css" href="{$path_prefix}s/css/droppy.css" />
       <link rel="stylesheet" type="text/css" href="{$link_prefix}x-dynamic-css"></link>
-      <script type="text/javascript" src="{$path_prefix}s/js/jquery/jquery.js"></script>
+      <script type="text/javascript" src="{$path_prefix}s/js/jquery/jquery-1.3.2.js"></script>
       <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.cookiejar.js"></script>
       <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.tablesorter.min.js"></script>
       <script type="text/javascript" src="{$path_prefix}s/js/jquery/plugins/jquery.tablesorter.pager.js"></script>
