@@ -30,6 +30,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <xsl:param name="link_prefix"/>
     <xsl:param name="path_prefix"/>
     <xsl:param name="i18n"/>
+    <script type="text/javascript">
+    var question = 'Are you sure you want to delete this image?';
+    function location_image_delete(location_image_id) {
+        if(confirm(question)) { 
+            $.post("<xsl:value-of select="$link_prefix"/>x-location-image-delete", {'location_image_id': location_image_id},
+            function (data){
+                $("#li_"+location_image_id).remove();
+                $("#delete_image").remove();
+                $("#add_new_image").css("display","block");
+            });
+        }
+    }
+    </script>
     <form method="post">
       <input type="hidden" name="location_id" value="{//_get/location_id}"/>
 
@@ -70,20 +83,19 @@ Fifth Floor, Boston, MA 02110-1301 USA
                   </th>
                 </tr>
               </thead>
-              <xsl:if test="not(//location_image_id)">
-                <tr>
-                  <td>
-                    <a href="{$link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
-                      <xsl:value-of select="$i18n/add_new_image"/>
-                    </a>
-                  </td>
-                </tr>
-              </xsl:if>
+              <tr id="add_new_image">
+                <xsl:if test="//location_image_id"><xsl:attribute name="style">display:none</xsl:attribute></xsl:if>
+                <td>
+                  <a href="{$link_prefix}ifp-location-image-edit&amp;location_id={//_get/location_id}">
+                    <xsl:value-of select="$i18n/add_new_image"/>
+                  </a>
+                </td>
+              </tr>
               <xsl:if test="//location_image_id">
-                <tr>
+                <tr id="delete_image">
                   <td>
-                    <a href="#"
-                      onclick="return confirm('{$i18n/confirm_delete}')">
+                    <a href="#{//get_location_images[1]/location_image_id}"
+                      onclick="location_image_delete({//get_location_images[1]/location_image_id});">
                       <xsl:value-of select="$i18n/delete"/>&#160;
                       <xsl:value-of select="$i18n/this_image"/>
                     </a>
@@ -108,10 +120,18 @@ Fifth Floor, Boston, MA 02110-1301 USA
                     select="//get_location_images[location_image_id=$image_id]/name"/>
                 </td>
               </tr>
-              <tr>
+              <tr id="li_{$image_id}">
                 <td>
-                <!-- FIXME: IMAGE OR MOVIE GOES HERE - REDO THIS -->
+                  <div style="padding:10px">
+                  <xsl:if test="contains(//get_location_images[location_image_id=$image_id]/image_pointer,'.jpg')">
                   <img src="{//get_location_images[location_image_id=$image_id]/image_pointer}"/>
+                  </xsl:if>
+                  <xsl:if test="not(contains(//get_location_images[location_image_id=$image_id]/image_pointer,'.jpg'))">
+                  <a href="{//get_location_images[location_image_id=$image_id]/image_pointer}.jpg" class="thickbox">
+                    <img src="{//get_location_images[location_image_id=$image_id]/image_pointer}.mini.jpg"/>
+                  </a>
+                  </xsl:if>
+                  </div>
                 </td>
               </tr>
             </table>
