@@ -34,6 +34,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <form enctype="multipart/form-data" method="post">
       <input type="hidden" name="dest" value="{//upload_dest}"/>
       <input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}"/>
+      <input type="hidden" name="static_file_type" value="equipment_type_icon" />
       <xsl:call-template name="equipment-type-menu">
         <xsl:with-param name="link_prefix" select="$link_prefix"/>
         <xsl:with-param name="path_prefix" select="$path_prefix"/>

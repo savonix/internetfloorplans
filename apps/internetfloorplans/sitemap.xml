@@ -377,8 +377,9 @@ Fifth Floor, Boston, MA 02110-1301 USA
 
 	<!-- View equipment type icons -->
   <map:gate name="ifp-equipment-type-icons" role="client">
+    <map:xml src="data/xml/equipment_type_icon_meta.xml"/>
     <map:query src="data/sql/equipment_type_get_by_id.xml"/>
-    <map:query src="data/sql/equipment_type_get_icons.xml"/>
+    <map:query src="data/sql/static_file_get_by_metadata_key.xml"/>
     <map:xsl src="templates/xsl/equipment_type_icons.xsl"/>
   </map:gate>
 
@@ -468,7 +469,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <map:xml src="data/css/default_css_colors.xml"/>
     <map:xsl src="templates/css/dynamic.css.xsl"/>
   </map:gate>
-  <map:gate name="dynamic-database-model" cache="0">
+  <map:gate name="x-dynamic-database-model" cache="0">
     <map:set name="table_prefix" value="ifp_"/>
     <map:set name="engine" value="mysqli"/>
     <map:action type="header" params="Content-Type,text/plain"/>

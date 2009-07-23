@@ -44,6 +44,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     <form enctype="multipart/form-data" method="post">
       <input type="hidden" name="dest" value="{//option_get[option_key='file_upload_directory']/option_value}" />
       <input type="hidden" name="equipment_type_id" value="{//_get/equipment_type_id}" />
+      <input type="hidden" name="static_file_type" value="equipment_type_image" />
 
       <xsl:if test="//static_file_id">
         <input type="hidden" name="static_file_id" value="{//static_file_id}"/>
