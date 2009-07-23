@@ -48,9 +48,11 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <xsl:if test="//static_file_id">
         <input type="hidden" name="static_file_id" value="{//static_file_id}"/>
       </xsl:if>
-      <xsl:call-template name="equipment-type-menu"/>
-      <xsl:call-template name="equipment-type-summary"/>
-      <xsl:call-template name="upload_form"/>
+      <xsl:call-template name="upload_form">
+        <xsl:with-param name="link_prefix" select="$link_prefix"/>
+        <xsl:with-param name="path_prefix" select="$path_prefix"/>
+				<xsl:with-param name="i18n" select="$i18n"/>
+      </xsl:call-template>
     </form>
   </xsl:template>
 </xsl:stylesheet>

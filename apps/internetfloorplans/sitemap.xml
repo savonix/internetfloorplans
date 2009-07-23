@@ -370,7 +370,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       </map:false>
     </map:if>
   </map:gate>
-  <map:gate name="ifp-equipment-type-image-delete" role="client">
+  <map:gate name="x-equipment-type-image-delete" role="client">
     <map:query src="data/sql/static_file_delete.xml"/>
   </map:gate>
 

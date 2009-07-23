@@ -45,7 +45,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     var question = '<xsl:value-of select="$i18n/confirm_delete"/>';
     function equipment_type_image_delete(static_file_id) {
         if(confirm(question)) {
-            $.post("<xsl:value-of select="//link_prefix"/>ifp-equipment-type-image-delete",
+            $.post("<xsl:value-of select="//link_prefix"/>x-equipment-type-image-delete",
             {'static_file_id': static_file_id},
             function (data){
             });
@@ -95,7 +95,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
               <xsl:if test="//static_file_get_by_metadata_key">
                 <tr>
                   <td>
-                    <a href="{//link_prefix}ifp-equipment-type-image-delete&amp;equipment_type_image_id={//equipment_type_get_images/static_file_id}" onclick="equipment_type_image_delete({//equipment_type_get_images/static_file_id}); return false;">
+                    <a href="{//link_prefix}ifp-equipment-type-image-delete&amp;equipment_type_image_id={//static_file_get_by_metadata_key/static_file_id}"
+                    onclick="equipment_type_image_delete({//static_file_get_by_metadata_key/static_file_id}); return false;">
                       <xsl:value-of select="$i18n/delete"/>
                     </a>
                   </td>
