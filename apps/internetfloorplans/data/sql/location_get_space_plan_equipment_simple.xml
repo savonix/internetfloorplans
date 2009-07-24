@@ -31,7 +31,8 @@ Fifth Floor, Boston, MA 02110-1301 USA
 	SELECT
 	&ifp_location_equipment;.*,
 	&ifp_location_equipment_position;.*,
-  &ifp_equipment;.equipment_type_id
+  &ifp_equipment;.equipment_type_id,
+  &ifp_equipment;.equipment_id AS my_equipment_id
 	FROM
 	(
 	&ifp_location_equipment;,

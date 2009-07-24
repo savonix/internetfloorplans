@@ -120,7 +120,6 @@ if($display_eqp_icons) {
 	$empty_sprite = new SWFSprite();
 	$m->addExport($empty_sprite,'container');
 
-
 $main_actionscript = "
 
 var greyscale = 225;
@@ -186,10 +185,10 @@ createNewFixture.prototype.onRelease=createNewFixture.prototype.onReleaseOutside
 	getURL('index.php?nid=ifp-equipment-edit-submit&location_id=$my_address_id', '', 'POST');
 };
 createNewFixture.prototype.onRollOver=function() {
-	var dconf = new LoadVars();
-	dconf.location_equipment_id=100;
-	dconf.equipment_type_id=this.equipment_type_id;
-	dconf.equipment_type_image_id=this.equipment_type_image_id;
+	//var dconf = new LoadVars();
+	//dconf.location_equipment_id=100;
+	//dconf.equipment_type_id=this.equipment_type_id;
+	//dconf.equipment_type_image_id=this.equipment_type_image_id;
 	//dconf.send('/acc/link/types/display_config/&body=true','config', 'POST');
 	//dconf = null;
 };
@@ -241,16 +240,18 @@ function positionFixture() {
 			update_position = null;
 			this.symbol_rotation=this.symbol._rotation;
 		}
+        var myjavascript = 'javascript:show_img('+this.my_eid+','+this.etid+');';
+        getURL(myjavascript);
 
-			// display_config
-			var my_dconf = new LoadVars();
-			my_dconf.location_equipment_id=this.my_leid;
-			my_dconf.equipment_id=this.my_eid;
-			my_dconf.location_address_id=$my_address_id;
-			my_dconf.equipment_type_id=this.equipment_type_id;
-			my_dconf.equipment_type_image_id=this.equipment_type_image_id;
-			//my_dconf.send('index.php?nid=ifp-location-space-plan-key-update','config', 'POST');
-			my_dconf = null;
+        // display_config
+        var my_dconf = new LoadVars();
+        my_dconf.location_equipment_id=this.my_leid;
+        my_dconf.equipment_id=this.my_eid;
+        my_dconf.location_address_id=$my_address_id;
+        my_dconf.equipment_type_id=this.etid;
+        my_dconf.equipment_type_image_id=this.equipment_type_image_id;
+        //my_dconf.send('index.php?nid=ifp-location-space-plan-key-update','config', 'POST');
+        my_dconf = null;
 	};
 };
 
@@ -344,7 +345,7 @@ if($assets['x_pos']!=NULL) {
 	$assets['rotation_angle'] = (array)Nexista_Path::get('//equipment_get_all/rotation_angle','flow');
 	$assets['equipment_type_id'] = (array)Nexista_Path::get('//equipment_get_all/equipment_type_id','flow');
 	$assets['location_equipment_id'] = (array)Nexista_Path::get('//equipment_get_all/location_equipment_id','flow');
-	$assets['equipment_id'] = (array)Nexista_Path::get('//equipment_get_all/equipment_id','flow');
+	$assets['equipment_id'] = (array)Nexista_Path::get('//equipment_get_all/my_equipment_id','flow');
 	$assets['asset_id'] = (array)Nexista_Path::get('//equipment_get_all/asset_id','flow');
 	$assets['equipment_type_image_id'] = (array)Nexista_Path::get('//equipment_get_all/equipment_type_image_id','flow');
 	$assets['status_id'] = (array)Nexista_Path::get('//equipment_get_all/status_id','flow');
@@ -358,7 +359,7 @@ if($number_of_symbols>0) {
 	if(is_array($assets['x_pos'])) {
 		// Now loop through the actual asset lists at that location?
 		$inventory_as = "Object.registerClass('container',positionFixture);";
-		for($j=0; $j<$num_icons; $j++) { 
+		for($j=0; $j<$num_icons; $j++) {
 			$e_id = $assets['equipment_type_id'][$j];
 			$my_x = $assets['x_pos'][$j];
 			$my_y = $assets['y_pos'][$j];
@@ -373,11 +374,14 @@ if($number_of_symbols>0) {
 			$inventory_as .= "
 			var this_bmp = entire_key.equipment_type_$my_icon_type_id.my_bitmap;
 			attachMovie('container','$my_eid',getNextHighestDepth(),
-				{_x:$my_x,_y:$my_y,my_eid:$my_eid,symbol_rotation:$my_rotation_angle,my_icon_type_id:'$my_icon_type_id',bitmap:this_bmp,my_leid:'$my_leid',equipment_type_image_id:'$my_equipment_type_image_id'});
-
+            {_x:$my_x,_y:$my_y,my_eid:$my_eid,etid:$e_id,symbol_rotation:$my_rotation_angle,my_icon_type_id:'$my_icon_type_id',bitmap:this_bmp,my_leid:'$my_leid',equipment_type_image_id:'$my_equipment_type_image_id'});
 			";
 		}
 	}
+    if(2==3) {
+    echo $inventory_as;
+    exit;
+    }
 	unset($j);
 }
 
@@ -393,8 +397,6 @@ ob_start();
 
 $gm_date = gmdate("D, d M Y H:i:s");
 header("Expires: " . $gm_date . " GMT");
-////header("Cache-Control: private, must-revalidate");
-////header("Cache-control: no-store");
 header("Content-type: application/x-shockwave-flash");
 
 //file_put_contents(NX_PATH_CACHE."main_actionscript.as",$all_actionscript);
