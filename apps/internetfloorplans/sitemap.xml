@@ -295,17 +295,15 @@ Fifth Floor, Boston, MA 02110-1301 USA
         <map:switch name="//_post/type">
           <map:case value="new">
             <map:query src="data/sql/equipment_create.xml"/>
-                    <!--
-					<map:query src="data/sql/get_last_equipment_id.xml"/>
-					<map:query src="data/sql/add_equipment_location.xml"/>
-					<map:query src="data/sql/get_last_location_equipment_id.xml"/>
-					<map:query src="data/sql/add_equipment_location_position.xml"/>
-                    -->
+            <map:query src="data/sql/equipment_get_last_id.xml"/>
+            <map:query src="data/sql/location_equipment_create.xml"/>
+            <map:query src="data/sql/location_equipment_get_id.xml"/>
+            <map:query src="data/sql/equipment_location_position_create.xml"/>
           </map:case>
           <map:case value="edit"></map:case>
           <map:default></map:default>
         </map:switch>
-        <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-equipment"/>
+        <map:action type="redirect" params="{/_R_/runtime/link_prefix}ifp-location-space-plans&amp;location_id={/_R_/_post/location_id}"/>
       </map:true>
     </map:if>
   </map:gate>
