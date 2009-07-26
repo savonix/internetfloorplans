@@ -66,7 +66,7 @@ $key_x_position = Nexista_Path::get('//runtime/key_x_position','flow');
 $key_y_position = Nexista_Path::get('//runtime/key_y_position','flow');
 
 if($key_x_position > 775 || $key_x_position < 25) {
-	$key_x_position = 25;
+	$key_x_position = 600;
 }
 
 if($key_y_position > 775 || $key_y_position < 25) {

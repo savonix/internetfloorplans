@@ -90,7 +90,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
       <object data="200907_space_plans.svg" width="640" height="480" type="image/svg+xml"/>
       -->
 
-      <xsl:if test="//defaults/use_interactive_space_plans='yes'">
+      <xsl:if test="//defaults/use_interactive_space_plans='yes' and //_get/location_id=1">
       <div style="float:right;width:200px;">
       Equipment ID: <span id="my_eid"></span><br/>
       <div style="display:none;" id="equipment_display_7" class="equipment_display">

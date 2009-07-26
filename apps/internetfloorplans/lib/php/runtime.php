@@ -1,5 +1,5 @@
 <?php
-/**
+/** <!--
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
@@ -13,8 +13,8 @@
  * 
  * You should have received a copy of the GNU Affero General Public License
  * along with this program; if not, see http://www.gnu.org/licenses
- * or write to the Free Software Foundation,Inc., 51 Franklin Street,
- * Fifth Floor, Boston, MA 02110-1301  USA
+ * or write to the Free Software Foundation, Inc., 51 Franklin Street,
+ * Fifth Floor, Boston, MA 02110-1301 USA
  *
  * PHP Version 5
  *
@@ -24,7 +24,7 @@
  * @copyright Savonix Corporation
  * @license   http://www.gnu.org/licenses Gnu Affero Public License version 3
  * @link      http://www.internetfloorplans.com/
- *
+ * -->
  */
 
 $path        = $_SERVER['SCRIPT_NAME'];
