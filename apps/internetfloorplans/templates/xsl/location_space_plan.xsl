@@ -53,6 +53,7 @@ Fifth Floor, Boston, MA 02110-1301 USA
     }
     function show_img(equipment_id,equipment_type_id) {
       $(".equipment_display").css("display","none");
+      $("#my_eid").text(equipment_id);
       $("#equipment_display_"+equipment_type_id).css("display","block");
       //alert(equipment_type_id);
     }
@@ -90,11 +91,17 @@ Fifth Floor, Boston, MA 02110-1301 USA
       -->
 
       <xsl:if test="//defaults/use_interactive_space_plans='yes'">
-      <div style="float:right;display:none;" id="equipment_display_7" class="equipment_display">
+      <div style="float:right;width:200px;">
+      Equipment ID: <span id="my_eid"></span><br/>
+      <div style="display:none;" id="equipment_display_7" class="equipment_display">
       <img src="/a/dev/internetfloorplans/s/img/posters/on_poster_2.jpg"/>
       </div>
-      <div style="float:right;display:none;" id="equipment_display_8" class="equipment_display">
+      <div style="display:none;" id="equipment_display_8" class="equipment_display">
       <img src="/a/dev/internetfloorplans/s/img/posters/on_poster_3.jpg"/>
+      </div>
+      <div style="display:none;" id="equipment_display_9" class="equipment_display">
+      <img src="/a/dev/internetfloorplans/s/img/posters/on_poster_6.jpg"/>
+      </div>
       </div>
       <div id="space_plan_spot">
       </div>
