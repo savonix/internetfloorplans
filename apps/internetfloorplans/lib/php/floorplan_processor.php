@@ -31,7 +31,7 @@ $file = '';
 $c_root = $b_path.'$filename';
 $c_ppm = $c_root.'-000001.ppm';
 
-$ext = '.jpg';
+$ext = '.png';
 $bitmap_file = $file.$ext;
 
 

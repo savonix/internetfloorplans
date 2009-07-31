@@ -23,7 +23,7 @@ or write to the Free Software Foundation, Inc., 51 Franklin Street,
 Fifth Floor, Boston, MA 02110-1301 USA
 --> */
 
-$file = "/tmp/200811_moto_w755_order.png";
+$file = '/tmp/200811_moto_w755_order.png';
 
 if (file_exists($file)) {
     header('Content-Type: image/jpg');
