@@ -132,7 +132,7 @@ $display_eqp_icons = true;
 
 if($display_eqp_icons) {
 	$ind_path = $path."/htdocs/resources/img/style-1.1/images/";
-	if($status_symbol=="yes") { 
+	if($status_symbol=='yes') {
 		$ex_clip = new SWFBitmap(fopen($ind_path."icon_warning_sml.jpg","r"));
 		$check_clip = new SWFBitmap(fopen($ind_path."icon_warning_sml.jpg","r"));
 		$equals_clip = new SWFBitmap(fopen($ind_path."icon_warning_sml.jpg","r"));
@@ -351,7 +351,7 @@ unset($symbol_pointers);
 if($_GET['key']=='yes' || $_GET['key']=='') {
 	$entire_key->nextFrame();
 	$i = $m->add($entire_key);
-	$i->setName("entire_key");
+	$i->setName('entire_key');
 	$i->moveTo($key_x_position, $key_y_position);
 }
 unset($i);
@@ -391,7 +391,7 @@ if($number_of_symbols>0) {
 			$my_eid = $assets['equipment_id'][$j];
 			$my_equipment_type_image_id = $assets['equipment_type_image_id'][$j];
 
-			$my_icon_type_id = "icon_".$e_id;
+			$my_icon_type_id = 'icon_'.$e_id;
 			$inventory_as .= "
 			var this_bmp = entire_key.equipment_type_$my_icon_type_id.my_bitmap;
 			attachMovie('container','$my_eid',getNextHighestDepth(),
@@ -421,7 +421,7 @@ header('Expires: ' . $gm_date . ' GMT');
 header('Content-type: application/x-shockwave-flash');
 
 //file_put_contents(NX_PATH_CACHE."main_actionscript.as",$all_actionscript);
-$file_target = NX_PATH_CACHE."bah.swf";
+$file_target = '/tmp/bah.swf';
 //$m->save($file_target);
 $m->output();
 
@@ -430,8 +430,5 @@ ob_end_clean();
 
 echo substr_replace($flash,chr(8),3,1);
 //exit;
-
-
-
 
 ?>
