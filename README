@@ -1,0 +1,36 @@
+Internet Floor Plans
+====================
+Copyright Savonix Corporation
+
+
+Summary
+-------
+Internet Floor Plans is web software used to catalog locations.
+
+Requirements
+------------
+
+* Nexista - http://www.nexista.org/
+* PHP with XSL, XML, Ming extentions
+* MySQL
+
+
+Installation
+------------
+IFP is installed like any other Nexista powered application.
+
+Usage
+-----
+It's a web application.
+
+
+
+Credits
+-------
+Author: Albert L. Lash, IV
+
+
+License
+-------
+
+Affero GPL v3
